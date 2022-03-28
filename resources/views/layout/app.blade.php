@@ -10,9 +10,8 @@
 <body>   
     @include('inc.navbar')
     
-    <div class="container" p-3>
-        @yield('content')
-    </div>
+ 
+    @yield('content')
 
 </body>
 </html>
