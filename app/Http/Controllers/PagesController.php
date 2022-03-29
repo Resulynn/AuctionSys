@@ -14,4 +14,12 @@ class PagesController extends Controller
         $title = "Register";
         return view('pages.register',compact('title'));
     }
+
+    function login(){
+        $title = "Login";
+        return view('pages.login',compact('title'));
+    }
+    
 }
+
+
