@@ -40,3 +40,4 @@ use App\Http\Controllers;
 
 Route::get('/index','App\Http\Controllers\PagesController@index');
 Route::get('/register','App\Http\Controllers\PagesController@register');
+Route::get('/login','App\Http\Controllers\PagesController@login');
