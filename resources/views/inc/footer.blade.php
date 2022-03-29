@@ -1,6 +1,6 @@
 <!-- Footer -->
 <div>
-<footer class="d-flex m-auto pb-2 page-footer bg-light font-small blue  justify-content-center w-75 pt-4">
+<footer class="d-flex m-auto pb-2 mt-5 page-footer bg-light font-small blue  justify-content-center w-100 pt-4 h-25">
 
     <!-- Footer Links -->
     <div class="container-fluid text-left text-md-left">
