@@ -23,15 +23,11 @@
             </div>
             <div class="row">
                 <label class="lead text-light text-center"> Password </label>
-                <input class="form-control" type="password">
+                <input class="form-control" type="password" placeholder="Password">
             </div>
-<<<<<<< HEAD
-                    <div class="row mt-5 pt-5 text-center">
-=======
            
 
                     <div class="row mt-5 justify-content-center">
->>>>>>> cec0d79e2c28653fda17a17d27a74644e8c37f38
                     <button type="button" class="btn btn-dark w-50">Login</button>
                     </div>
             </div>

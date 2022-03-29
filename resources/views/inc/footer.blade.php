@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 
 
-<footer class="d-flex m-auto pb-2 page-footer bg-light font-small blue  justify-content-center w-75 pt-4">
-=======
-<!-- Footer -->
-<div>
-<footer class="d-flex m-auto pb-2 mt-5 page-footer bg-light font-small blue  justify-content-center w-100 pt-4 h-25">
->>>>>>> cec0d79e2c28653fda17a17d27a74644e8c37f38
+<footer class="d-flex m-auto pt-100 page-footer bg-light font-small blue  justify-content-center w-75 pt-4">
 
    
     <div class="container-fluid text-left text-md-left">
