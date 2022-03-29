@@ -50,11 +50,11 @@
             </div>
             <div class="row ms-2">
                 <label class="lead text-light"> Password </label>
-                <input class="form-control" type="password">
+                <input class="form-control" type="password" placeholder="Password">
             </div>
             <div class="row ms-2">
                 <label class="lead text-light"> Confirm Password </label>
-                <input class="form-control" type="password">
+                <input class="form-control" type="password" placeholder="Confirm Password">
             </div>
             <div class="row ms-2">
                 <label class="lead text-light"> Birthday </label>
