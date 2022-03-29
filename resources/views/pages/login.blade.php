@@ -10,24 +10,24 @@
 
     @section('content')
     
-    <div class="d-flex ms-5 me-5 mt-5">
-        <h1 class="ms-4"> Login your Account </h1>
+    <div class="d-flex justify-content-center mt-5 pt-5">
+        <h1> Login</h1>
     </div>
 
-    <div class="d-flex m-auto pb-2 bg-secondary justify-content-center w-75">
+    <div class="d-flex m-auto pb-2 bg-secondary justify-content-center w-50">
            
-        <div class="col-5 ms-5 pe-4">
-            <div class="row ms-2">
-                <label class="lead text-light">Username </label>
+        <div class="col-5 pt-5">
+            <div class="row">
+                <label class="lead text-light text-center">Username </label>
                 <input class="form-control" type="text" placeholder="Username">
             </div>
-            <div class="row ms-2">
-                <label class="lead text-light"> Password </label>
+            <div class="row">
+                <label class="lead text-light text-center"> Password </label>
                 <input class="form-control" type="password">
             </div>
            
 
-                    <div class="row mt-5 pt-5 text-center">
+                    <div class="row mt-5 justify-content-center">
                     <button type="button" class="btn btn-dark w-50">Login</button>
                     </div>
             </div>
