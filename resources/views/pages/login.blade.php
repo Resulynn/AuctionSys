@@ -25,8 +25,6 @@
                 <label class="lead text-light"> Password </label>
                 <input class="form-control" type="password">
             </div>
-           
-
                     <div class="row mt-5 pt-5 text-center">
                     <button type="button" class="btn btn-dark w-50">Login</button>
                     </div>
