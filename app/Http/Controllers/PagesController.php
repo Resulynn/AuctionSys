@@ -18,4 +18,7 @@ class PagesController extends Controller
         $title = "Login";
         return view('pages.login',compact('title'));
     }
+    
 }
+
+

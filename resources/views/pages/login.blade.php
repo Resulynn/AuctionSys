@@ -11,27 +11,27 @@
     @section('content')
     
     <div class="d-flex ms-5 me-5 mt-5">
-        <h1 class="ms-4"> Login </h1>
+        <h1 class="ms-4"> Login your Account </h1>
     </div>
 
-    <div class="d-flex m-auto pb-2 bg-secondary justify-content-center w-50">
-
-        <div class="col-5 ms-5">
+    <div class="d-flex m-auto pb-2 bg-secondary justify-content-center w-75">
+           
+        <div class="col-5 ms-5 pe-4">
             <div class="row ms-2">
-                <label class="lead text-light"> Username </label>
+                <label class="lead text-light">Username </label>
                 <input class="form-control" type="text" placeholder="Username">
             </div>
             <div class="row ms-2">
-                <label class="lead text-light"> Password</label>
-                <input class="form-control" type="text" placeholder="Password">
-            
-                <button type="button" class="btn btn-outline-dark">Login</button>
+                <label class="lead text-light"> Password </label>
+                <input class="form-control" type="password">
             </div>
            
-        </div>
 
-        
-        
+                    <div class="row mt-5 pt-5 text-center">
+                    <button type="button" class="btn btn-dark w-50">Login</button>
+                    </div>
+            </div>
+        </div>
     </div>
 
         
