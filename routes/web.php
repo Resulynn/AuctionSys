@@ -13,31 +13,16 @@ use App\Http\Controllers;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/welcome/{name}/{id}', function ($name, $id) {
-//     echo '<h1>Weclome to Laravel, ' .$name. '';
-//     echo 'Your User ID is ' .$id. '!</h1>';
-// });
-
-// Route::get('/about', function () {
-//     return view('About');
-// });
-
-// Route::get('/index', function () {
-//     return view('pages.index');
-// });
-
-// Route::get('/about', function () {
-//     return view('pages.about');
-// });
-
-// Route::get('/services', function () {
-//     return view('pages.services');
-// });
 
 Route::get('/index','App\Http\Controllers\PagesController@index');
 Route::get('/register','App\Http\Controllers\PagesController@register');
 Route::get('/login','App\Http\Controllers\PagesController@login');
+
+//admin module
+
+Route::get('/add','App\Http\Controllers\PagesController@add');
+Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
+Route::get('/list','App\Http\Controllers\PagesController@list');
+Route::get('/shipreq','App\Http\Controllers\PagesController@shipreq');
+Route::get('/shippings','App\Http\Controllers\PagesController@shippings');
+Route::get('/shipcomplete','App\Http\Controllers\PagesController@shipcomplete');
