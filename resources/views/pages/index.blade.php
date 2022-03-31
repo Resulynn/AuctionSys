@@ -7,10 +7,12 @@
 @endsection
 
     @section('content')
-    <div class="text-center pt-5"><h2> 2022 RELEASES AND COLLECTION</h2>
+    <div class="text-center pt-5"><h3> 2022 RELEASES AND COLLECTION</h3>
         <p><a href ="">SHOW MORE</a></p>
+       
     </div>
 
+  <div class ="container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -22,17 +24,18 @@
             <img class="d-block w-100" src="\img\sample.jpg" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="\img\sample.jpg" alt="Second slide">
+            <img class="d-block w-100" src="\img\sample2.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="\img\sample.jpg" alt="Third slide">
+            <img class="d-block w-100" src="\img\sample3.jpg" alt="Third slide">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="carousel-control-prev-icon " aria-hidden="true"></span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </a>
       </div>
+    </div>
     @endsection
