@@ -15,13 +15,13 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <div class = "row row-no-gutters">
             <div class = col-sm-12>
-              <p> READY TO WEAR</p> 
+              <a> READY TO WEAR</a> 
                   <a class="dropdown-item" href="#">Tees</a>
                   <a class="dropdown-item" href="#">Pants</a>
                   <a class="dropdown-item" href="#">Shorts</a>
             </div>
             <div class = col-sm-12>
-              <p>SHOES</p> 
+              <a>SHOES</a> 
                   <a class="dropdown-item" href="#">Sneakers</a>
             </div>
           </div>
