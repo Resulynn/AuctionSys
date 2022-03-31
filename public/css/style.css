@@ -8,3 +8,11 @@
     right: 5%;
     
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+   padding-left: 10px;
+}
