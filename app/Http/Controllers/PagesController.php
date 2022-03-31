@@ -23,27 +23,27 @@ class PagesController extends Controller
 
     function list(){
         $title = "Listings";
-        return view('pages.admin.list',compact('title'));
+        return view('admin.list',compact('title'));
     }
     function add(){
         $title = "Add Auction";
-        return view('pages.admin.add',compact('title'));
+        return view('admin.add',compact('title'));
     }
     function fundings(){
         $title = "User Funds";
-        return view('pages.admin.fundings',compact('title'));
+        return view('admin.fundings',compact('title'));
     }
     function shipcomplete(){
         $title = "Completed Orders";
-        return view('pages.admin.shipcomplete',compact('title'));
+        return view('admin.shipcomplete',compact('title'));
     }
     function shipreq(){
         $title = "To Ship";
-        return view('pages.admin.shipreq',compact('title'));
+        return view('admin.shipreq',compact('title'));
     }
     function shippings(){
         $title = "Shippings";
-        return view('pages.admin.ships',compact('title'));
+        return view('admin.ships',compact('title'));
     }
 }
 

@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="col-5 ms-5 pe-4">
+        <div class="col-5 ms-5 pe-5">
             <div class="row ms-2">
                 <label class="lead text-light">Username </label>
                 <input class="form-control" type="text" placeholder="Username">
