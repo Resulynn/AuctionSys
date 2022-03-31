@@ -56,10 +56,17 @@
       </div>
 
         </div>
+        <div class="row">
+          <div class = "row-md-3 mb-md-0 mb-3 text-end">
+                   
+            <p class="text-uppercase"><a href="">Facebook</a></p>
+            
+            
+        </div>
       </div> 
       
-        
-    </div>
+     
+   
     
   
   </footer>
