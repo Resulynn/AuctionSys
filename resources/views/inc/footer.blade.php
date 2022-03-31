@@ -1,11 +1,10 @@
 
 
-<footer class="d-flex m-auto page-footer bg-light font-small blue  justify-content-center  pt-4">
+<footer class="footer d-flex m-auto page-footer bg-light font-small blue  justify-content-center  pt-4">
 
    
     <div class="container-fluid text-left text-md-left">
       <div class="row">
-
         <div class="col-md-3 mb-md-0 mb-3">
             <div>
               <hr class="clearfix border border-0 d-md-none pb-3">
@@ -57,16 +56,12 @@
 
         </div>
 
-        <div class="container-fluid p-50 content-right ">
+        <div class="container-fluid p-50 content-right">
           <div class="row">
             <div class="col">
-              <p class="text-uppercase"><a href="">Facebook</a></p>
-            </div>
-            <div class="col">
-              <p class="text-uppercase"><a href="">Instagram</a></p>
-            </div>
-            <div class="col">
-              <p class="text-uppercase"><a href="">Twitter</a></p>
+              <a href="">FACEBOOK</a> 
+              <a href="">INSTAGRAM</a>
+              <a href="">TWITTER</a>
             </div>
           </div>
         </div>
