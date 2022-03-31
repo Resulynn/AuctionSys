@@ -37,5 +37,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </a>
       </div>
+      
     </div>
+  
     @endsection

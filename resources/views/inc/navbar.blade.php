@@ -1,5 +1,5 @@
-<nav class="navbar border border-1 text-center navbar-expand-lg navbar-light bg-light">
-  
+<nav class="navbar border border-1 text-center navbar-expand-lg  navbar-light bg-light">
+ 
   <a class="navbar-brand" href="/index"><i class="bi bi-globe ml-5"></i> True North Garments</a>
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,11 +9,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto justify-content-center">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Men
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <div class = "row row-no-gutters">
+          <div class = "row">
             <div class = col-sm-12>
               <a><b>READY TO WEAR</b></a> 
                   <a class="dropdown-item" href="#">Tees</a>
@@ -29,37 +29,42 @@
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Women
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <div class = "row">
+            <div class = col-sm-12>
+              <a><b>READY TO WEAR</b></a> 
+                  <a class="dropdown-item" href="#">Tees</a>
+                  <a class="dropdown-item" href="#">Pants</a>
+                  <a class="dropdown-item" href="#">Shorts</a>
+            </div>
+            <div class = col-sm-12>
+              <a><b>SHOES</b></a> 
+                  <a class="dropdown-item" href="#">Sneakers</a>
+            </div>
+          </div>
         </div>
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Accesories
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Necklace</a>
+          <a class="dropdown-item" href="#">Bracelets</a>
+          <a class="dropdown-item" href="#">Rings</a>
+          <a class="dropdown-item" href="#">Earrings</a>
         </div>
       </li>
       
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Others
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
       </li>
     </ul>
 

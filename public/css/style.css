@@ -1,6 +1,7 @@
 *{
     font-family:Arial;
     font-size: 100%;
+    color: black;
 }
 
 .search-box{
@@ -20,3 +21,14 @@
 .navbar-brand{
     padding-left: 10px;
 }
+
+a:link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  a:hover{
+      color: gray;
+  }
+  a{
+      color: black;
+  }
