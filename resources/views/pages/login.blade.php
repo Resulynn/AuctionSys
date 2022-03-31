@@ -10,12 +10,12 @@
 
     @section('content')
     
-    <div class="d-flex justify-content-center mt-5 pt-5">
+  
+    <div class="text-center">
         <h1> Login</h1>
     </div>
-
+    
     <div class="d-flex m-auto pb-2 bg-secondary justify-content-center w-50">
-           
         <div class="col-5 pt-5">
             <div class="row">
                 <label class="lead text-light text-center">Username </label>

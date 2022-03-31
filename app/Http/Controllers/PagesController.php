@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     function index(){
-        $title = "Welcome to laravel! ";
+        $title = "Home";
         return view('pages.index',compact('title'));
     }
     function register(){

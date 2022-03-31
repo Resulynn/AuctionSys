@@ -57,7 +57,7 @@
 
         </div>
 
-        <div class=" container-fluid p-50 content-right">
+        <div class="container-fluid p-50 content-right ">
           <div class="row">
             <div class="col">
               <p class="text-uppercase"><a href="">Facebook</a></p>
@@ -71,14 +71,11 @@
           </div>
         </div>
       </div> 
-      
-     
-   
-    
-  
   </footer>
-  <div class="text-center py-3">© 2022 Copyright:
-    <a href="/"> True North Garments</a>
-</div>
+  <div class="text-center py-3">© 2022 Copyright
+      <br>
+      <a href="/"> True North Garments</a>
+  </div>
+
 
  
