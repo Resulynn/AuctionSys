@@ -1,6 +1,6 @@
 
 
-<footer class="d-flex m-auto pt-100 page-footer bg-light font-small blue  justify-content-center w-75 pt-4">
+<footer class="d-flex m-auto page-footer bg-light font-small blue  justify-content-center  pt-4">
 
    
     <div class="container-fluid text-left text-md-left">
@@ -56,12 +56,19 @@
       </div>
 
         </div>
-        <div class="row">
-          <div class = "row-md-3 mb-md-0 mb-3 text-end">
-                   
-            <p class="text-uppercase"><a href="">Facebook</a></p>
-            
-            
+
+        <div class=" container-fluid p-50 content-right">
+          <div class="row">
+            <div class="col">
+              <p class="text-uppercase"><a href="">Facebook</a></p>
+            </div>
+            <div class="col">
+              <p class="text-uppercase"><a href="">Instagram</a></p>
+            </div>
+            <div class="col">
+              <p class="text-uppercase"><a href="">Twitter</a></p>
+            </div>
+          </div>
         </div>
       </div> 
       
