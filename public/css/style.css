@@ -7,7 +7,6 @@
 .search-box{
     position: absolute;
     right: 5%;
-    
 }
 
 .dropdown:hover .dropdown-menu {
@@ -45,4 +44,93 @@ footer .container-fluid .row .col{
     word-spacing: 35px;
     padding-right: 40px;
 }
+
+.login .login-container input{
+    border: none; 
+    border-bottom: 3px solid rgb(0, 0, 0);
+    background: inherit;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.login{
+background-color: #f0eeee;
+text-align: center;
+margin: auto;
+padding-bottom: 5%;
+padding-top: 5%;
+margin-top: 5%;
+margin-bottom: 5%;
+width: 25%;
+display: flex;
+justify-content: center;
+
+}
+
+.login .button button{
+    border-radius: 0%;
+}
+
+.login .login-container .fgpass {
+    text-align: left;
+    padding-left: 70px;
+   font-size: small;
+   padding-top: 3px;
+}
+
+.login .login-container .fgpass a{
+   color: gray;
+}
+
+.login .login-container .keepsigned {
+    text-align: left;
+    padding-left: 70px;
+   font-size: small;
+   padding-top: 10px;
+}
+
+.login .login-container .keepsigned label{
+    color: gray;
+ }
+
+ .login .login-container .policy p{
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: small;
+    color: gray;
+}
+
+a:link u{
+    color: gray;
+    text-decoration: underline;
+  }
+  a:hover u{
+      text-decoration: underline;
+      color: rgb(155, 155, 155);
+  }
+  a u{
+      color: gray;
+  }
+
+.login .reg p{
+   font-size: small;
+   padding-top: 5px;
+   color: gray;
+}
+
+.login .reg a:link u{
+    color: gray;
+    text-decoration: underline;
+  }
+  .login .reg a:hover u{
+      text-decoration: underline;
+      color: rgb(155, 155, 155);
+  }
+  .login .reg a u{
+      color: rgb(0, 0, 0);
+  }
 

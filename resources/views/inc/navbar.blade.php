@@ -1,6 +1,6 @@
 <nav class="navbar border border-1 text-center navbar-expand-lg  navbar-light bg-light">
  
-  <a class="navbar-brand" href="/index"><i class="bi bi-globe ml-5"></i> True North Garments</a>
+  <a class="navbar-brand" href="/index"><i class="bi bi-globe ml-5"></i> <b>True North Garments</b></a>
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
