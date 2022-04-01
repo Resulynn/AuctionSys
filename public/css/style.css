@@ -179,5 +179,23 @@ a:link u{
       font-size: small;
       color: gray;
   }
+
+  /* Register Area*/
+
+  .reg{
+        background-color: #f0eeee;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        width: 75%;
+        margin-bottom: 5%;
+        margin-top: 5%;
+       color: #000000;
+  }
   
+  .reg .regcontainer label{
+      color: #000000;
+  }
+
+  /*End Register Area*/
 

@@ -14,8 +14,7 @@
         <h1 class="ms-4"> Create Your Account </h1>
     </div>
 
-    <div class="d-flex m-auto pb-2 bg-secondary justify-content-center w-75">
-
+    <div class="reg">
         <div class="col-5 ms-5">
             <div class="row ms-2">
                 <label class="lead text-light"> First Name </label>
