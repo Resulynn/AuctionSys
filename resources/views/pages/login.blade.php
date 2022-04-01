@@ -9,10 +9,7 @@
     @endsection
 
     @section('content')
-    
   
-  
-    
     <div class="login">
         
           

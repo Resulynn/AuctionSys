@@ -21,16 +21,16 @@
     padding-left: 10px;
 }
 
-a:link {
+.navbar a:link {
     color: rgb(0, 0, 0);
     text-decoration: none;
   }
-  a:hover{
+  .navbar a:hover{
       text-decoration: none;
-      color: rgb(155, 155, 155);
+      color: rgb(0, 0, 0);
   }
-  a{
-      color: black;
+  .navbar a{
+      color: rgb(107, 107, 107);
   }
 
 footer{
@@ -133,4 +133,51 @@ a:link u{
   .login .reg a u{
       color: rgb(0, 0, 0);
   }
+
+  .navbar{
+      background-color: #f0eeee;
+    }
+
+.show a:link {
+    color: gray;
+    text-decoration: none;
+  }
+.show a:hover {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+  }
+.show a {
+      color: gray;
+  }
+
+  
+.footer a:link {
+    color: gray;
+    text-decoration: none;
+  }
+.footer a:hover {
+      text-decoration: none;
+      color: #000000;
+  }
+.footer a {
+      color: gray;
+      font-size: 13px;
+  }
+.copyright a:link {
+    text-decoration: none;
+  }
+  
+  .copyright a:hover {
+    text-decoration: none;
+    color: #000000;
+  }
+  .copyright a {
+      color: gray;
+        font-size: medium;
+  }
+  .copyright{
+      font-size: small;
+      color: gray;
+  }
+  
 

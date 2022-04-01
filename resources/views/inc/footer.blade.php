@@ -8,7 +8,7 @@
         <div class="col-md-3 mb-md-0 mb-3">
             <div>
               <hr class="clearfix border border-0 d-md-none pb-3">
-                <h5 class="text-uppercase">Customer Services</h5>
+                <p class="text-uppercase">Customer Services</p>
                 <ul class="list-unstyled">
                     <li>
                     <a href="#!">Contact</a>
@@ -25,7 +25,7 @@
             
       <div class="col-md-3 mb-md-0 mb-3">
         <div>
-            <h5 class="text-uppercase">Legal</h5>
+            <p class="text-uppercase">Legal</p>
             <ul class="list-unstyled">
               <li>
                 <a href="#!">Privacy Policy</a>
@@ -42,7 +42,7 @@
 
       <div class="col-md-3 mb-md-0 mb-3">
           <div>
-            <h5 class="text-uppercase">About Us</h5>
+            <p class="text-uppercase">About Us</p>
             <ul class="list-unstyled">
               <li>
                 <a href="#!">Developers</a>
@@ -67,9 +67,9 @@
         </div>
       </div> 
   </footer>
-  <div class="text-center py-3">© 2022 Copyright
+  <div class="copyright text-center py-3">© 2022 Copyright
       <br>
-      <a href="/"> True North Garments</a>
+      <a href="/index"> True North Garments</a>
   </div>
 
 

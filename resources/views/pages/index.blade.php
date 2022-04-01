@@ -7,9 +7,8 @@
 @endsection
 
     @section('content')
-    <div class="text-center pt-5"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
+    <div class="show text-center pt-5"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
         <p><a href ="">SHOW MORE</a></p>
-       
     </div>
 
   <div class ="container">

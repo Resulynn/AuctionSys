@@ -1,4 +1,4 @@
-<nav class="navbar border border-1 text-center navbar-expand-lg  navbar-light bg-light">
+<nav class="navbar border border-1 text-center navbar-expand-lg">
  
   <a class="navbar-brand" href="/index"><i class="bi bi-globe ml-5"></i> <b>True North Garments</b></a>
   
