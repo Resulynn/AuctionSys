@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
-use App\Http\Requests\StoreUsersRequest;
-use App\Http\Requests\UpdateUsersRequest;
+use App\Models\Login;
+use App\Http\Requests\StoreLoginRequest;
+use App\Http\Requests\UpdateLoginRequest;
 
-class UsersController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $title = "Register";
-        return view('pages.register',compact('title'));
+        $title = "Login";
+        return view('pages.login',compact('title'));
     }
 
     /**
@@ -32,10 +32,10 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUsersRequest  $request
+     * @param  \App\Http\Requests\StoreLoginRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUsersRequest $request)
+    public function store(StoreLoginRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Users  $users
+     * @param  \App\Models\Login  $login
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $users)
+    public function show(Login $login)
     {
         //
     }
@@ -54,10 +54,10 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Users  $users
+     * @param  \App\Models\Login  $login
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users $users)
+    public function edit(Login $login)
     {
         //
     }
@@ -65,11 +65,11 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateUsersRequest  $request
-     * @param  \App\Models\Users  $users
+     * @param  \App\Http\Requests\UpdateLoginRequest  $request
+     * @param  \App\Models\Login  $login
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUsersRequest $request, Users $users)
+    public function update(UpdateLoginRequest $request, Login $login)
     {
         //
     }
@@ -77,10 +77,10 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Users  $users
+     * @param  \App\Models\Login  $login
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $users)
+    public function destroy(Login $login)
     {
         //
     }

@@ -15,8 +15,8 @@ use App\Http\Controllers;
 
 
 Route::get('/index','App\Http\Controllers\PagesController@index');
-Route::get('/register','App\Http\Controllers\PagesController@register');
-Route::get('/login','App\Http\Controllers\PagesController@login');
+Route::resource('/register','App\Http\Controllers\UsersController');
+Route::resource('/login','App\Http\Controllers\LoginController');
 
 //admin module
 

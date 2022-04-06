@@ -13,64 +13,66 @@
     <div class="d-flex ms-5 me-5 mt-5">
         <h1 class="ms-4"> Create Your Account </h1>
     </div>
-
+    {!! Form::open(['action'=>'App\Http\Controllers\UsersController@store',
+    'method'=>'POST']) !!}
     <div class="reg">
         <div class="col-5 ms-5">
             <div class="row ms-2">
-                <label class="lead text-light"> First Name </label>
-                <input class="form-control" type="text" placeholder="First Name">
+                {{Form::label('first name','First Name',['class'=>'lead text-dark'])}}
+                {{Form::text('fname','',['class'=>'form-control','placeholder'=>'First Name'])}}
             </div>
             <div class="row ms-2">
-                <label class="lead text-light"> Last Name </label>
-                <input class="form-control" type="text" placeholder="Last Name">
+                {{Form::label('last name','Last Name',['class'=>'lead text-dark'])}}
+                {{Form::text('lname','',['class'=>'form-control','placeholder'=>'Lirst Name'])}}
             </div>
             <div class="row ms-2">
-                <label class="lead text-light"> Email Address </label>
-                <input class="form-control" type="Email Address" placeholder="Email Address">
+                {{Form::label('email address','Email Address',['class'=>'lead text-dark'])}}
+                {{Form::email('email','',['class'=>'form-control','placeholder'=>'Email Address'])}}
             </div>
             <div class="row ms-2">
-                <label class="lead text-light"> Phone Number </label>
-                <input class="form-control" type="Number" placeholder="Phone Number">
+                {{Form::label('phone num','Phone Number',['class'=>'lead text-dark'])}}
+                {{Form::number('pnum','',['class'=>'form-control','placeholder'=>'Phone Number'])}}
             </div>
             <div class="row ms-2">
-                <label class="lead text-light"> Address </label>
-                <input class="form-control" type="text" placeholder="Address">
+                {{Form::label('address','Address',['class'=>'lead text-dark'])}}
+                {{Form::text('add','',['class'=>'form-control','placeholder'=>'Address'])}}
             </div>
             <div class="row ms-2">
-                <label class="lead text-light"> Zip Code </label>
-                <input class="form-control" type="Number" placeholder="Zip Code">
+                {{Form::label('zipcode','Zip Code',['class'=>'lead text-dark'])}}
+                {{Form::number('zipcode','',['class'=>'form-control','placeholder'=>'Zip Code'])}}
             </div>
         </div>
 
         <div class="col-5 ms-5 pe-5">
             <div class="row ms-2">
-                <label class="lead text-light">Username </label>
-                <input class="form-control" type="text" placeholder="Username">
+                {{Form::label('uname','User Name',['class'=>'lead text-dark'])}}
+                {{Form::text('uname','',['class'=>'form-control','placeholder'=>'User Name'])}}
             </div>
             <div class="row ms-2">
-                <label class="lead text-light"> Password </label>
-                <input class="form-control" type="password" placeholder="Password">
+                {{Form::label('pword','Password',['class'=>'lead text-dark'])}}
+                {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
             </div>
             <div class="row ms-2">
-                <label class="lead text-light"> Confirm Password </label>
-                <input class="form-control" type="password" placeholder="Confirm Password">
+                {{Form::label('cpword','Confirm Password',['class'=>'lead text-dark'])}}
+                {{Form::password('confPassword',['class'=>'form-control','placeholder'=>'Confirm Password'])}}
             </div>
-            <div class="row ms-2">
-                <label class="lead text-light"> Birthday </label>
+            <div class="row ms-2 justify-content-around">
+                <label class="lead text-dark"> Birthday </label>
                     <div class="col">
-                        <input class="form-control" type="text" placeholder="MM">
+                        {{Form::number('month','',['class'=>'form-control','placeholder'=>'MM'])}}
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" placeholder="DD">
+                        {{Form::number('day','',['class'=>'form-control','placeholder'=>'DD'])}}
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" placeholder="YYYY">
+                        {{Form::number('year','',['class'=>'form-control','placeholder'=>'YYYY'])}}
                     </div>
 
                     <div class="row mt-5 pt-5 justify-content-end">
-                    <button type="button" class="btn btn-dark w-50">Register</button>
+                        {{Form::submit('Register',['class'=>'btn btn-dark w-50'])}}
                     </div>
             </div>
+        {!! Form::close() !!}
         </div>
     </div>
 
