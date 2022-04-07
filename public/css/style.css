@@ -199,3 +199,61 @@ a:link u{
 
   /*End Register Area*/
 
+.whats-new {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 30px;
+    padding-top: 5%;
+    
+}
+.whats-new a:link {
+    text-decoration: none;
+  }
+  
+  .whats-new a:hover {
+    text-decoration: none;
+    color: #000000;
+  }
+  .whats-new a {
+    color: gray;
+    font-size: medium;
+  }
+  .whats-new .row .col h3{
+    text-align: right;
+    margin-right: 10%;
+  }
+
+
+
+
+.hot-auc a:link {
+    text-decoration: none;
+  }
+
+  .hot-auc .row .col{
+    margin-right: 5%;
+    text-align: right;
+  }
+  .hot-auc a:hover {
+    text-decoration: none;
+    color: #000000;
+  }
+  .hot-auc a {
+    color: gray;
+    font-size: medium;
+    
+  }
+  .hot-auc .row .col h3{
+    text-align: left;
+    margin-right: 10%;
+  }
+
+  .hot-auc {
+    margin: 30px;
+    
+}
+
+.controls {
+
+    padding-top: 20px;
+}
+
