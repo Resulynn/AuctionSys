@@ -15,7 +15,7 @@ use App\Http\Controllers;
 
 
 Route::get('/index','App\Http\Controllers\PagesController@index');
-
+Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
 Route::resource('/login','App\Http\Controllers\LoginController');
 

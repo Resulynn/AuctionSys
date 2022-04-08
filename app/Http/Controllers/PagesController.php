@@ -18,6 +18,12 @@ class PagesController extends Controller
         $title = "Login";
         return view('pages.login',compact('title'));
     }
+    function store(){
+        $title = "Store";
+        return view('pages.store',compact('title'));
+    }
+
+
 
     //admin pages
 
