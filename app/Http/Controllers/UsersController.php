@@ -37,7 +37,40 @@ class UsersController extends Controller
      */
     public function store(StoreUsersRequest $request)
     {
-        //
+        $this->validate($request,[
+            'fname'=>'required',
+            'lname'=>'required',
+            'email'=>'required',
+            'pnum'=>'required',
+            'add'=>'required',
+            'zipcode'=>'required',
+            'uname'=>'required',
+            'password'=>'required',
+            'confPassword'=>'required',
+            
+            //bday - to be concatinated
+            'month'=>'required',
+            'day'=>'required',
+            'year'=>'required',
+        ]);
+
+        $bdd = $request->input('day');
+        $bmm = $request->input('month');
+        $byy = $request->input('year');
+
+        $birthday = ''.$bmm.'/'.$bdd.'/'.$byy.'';
+        //table input
+        $users=new Users;
+        $users->fname=$request->input('fname');
+        $users->lname=$request->input('lname');
+        $users->email=$request->input('email');
+        $users->pnum=$request->input('pnum');
+        $users->address=$request->input('add');
+        $users->zipcode=$request->input('zipcode');
+        $users->username=$request->input('uname');
+        $users->password=$request->input('password');
+        $users->bday=$birthday;
+        $users->save();
     }
 
     /**

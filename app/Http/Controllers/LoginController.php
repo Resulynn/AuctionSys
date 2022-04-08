@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Login;
+use App\Models\Users;
 use App\Http\Requests\StoreLoginRequest;
 use App\Http\Requests\UpdateLoginRequest;
 
