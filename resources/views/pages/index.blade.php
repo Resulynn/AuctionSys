@@ -8,7 +8,7 @@
 
     @section('content')
     <div class="show text-center pt-5"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
-        <p><a href ="">SHOW MORE</a></p>
+        <p><a href ="/store">SHOW MORE</a></p>
     </div>
 
   <div class ="container">
@@ -36,7 +36,7 @@
           
                 <div class="row">
                   <div class ="col">
-                    <a href="">SEE MORE</a>
+                    <a href="/store">SEE MORE</a>
                   </div>
                   <div class = "col">
                     <h3>What's New! </h3>
@@ -119,7 +119,7 @@
             
           </div>
           <div class = "col">
-            <a href="">SEE MORE</a>
+            <a href="/store">SEE MORE</a>
           </div>
         </div>
         <div class="carousel slide carousel-dark text-center">
@@ -258,3 +258,4 @@
 </div>
  <hr> 
     @endsection
+    
