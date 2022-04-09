@@ -59,6 +59,9 @@ class UsersController extends Controller
         $byy = $request->input('year');
 
         $birthday = ''.$bmm.'/'.$bdd.'/'.$byy.'';
+
+        $encpass = md5(md5($request->input('password')));
+        
         //table input
         $users=new Users;
         $users->fname=$request->input('fname');
@@ -68,7 +71,7 @@ class UsersController extends Controller
         $users->address=$request->input('add');
         $users->zipcode=$request->input('zipcode');
         $users->username=$request->input('uname');
-        $users->password=$request->input('password');
+        $users->password=$encpass;
         $users->bday=$birthday;
         $users->save();
     }
