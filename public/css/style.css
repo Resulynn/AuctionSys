@@ -47,7 +47,7 @@ footer .container-fluid .row .col{
 
 .login .login-container input{
     border: none; 
-    border-bottom: 3px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(0, 0, 0);
     background: inherit;
 }
 
@@ -57,27 +57,35 @@ input:focus, textarea:focus, select:focus{
 
 .login{
 background-color: #f0eeee;
-text-align: center;
+
 margin: auto;
 padding-bottom: 5%;
 padding-top: 5%;
 margin-top: 5%;
 margin-bottom: 5%;
-width: 25%;
-display: flex;
+width:fit-content;
 justify-content: center;
 
 }
 
+.login .login-container{
+  text-align: center;
+}
 .login .button button{
     border-radius: 0%;
+    
+}
+.login .button {
+  text-align: center;
+  
 }
 
+
 .login .login-container .fgpass {
-    text-align: left;
-    padding-left: 70px;
+  
+   text-align: center;
    font-size: small;
-   padding-top: 3px;
+   padding-top: 5px;
 }
 
 .login .login-container .fgpass a{
@@ -85,8 +93,8 @@ justify-content: center;
 }
 
 .login .login-container .keepsigned {
-    text-align: left;
-    padding-left: 70px;
+  
+   
    font-size: small;
    padding-top: 10px;
 }
@@ -183,19 +191,42 @@ a:link u{
   /* Register Area*/
 
   .reg{
-        background-color: #f0eeee;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        width: 75%;
-        margin-bottom: 5%;
-        margin-top: 5%;
-       color: #000000;
+    margin: auto;
+    background-color: #f0eeee;
+    width: 75%;
+      
   }
   
-  .reg .regcontainer label{
-      color: #000000;
+  .reg .reg-content{
+    
+    padding-bottom: 5%;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    
+    margin-bottom: 5%;
+    margin-top: 5%;
+   color: #000000;
+      
+  } 
+
+  .reg .reg-content label{
+    padding-bottom: 5px;
+    padding-top: 20px;
   }
+  .reg .reg-content .reg-button .row input {
+    background-color: #000000;
+    border-radius: 0%;
+    
+  }
+
+  .reg .reg-content input{
+    border: none; 
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background: inherit;
+    border-radius: 0%;
+  }
+
 
   /*End Register Area*/
 
