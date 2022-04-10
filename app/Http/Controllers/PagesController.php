@@ -22,6 +22,10 @@ class PagesController extends Controller
         $title = "Store";
         return view('pages.store',compact('title'));
     }
+    function productpage(){
+        $title = "Product Page";
+        return view('pages.productpage',compact('title'));
+    }
 
 
 
