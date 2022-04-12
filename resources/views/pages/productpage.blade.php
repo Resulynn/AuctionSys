@@ -29,7 +29,7 @@
                 </div>
                
 
-                <div class="item">
+                 <div class="item">
                     <div class="item-container">
                         <div class="row">
                             <div class="col">
@@ -42,13 +42,13 @@
                                             <h5>Category: MEN'S TEES</h5>
                                             <h5>Size: M</h5>
                                             <h5>Price: 999.99</h5>
+                                            <h5>Auction Ends On: MM/DD/YYYY 00:00 PM</h5>
                                         </div>
-                                    <h5>Auction Ends On: MM/DD/YYYY 00:00 PM</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
         <div class="row">
             <div class="col">
                 <div class="bidding-det">
@@ -57,8 +57,9 @@
                     <h5>Highest Bid: 999.99</h5>
                 </div>
             </div>
+           
             <div class="col">
-                    <div class="bid-amt">
+                 <div class="bid-amt">
                         <h5>Enter your Bidding Amount</h5>
                         <input type = "number" name = "number">
                     <div class="button">
@@ -66,18 +67,16 @@
                     </div>
                 </div>
             </div>
-         </div> 
-         <hr>
-         or
+        </div> 
+        <hr>
+         OR
          <div class="buy-now">
             <div class="row">
                 <div class="col">
-                    <h5>Buy for 999</h5>
+                    <h5>Buy for <b>999.99</b></h5>
                 </div>
                 <div class="col">
-                    <div class="button">
                         <button type="button" class="btn btn-dark w-50">BUY NOW</button>
-                    </div>
                 </div>
             </div>
          </div>

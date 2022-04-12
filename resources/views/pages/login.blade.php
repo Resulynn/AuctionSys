@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="button col pt-4">
-                <button type="button" class="btn btn-dark w-75">LOGIN</button>
+                <button type="button" class="btn btn-dark w-50">LOGIN</button>
                 <div class="reg col">
                     <p> No account yet? <b><a href="/register"> <u> Register Here. </u></a> </b></p>
                 </div>
