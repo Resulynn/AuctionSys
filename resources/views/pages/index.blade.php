@@ -66,7 +66,7 @@
                         Some quick example text to build on the card title and make up the bulk
                         of the card's content.
                       </p>
-                      <a href="#!" class="btn btn-primary">Button</a>
+                      <a href="/productpage" class="btn btn-primary">Button</a>
                     </div>
                   </div>
                 </div>

@@ -57,7 +57,6 @@ input:focus, textarea:focus, select:focus{
 
 .login{
 background-color: #f0eeee;
-
 margin: auto;
 padding-bottom: 5%;
 padding-top: 5%;
@@ -292,4 +291,67 @@ a:link u{
 .controls {
     padding-top: 20px;
 }
+
+ /* Bidding Area*/
+.bidding .bidding-container{
+  background-color: #f0eeee;
+  margin: auto;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 75%;
+  text-align: center;
+  
+  }
+
+  .bidding .bidding-container .icon{
+    text-align: right;
+    padding-right: 15%;
+    
+  }
+
+  .bidding .bidding-container .title{
+    text-align: left;
+    padding-left: 15%;
+  }
+
+  .bidding .item .item-pic{
+    text-align: left;
+    padding-left: 10%;
+    padding-top: 5%;
+  }
+
+  .bidding .item .details {
+    text-align: left;
+  
+  }
+
+  .bidding .item .details-container{
+    text-align: left;
+  }
+  
+  .details .item-det h5{
+   color:grey;
+   
+  }
+
+  .item .item-container{
+    padding-top: 5%;
+    padding-left: 10%;
+  }
+
+  .bidding-det{
+    text-align: left;
+    margin-left: 20%;
+    padding-top: 10%;
+  }
+  .buy-now {
+    padding-top: 20px;
+  }
+  .bid-amt{
+    padding-top: 10%;
+  }
+ /* End Bidding Area*/
+
 
