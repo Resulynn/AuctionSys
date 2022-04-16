@@ -62,7 +62,7 @@ padding-bottom: 5%;
 padding-top: 5%;
 margin-top: 5%;
 margin-bottom: 5%;
-width:fit-content;
+width:25%;
 justify-content: center;
 
 }
@@ -199,15 +199,17 @@ a:link u{
   .reg .reg-content{
     
     padding-bottom: 5%;
-    padding-top: 15px;
+    
     display: flex;
     justify-content: center;
     
     margin-bottom: 5%;
-    margin-top: 5%;
+    
    color: #000000;
       
   } 
+
+
 
   .reg .reg-content label{
     padding-bottom: 5px;
@@ -278,7 +280,7 @@ a:link u{
 
   .hot-auc {
    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 10%;
   }
 
   .hot-auc .carousel .row .col .carousel-item .container .row {
@@ -382,3 +384,14 @@ a:link u{
   
   border-width: 1px;
 } 
+
+ /* Start Store Page*/
+
+.store .content{
+  
+   padding-bottom: 10%;
+ }
+
+
+
+ /* End Store Page*/

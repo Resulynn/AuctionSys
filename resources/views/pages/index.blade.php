@@ -6,7 +6,7 @@
 </div>
 @endsection
 
-    @section('content')
+@section('content')
     <div class="show text-center pt-5"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
         <p><a href ="/store">SHOW MORE</a></p>
     </div>
@@ -31,78 +31,77 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </a>
       </div>
-     
+  </div>
       <div class="whats-new container">
+          <div class="row">
+            <div class ="col px-5">
+              <a href="/store">SEE MORE</a>
+            </div>
+            <div class = "col">
+              <h3>What's New! </h3>
+            </div>
+          </div>
+
+          <div
+              id="carouselMultiItemExample"
+              class="carousel slide carousel-dark text-center"
+          >
           
+          <div class="carousel-inner py-4">
+            <div class="carousel-item active">
+              <div class="container">
                 <div class="row">
-                  <div class ="col">
-                    <a href="/store">SEE MORE</a>
-                  </div>
-                  <div class = "col">
-                    <h3>What's New! </h3>
-                  </div>
-                </div>
-
-                <div
-                    id="carouselMultiItemExample"
-                    class="carousel slide carousel-dark text-center"
-                    data-mdb-ride="carousel"
-                >
-        
-        <div class="carousel-inner py-4">
-          <div class="carousel-item active">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-4">
-                  <div class="card">
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                      class="card-img-top"
-                      alt="Waterfall"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk
-                        of the card's content.
-                      </p>
-                      <a href="/productpage" class="btn btn-primary">Button</a>
+                  <div class="col-lg-4">
+                    <div class="card">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
+                        class="card-img-top"
+                        alt="Waterfall"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                          Some quick example text to build on the card title and make up the bulk
+                          of the card's content.
+                        </p>
+                      <b> <a href="/productpage"> VIEW AUCTION </a></b>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="col-lg-4 d-none d-lg-block">
-                  <div class="card">
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
-                      class="card-img-top"
-                      alt="Sunset Over the Sea"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk
-                        of the card's content.
-                      </p>
-                      <a href="#!" class="btn btn-primary">Button</a>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="card">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp"
+                        class="card-img-top"
+                        alt="Sunset Over the Sea"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                          Some quick example text to build on the card title and make up the bulk
+                          of the card's content.
+                        </p>
+                        <b> <a href="/productpage"> VIEW AUCTION </a></b>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="col-lg-4 d-none d-lg-block">
-                  <div class="card">
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp"
-                      class="card-img-top"
-                      alt="Sunset over the Sea"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk
-                        of the card's content.
-                      </p>
-                      <a href="#!" class="btn btn-primary">Button</a>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="card">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/new/standard/nature/183.webp"
+                        class="card-img-top"
+                        alt="Sunset over the Sea"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                          Some quick example text to build on the card title and make up the bulk
+                          of the card's content.
+                        </p>
+                        <b> <a href="/productpage"> VIEW AUCTION </a></b>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -110,8 +109,10 @@
             </div>
           </div>
         </div>
+        <hr>
       </div>
-      <hr>
+      
+
       <div class="hot-auc container">
         <div class="row">
            <div class = "col">
@@ -143,7 +144,7 @@
                               Some quick example text to build on the card title and make up the bulk
                               of the card's content.
                             </p>
-                            <a href="#!" class="btn btn-primary">Button</a>
+                            <b> <a href="/productpage"> VIEW AUCTION </a></b>
                           </div>
                         </div>
                       </div>
@@ -161,7 +162,7 @@
                               Some quick example text to build on the card title and make up the bulk
                               of the card's content.
                             </p>
-                            <a href="#!" class="btn btn-primary">Button</a>
+                            <b> <a href="/productpage"> VIEW AUCTION </a></b>
                           </div>
                         </div>
                       </div>
@@ -179,7 +180,7 @@
                               Some quick example text to build on the card title and make up the bulk
                               of the card's content.
                             </p>
-                            <a href="#!" class="btn btn-primary">Button</a>
+                            <b> <a href="/productpage"> VIEW AUCTION </a></b>
                           </div>
                         </div>
                       </div>
@@ -188,8 +189,8 @@
                 </div>
               </div>
             </div>
-              
-            </div>
+          </div>
+          
             <div class="row">
               <div class="col">
                 <div class="carousel-item active">
@@ -208,7 +209,7 @@
                               Some quick example text to build on the card title and make up the bulk
                               of the card's content.
                             </p>
-                            <a href="#!" class="btn btn-primary">Button</a>
+                            <b> <a href="/productpage"> VIEW AUCTION </a></b>
                           </div>
                         </div>
                       </div>
@@ -226,7 +227,7 @@
                               Some quick example text to build on the card title and make up the bulk
                               of the card's content.
                             </p>
-                            <a href="#!" class="btn btn-primary">Button</a>
+                            <b> <a href="/productpage"> VIEW AUCTION </a></b>
                           </div>
                         </div>
                       </div>
@@ -244,7 +245,7 @@
                               Some quick example text to build on the card title and make up the bulk
                               of the card's content.
                             </p>
-                            <a href="#!" class="btn btn-primary">Button</a>
+                            <b> <a href="/productpage"> VIEW AUCTION </a></b>
                           </div>
                         </div>
                       </div>
@@ -254,8 +255,7 @@
               </div>
             </div>
           </div>  
-
-</div>
- <hr> 
+    </div>
     @endsection
+    
     
