@@ -3,6 +3,20 @@
     font-size: 100%;
     color: black;
 }
+/*userbar*/
+
+.userbar a:link {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.userbar a:hover{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.userbar a{
+    color: rgb(107, 107, 107);
+    font-size: small;
+}
 
 .search-box{
     position: absolute;
@@ -92,8 +106,6 @@ justify-content: center;
 }
 
 .login .login-container .keepsigned {
-  
-   
    font-size: small;
    padding-top: 10px;
 }
