@@ -10,7 +10,6 @@
     <title>{{$title}}</title>
 </head>
 <body>
-    @yield('userbar')   
     @include('inc.navbar')
     @include('inc.messages')
     
