@@ -12,6 +12,7 @@
 <body>
     @yield('userbar')   
     @include('inc.navbar')
+    @include('inc.messages')
     
     @yield('content')
     @include('inc.footer')
