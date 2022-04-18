@@ -10,13 +10,12 @@
 
     @section('content')
     
-    
+    <div class="d-flex ms-5 me-5 mt-5">
+        <h2 class="ms-4"><b> CREATE YOUR ACCOUNT </b></h2>
+    </div>
     {!! Form::open(['action'=>'App\Http\Controllers\UsersController@store',
     'method'=>'POST']) !!}
     <div class="reg">
-        <div class="d-flex ms-2 mt-5 py-5">
-            <h2 class="px-5"><b> CREATE YOUR ACCOUNT </b></h2>
-        </div>
         <div class="reg-content">
             <div class="col-5">
                 <div class="row ms-2">
