@@ -12,7 +12,6 @@
   
     <div class="bidding">
             <div class="bidding-container">
-         
                 <div class="row">
                     <div class="col">
                         <div class="title">
@@ -27,7 +26,6 @@
                         </div>
                     </div>
                 </div>
-               
 
                  <div class="item">
                     <div class="item-container">
@@ -66,9 +64,9 @@
                         <button type="button" class="btn btn-dark w-50">PLACE BID</button>
                     </div>
                 </div>
-            </div>
+            </div>  
         </div> 
-        <hr>
+      <hr>
          OR
          <div class="buy-now">
             <div class="row">

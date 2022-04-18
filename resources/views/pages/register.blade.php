@@ -17,7 +17,20 @@
         <div class="d-flex ms-2 mt-5 py-5">
             <h2 class="px-5"><b> CREATE YOUR ACCOUNT </b></h2>
         </div>
+
+        <div class="mb-3 px-3" style="width: 500px; margin-left:70px" >
+            <div class="py-1">
+                <img src="..." width="150px" height="150px" >
+            </div>
+            <br>
+                <div class="up-photo" style="padding-top: 5px; ">
+                   <h4> <label for="uploadpic">Upload Profile Photo</label></h4>
+                    <input class="form-control" type="file" id="uploadpic">
+                </div>
+          </div>
+
         <div class="reg-content">
+            
             <div class="col-5">
                 <div class="row ms-2">
                     {{Form::label('first name','First Name',['class'=>'lead text-dark'])}}
