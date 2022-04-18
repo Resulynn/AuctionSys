@@ -60,20 +60,43 @@ class UsersController extends Controller
 
         $birthday = ''.$bmm.'/'.$bdd.'/'.$byy.'';
 
+        $pass1 = $request->input('password');
+        $pass2 = $request->input('confPassword');
+
+        if($pass1!=$pass2){
+            return redirect('/register')->with('error', 'Password mismatch');
+        }
+
         $encpass = md5(md5($request->input('password')));
         
         //table input
-        $users=new Users;
-        $users->fname=$request->input('fname');
-        $users->lname=$request->input('lname');
-        $users->email=$request->input('email');
-        $users->pnum=$request->input('pnum');
-        $users->address=$request->input('add');
-        $users->zipcode=$request->input('zipcode');
-        $users->username=$request->input('uname');
-        $users->password=$encpass;
-        $users->bday=$birthday;
-        $users->save();
+            if(count(Users::where('email', $request->email)->get())>0){
+                return redirect ('/register')->with('error', 'Email Already Exists!');
+            }
+
+            if(count(Users::where('pnum', $request->pnum)->get())>0){
+                return redirect ('/register')->with('error', 'Phone Number Already Exists!');
+            }
+
+            
+            if(count(Users::where('username', $request->uname)->get())>0){
+                return redirect ('/register')->with('error', 'Username is Taken!');
+            }
+            
+
+            $users=new Users;
+            $users->fname=$request->input('fname');
+            $users->lname=$request->input('lname');
+            $users->email=$request->input('email');
+            $users->pnum=$request->input('pnum');
+            $users->address=$request->input('add');
+            $users->zipcode=$request->input('zipcode');
+            $users->username=$request->input('uname');
+            $users->password=$encpass;
+            $users->bday=$birthday;
+            $users->save();
+
+        return redirect('/login');
     }
 
     /**
