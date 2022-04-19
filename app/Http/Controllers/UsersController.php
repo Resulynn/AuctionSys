@@ -83,6 +83,8 @@ class UsersController extends Controller
                 return redirect ('/register')->with('error', 'Username is Taken!');
             }
             
+            $filename= $request->input('uname').".".$request->file('pfpImg')->getClientOriginalExtension();
+            $request->file('pfpImg')->storeAs('userPFP',$filename,'public_uploads');
 
             $users=new Users;
             $users->fname=$request->input('fname');
@@ -94,9 +96,10 @@ class UsersController extends Controller
             $users->username=$request->input('uname');
             $users->password=$encpass;
             $users->bday=$birthday;
+            $users->profileImage=$filename;
             $users->save();
 
-        return redirect('/login');
+        return redirect('/login')->with('success','Successfuly Registered!');
     }
 
     /**

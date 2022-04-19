@@ -5,7 +5,7 @@
     
    
     {!! Form::open(['action'=>'App\Http\Controllers\UsersController@store',
-    'method'=>'POST']) !!}
+    'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
     <div class="reg">
 
         <div class="d-flex ms-2 mt-5 py-5">
@@ -19,7 +19,8 @@
             <br>
                 <div class="up-photo" style="padding-top: 5px; ">
                    <h4> <label for="uploadpic">Upload Profile Photo</label></h4>
-                    <input class="form-control" type="file" id="uploadpic">
+                    {{-- <input class="form-control" type="file" id="uploadpic"> --}}
+                    {{Form::file('pfpImg',['class'=>'form-control'])}}
                 </div>
           </div>
 
