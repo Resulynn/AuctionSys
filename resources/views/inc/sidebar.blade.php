@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 <div class="sidebar">  
   <div class="flex-shrink-0 p-3 bg-white" style="width: 25%;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
@@ -51,4 +48,3 @@
     </ul>
   </div>
 </div>
->>>>>>> 777678299560d7ceed09607164409e513d1d18b0

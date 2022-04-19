@@ -1,6 +1,6 @@
 <nav class="navbar border border-1 text-center navbar-expand-lg navbar-light bg-light">
     <i class="bi bi-globe ms-2"></i>
-    <a class="navbar-brand ms-2" href="/index">ADMIN MENU</a>
+    <a class="navbar-brand " href="/admin/index">ADMIN MENU</a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

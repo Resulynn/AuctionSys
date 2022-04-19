@@ -26,10 +26,15 @@ class PagesController extends Controller
         $title = "Product Page";
         return view('pages.productpage',compact('title'));
     }
+    
 
 
 
     //admin pages
+    function admin_index(){
+        $title = "Home - Admin";
+        return view('admin.index',compact('title'));
+    }
 
     function list(){
         $title = "Listings";

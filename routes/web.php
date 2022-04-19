@@ -19,8 +19,9 @@ Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
 Route::resource('/login','App\Http\Controllers\LoginController');
 Route::get('/productpage','App\Http\Controllers\PagesController@productpage');
-//admin module
 
+//admin module
+Route::get('/admin/index','App\Http\Controllers\PagesController@admin_index');
 Route::get('/add','App\Http\Controllers\PagesController@add');
 Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
 Route::get('/list','App\Http\Controllers\PagesController@list');
