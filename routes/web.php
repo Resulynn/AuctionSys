@@ -29,3 +29,7 @@ Route::get('/list','App\Http\Controllers\PagesController@list');
 Route::get('/shipreq','App\Http\Controllers\PagesController@shipreq');
 Route::get('/shippings','App\Http\Controllers\PagesController@shippings');
 Route::get('/shipcomplete','App\Http\Controllers\PagesController@shipcomplete');
+
+//profile module
+Route::resource('/profile','App\Http\Controllers\ProfileController');
+Route::resource('/biddings','App\Http\Controllers\BiddingController');
