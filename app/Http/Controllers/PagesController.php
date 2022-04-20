@@ -60,6 +60,9 @@ class PagesController extends Controller
         $title = "Shippings";
         return view('admin.ships',compact('title'));
     }
+
+   
+
 }
 
 

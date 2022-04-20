@@ -18,6 +18,7 @@ Route::get('/index','App\Http\Controllers\PagesController@index');
 Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
 Route::resource('/login','App\Http\Controllers\LoginController');
+
 Route::get('/productpage','App\Http\Controllers\PagesController@productpage');
 
 //admin module

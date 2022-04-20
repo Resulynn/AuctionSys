@@ -31,15 +31,15 @@
                     </label>
                 </div>
                 <div class="policy col">
-                   <p> By logging in, you agree to our <a href=""><u>Privacy Policy</u></a>
-                    and <a href=""><u> Terms & Condition.</u></a></p>
+                   <p> By logging in, you agree to our <a href="/privacypolicy"><u>Privacy Policy</u></a>
+                    and <a href="/termsandcondition"><u> Terms & Condition.</u></a></p>
                 </div>
             </div>
             <div class="button col pt-4">
-                <button type="button" class="btn btn-dark w-50">LOGIN</button>
-                <div class="reg col">
-                    <p> No account yet? <b><a href="/register"> <u> Register Here. </u></a> </b></p>
-                </div>
+                    {{Form::submit('LOGIN', ['class'=>'btn btn-dark w-50','style'=>'border-radius:0%'])}}
+                    <div class="reg col">
+                        <p> No account yet? <b><a href="/register"> <u> Register Here. </u></a> </b></p>
+                    </div>
             </div>
             {!! Form::close() !!}
         </div>

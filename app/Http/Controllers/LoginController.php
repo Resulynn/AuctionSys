@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Users;
 use App\Http\Requests\StoreLoginRequest;
 use App\Http\Requests\UpdateLoginRequest;
+use Hash;
+use Session;
+
 
 class LoginController extends Controller
 {
@@ -18,6 +21,7 @@ class LoginController extends Controller
         $title = "Login";
         return view('pages.login',compact('title'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -37,9 +41,31 @@ class LoginController extends Controller
      */
     public function store(StoreLoginRequest $request)
     {
-        //
+        $this->validate($request,
+        [
+        'uname'=>'required',
+        'password'=>'required'
+        ]);
+        
+        $user = Users::where('username','=',$request->uname)->first();
 
+        if($user){
+           if (Hash::check($request->password, $user->password)) {
+               // $request->session()->put('loginID',$user->id);
+                return redirect('/index')->with('success','Login Success');
+            }
+            else{
+                 return back()->with('error','Incorrect Password');
+            }  
+        }
+        else{
+            return back()->with('error','User not found');
+        }
     }
+
+
+
+
 
     /**
      * Display the specified resource.

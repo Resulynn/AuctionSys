@@ -19,7 +19,6 @@
             <br>
                 <div class="up-photo" style="padding-top: 5px; ">
                    <h4> <label for="uploadpic">Upload Profile Photo</label></h4>
-                    {{-- <input class="form-control" type="file" id="uploadpic"> --}}
                     {{Form::file('pfpImg',['class'=>'form-control'])}}
                 </div>
           </div>
