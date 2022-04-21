@@ -61,8 +61,6 @@ class PagesController extends Controller
         return view('admin.ships',compact('title'));
     }
 
-   
-
 }
 
 
