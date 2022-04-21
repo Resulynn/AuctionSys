@@ -1,6 +1,4 @@
 @extends('layout.app')
-@include('inc.userbar')
-
     @section('content')
     
    

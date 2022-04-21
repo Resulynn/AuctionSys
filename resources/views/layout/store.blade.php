@@ -10,7 +10,17 @@
     <title>{{$title}}</title>
 </head>
 <body>
-    
+    <?php 
+    if(Session::get('logged') == 1){
+    ?>
+        @include('inc.userloggedbar')
+    <?php }
+    else{
+    ?>
+        @include('inc.userbar')
+    <?php
+    }
+    ?>
     @include('inc.navbar')
     @include('inc.usermenu')
     <div class="store">

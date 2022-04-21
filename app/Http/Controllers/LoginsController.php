@@ -16,12 +16,9 @@ class LoginsController extends Controller
                 'password'=>'required'
                 ]);
 
-
-            // return $request;
             $pass = md5(md5($request->password));
             $check_uname =  Users::where('username','=',$request->uname)->first();
             $check_utype_admin = Users::where('username','=',$request->uname)->where('user_type','=',0)->first();
-            $check_utype_user = Users::where('username','=',$request->uname)->where('user_type','=',1)->first();
             $userlogin = Users::where('username','=',$request->uname)->where('password','=',$pass)->first();
             
             if($check_uname){
@@ -29,6 +26,8 @@ class LoginsController extends Controller
                 if($check_utype_admin){
                     if ($userlogin) 
                     {
+                        Session::put('username',$request->uname);
+                        Session::put('logged', 1);
                         return redirect('/admin/index')->with('success','Login Success.');
 
                     }
@@ -36,11 +35,12 @@ class LoginsController extends Controller
                         return back()->withInput()->with('error','Wrong Password.');
                     }  
                 }
-                elseif($check_utype_user){
+                else{
                     if ($userlogin) 
                     {
                         Session::put('username',$request->uname);
-                        return redirect('/index')->with('success','Welcome, '.Session::get('username'));
+                        Session::put('logged', 1);
+                        return redirect('/index')->with('success','Login Success.');
                         
                     }
                     else{

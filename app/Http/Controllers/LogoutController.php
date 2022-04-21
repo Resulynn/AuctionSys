@@ -9,6 +9,7 @@ class LogoutController extends Controller
 {
     //
     public function logout(){
-        return view('pages.login');
+        Session::flush('logged');
+        return redirect('/index')->with('success','Logout Successfully.');
     }
 }

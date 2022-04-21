@@ -71,16 +71,15 @@ class UsersController extends Controller
         
         //table input
             if(count(Users::where('email', $request->email)->get())>0){
-                return redirect ('/register')->with('error', 'Email Already Exists!');
+                return back()->withInput()->with('error', 'Email Already Exists!');
             }
 
             if(count(Users::where('pnum', $request->pnum)->get())>0){
-                return redirect ('/register')->with('error', 'Phone Number Already Exists!');
+                return back()->withInput()->with('error', 'Phone Number Already Exists!');
             }
 
-            
             if(count(Users::where('username', $request->uname)->get())>0){
-                return redirect ('/register')->with('error', 'Username is Taken!');
+                return back()->withInput()->with('error', 'Username is Taken!');
             }
             
             $filename= $request->input('uname').".".$request->file('pfpImg')->getClientOriginalExtension();

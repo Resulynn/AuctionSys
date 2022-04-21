@@ -1,5 +1,5 @@
 @extends('layout.store')
-@include('inc.userbar')
+
 
 @section('content')
 
