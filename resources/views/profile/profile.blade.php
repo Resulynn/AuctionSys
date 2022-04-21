@@ -1,31 +1,8 @@
-@extends('layout.app')
 @include('inc.userbar')
+@extends('layout.app')
 
     @section('content')
-    
-   
-
-    <div class="d-flex flex-row justify-content-center">
-        <div class="d-flex ms-2 mt-5 border border-dark w-50 justify-content-center">
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">Profile</a></p>
-            </div>
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">Biddings</a></p>
-            </div>
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">Fundings</a></p>
-            </div>
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">To Recieve</a></p>
-            </div>
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">History</a></p>
-            </div>
-        </div>
-    </div>
-
-
+    @include('inc.usermenu')
 
     {!! Form::open(['action'=>'App\Http\Controllers\ProfileController@store',
     'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
@@ -100,7 +77,7 @@
                     </fieldset>
                         <div class="reg-button">
                             <div class="row mt-5 pt-5 justify-content-end">
-                                <a href="/profile/edit" class= "btn btn-dark w-75 textalign-center">Edit Profile</a>
+                                <a href="/profile/edit" class= "btn btn-dark w-75 textalign-center" style="border-radius: 0%;">Edit Profile</a>
                             </div>
                         </div>
                     </div>                

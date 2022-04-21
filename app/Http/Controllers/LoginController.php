@@ -52,14 +52,14 @@ class LoginController extends Controller
         if($user){
            if (Hash::check($request->password, $user->password)) {
                // $request->session()->put('loginID',$user->id);
-                return redirect('/index')->with('success','Login Success');
+                return back()->with('success','Login Success.');
             }
             else{
-                 return back()->with('error','Incorrect Password');
+                 return back()->withInput()->with('error','Incorrect Password.');
             }  
         }
         else{
-            return back()->with('error','User not found');
+            return back()->withInput()->with('error','User not found.');
         }
     }
 

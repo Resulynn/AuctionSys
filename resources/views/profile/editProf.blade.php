@@ -2,28 +2,7 @@
 @include('inc.userbar')
 
     @section('content')
-    
-   
-
-    <div class="d-flex flex-row justify-content-center">
-        <div class="d-flex ms-2 mt-5 border border-dark w-50 justify-content-center">
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">Profile</a></p>
-            </div>
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">Biddings</a></p>
-            </div>
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">Fundings</a></p>
-            </div>
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">To Recieve</a></p>
-            </div>
-            <div class="pt-4 pb-3 ps-4 pe-4">
-                <p class="h4"><a href="#" class="text-decoration-none text-dark">History</a></p>
-            </div>
-        </div>
-    </div>
+    @include('inc.usermenu')
 
 
 
