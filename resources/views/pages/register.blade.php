@@ -12,7 +12,7 @@
 
         <div class="mb-3 px-3" style="width: 500px; margin-left:70px" >
             <div class="py-1">
-                <img src="..." width="150px" height="150px" >
+                <img src="" width="150px" height="150px" >
             </div>
             <br>
                 <div class="up-photo" style="padding-top: 5px; ">

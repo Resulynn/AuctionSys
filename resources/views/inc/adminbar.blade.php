@@ -4,7 +4,6 @@
     
     {{Form::submit('LOGOUT', ['class="btn bi bi-box-arrow-right pe-1"'])}}
     {{Session::get('username')}}
-    
 
     {!! Form::close() !!}
 </div>

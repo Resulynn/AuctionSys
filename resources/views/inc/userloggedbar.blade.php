@@ -1,8 +1,8 @@
-<div class="userbar d-flex justify-content-end bg-light border-bottom border-dark py-2 px-4">
+<div class="userbar d-flex justify-content-end bg-light border-bottom border-dark py-1 px-4">
     {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout',
     'method'=>'POST']) !!}
     
-    {{Form::submit('LOGOUT', ['class="btn bi bi-box-arrow-right pe-1"'])}}
+    <a><i class="bi bi-key"></i>{{Form::submit('LOGOUT', ['class="btn"'])}}</a>
     {{Session::get('username')}}
     
 
