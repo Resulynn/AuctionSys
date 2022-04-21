@@ -19,8 +19,12 @@ Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
 Route::get('/login','App\Http\Controllers\PagesController@login');
 Route::post('/login','App\Http\Controllers\LoginsController@login');
+<<<<<<< HEAD
 Route::get('/logout','App\Http\Controllers\LogoutController@logout');
+=======
+>>>>>>> 702153282e57dff0c0a5cdbf20569fe837d3c999
 Route::get('/productpage','App\Http\Controllers\PagesController@productpage');
+Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
 
 //admin module
 Route::get('/admin/index','App\Http\Controllers\PagesController@admin_index');

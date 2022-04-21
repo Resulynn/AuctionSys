@@ -26,6 +26,10 @@ class PagesController extends Controller
         $title = "Product Page";
         return view('pages.productpage',compact('title'));
     }
+    function historypage(){
+        $title = "History Page";
+        return view('pages.historypage',compact('title'));
+    }
     
 
 
