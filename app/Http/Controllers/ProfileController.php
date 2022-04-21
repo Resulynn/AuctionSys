@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Session;
 
 class ProfileController extends Controller
 {
@@ -13,9 +14,11 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $username = Session::get('username');
+        $data = Users::where('username',$username)->first();
         $title = "Profile";
-        return view('profile.profile',compact('title'));
+        return view('profile.profile',compact('title'))->with('data',$data);
     }
 
     /**
@@ -26,8 +29,6 @@ class ProfileController extends Controller
     public function create()
     {   
         //temporarily here for debugging purposes only; once session is working move to edit function!
-        $title = "Profile Edit";
-        return view('profile.editProf',compact('title'));
     }
 
     /**
@@ -58,9 +59,12 @@ class ProfileController extends Controller
      * @param  \App\Models\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users $users)
+    public function edit()
     {   
-        
+        $username = Session::get('username');
+        $data = Users::where('username',$username)->first();
+        $title = "Profile Edit";
+        return view('profile.editProf',compact('title'))->with('data',$data);
     }
 
     /**

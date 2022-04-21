@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 
-@include('inc.userloggedbar')
+@include('inc.userbar')
 
 @section('content')
     <div class="show text-center pt-5"><h4><b>2022 RELEASES AND COLLECTION</b></h4>

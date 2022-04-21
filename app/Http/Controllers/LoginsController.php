@@ -40,7 +40,7 @@ class LoginsController extends Controller
                     if ($userlogin) 
                     {
                         Session::put('username',$request->uname);
-                        return redirect('/index')->with('success','Login Success.');
+                        return redirect('/index')->with('success','Welcome, '.Session::get('username'));
                         
                     }
                     else{
