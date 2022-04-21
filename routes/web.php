@@ -18,7 +18,7 @@ Route::get('/index','App\Http\Controllers\PagesController@index');
 Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
 Route::get('/login','App\Http\Controllers\PagesController@login');
-Route::post('/pasok','App\Http\Controllers\LoginsController@pasok');
+Route::post('/login','App\Http\Controllers\LoginsController@login');
 
 Route::get('/productpage','App\Http\Controllers\PagesController@productpage');
 
