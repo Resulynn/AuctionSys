@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Users;
-use Session;
+
 
 class LoginsController extends Controller
 {
@@ -18,19 +19,18 @@ class LoginsController extends Controller
 
             // return $request;
             $pass = md5(md5($request->password));
-            $admin = 0;
-            $user = 1;
             $check_uname =  Users::where('username','=',$request->uname)->first();
-            $check_utype_admin = Users::where('username','=',$request->uname)->where('user_type','=',$admin)->first();
-            $check_utype_user = Users::where('username','=',$request->uname)->where('user_type','=',$user)->first();
+            $check_utype_admin = Users::where('username','=',$request->uname)->where('user_type','=',0)->first();
+            $check_utype_user = Users::where('username','=',$request->uname)->where('user_type','=',1)->first();
             $userlogin = Users::where('username','=',$request->uname)->where('password','=',$pass)->first();
             
             if($check_uname){
+               
                 if($check_utype_admin){
                     if ($userlogin) 
                     {
-                    // $request->session()->put('loginID',$user->id);
-                        return redirect('/admin/index')->with('success','Login Success - Admin.');
+                        return redirect('/admin/index')->with('success','Login Success.');
+
                     }
                     else{
                         return back()->withInput()->with('error','Wrong Password.');
@@ -39,14 +39,14 @@ class LoginsController extends Controller
                 elseif($check_utype_user){
                     if ($userlogin) 
                     {
-                    // $request->session()->put('loginID',$user->id);
-                        return redirect('/index')->with('success','Login Success.-user');
+                        Session::put('username',$request->uname);
+                        return redirect('/index')->with('success','Login Success.');
+                        
                     }
                     else{
                         return back()->withInput()->with('error','Wrong Password.');
                     }  
                 }
-               
             }
             else{
                 return back()->withInput()->with('error','User not found.');

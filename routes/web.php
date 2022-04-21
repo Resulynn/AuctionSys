@@ -19,7 +19,7 @@ Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
 Route::get('/login','App\Http\Controllers\PagesController@login');
 Route::post('/login','App\Http\Controllers\LoginsController@login');
-
+Route::get('/logout','App\Http\Controllers\LogoutController@logout');
 Route::get('/productpage','App\Http\Controllers\PagesController@productpage');
 
 //admin module
