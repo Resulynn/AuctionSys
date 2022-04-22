@@ -1,12 +1,8 @@
-<nav class="navbar text-center navbar-expand-lg" style="background-color: #f0eeee;">
-  <a class="navbar-brand" href="/index"><i class="bi bi-globe ml-5"></i> <b>True North Garments</b></a>
+<nav class="navbar text-center navbar-expand-lg ps-4" style="background-color: #f0eeee;">
+  <a class="navbar-brand" href="/index"><i class="bi bi-globe pe-2"></i> <b>True North Garments</b></a>
   
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto justify-content-center">
+  <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" href="/store" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Men
