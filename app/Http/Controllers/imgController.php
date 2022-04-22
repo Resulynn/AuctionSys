@@ -8,12 +8,12 @@ use Session;
 
 class imgController extends Controller
 {
-    public function upload(Request $request, $id){
+    public function upload(Request $request){
         $this->validate($request,[
-            'profileImage'=>'required',
+            'pfpImg'=>'required'
         ]);
 
-        $data = Users::find($id);
+        $data = Users::where('username',Session::get('username'))->first();;
         $imgName = Session::get('username');
         
         $filename= $imgName.".".$request->file('pfpImg')->getClientOriginalExtension();
@@ -22,6 +22,7 @@ class imgController extends Controller
         $data->profileImage=$filename;
         $data->save();
 
-        return redirect('/index')->with('success','Picture Changed.');
+        // return $request->file('pfpImg');
+        return redirect('/profile')->with('success','Picture Changed.');
     }
 }

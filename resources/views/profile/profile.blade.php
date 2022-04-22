@@ -4,8 +4,6 @@
     @section('content')
     @include('inc.usermenu')
 
-    {!! Form::open(['action'=>'App\Http\Controllers\ProfileController@store',
-    'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
     <div class="reg">
 
         <div class="d-flex ms-2 mt-5 py-4">
@@ -16,15 +14,17 @@
             <div class="d-flex flex-row py-1">
                 <img src="userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover;" class="rounded-circle" >
                 <div class="row-1 ms-3 w-100">
-                {!! Form::open(['action'=>['App\Http\Controllers\imgController@upload',$data->id],
-                    'method'=>'PUT', 'enctype'=>'multipart/form-data']) !!}    
+
+                {!! Form::open(['action'=>['App\Http\Controllers\imgController@upload'],
+                    'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}    
                     
                     {{Form::label('','Change Profile Picture',['class'=>'h2'])}}
-                    {{Form::file('pfpImg',['class'=>'form-control h-10 w-100'])}}
+                    {{Form::file('pfpImg',['class'=>'form-control h-10 w-100','id'=>'pfpImg'])}}
                     <div class="reg-button">
                         <div class="d-flex">
                             {{Form::submit('Upload Image',['class'=>'btn btn-dark textalign-center mt-5'])}}
                         </div>
+                    {{-- {{Form::hidden('_method','PUT')}} --}}
                 {!! Form::close() !!}
 
                     </div>  
@@ -32,6 +32,8 @@
             </div>
           </div>
 
+          {!! Form::open(['action'=>'App\Http\Controllers\ProfileController@store',
+          'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
 
         <div class="reg-content">
             <div class="col-5">
