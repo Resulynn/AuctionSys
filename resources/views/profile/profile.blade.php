@@ -13,8 +13,22 @@
         </div>
 
         <div class="mb-3 px-3" style="width: 500px; margin-left:70px" >
-            <div class="py-1">
+            <div class="d-flex flex-row py-1">
                 <img src="userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover;" class="rounded-circle" >
+                <div class="row-1 ms-3 w-100">
+                {!! Form::open(['action'=>['App\Http\Controllers\imgController@upload',$data->id],
+                    'method'=>'PUT', 'enctype'=>'multipart/form-data']) !!}    
+                    
+                    {{Form::label('','Change Profile Picture',['class'=>'h2'])}}
+                    {{Form::file('pfpImg',['class'=>'form-control h-10 w-100'])}}
+                    <div class="reg-button">
+                        <div class="d-flex">
+                            {{Form::submit('Upload Image',['class'=>'btn btn-dark textalign-center mt-5'])}}
+                        </div>
+                {!! Form::close() !!}
+
+                    </div>  
+                </div>  
             </div>
           </div>
 

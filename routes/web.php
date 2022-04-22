@@ -37,3 +37,4 @@ Route::get('/shipcomplete','App\Http\Controllers\PagesController@shipcomplete');
 //profile module
 Route::resource('/profile','App\Http\Controllers\ProfileController');
 Route::resource('/biddings','App\Http\Controllers\BiddingController');
+Route::put('/image','App\Http\Controllers\imgController@upload');

@@ -3,7 +3,8 @@
     'method'=>'POST']) !!}
     
     <a><i class="bi bi-key"></i>{{Form::submit('LOGOUT', ['class="btn"'])}}</a>
-    {{Session::get('username')}}
+    <a href="/profile"><i class="bi bi-person"></i>{{Session::get('username')}}</a>
+    
     
 
     {!! Form::close() !!}
