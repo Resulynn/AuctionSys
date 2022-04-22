@@ -11,17 +11,23 @@
 </head>
 
 <body>
+    
     <?php if(Session::get('logged') == 1){ ?>
-        @include('inc.userloggedbar')
-        @include('inc.navbar')
-        @include('inc.usermenu')
+        <div class="sticky-top">
+            @include('inc.userloggedbar')
+            @include('inc.navbar')
+        </div>
+             @include('inc.usermenu')
     <?php } 
         else{ ?>
+        <div class="sticky-top">
             @include('inc.userbar')
             @include('inc.navbar')
+        </div>
+
     <?php } ?>
-        
-    <?php if(Session::get('logged')==1){ ?>
+
+    <?php if(Session::get('logged') == 1){ ?>
         <div class="store-content">
             <aside class="sidebar">
                 <span class="inner-text">

@@ -66,10 +66,11 @@
       </li>
     </ul>
 
-    <div class="search-box">
-       
-            <input class="form-control mr-sm-1" type="text" name="" placeholder="Search" > 
-       
+    <div class="search-box justify-content-end">
+     {{--  {!! Form::open(['action'=>'',
+      'method'=>'POST']) !!} --}}
+      {{Form::text('search','',['class'=>'search form-control mr-sm-1','placeholder'=>'Search'])}}
+      {{-- {!! Form::close() !!} --}}
     </div>
   </div>
 </nav>

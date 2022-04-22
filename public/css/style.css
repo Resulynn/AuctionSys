@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+
+
 *{
     
   font-family: 'Nunito Sans', sans-serif;
@@ -20,6 +23,23 @@
     font-size: small;
 }
 
+.logout{
+  font-size: small;
+  color:  rgb(107, 107, 107);
+  border:none;
+  margin:0;
+  padding:0;
+}
+.logout:focus{
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.logout:hover{
+   color: #000000;
+   text-decoration: underline;
+   text-underline-offset: 4px;
+}
 
 
 .store-content{
@@ -38,6 +58,29 @@
 .search-box{
     position: absolute;
     right: 5%;
+}
+
+.search{
+  border: none;
+  border-radius: 0%;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: #f0eeee;
+  border-bottom: #6b6b6b 1px solid;
+  font-size: small;
+  margin:0;
+  padding:0;
+}
+.search:focus{
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: #f0eeee;
+}
+
+
+
+.search:focus input{
+  background: none;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -82,7 +125,7 @@ footer .container-fluid .row .col{
     background: inherit;
 }
 
-* input:focus, textarea:focus, select:focus{
+input:focus, textarea:focus, select:focus{
     outline: none;
 }
 
