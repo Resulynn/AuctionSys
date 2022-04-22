@@ -20,7 +20,7 @@ Route::resource('/register','App\Http\Controllers\UsersController');
 Route::get('/login','App\Http\Controllers\PagesController@login');
 Route::post('/login','App\Http\Controllers\LoginsController@login');
 
-Route::post('/logout','App\Http\Controllers\LogoutController@logout');
+Route::get('/logout','App\Http\Controllers\LogoutController@logout');
 
 Route::get('/productpage','App\Http\Controllers\PagesController@productpage');
 Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
