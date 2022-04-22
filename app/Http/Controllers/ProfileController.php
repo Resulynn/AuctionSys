@@ -74,9 +74,17 @@ class ProfileController extends Controller
      * @param  \App\Models\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
-    {
-        //
+    public function update(Request $request, $id)
+    {   
+        $data = Users::find($id);
+
+        $data->address=$request->input('add');
+        $data->zipcode=$request->input('zipcode');
+        
+        
+        $data->save();
+
+        return redirect('/profile')->with('success','Profile Updated.');
     }
 
     /**
