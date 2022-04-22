@@ -5,35 +5,32 @@
     color: black;
    
 }
-/*userbar*/
 
-.userbar a:link {
+* a:link{
   color: rgb(0, 0, 0);
   text-decoration: none;
 }
-.userbar a:hover{
-    text-decoration: none;
-    color: rgb(0, 0, 0);
+* a:hover{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: rgb(0, 0, 0);
 }
-.userbar a{
-    color: rgb(107, 107, 107);
+* a{
+  color: rgb(107, 107, 107);
     font-size: small;
 }
 
-/*usermenu*/
 
-.usermenu a:link {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
+
+.store-content{
+  display: flex;
 }
-.usermenu a:hover{
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-.usermenu a{
-    color: rgb(107, 107, 107);
-    font-size: medium;
-}
+
+
+
+
+
+
 .usermenu-container{
   background-color: #f0eeee;
 }
@@ -64,7 +61,7 @@
       color: rgb(0, 0, 0);
   }
   .navbar a{
-      color: rgb(107, 107, 107);
+      color: #6b6b6b;
   }
 
 footer{
@@ -85,7 +82,7 @@ footer .container-fluid .row .col{
     background: inherit;
 }
 
-input:focus, textarea:focus, select:focus{
+* input:focus, textarea:focus, select:focus{
     outline: none;
 }
 
@@ -121,9 +118,7 @@ justify-content: center;
    padding-top: 5px;
 }
 
-.login .login-container .fgpass a{
-   color: gray;
-}
+
 
 .login .login-container .keepsigned {
    font-size: small;
@@ -143,17 +138,6 @@ justify-content: center;
     color: gray;
 }
 
-a:link u{
-    color: gray;
-    text-decoration: underline;
-  }
-  a:hover u{
-      text-decoration: underline;
-      color: rgb(155, 155, 155);
-  }
-  a u{
-      color: gray;
-  }
 
 .login .reg p{
    font-size: small;
@@ -161,63 +145,7 @@ a:link u{
    color: gray;
 }
 
-.login .reg a:link u{
-    color: gray;
-    text-decoration: underline;
-  }
-  .login .reg a:hover u{
-      text-decoration: underline;
-      color: rgb(155, 155, 155);
-  }
-  .login .reg a u{
-      color: rgb(0, 0, 0);
-  }
 
-  .navbar{
-      background-color: #f0eeee;
-    }
-
-.show a:link {
-    color: gray;
-    text-decoration: none;
-  }
-.show a:hover {
-      text-decoration: none;
-      color: rgb(0, 0, 0);
-  }
-.show a {
-      color: gray;
-  }
-
-  
-.footer a:link {
-    color: gray;
-    text-decoration: none;
-  }
-.footer a:hover {
-      text-decoration: none;
-      color: #000000;
-  }
-.footer a {
-      color: gray;
-      font-size: 13px;
-  }
-.copyright a:link {
-    text-decoration: none;
-  }
-  
-  .copyright a:hover {
-    text-decoration: none;
-    color: #000000;
-  }
-  .copyright a {
-      color: gray;
-        font-size: medium;
-  }
-  .copyright{
-      font-size: small;
-      color: gray;
-  }
 
   /* Register Area*/
 
@@ -229,12 +157,9 @@ a:link u{
   }
   
   .reg .reg-content{
-    
     padding-bottom: 5%;
-    
     display: flex;
     justify-content: center;
-    
     margin-bottom: 5%;
     
    color: #000000;
@@ -268,18 +193,6 @@ a:link u{
     padding-top: 5%;
     
 }
-.whats-new a:link {
-    text-decoration: none;
-  }
-  
-  .whats-new a:hover {
-    text-decoration: none;
-    color: #000000;
-  }
-  .whats-new a {
-    color: gray;
-    font-size: medium;
-  }
   .whats-new .row .col h3{
     text-align: right;
     margin-right: 10%;
@@ -287,23 +200,9 @@ a:link u{
 
 
 
-
-.hot-auc a:link {
-    text-decoration: none;
-  }
-
   .hot-auc .row .col{
     margin-right: 5%;
     text-align: right;
-  }
-  .hot-auc a:hover {
-    text-decoration: none;
-    color: #000000;
-  }
-  .hot-auc a {
-    color: gray;
-    font-size: medium;
-    
   }
   .hot-auc .row .col h3{
     text-align: left;
@@ -409,8 +308,5 @@ a:link u{
 
 
 
- .store{
-   padding-bottom: 5%;
- }
 
- /* End Store Page*/
+

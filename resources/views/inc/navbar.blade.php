@@ -1,4 +1,4 @@
-<nav class="navbar border border-1 text-center navbar-expand-lg">
+<nav class="navbar text-center navbar-expand-lg" style="background-color: #f0eeee;">
   <a class="navbar-brand" href="/index"><i class="bi bi-globe ml-5"></i> <b>True North Garments</b></a>
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,8 +11,8 @@
         <a class="nav-link" href="/store" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Men
         </a>
-        <div class="dropdown-menu py-3" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
-          <div class = "row">
+        <div class="dropdown-menu py-3 w-100" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
+          <div class = "row px-2">
             <div class = "col">
               <a><b>READY TO WEAR</b></a> 
                   <a class="dropdown-item" href="/store">Tees</a>
@@ -32,7 +32,7 @@
           Women
         </a>
         <div class="dropdown-menu" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
-          <div class = "row">
+          <div class = "row px-2">
             <div class = col-sm-12>
               <a><b>READY TO WEAR</b></a> 
                   <a class="dropdown-item" href="/store">Tees</a>
@@ -47,15 +47,15 @@
         </div>
       </li>
 
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown ">
         <a class="nav-link" href="/store" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Accesories
         </a>
-        <div class="dropdown-menu" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/store">Necklace</a>
-          <a class="dropdown-item" href="/store">Bracelets</a>
-          <a class="dropdown-item" href="/store">Rings</a>
-          <a class="dropdown-item" href="/store">Earrings</a>
+        <div class="dropdown-menu px-2" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/store">Necklace</a>
+            <a class="dropdown-item" href="/store">Bracelets</a>
+            <a class="dropdown-item" href="/store">Rings</a>
+            <a class="dropdown-item" href="/store">Earrings</a>
         </div>
       </li>
       

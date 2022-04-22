@@ -10,10 +10,10 @@
             <a href="#">Fundings</a>
         </div>
         <div class="pt-4 pb-3 ps-4 pe-4">
-            <a href="#">To Recieve</a>
+            <a href="#">My Orders</a>
         </div>
         <div class="pt-4 pb-3 ps-4 pe-4">
-            <a href="#">History</a>
+            <a href="#">Purchase History</a>
         </div>
     </div>
 </div>

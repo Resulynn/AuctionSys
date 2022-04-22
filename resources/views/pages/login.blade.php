@@ -29,14 +29,14 @@
                     </label>
                 </div>
                 <div class="policy col">
-                   <p> By logging in, you agree to our <a href="/privacypolicy"><u>Privacy Policy</u></a>
-                    and <a href="/termsandcondition"><u> Terms & Condition.</u></a></p>
+                   <p>By logging in, you agree to our <a href="/privacypolicy"><b>Privacy Policy</b></a>
+                    and <a href="/termsandcondition"> <b>Terms & Condition.</b></a></p>
                 </div>
             </div>
             <div class="button col pt-4">
                     {{Form::submit('LOGIN', ['class'=>'btn btn-dark w-50','style'=>'border-radius:0%'])}}
                     <div class="reg col">
-                        <p> No account yet? <b><a href="/register"> <u> Register Here. </u></a> </b></p>
+                        <p> No account yet? <b><a href="/register">Register Here.</a> </b></p>
                     </div>
             </div>
             {!! Form::close() !!}
