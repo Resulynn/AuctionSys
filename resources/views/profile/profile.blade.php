@@ -24,7 +24,6 @@
                         <div class="d-flex">
                             {{Form::submit('Upload Image',['class'=>'btn btn-dark textalign-center mt-5'])}}
                         </div>
-                    {{-- {{Form::hidden('_method','PUT')}} --}}
                 {!! Form::close() !!}
 
                     </div>  
