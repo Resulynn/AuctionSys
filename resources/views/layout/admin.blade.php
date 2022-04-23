@@ -13,20 +13,34 @@
 
 <div class="sticky-top">
     <?php 
-           if(Session::get('logged') == 1){
-        ?>
+           if(Session::get('logged') == 2){ ?>
+      
             @include('inc.adminbar')
-        <?php } ?>
-        
-    @include('inc.adminNav')
-    @include('inc.adminSidebar')
+            @include('inc.adminNav')
+
+           
 </div>
-
-     @yield('content')
-    @include('inc.footer')
-
+@include('inc.messages')
+ <div class="store-content">
+                <aside class="sidebar">
+                    <span class="inner-text">
+                        @include('inc.adminSidebar')
+                    </span>
+                </aside>
+        
+                <main class="content">
+                    <span class="inner-text">
+                        @yield('content')
+                    </span>
+                </main>
+            </div>
+            
+            @include('inc.footer')
+<?php } ?>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
 </body>
 </html>

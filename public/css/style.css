@@ -23,21 +23,21 @@
     font-size: small;
 }
 
-.logout{
+.userloggedbtn{
   font-size: small;
   color:  rgb(107, 107, 107);
   border:none;
   margin:0;
   padding:0;
 }
-.logout:focus{
+.userloggedbtn:focus{
   box-shadow: none !important;
   outline: none !important;
 }
 
-.logout:hover{
+.userloggedbtn:hover{
    color: #000000;
-   text-decoration: underline;
+   text-decoration: none;
    text-underline-offset: 4px;
 }
 

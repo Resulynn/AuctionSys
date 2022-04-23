@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="show text-center pt-5"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
+    <div class="show text-center pt-4"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
         <p><a href ="/store" style="font-size: small;">SHOW MORE</a></p>
     </div>
 

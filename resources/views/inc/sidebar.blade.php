@@ -6,29 +6,38 @@
   </a>
   <ul class="list-unstyled ps-0">
     <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+      <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
         Men 
       </button>
      
       <div class="collapse" id="home-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded">Overview</a></li>
-          <li><a href="#" class="link-dark rounded">Updates</a></li>
-          <li><a href="#" class="link-dark rounded">Reports</a></li>
+          <li><a href="#" class="link-dark rounded">Tees</a></li>
+          <li><a href="#" class="link-dark rounded">Pants</a></li>
+          <li><a href="#" class="link-dark rounded">Shorts</a></li>
+          <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+            Shoes 
+          </button>
+          <div class="collapse" id="home-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-dark rounded">Sneakers</a></li>
+            </ul>
+          </div>
         </ul>
+       
       </div>
-      
     </li>
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-        Women
+
+       <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+        Women 
       </button>
-      <div class="collapse" id="dashboard-collapse">
+     
+      <div class="collapse" id="home-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded">Overview</a></li>
-          <li><a href="#" class="link-dark rounded">Weekly</a></li>
-          <li><a href="#" class="link-dark rounded">Monthly</a></li>
-          <li><a href="#" class="link-dark rounded">Annually</a></li>
+          <li><a href="#" class="link-dark rounded">Tees</a></li>
+          <li><a href="#" class="link-dark rounded">Pants</a></li>
+          <li><a href="#" class="link-dark rounded">Shorts</a></li>
         </ul>
       </div>
     </li>
