@@ -81,7 +81,7 @@ class ProfileController extends Controller
         $data->address=$request->input('add');
         $data->zipcode=$request->input('zipcode');
         
-        
+
         $data->save();
 
         return redirect('/profile')->with('success','Profile Updated.');

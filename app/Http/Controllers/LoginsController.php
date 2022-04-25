@@ -27,7 +27,6 @@ class LoginsController extends Controller
                     if ($userlogin) 
                     {
                         Session::put('username',$request->uname);
-                        Session::put('profImg',$request->profileImage);
                         Session::put('logged', 2);
                         return redirect('/admin/index')->with('success','Login Success.');
 
