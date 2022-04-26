@@ -26,7 +26,7 @@ Route::get('/productpage','App\Http\Controllers\PagesController@productpage');
 Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
 
 //admin module
-Route::get('/admin/index','App\Http\Controllers\PagesController@admin_index');
+Route::resource('/admin/index','App\Http\Controllers\InventoryController');
 Route::get('/add','App\Http\Controllers\PagesController@add');
 Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
 Route::get('/list','App\Http\Controllers\PagesController@list');
