@@ -27,7 +27,6 @@ class LoginsController extends Controller
                     if ($userlogin) 
                     {
                         Session::put('username',$request->uname);
-                        Session::put('profImg',$request->profileImage);
                         Session::put('logged', 2);
                         if($request->user_type = 0){
                             Session::put('usertype','Administrator');
