@@ -6,7 +6,8 @@
             <div class="ms-2 mt-3  py-4">
                 <h2 class="px-5"><b>Add Auction</b></h2>
             </div>
-
+            {!! Form::open(['action'=>'App\Http\Controllers\InventoryController@store',
+            'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
             <div class="mb-3 px-3" style="width: 500px; margin-left:70px" >
                 <div class="py-1">
                     <img src="" width="150px" height="150px" >
@@ -24,12 +25,18 @@
                         <a>Product Name</a>
                         {{Form::text('prodName','',['class'=>'form-control','placeholder'=>'Product Name','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;'])}}
                     </div>
+<<<<<<< HEAD
                     <div class="row ms-2 mt-3">
                         <a>Product Details</a>
                         {{Form::textArea('prodName','',
                         ['class'=>'form-control',
                         'placeholder'=>'Product Details',
                         'style'=>'border:none; background:none; border-radius:0%; border:1px #000000 solid;'])}}
+=======
+                    <div class="row ms-2">
+                        {{Form::label('prodDeets','Product Details',['class'=>'lead text-dark'])}}
+                        {{Form::textArea('prodDeets','',['class'=>'form-control','placeholder'=>'Product Details'])}}
+>>>>>>> d3c1ffe5159b0742dac8179954e3accc01cc1aa7
                     </div>
                 </div>
                 <div class="col-5 ms-5 pe-5">
@@ -43,6 +50,7 @@
                             null, ['class'=> 'btn mt-1 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
                         )}}
                     </div>
+<<<<<<< HEAD
                     <div class="row ms-2 mb-2">
                         <a>Type</a>
                         {{Form::select('category',[
@@ -51,6 +59,17 @@
                             'S' => 'Shorts',
                             'Sh' => 'Shoes'], 
                             null, ['class'=> 'btn mt-1 mb-2 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
+=======
+                    <div class="row ms-2">
+                        {{Form::label('type','Type',['class'=>'lead text-dark mb-3'])}}
+                        {{Form::select('type',[
+                            'T' => 'Tees', 
+                            'P' => 'Pants',
+                            'S' => 'Shorts',
+                            'Sh' => 'Shoes',
+                            'NA' => 'N/A'], 
+                            null, ['placeholder' => 'Choose Category..']
+>>>>>>> d3c1ffe5159b0742dac8179954e3accc01cc1aa7
                         )}}
                     </div>
                     <div class="row ms-2 w-100" style="">
@@ -61,11 +80,21 @@
                         'style'=>'border:none; padding:0; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
                     </div>
                     <div class="row ms-2">
+<<<<<<< HEAD
                         <a>Buyout Price</a>
                         {{Form::text('buyOutPrice','',
                         ['class'=>'reg form-control mt-1 pt-1 ms-3',
                         'placeholder'=>'Buy Out Price',
                         'style'=>'border:none; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
+=======
+                        {{Form::label('buyPrice','Buyout Price',['class'=>'lead text-dark'])}}
+                        {{Form::text('buyPrice','',['class'=>'form-control','placeholder'=>'Buy Out Price'])}}
+                    </div>
+                    <div class="reg-button">
+                        <div class="row mt-5 pt-5 justify-content-end">
+                            {{Form::submit('Save Changes',['class'=>'btn btn-dark w-75 textalign-center', 'style'=>'border-radius: 0%;'])}}
+                        </div>
+>>>>>>> d3c1ffe5159b0742dac8179954e3accc01cc1aa7
                     </div>
                     <div class="ms-4 mt-4 text-align-center" style=" width:100%;">
                         <div class="" style="display: inline-block; padding-inline-start:25%;">
@@ -73,6 +102,7 @@
                         </div>
                    </div>
                 </div>
+                {!! Form::close() !!}
             </div>
         </div>
         
