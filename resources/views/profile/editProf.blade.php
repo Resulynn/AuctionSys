@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.admin')
 
     @section('content')
     @include('inc.usermenu')
@@ -13,7 +13,7 @@
                             <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
                             <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
                             <a>
-                                User Type: <b>{{Session::get('usertype')}}</b>
+                                User Type: <b>{{Session::get('usertype')}}</b><br>
                                 User Status: <b>{{$data->user_status}}</b>
                             </a>
                         </div>

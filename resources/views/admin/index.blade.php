@@ -1,8 +1,10 @@
 @extends('layout.admin')
     @section('content')
-        <div class="reg">
-            <div class="d-flex ms-2 mt-5 py-5">
-                <h2 class="px-5"><b>Add Product</b></h2>
+    <div class="add-auc mt-5 w-75"  style="background-color:#f0eeee;">
+        {!! Form::open(['action'=>'App\Http\Controllers\PagesController',
+        'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
+            <div class="ms-2 mt-3  py-4">
+                <h2 class="px-5"><b>Add Auction</b></h2>
             </div>
 
             <div class="mb-3 px-3" style="width: 500px; margin-left:70px" >
@@ -16,47 +18,65 @@
                     </div>
               </div>
 
-            <div class="reg-content">
+            <div class="add-auc-content pb-5 d-flex justify-content-center mb-5">
                 <div class="col-5">
-                    <div class="row ms-2">
-                        {{Form::label('prodName','Product Name',['class'=>'lead text-dark'])}}
-                        {{Form::text('prodName','',['class'=>'form-control','placeholder'=>'Product Name...'])}}
+                    <div class="row ms-2 pb-2">
+                        <a>Product Name</a>
+                        {{Form::text('prodName','',['class'=>'form-control','placeholder'=>'Product Name','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;'])}}
                     </div>
-                    <div class="row ms-2">
-                        {{Form::label('prodDeets','Product Details',['class'=>'lead text-dark'])}}
-                        {{Form::textArea('prodName','',['class'=>'form-control','placeholder'=>'Product Details'])}}
+                    <div class="row ms-2 mt-3">
+                        <a>Product Details</a>
+                        {{Form::textArea('prodName','',
+                        ['class'=>'form-control',
+                        'placeholder'=>'Product Details',
+                        'style'=>'border:none; background:none; border-radius:0%; border:1px #000000 solid;'])}}
                     </div>
                 </div>
                 <div class="col-5 ms-5 pe-5">
-                    <div class="row ms-2">
-                        {{Form::label('category','Category',['class'=>'lead text-dark mb-3'])}}
+                    <div class="row ms-2 mb-2">
+                        <a>Category</a>
                         {{Form::select('category',[
                             'M' => 'Men', 
                             'W' => 'Women',
                             'A' => 'Accessories',
                             'O' => 'Others'], 
-                            null, ['placeholder' => 'Choose Category..']
+                            null, ['class'=> 'btn mt-1 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
                         )}}
                     </div>
-                    <div class="row ms-2">
-                        {{Form::label('type','Type',['class'=>'lead text-dark mb-3'])}}
+                    <div class="row ms-2 mb-2">
+                        <a>Type</a>
                         {{Form::select('category',[
                             'T' => 'Tees', 
                             'P' => 'Pants',
                             'S' => 'Shorts',
                             'Sh' => 'Shoes'], 
-                            null, ['placeholder' => 'Choose Category..']
+                            null, ['class'=> 'btn mt-1 mb-2 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
                         )}}
                     </div>
-                    <div class="row ms-2">
-                        {{Form::label('initialPrice','Initial Price',['class'=>'lead text-dark'])}}
-                        {{Form::text('initialPrice','',['class'=>'form-control','placeholder'=>'Initial Price'])}}
+                    <div class="row ms-2 w-100" style="">
+                        <a>Initial Price</a>
+                        {{Form::text('initialPrice','',
+                        ['class'=>'reg form-control mt-1 mb-3 ms-3',
+                        'placeholder'=>'Initial Price',
+                        'style'=>'border:none; padding:0; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
                     </div>
                     <div class="row ms-2">
-                        {{Form::label('buyOutPrice','Buyout Price',['class'=>'lead text-dark'])}}
-                        {{Form::text('buyOutPrice','',['class'=>'form-control','placeholder'=>'Buy Out Price'])}}
+                        <a>Buyout Price</a>
+                        {{Form::text('buyOutPrice','',
+                        ['class'=>'reg form-control mt-1 pt-1 ms-3',
+                        'placeholder'=>'Buy Out Price',
+                        'style'=>'border:none; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
                     </div>
+                    <div class="ms-4 mt-4 text-align-center" style=" width:100%;">
+                        <div class="" style="display: inline-block; padding-inline-start:25%;">
+                            {{Form::submit('ADD AUCTION',['class'=>'btn btn-dark w-100 ','style'=>'border-radius:0%;'])}}
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
+        
+         {!! Form::close() !!}
     @endsection
+
+    

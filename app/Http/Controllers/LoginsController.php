@@ -27,10 +27,10 @@ class LoginsController extends Controller
                     if ($userlogin) 
                     {
                         Session::put('username',$request->uname);
+                        Session::put('profImg',$request->profileImage);
                         Session::put('logged', 2);
-                        if($request->user_type = 0){
-                            Session::put('usertype','Administrator');
-                        }
+                        Session::put('usertype','Administrator');
+                      
                         return redirect('/admin/index')->with('success','Login Success.');
 
                     }
@@ -43,13 +43,7 @@ class LoginsController extends Controller
                     {
                         Session::put('username',$request->uname);
                         Session::put('logged', 1);
-                        
-                        if($request->user_type = 1){
-                            Session::put('usertype','Registered User');
-                            
-
-                        }
-
+                        Session::put('usertype','Registered User');
                         Session::put('userstatus','active');
                        
                            

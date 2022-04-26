@@ -6,10 +6,39 @@
     color: black;
 }
 
-html,
+.add-auc{
+  min-height: 100%;
+  height:auto !important;  
+  height:100%; 
+  overflow: hidden !important;
+}
+
+html {
+	height: 100%;
+}
+
 body {
-  margin:0%;
-  padding:0%
+	margin: 0;
+	height: 100%;
+} 
+
+#add-auc {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+#admin-sidebar {
+	display: table-cell;
+	width: 15%;
+	vertical-align: top;
+ 
+}
+
+#admin-content {
+	display: table-cell;
+	width: 85%;
+	vertical-align: top;
 }
 
 * a:link{
@@ -200,7 +229,8 @@ justify-content: center;
     margin: auto;
     background-color: #f0eeee;
     width: 75%;
-      
+   
+    
   }
   
   .reg .reg-content{

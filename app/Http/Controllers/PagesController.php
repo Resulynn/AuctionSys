@@ -36,7 +36,7 @@ class PagesController extends Controller
 
     //admin pages
     function admin_index(){
-        $title = "Home - Admin";
+        $title = "Admin";
         return view('admin.index',compact('title'));
     }
 

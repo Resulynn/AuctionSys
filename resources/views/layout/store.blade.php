@@ -36,15 +36,23 @@
                 </span>
             </aside>
     
-            <main class="content">
-                <span class="inner-text">
-                    @yield('content')
-                </span>
-            </main>
+            <div class="w-100"  style="text-align:center;">
+                <main class="content" style="display: inline-block;">
+                    <span class="inner-text">
+                        @yield('content')
+                    </span>
+                </main>
+            </div>
         </div>
     <?php }
         else{ ?>
-            @yield('content')
+            <div class="w-100"  style="text-align:center;">
+                <main class="content" style="display: inline-block;">
+                    <span class="inner-text">
+                        @yield('content')
+                    </span>
+                </main>
+            </div>
       <?php } ?>
         
             
