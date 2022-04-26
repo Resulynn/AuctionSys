@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 *{
     
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Rubik', sans-serif;
     color: black;
-   
+}
+
+html,
+body {
+  margin:0%;
+  padding:0%
 }
 
 * a:link{
@@ -41,14 +44,17 @@
    text-underline-offset: 4px;
 }
 
+.save-prof:hover{
+  border: 1px #000000 solid;
+}
+
+.save-prof{
+  border:1px #706d6d solid;
+}
 
 .store-content{
   display: flex;
 }
-
-
-
-
 
 
 .usermenu-container{
@@ -76,7 +82,6 @@
   outline: none !important;
   background-color: #f0eeee;
 }
-
 
 
 .search:focus input{
@@ -138,7 +143,6 @@ margin-top: 5%;
 margin-bottom: 5%;
 width:25%;
 justify-content: center;
-
 }
 
 .login .login-container{
@@ -204,9 +208,7 @@ justify-content: center;
     display: flex;
     justify-content: center;
     margin-bottom: 5%;
-    
-   color: #000000;
-      
+    color: #000000;
   } 
 
 
@@ -230,37 +232,6 @@ justify-content: center;
 
 
   /*End Register Area*/
-
-.whats-new {
-    
-    padding-top: 5%;
-    
-}
-  .whats-new .row .col h3{
-    text-align: right;
-    margin-right: 10%;
-  }
-
-
-
-  .hot-auc .row .col{
-    margin-right: 5%;
-    text-align: right;
-  }
-  .hot-auc .row .col h3{
-    text-align: left;
-    margin-right: 10%;
-  }
-
-  .hot-auc {
-   padding-top: 30px;
-    padding-bottom: 10%;
-  }
-
-  .hot-auc .carousel .row .col .carousel-item .container .row {
-    text-align: center;
-    padding-left: 5%;
-  } 
 
  
 

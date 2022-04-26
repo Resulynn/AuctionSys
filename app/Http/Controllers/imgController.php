@@ -21,8 +21,8 @@ class imgController extends Controller
 
         $data->profileImage=$filename;
         $data->save();
-
-        // return $request->file('pfpImg');
-        return redirect('/profile')->with('success','Picture Changed.');
+        $link = "/profile/$data->username/edit";
+     
+        return redirect($link)->with('success','Picture Changed.');
     }
 }

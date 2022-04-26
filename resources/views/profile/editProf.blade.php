@@ -1,18 +1,39 @@
-
 @extends('layout.app')
 
     @section('content')
     @include('inc.usermenu')
+  <div class="reg mt-5">  
+    <div class="d-flex ms-2 pt-5 py-4">
+        <h2 class="px-5"><b> Edit Your Profile</b></h2>
+    </div>
+        <div class="py-1 text-center">
+                    {!! Form::open(['action'=>['App\Http\Controllers\imgController@upload'],
+                    'method'=>'POST', 'enctype'=>'multipart/form-data']) !!} 
+                        <div class="profpic text-center mb-3">
+                            <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
+                            <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
+                            <a>
+                                User Type: <b>{{Session::get('usertype')}}</b>
+                                User Status: <b>{{$data->user_status}}</b>
+                            </a>
+                        </div>
+                        
+                       <a>Upload Profile Picture</a> 
+                          
+                        <div class="text-center pb-4 d-flex align-items-center justify-content-center">
+                                {{Form::file('pfpImg',['class'=>'form-control w-25 me-3','id'=>'pfpImg'])}}
+                                <div class="save-prof">
+                                    {{Form::submit('SAVE',['class'=>'userloggedbtn px-3 py-1'])}}
+                                </div>
+                        </div>
+                        
+                        {!! Form::close() !!}
+        </div>
+      
 
     {!! Form::open(['action'=>['App\Http\Controllers\ProfileController@update',$data->id],
     'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
-    <div class="reg">
-
-        <div class="d-flex ms-2 mt-5 py-4">
-            <h2 class="px-5"><b> Edit Your Profile</b></h2>
-        </div>
-
-
+    
         <div class="reg-content">
             <div class="col-5">
                 <fieldset disabled>

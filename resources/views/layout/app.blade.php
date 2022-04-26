@@ -12,11 +12,13 @@
     <title>{{$title}}</title>
 </head>
 <body>
+    
     <div class="sticky-top">
         <?php 
         if(Session::get('logged') == 1){
         ?>
             @include('inc.userloggedbar')
+            
         <?php }
         else{
         ?>
@@ -25,9 +27,9 @@
         }
         ?>
         @include('inc.navbar')
+        
 </div> 
-    
-    @include('inc.messages')
+@include('inc.messages')
     
     @yield('content')
     @include('inc.footer')

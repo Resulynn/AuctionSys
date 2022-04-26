@@ -1,37 +1,31 @@
 
 @extends('layout.admin')
+
 @section('content')
-
 <div class="reg">
-
-    <div class="d-flex ms-2 mt-5 py-4">
-        <h2 class="px-5"><b> Your Profile</b></h2>
+    <div class="d-flex  mt-5 py-5">
+        <h3 class="px-5"><b> Your Profile</b></h3>
     </div>
 
-    <div class="mb-3 px-3" style="width: 500px; margin-left:70px" >
-        <div class="d-flex flex-row py-1">
-            <img src="userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover;" class="rounded-circle" >
-            <div class="row-1 ms-3 w-100">
-
-            {!! Form::open(['action'=>['App\Http\Controllers\imgController@upload'],
-                'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}    
-                
-                {{Form::label('','Change Profile Picture',['class'=>'h2'])}}
-                {{Form::file('pfpImg',['class'=>'form-control h-10 w-100','id'=>'pfpImg'])}}
-                <div class="reg-button">
-                    <div class="d-flex">
-                        {{Form::submit('Upload Image',['class'=>'btn btn-dark textalign-center mt-5'])}}
-                    </div>
-            {!! Form::close() !!}
-
-                </div>  
-            </div>  
+      {!! Form::open(['action'=>'App\Http\Controllers\ProfileController@store',
+      'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
+      <div class="profpic text-center mb-5">
+          <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
+            <div class="profpic text-center mb-3">
+                <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
+                <a>User Type: 
+                <?php
+                $utype = Session::get('usertype');
+                    if($utype = 2){?>
+                        <b>Registered User</b>  
+                    <?php }?></a>
+            <div>
+                <a>User Status: <b>{{$data->user_status}}</b></a>
+            </div>
         </div>
       </div>
-
-      {!! Form::open(['action'=>'App\Http\Controllers\AdminProfileController@store',
-      'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
-
+     
+    
     <div class="reg-content">
         <div class="col-5">
             <fieldset disabled>
