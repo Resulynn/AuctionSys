@@ -26,7 +26,7 @@
                         </div>
                         <div class="col">
                             <div class="details">
-                                <h3><b>Name: XXX123</b></h3> 
+                                <h3><b>{{$item->id}}</b></h3> 
                                     <div class="item-det">
                                         <h5>Category: MEN'S TEES</h5>
                                         <h5>Size: M</h5>
