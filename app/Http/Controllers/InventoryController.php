@@ -78,10 +78,10 @@ class InventoryController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function show(Inventory $inventory)
+    public function show($id)
     {
         //
-        $item=Inventory::find($inventory);
+        $item=Inventory::find($id);
         return view('pages.productpage')->with('item',$item);
 
     }
