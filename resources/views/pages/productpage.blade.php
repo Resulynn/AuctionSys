@@ -18,20 +18,26 @@
                 </div>
             </div>
 
-             <div class="item">
-                <div class="item-container">
-                    <div class="row">
+             <div class="item ">
+                <div class="item-container ">
+                    <div class="row justify-content-center align-items-center">
                         <div class="col">
-                                <img src = "\img\sample6.jpg">
+                            <img
+                            src="/itemImages/{{$item->itemImg}}"
+                            class="card-img-top  mx-auto" 
+                            style="border-radius: 0%;
+                            width: 300px;
+                            height:300px;"
+                            />
                         </div>
                         <div class="col">
                             <div class="details">
-                                <h3><b>{{$item->id}}</b></h3> 
+                                <h3><b>{{$item->prodName}}</b></h3> 
                                     <div class="item-det">
-                                        <h5>Category: MEN'S TEES</h5>
+                                        <h5>Category: {{$item->category}}</h5>
                                         <h5>Size: M</h5>
-                                        <h5>Price: 999.99</h5>
-                                        <h5>Auction Ends On: MM/DD/YYYY 00:00 PM</h5>
+                                        <h5>Price: {{$item->initialPrice}} PHP</h5>
+                                        <h5>Auction Ends On: {{$item->created_at}}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +71,7 @@
                     <div class="buy-now">
                         <div class="row">
                             <div class="col">
-                                <h5>Buy for <b>999.99</b></h5>
+                                <h5>Buy for <b>{{$item->buyPrice}} PHP</b></h5>
                             </div>
                             <div class="col">
                                     <button type="button" class="btn btn-dark w-50">BUY NOW</button>

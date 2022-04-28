@@ -14,10 +14,11 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {   
+        $title = "Profile";
         $username = Session::get('username');
         $data = Users::where('username',$username)->first();
-        $title = "Profile";
         return view('profile.profile',compact('title'))->with('data',$data);
     }
 

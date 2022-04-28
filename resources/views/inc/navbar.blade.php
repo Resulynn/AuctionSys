@@ -65,7 +65,7 @@
     <div class="search-box justify-content-end">
      {{--  {!! Form::open(['action'=>'',
       'method'=>'POST']) !!} --}}
-      {{Form::text('search','',['class'=>'search form-control mr-sm-1','placeholder'=>'Search'])}}
+      {{Form::text('search','',['class'=>'search form-control mr-sm-1 ','style'=>'width:200px;','placeholder'=>'Search'])}}
       {{-- {!! Form::close() !!} --}}
     </div>
   </div>

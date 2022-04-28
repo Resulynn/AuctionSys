@@ -15,6 +15,7 @@ use App\Http\Controllers;
 
 
 
+
 Route::resource('/index','App\Http\Controllers\InventoryController');
 Route::resource('/item','App\Http\Controllers\InventoryController');
 Route::get('/store','App\Http\Controllers\PagesController@store');
@@ -24,8 +25,11 @@ Route::post('/login','App\Http\Controllers\LoginsController@login');
 Route::post('/logout','App\Http\Controllers\LogoutController@logout');
 Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
 
+Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
+
+
 //admin module
-Route::resource('/admin/index','App\Http\Controllers\InventoryController');
+Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex');
 Route::get('/add','App\Http\Controllers\PagesController@add');
 Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
 Route::get('/list','App\Http\Controllers\PagesController@list');

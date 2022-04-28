@@ -17,7 +17,8 @@ class InventoryController extends Controller
     {
         $title = "Home";
         $products= Inventory::all();
-        return view('pages.index')->with('products',$products);
+        return view('pages.index',compact('title'))->with('products',$products);
+       
     }
 
     /**
@@ -78,11 +79,12 @@ class InventoryController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function show(Inventory $inventory)
+    public function show($inventory)
     {
         //
-        $item=Inventory::find($inventory);
-        return view('pages.productpage')->with('item',$item);
+        $title = 'Product Page';
+        $item = Inventory::find($inventory);
+        return view('pages.productpage',compact('title'))->with('item',$item);
 
     }
 

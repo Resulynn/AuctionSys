@@ -1,6 +1,17 @@
 @extends('layout.app')
 
 @section('content')
+{{-- <a href="#index-modalbox" class="userloggedbtn">another sample</a>
+<div id="index-modalbox" class="modal">
+  <div class="index-modalcontent">
+      <h5>ARE YOU SURE YOU WANT TO LOGOUT?</h5>
+      
+      <a href="#" class="index-modalclose">Cancel</a>
+  </div>
+</div>
+ --}}
+  
+
 <div class="show text-center pt-4"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
     <p><a href ="/store" style="font-size: small;">SHOW MORE</a></p>
 </div>

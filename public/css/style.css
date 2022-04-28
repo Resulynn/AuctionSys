@@ -6,6 +6,41 @@
     color: black;
 }
 
+/*modals*/
+.modal{
+ justify-content: center;
+ align-items: center;
+ 
+  display: flex;
+  transition: all 0.4s;
+  visibility: hidden;
+  opacity: 0;
+}
+.modal:target{
+  visibility: visible;
+  opacity: 1;
+}
+
+.modalcontent{
+  background: #ffffff;
+  position:relative;
+  max-width: 90%;
+  padding: 1em 2em;
+  padding-top: 100px;
+  border: 2px #f0eeee solid;
+  text-align: center;
+}
+
+.modalclose{
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 36px;
+}
+
+
+/*modals*/
+
 .add-auc{
   min-height: 100%;
   height:auto !important;  
