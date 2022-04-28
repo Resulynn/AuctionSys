@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('layout.app')
 
     @section('content')
     @include('inc.usermenu')
