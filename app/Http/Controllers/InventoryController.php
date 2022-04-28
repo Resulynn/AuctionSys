@@ -15,9 +15,8 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $title = "Home";
-        $products= Inventory::all();
-        return view('pages.index')->with('products',$products);
+        $title = "Admin | Home";
+        return view('admin.index', compact('title'));
     }
 
     /**
@@ -119,4 +118,6 @@ class InventoryController extends Controller
     {
         //
     }
+
+    
 }

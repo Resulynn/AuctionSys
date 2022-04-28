@@ -64,6 +64,7 @@ class ProfileController extends Controller
         $username = Session::get('username');
         $data = Users::where('username',$username)->first();
         $title = "Profile Edit";
+        
         return view('profile.editProf',compact('title'))->with('data',$data);
     }
 
@@ -83,6 +84,11 @@ class ProfileController extends Controller
         
 
         $data->save();
+        $type = Session::get('usertype');
+
+        if($type == 'Administrator'){
+            return redirect('/admin/index')->with('success','Profile Updated.');
+        }
 
         return redirect('/profile')->with('success','Profile Updated.');
     }

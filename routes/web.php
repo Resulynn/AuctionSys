@@ -15,7 +15,7 @@ use App\Http\Controllers;
 
 
 
-Route::resource('/index','App\Http\Controllers\InventoryController');
+Route::resource('/index','App\Http\Controllers\storePageController');
 Route::resource('/item','App\Http\Controllers\InventoryController');
 Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
@@ -26,6 +26,7 @@ Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
 
 //admin module
 Route::resource('/admin/index','App\Http\Controllers\InventoryController');
+Route::resource('/admin/list','App\Http\Controllers\itemListController');
 Route::get('/add','App\Http\Controllers\PagesController@add');
 Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
 Route::get('/list','App\Http\Controllers\PagesController@list');
