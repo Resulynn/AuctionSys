@@ -6,7 +6,12 @@
   </div>
   <div class="list-group-flush mb-3">
     <a href="/admin/index" class="list-group-item list-group-item-action" aria-current="true">
-        ADD AUCTION
+        ADD ITEM
+    </a>
+  </div>
+  <div class="list-group-flush mb-3">
+    <a href="/admin/list" class="list-group-item list-group-item-action" aria-current="true">
+        ITEM LIST
     </a>
   </div>
   <div class="list-group-flush mb-3">

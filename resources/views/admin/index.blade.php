@@ -3,7 +3,7 @@
     <div class="add-auc mt-5 w-75 mb-5"  style="background-color:#f0eeee;">
        
             <div class="ms-2 mt-3  py-4">
-                <h2 class="px-5"><b>Add Auction</b></h2>
+                <h2 class="px-5"><b>Add Item</b></h2>
             </div>
             {!! Form::open(['action'=>'App\Http\Controllers\InventoryController@store',
             'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}

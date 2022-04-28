@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('content')
+<<<<<<< HEAD
 {{-- <a href="#index-modalbox" class="userloggedbtn">another sample</a>
 <div id="index-modalbox" class="modal">
   <div class="index-modalcontent">
@@ -12,6 +13,9 @@
  --}}
   
 
+=======
+<title>True North Garments</title>
+>>>>>>> 9115e1c38007ede0335d9ebe3b0da07f1275902a
 <div class="show text-center pt-4"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
     <p><a href ="/store" style="font-size: small;">SHOW MORE</a></p>
 </div>

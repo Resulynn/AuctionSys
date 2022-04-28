@@ -15,10 +15,15 @@ class InventoryController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $title = "Home";
         $products= Inventory::all();
         return view('pages.index',compact('title'))->with('products',$products);
        
+=======
+        $title = "Admin | Home";
+        return view('admin.index', compact('title'));
+>>>>>>> 9115e1c38007ede0335d9ebe3b0da07f1275902a
     }
 
     /**
@@ -121,4 +126,6 @@ class InventoryController extends Controller
     {
         //
     }
+
+    
 }
