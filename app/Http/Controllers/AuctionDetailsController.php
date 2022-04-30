@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Inventory;
 use Illuminate\Http\Request;
 
-class itemListController extends Controller
+class AuctionDetailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +12,11 @@ class itemListController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $data = Inventory::all();
-        $title = "Admin | Item List";
-        return view('admin.itemList', compact('title'))->with('data',$data);
+    {
+        $auctions = Inventory::all();
+        $title = "Admin | Auction List";
+        return view('admin.auctionList', compact('title'))->with('auctions',$auctions);
+       
     }
 
     /**
@@ -28,8 +28,6 @@ class itemListController extends Controller
     {
         //
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -45,21 +43,24 @@ class itemListController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Inventory  $inventory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Inventory $inventory)
+    public function show($id)
     {
-        //
+        $title = "Admin | Auction List";
+        $auction=Inventory::find($id);
+        $auctions = Inventory::all();
+        return view('admin.auctions')->with(compact('title','auction', 'auctions'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Inventory  $inventory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inventory $inventory)
+    public function edit($id)
     {
         //
     }
@@ -68,10 +69,10 @@ class itemListController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Inventory  $inventory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventory $inventory)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -79,13 +80,11 @@ class itemListController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Inventory  $inventory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inventory $inventory)
+    public function destroy($id)
     {
         //
     }
-
-
 }

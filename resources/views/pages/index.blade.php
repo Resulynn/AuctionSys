@@ -1,26 +1,13 @@
 @extends('layout.app')
 
 @section('content')
-<<<<<<< HEAD
-{{-- <a href="#index-modalbox" class="userloggedbtn">another sample</a>
-<div id="index-modalbox" class="modal">
-  <div class="index-modalcontent">
-      <h5>ARE YOU SURE YOU WANT TO LOGOUT?</h5>
-      
-      <a href="#" class="index-modalclose">Cancel</a>
-  </div>
-</div>
- --}}
-  
 
-=======
-<title>True North Garments</title>
->>>>>>> 9115e1c38007ede0335d9ebe3b0da07f1275902a
-<div class="show text-center pt-4"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
-    <p><a href ="/store" style="font-size: small;">SHOW MORE</a></p>
-</div>
+
 
 <div class ="container">
+  <div class="show text-center pt-4"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
+    <p><a href ="/store" style="font-size: small;">SHOW MORE</a></p>
+</div>
   <div id="carouselExampleIndicators" class="carousel slide pb-5" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -64,26 +51,30 @@
   @foreach($products as $prod)
         {{-- ITEM CARD CONTAINER --}}
             <div class="col-lg-4 pb-5">
-              <div class="card" style="border-radius: 0%;">
+              <div class="card" style="border-radius: 0%;  height:480px;">
                 <img
                   src="/itemImages/{{$prod->itemImg}}"
                   class="card-img-top  mx-auto" 
                   style="border-radius: 0%;
                   width: 300px;
-                  height:300px;"
+                  height: 300px;"
                 />
                 <div class="card-body">
                     <h5 class="card-title"><b>{{$prod->prodName}}</b></h5>
                     <p class="card-text">{{$prod->prodDeets}}</p>
-                    <b> <a href="/item/{{$prod->id}}"> VIEW AUCTION </a></b>
+                  
                 </div>
+                <div class="pb-5">
+                  <b> <a href="/item/{{$prod->id}}"> VIEW AUCTION </a></b>
+                </div>
+                
               </div>
             </div>
           {{-- ITEM CARD CONTAINER --}}
-    @endforeach
-  @else
-  <p> No Records Found! </p>
-@endif
+              @endforeach
+                @else
+                <p> No Records Found! </p>
+            @endif
           </div>
         </div>
       </div>

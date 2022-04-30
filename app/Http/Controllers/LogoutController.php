@@ -10,7 +10,7 @@ class LogoutController extends Controller
     //
     public function logout(){
         Session::forget('logged');
-        return redirect('/index')->with('success','Logged Out Successfully.');
+        return redirect('/login')->with('success','Logged Out Successfully.');
     }
 
    

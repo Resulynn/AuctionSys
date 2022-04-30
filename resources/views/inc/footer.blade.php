@@ -1,5 +1,5 @@
 
-<footer class="footer d-flex m-auto page-footer bg-light font-small blue  justify-content-center  pt-4">
+<footer class="footer d-flex m-auto page-footer bg-light font-small blue justify-content-center  pt-4">
     <div class="container-fluid text-left text-md-left">
       <div class="row">
         <div class="col-md-3 mb-md-0 mb-3">

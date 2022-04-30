@@ -32,10 +32,14 @@ Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
 Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex');
 Route::get('/add','App\Http\Controllers\PagesController@add');
 Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
-Route::get('/list','App\Http\Controllers\PagesController@list');
+Route::get('/admin/list','App\Http\Controllers\itemListController@index');
+Route::resource('/admin/auctionlist','App\Http\Controllers\AuctionDetailsController');
+Route::resource('/admin/auction','App\Http\Controllers\AuctionDetailsController');
+// Route::get('/search','App\Http\Controllers\itemListController@search');
 Route::get('/shipreq','App\Http\Controllers\PagesController@shipreq');
 Route::get('/shippings','App\Http\Controllers\PagesController@shippings');
 Route::get('/shipcomplete','App\Http\Controllers\PagesController@shipcomplete');
+
 
 
 
