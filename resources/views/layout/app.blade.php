@@ -13,7 +13,7 @@
 </head>
 <body>
     
-    <div class="sticky-top">
+    
         <?php 
         if(Session::get('logged') == 1){
         ?>
@@ -26,9 +26,11 @@
         <?php
         }
         ?>
-    </div> 
+   
     
-    @include('inc.navbar')
+         @include('inc.navbar')
+
+   
     @include('inc.messages')
         <?php 
         if(Session::get('logged') == 1){ ?>
