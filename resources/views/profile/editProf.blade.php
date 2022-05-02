@@ -1,7 +1,7 @@
 @extends('layout.app')
 
     @section('content')
-    @include('inc.usermenu')
+    {{-- @include('inc.usermenu') --}}
   <div class="reg mt-5">  
     <div class="d-flex ms-2 pt-5 py-4">
         <h2 class="px-5"><b> Edit Your Profile</b></h2>

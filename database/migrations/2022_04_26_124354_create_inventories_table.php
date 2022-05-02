@@ -22,7 +22,12 @@ return new class extends Migration
             $table->string('type');
             $table->float('initialPrice');
             $table->float('buyPrice');
+            // $table->integer('qty');
             $table->timestamps();
+        });
+
+        Schema::table('inventories', function (Blueprint $table) {
+            $table->integer('qty');
         });
     }
 
