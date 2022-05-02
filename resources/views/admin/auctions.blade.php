@@ -28,22 +28,21 @@
                 <div class="d-flex">
                     <div class="details mx-3">
                         <div class="item-det">
-                            <h5><b>Category:</b> {{$auction->category}}</h5>
-                            <h5><b>Initial Price:</b> {{$auction->initialPrice}} PHP</h5>
-                            <h5><b>Buy Price:</b> {{$auction->buyPrice}} PHP</h5>
-                            <h5><b>Auction Ends Date:</b> {{$auction->created_at}}</h5>
+                            <h6><b>Category:</b> {{$auction->category}}</h6>
+                            <h6><b>Initial Price:</b> {{$auction->initialPrice}} PHP</h6>
+                            <h6><b>Buy Price:</b> {{$auction->buyPrice}} PHP</h6>
+                            <h6><b>Auction Ends Date:</b> {{$auction->created_at}}</h6>
                         </div>
                     </div>
                     <div>
                         <div class="details mx-3">
                             <div class="item-det">
-                                <h5><b>Type:</b> {{$auction->type}}</h5>
-                                <h5><b>Status:</b> ACTIVE </h5>
-                                <h5><b>Time Left:</b> HH:MM:SS</h5>
-                                <h5><b>Highest Bid:</b> {{$auction->initialPrice}} PHP</h5>
-                                <h5><b>Highest Bidder:</b>  Juan Delacruz <br>
-                                    <b>UID:</b> 0123456
-                                </h5>
+                                <h6><b>Type:</b> {{$auction->type}}</h6>
+                                <h6><b>Status:</b> ACTIVE </h6>
+                                <h6><b>Time Left:</b> HH:MM:SS</h6>
+                                <h6><b>Highest Bid:</b> {{$auction->initialPrice}} PHP</h6>
+                                <h6><b>Highest Bidder:</b>  Juan Delacruz <br>
+                                    <b>UID:</b> 0123456 </h6>
                             </div>
                         </div>
                     </div>

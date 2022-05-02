@@ -24,7 +24,6 @@ Route::get('/login','App\Http\Controllers\PagesController@login');
 Route::post('/login','App\Http\Controllers\LoginsController@login');
 Route::post('/logout','App\Http\Controllers\LogoutController@logout');
 Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
-
 Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
 
 
@@ -35,11 +34,13 @@ Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
 Route::get('/admin/list','App\Http\Controllers\itemListController@index');
 Route::resource('/admin/auctionlist','App\Http\Controllers\AuctionDetailsController');
 Route::resource('/admin/auction','App\Http\Controllers\AuctionDetailsController');
-// Route::get('/search','App\Http\Controllers\itemListController@search');
 Route::get('/shipreq','App\Http\Controllers\PagesController@shipreq');
-Route::get('/shippings','App\Http\Controllers\PagesController@shippings');
-Route::get('/shipcomplete','App\Http\Controllers\PagesController@shipcomplete');
-
+Route::resource('/admin/shippings','App\Http\Controllers\ToShipController');
+Route::resource('/admin/shipped','App\Http\Controllers\ShippedController');
+Route::resource('/admin/toPay','App\Http\Controllers\ToPayController');
+Route::resource('/admin/completed','App\Http\Controllers\CompletedTransactionController');
+Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersController');
+// Route::get('/search','App\Http\Controllers\itemListController@search');
 
 
 

@@ -11,16 +11,24 @@
             <img src="/userPFP/{{$data->profileImage}}" width="30px" height="30px" style="object-fit: cover;" class="rounded-circle me-1" >
             <a href=""><b>{{$username}}</b></a> 
         </div>
-        <div class="dropdown-menu dropdown-menu-right my-2" style="border-radius: 0%; border:1px #f0eeee solid;  background-color:#ffffff;">
+        <div class="dropdown-menu dropdown-menu-right my-1" style="border-radius: 0%; border:1px #f0eeee solid;  background-color:#ffffff;">
             <div class="dropdown-item">
-                <a class="userloggedbtn" href="/adminprofile">Profile</a>
+                <a class="userloggedbtn" href="/profile">Profile</a>
             </div>
             <div class="dropdown-item">
                 {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout','method'=>'POST']) !!}
-                    {{Form::submit('Logout', ['class="userloggedbtn btn"'])}}
-                {!! Form::close() !!}
+                <a href="#modalbox" class="userloggedbtn">Logout</a>
+            </div>
+        </div>
+        <div id="modalbox" class="modal">
+            <div class="modalcontent my-5" style="width:450px; height:250px;">
+                <h5 class="pb-3">YOUR ACCOUNT WILL BE LOGGED OUT.</h5>
+                <div class="d-flex">
+                    {{Form::submit('OK', ['class'=>'userloggedbtn btn m-auto'])}}<br>
+                    <a href="#" class="modalclose" style="text-decoration: none;">&times;</a>
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
     </div>
 </div>
-

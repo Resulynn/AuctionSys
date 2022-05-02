@@ -20,27 +20,27 @@
     </a>
   </div>
   <div class="list-group-flush mb-3">
-    <a href="#" class="{{Request::is('admin/toShip') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+    <a href="/admin/shippings" class="{{Request::is('admin/shippings') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         TO SHIP
     </a>
   </div>
   <div class="list-group-flush mb-3">
-    <a href="#" class="{{Request::is('admin/shipped') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+    <a href="/admin/shipped" class="{{Request::is('admin/shipped') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         SHIPPED
     </a>
   </div>
   <div class="list-group-flush mb-3">
-    <a href="#" class="{{Request::is('admin/toPay') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+    <a href="/admin/toPay" class="{{Request::is('admin/toPay') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         TO PAY
     </a>
   </div>
   <div class="list-group-flush mb-3">
-    <a href="#" class="{{Request::is('admin/completed') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+    <a href="/admin/completed" class="{{Request::is('admin/completed') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         COMPLETED
     </a>
   </div>
   <div class="list-group-flush mb-3">
-    <a href="#" class="{{Request::is('admin/blocked') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+    <a href="/admin/blockedusers" class="{{Request::is('admin/blockedusers') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         BLOCKED USERS
     </a>
   </div>
