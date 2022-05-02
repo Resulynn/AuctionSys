@@ -47,6 +47,7 @@ class InventoryController extends Controller
             'type'=>'required',
             'initialPrice'=>'required',
             'buyPrice'=>'required',
+            'qty'=>'required',
         ]);
         $filename= $request->input('prodName').".".$request->file('itemImg')->getClientOriginalExtension();
         $request->file('itemImg')->storeAs('itemImages',$filename,'public_uploads');
@@ -66,6 +67,7 @@ class InventoryController extends Controller
         
         $data->initialPrice=$request->input('initialPrice');
         $data->buyPrice=$request->input('buyPrice');
+        $data->qty=$request->input('qty');
         $data->save();
 
         return redirect('/admin/index')->with('success','Item Added');

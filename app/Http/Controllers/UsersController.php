@@ -47,7 +47,7 @@ class UsersController extends Controller
             'uname'=>'required',
             'password'=>'required',
             'confPassword'=>'required',
-            'profileImage'=>'required',
+            'pfpImg'=>'required',
             
             //bday - to be concatinated
             'month'=>'required',
