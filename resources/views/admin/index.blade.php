@@ -63,8 +63,15 @@
                     <div class="row ms-2">
                         <a>Buyout Price</a>
                         {{Form::text('buyPrice','',
-                        ['class'=>'reg form-control mt-1 pt-1 ms-3',
+                        ['class'=>'reg form-control mt-1 pt-1 ms-3 my-3',
                         'placeholder'=>'Buy Out Price',
+                        'style'=>'border:none; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
+                    </div>
+                    <div class="row ms-2" style="">
+                        <a>Quantity</a>
+                        {{Form::number('qty','',
+                        ['class'=>'reg form-control mt-1 mb-3 ms-3',
+                        'placeholder'=>'Quantity',
                         'style'=>'border:none; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
                     </div>
                     <div class="ms-4 mt-4 text-align-center" style=" width:100%;">
