@@ -13,6 +13,9 @@
                   <th scope="col">Quantity</th>
                   <th scope="col">Starting Price</th>
                   <th scope="col">Buy Out Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
                 </tr>
             </thead>
             @foreach ($data as $info)
@@ -25,7 +28,14 @@
                   <td>{{$info->type}}</td>
                   <td>{{$info->qty}}</td>
                   <td>{{$info->initialPrice}}</td>
-                  <td>{{$info->buyPrice}}</td> 
+                  <td>{{$info->buyPrice}}</td>
+                  <td>{{$info->qty}}</td>  
+                  <td><a href="list/{{$info->id}}/edit">View</a></td>
+                  {!! Form::open(['action'=>['App\Http\Controllers\itemListController@destroy',$info->id],
+                  'method'=>'POST'])!!}
+                  {{ Form::hidden('_method','DELETE') }}
+                  <td>{{ Form::submit('Delete',['class' => 'small text-danger','style'=>'border:0;'])}}</td>
+                  {!! Form::close() !!} 
                 </tr>
             </tbody> 
            @endforeach
