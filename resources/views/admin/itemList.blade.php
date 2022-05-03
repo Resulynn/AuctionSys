@@ -10,6 +10,7 @@
                   <th scope="col">Details</th>
                   <th scope="col">Category</th>
                   <th scope="col">Type</th>
+                  <th scope="col">Quantity</th>
                   <th scope="col">Starting Price</th>
                   <th scope="col">Buy Out Price</th>
                 </tr>
@@ -22,6 +23,7 @@
                   <td>{{$info->prodDeets}}</td>
                   <td>{{$info->category}}</td>
                   <td>{{$info->type}}</td>
+                  <td>{{$info->qty}}</td>
                   <td>{{$info->initialPrice}}</td>
                   <td>{{$info->buyPrice}}</td> 
                 </tr>

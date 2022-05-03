@@ -17,15 +17,15 @@
             </div>
             <div class="dropdown-item">
                 {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout','method'=>'POST']) !!}
-                <a href="#modalbox" class="userloggedbtn">Logout</a>
+                <a href="#logout" class="userloggedbtn">Logout</a>
             </div>
         </div>
-        <div id="modalbox" class="modal">
+        <div id="logout" class="modal">
             <div class="modalcontent my-5" style="width:450px; height:250px;">
                 <h5 class="pb-3">YOUR ACCOUNT WILL BE LOGGED OUT.</h5>
                 <div class="d-flex">
                     {{Form::submit('OK', ['class'=>'userloggedbtn btn m-auto'])}}<br>
-                    <a href="#" class="modalclose" style="text-decoration: none;">&times;</a>
+                    <a href="#" class="modalclose pt-3" style="text-decoration: none; font-size:small;">CLOSE</a>
                     {!! Form::close() !!}
                 </div>
             </div>

@@ -13,10 +13,12 @@
               <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
                 <div class="profpic text-center mb-3">
                     <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
-                        <a>
+                        <label style="font-size: small;">
                             User Type: <b>{{Session::get('usertype')}}</b><br>
                             User Status: <b>{{$data->user_status}}</b>
-                        </a>
+                        </label>
+                            
+                        
                 </div>
           </div>
          
@@ -61,11 +63,11 @@
                         <label class="lead text-dark"> Birthday </label>                      
                                 {{Form::text('month',$data->bday,['class'=>'form-control','placeholder'=>'MM'])}}
                     </fieldset>
-                        <div class="reg-button">
-                            <div class="row mt-5 pt-5 justify-content-end">
-                                <a href="/profile/{{$data->username}}/edit" class= "btn btn-dark w-75 textalign-center" style="border-radius: 0%;">Edit Profile</a>
-                            </div>
-                        </div>
+                      
+                            <div class="row ms-3 mt-5 pt-5 justify-content-center">
+                                <a href="/profile/{{$data->username}}/edit" class= "edit-prof btn w-100 textalign-center" style="color:#ffffff !important; background-color:#121212; border-radius: 0%;">Edit Profile</a> 
+                            </div> 
+                       
                     </div>                
              {!! Form::close() !!}
             </div>

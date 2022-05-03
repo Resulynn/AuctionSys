@@ -78,17 +78,21 @@ body {
 
 
 * a:link{
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0) ; 
   text-decoration: none;
 }
 * a:hover{
-  text-decoration: underline;
+  text-decoration: underline ;
   text-underline-offset: 4px;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0)!important;
 }
 * a{
-  color: rgb(107, 107, 107);
+  color: rgb(107, 107, 107)!important; 
     font-size: small;
+}
+
+.edit-prof:hover{
+  text-decoration: none ;
 }
 
 .userloggedbtn{

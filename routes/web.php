@@ -49,3 +49,4 @@ Route::resource('/profile','App\Http\Controllers\ProfileController');
 Route::resource('/biddings','App\Http\Controllers\BiddingController');
 Route::post('/profiles','App\Http\Controllers\imgController@upload');
 Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController');
+Route::resource('/bag','App\Http\Controllers\BagController');

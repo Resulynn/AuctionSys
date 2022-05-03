@@ -13,7 +13,6 @@
 </head>
 <body>
     
-    
         <?php 
         if(Session::get('logged') == 1){
         ?>

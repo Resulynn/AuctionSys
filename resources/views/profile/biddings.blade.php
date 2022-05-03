@@ -1,10 +1,6 @@
 @extends('layout.app')
-@include('inc.userbar')
 
     @section('content')
-    
-   @include('inc.usermenu')
-
     <div class="reg">
         <div class="d-flex ms-2 mt-5 py-5">
             <h2 class="px-5"><b> Your Biddings </b></h2>
