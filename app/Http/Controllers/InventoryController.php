@@ -96,9 +96,9 @@ class InventoryController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inventory $inventory)
-    {
-        //
+    public function edit()
+    {   
+
     }
 
     /**

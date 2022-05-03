@@ -59,9 +59,11 @@ class itemListController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function edit(Inventory $inventory)
+    public function edit($id)
     {
-        //
+        $title = 'Edit Item';
+        $data= Inventory::find($id);
+        return view('admin.editItem',compact('title'))->with('data',$data);
     }
 
     /**
@@ -71,9 +73,22 @@ class itemListController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Inventory $inventory)
+    public function update(Request $request, $id)
     {
-        //
+        $input = Inventory::find($id);
+
+        $input->prodName=$request->prodName;
+        $input->prodDeets=$request->prodDeets;
+        $input->category=$request->category;
+        $input->type=$request->type;
+        $input->initialPrice=$request->initialPrice;
+        $input->buyPrice=$request->buyPrice;
+        $input->qty=$request->qty;
+
+        $input->save();
+
+
+        return redirect('/admin/list')->with('success','Item Updated. ');
     }
 
     /**
@@ -82,9 +97,11 @@ class itemListController extends Controller
      * @param  \App\Models\Inventory  $inventory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inventory $inventory)
+    public function destroy($id)
     {
-        //
+        $drop=Inventory::find($id);
+        $drop->delete();
+        return redirect('/admin/list')->with('error','Item Deleted');
     }
 
 

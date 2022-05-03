@@ -31,7 +31,7 @@ Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
 Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex');
 Route::get('/add','App\Http\Controllers\PagesController@add');
 Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
-Route::get('/admin/list','App\Http\Controllers\itemListController@index');
+Route::resource('/admin/list','App\Http\Controllers\itemListController');
 Route::resource('/admin/auctionlist','App\Http\Controllers\AuctionDetailsController');
 Route::resource('/admin/auction','App\Http\Controllers\AuctionDetailsController');
 Route::get('/shipreq','App\Http\Controllers\PagesController@shipreq');
@@ -41,6 +41,7 @@ Route::resource('/admin/toPay','App\Http\Controllers\ToPayController');
 Route::resource('/admin/completed','App\Http\Controllers\CompletedTransactionController');
 Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersController');
 // Route::get('/search','App\Http\Controllers\itemListController@search');
+Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage');
 
 
 
