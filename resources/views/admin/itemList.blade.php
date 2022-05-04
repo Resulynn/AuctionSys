@@ -1,7 +1,9 @@
 @extends('layout.admin')
     @section('content')
 
+    
     @foreach ($data as $info)
+    
     <div class="bg-white" style="width:100%; max-width:100%; border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
       <div class="list-group list-group-flush border-bottom scrollarea ">
           <div class="d-flex">
@@ -33,15 +35,30 @@
                 </div>
                 <div class="d-flex w-25 ms-3 align-items-center justify-content-center" >
                   <a href="list/{{$info->id}}/edit" class="userloggedbtn ps-3 pe-5" style="font-size: 15px;">Edit</a>
+
                     {!! Form::open(['action'=>['App\Http\Controllers\itemListController@destroy',$info->id],
                     'method'=>'POST'])!!}
+                    {{ Form::hidden('_method','DELETE') }}
                     {{ Form::submit('Delete',['class' => 'text-danger','style'=>'border:0; padding:0%;  background:none;'])}}
                     {!! Form::close() !!} 
+                  @if ($info->qty<1)
+                    <a class="userloggedbtn ps-3 pe-5" style="font-size: 15px;">Out Of Stock!</a>                      
+                  @else
+                    {!! Form::open(['action'=>['App\Http\Controllers\AuctionController@show',$info->id],
+                    'method'=>'POST'])!!}
+                    {{ Form::hidden('_method','GET') }}
+                    {{ Form::submit('Post',['class' => 'text-dark ps-2','style'=>'border:0; padding:0%;  background:none;'])}}
+                    {!! Form::close() !!} 
+                  @endif
+             
+                    
+
                 </div>
               </div>
             </div>
           </div>
         </div>
+
   @endforeach
 
   @endsection

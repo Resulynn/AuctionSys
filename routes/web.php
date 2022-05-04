@@ -42,6 +42,7 @@ Route::resource('/admin/completed','App\Http\Controllers\CompletedTransactionCon
 Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersController');
 // Route::get('/search','App\Http\Controllers\itemListController@search');
 Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage');
+Route::resource('/postItem','App\Http\Controllers\AuctionController');
 
 
 
