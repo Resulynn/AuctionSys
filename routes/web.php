@@ -43,12 +43,14 @@ Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersControll
 // Route::get('/search','App\Http\Controllers\itemListController@search');
 Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage');
 Route::resource('/postItem','App\Http\Controllers\AuctionController');
-
+Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController');
 
 
 //profile module
 Route::resource('/profile','App\Http\Controllers\ProfileController');
 Route::resource('/biddings','App\Http\Controllers\BiddingController');
 Route::post('/profiles','App\Http\Controllers\imgController@upload');
-Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController');
 Route::resource('/bag','App\Http\Controllers\BagController');
+Route::resource('/fundings','App\Http\Controllers\UserFundingsController');
+Route::resource('/orders','App\Http\Controllers\UserOrdersController');
+Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController');

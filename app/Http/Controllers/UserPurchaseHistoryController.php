@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Inventory;
+
 use Illuminate\Http\Request;
 
-class AuctionDetailsController extends Controller
+class UserPurchaseHistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +13,8 @@ class AuctionDetailsController extends Controller
      */
     public function index()
     {
-        $auctions = Inventory::where('aucStatus','=','1')->get();
-        $title = "Admin | Auction List";
-        return view('admin.auctionList', compact('title'))->with('auctions',$auctions);
-       
+        $title = "Purchase History";
+        return view('profile.purchasehistory', compact('title'));
     }
 
     /**
@@ -48,10 +46,7 @@ class AuctionDetailsController extends Controller
      */
     public function show($id)
     {
-        $title = "Admin | Auction List";
-        $auction=Inventory::find($id);
-        $auctions = Inventory::all();
-        return view('admin.auctions')->with(compact('title','auction', 'auctions'));
+        //
     }
 
     /**

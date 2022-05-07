@@ -38,6 +38,7 @@
                                         <h5>Size: M</h5>
                                         <h5>Price: {{$item->initialPrice}} PHP</h5>
                                         <h5>Auction Ends On: {{$item->created_at}}</h5>
+                                        {!! Form::time('auctionend', '', ['class'=>'form-control w-50']) !!}
                                     </div>
                                 </div>
                             </div>

@@ -76,7 +76,7 @@
                             </div>
                             <div class="ms-4 mt-4 text-align-center" style=" width:100%;">
                                 <div class="" style="display: inline-block; padding-inline-start:25%;">
-                                    {{Form::submit('ADD AUCTION',['class'=>'btn btn-dark w-100 ','style'=>'border-radius:0%;'])}}
+                                    {{Form::submit('ADD ITEM',['class'=>'btn btn-dark w-100 ','style'=>'border-radius:0%;'])}}
                                 </div>
                             </div>
                         </div>

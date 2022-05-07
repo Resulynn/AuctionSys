@@ -8,13 +8,13 @@
             <a href="/biddings">Biddings</a>
         </div>
         <div class="pt-4 pb-3 ps-4 pe-4">
-            <a href="#">Fundings</a>
+            <a href="/fundings">Fundings</a>
         </div>
         <div class="pt-4 pb-3 ps-4 pe-4">
-            <a href="#">My Orders</a>
+            <a href="/orders">My Orders</a>
         </div>
         <div class="pt-4 pb-3 ps-4 pe-4">
-            <a href="#">Purchase History</a>
+            <a href="/history">Purchase History</a>
         </div>
     </div>
 </div>

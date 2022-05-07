@@ -1,9 +1,10 @@
 @extends('layout.admin')
 
 
-@section('content')
+@section('content') 
+
 <div class="d-flex">
-    @include('inc.auctionlist')
+   @include('inc.auctionlist')
     <div class="item-container my-3 " 
          style="display: flex;
                 align-items: center;

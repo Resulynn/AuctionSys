@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('type');
             $table->float('initialPrice');
             $table->float('buyPrice');
-            $table->integer('qty');
+            $table->float('qty');
+            $table->integer('aucStatus');
             $table->timestamps();
         });
     }
