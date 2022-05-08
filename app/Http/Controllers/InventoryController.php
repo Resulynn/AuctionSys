@@ -58,7 +58,7 @@ class InventoryController extends Controller
         $data->prodDeets=$request->input('prodDeets');
         $data->category=$request->category;
         
-        if($request->category == 'Accessories' || $request->category == 'Others'){
+        if($request->category == 'A' || $request->category == 'O'){
             $data->type="N/A";
         }
         else{
