@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inventory;
 use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
+use App\Models\Auction;
 
 class InventoryController extends Controller
 {
@@ -15,9 +16,6 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $title = "Home";
-        $products= Inventory::all();
-        return view('pages.index',compact('title'))->with('products',$products);
        
     }
 
@@ -85,7 +83,7 @@ class InventoryController extends Controller
     {
         //
         $title = 'Product Page';
-        $item = Inventory::find($inventory);
+        $item = Auction::find($inventory);
         return view('pages.productpage',compact('title'))->with('item',$item);
 
     }

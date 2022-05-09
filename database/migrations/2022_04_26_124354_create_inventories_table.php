@@ -23,7 +23,6 @@ return new class extends Migration
             $table->float('initialPrice');
             $table->float('buyPrice');
             $table->float('qty');
-            $table->integer('aucStatus');
             $table->timestamps();
         });
     }

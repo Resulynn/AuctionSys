@@ -35,9 +35,12 @@
                                 <h3><b>{{$item->prodName}}</b></h3> 
                                     <div class="item-det">
                                         <h5>Category: {{$item->category}}</h5>
-                                        <h5>Size: M</h5>
+                                        <h5>Description:</h5>
+                                        <div class="border border-dark" style="width: 300px; height: 200px;">
+                                            <p>{{$item->prodDeets}}</p>
+                                        </div>
                                         <h5>Price: {{$item->initialPrice}} PHP</h5>
-                                        <h5>Auction Ends On: {{$item->created_at}}</h5>
+                                        <h5>Auction Ends On: {{$item->endDate}}</h5>
                                         {!! Form::time('auctionend', '', ['class'=>'form-control w-50']) !!}
                                     </div>
                                 </div>
@@ -50,7 +53,7 @@
                         <div class="col">
                             <div class="bidding-det">
                                 <h5>Your Max Bid: 999.99</h5>
-                                <h5>Starting Bid: 999.99</h5>
+                                <h5>Starting Bid: {{$item->initialPrice}}</h5>
                                 <h5>Highest Bid: 999.99</h5>
                             </div>
                         </div>
