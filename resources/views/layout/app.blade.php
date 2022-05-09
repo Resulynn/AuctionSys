@@ -19,6 +19,7 @@
         ?>
             @include('inc.userloggedbar')
             
+            
         <?php }
         else{
         ?>

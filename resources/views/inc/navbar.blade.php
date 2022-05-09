@@ -1,4 +1,5 @@
-<nav class="navbar text-center navbar-expand-lg ps-4" style="background-color: #f0eeee;">
+
+  <nav class="navbar  text-center navbar-expand-lg ps-4" style="background-color: #f0eeee;">
   <a class="navbar-brand" href="/index"><i class="bi bi-globe pe-2"></i> <b>True North Garments</b></a>
   
   <div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
@@ -70,3 +71,4 @@
     </div>
   </div>
 </nav>
+

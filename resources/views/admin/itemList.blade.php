@@ -14,7 +14,7 @@
           <div class="d-flex">
             <div class="d-flex">
               <img src="/itemImages/{{$info->itemImg}}" width="100px" height="100px" 
-                style="object-fit: cover; border:5px #f0eeee solid; margin:20px;" 
+                style="object-fit: cover; border:2px #f0eeee solid; margin:20px;" 
                 class="rounded-circle ">
             </div>  
               <div class="d-flex w-100">
@@ -53,7 +53,7 @@
                     {!! Form::open(['action'=>['App\Http\Controllers\AuctionController@show',$info->id],
                     'method'=>'POST'])!!}
                         {{ Form::hidden('_method','GET') }}
-                        {{ Form::submit('Post',['class' => 'userloggedbtn text-dark  mt-3 ps-2','style'=>'border:0; padding:0%;  background:none;'])}}
+                        {{ Form::submit('Post',['class' => 'userloggedbtn text-success  mt-3 ps-2','style'=>'border:0; padding:0%;  background:none;'])}}
                     {!! Form::close() !!} 
                   @endif
                 </div>
