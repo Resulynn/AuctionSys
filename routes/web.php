@@ -57,4 +57,12 @@ Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController')
 
 //store Pages
 
-Route::get('/store/men/tees','App\Http\Controllers\storePagesController@menTees');
+Route::get('/store/men/tops','App\Http\Controllers\storePagesController@menTops');
+Route::get('/store/men/bottoms','App\Http\Controllers\storePagesController@menPants');
+Route::get('/store/men/shorts','App\Http\Controllers\storePagesController@menShorts');
+Route::get('/store/men/footwear','App\Http\Controllers\storePagesController@menShoes');
+
+Route::get('/store/women/tops','App\Http\Controllers\storePagesController@womenTops');
+Route::get('/store/women/bottoms','App\Http\Controllers\storePagesController@womenPants');
+Route::get('/store/women/shorts','App\Http\Controllers\storePagesController@womenShorts');
+Route::get('/store/women/footwear','App\Http\Controllers\storePagesController@womenShoes');

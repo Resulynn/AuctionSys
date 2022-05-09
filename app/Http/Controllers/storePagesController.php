@@ -14,48 +14,54 @@ class storePagesController extends Controller
     }
 
     //Men
-    public function menTees(){
+    public function menTops(){
         $title = "Men | Tops";
         $where = ['category'=>'M','type'=>'T'];
         $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
     public function menPants(){
-        $title = "Men | Bottoms";
-        $products= Auction::all();
+        $where = ['category'=>'M','type'=>'P'];
+        $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
     public function menShorts(){
         $title = "Men | Shorts";
-        $products= Auction::all();
+        $where = ['category'=>'M','type'=>'S'];
+        $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
     public function menShoes(){
         $title = "Men | Footwear";
-        $products= Auction::all();
+        $where = ['category'=>'M','type'=>'Sh'];
+        $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
 
 
     //Women
-    public function womenTees(){
+    public function womenTops(){
         $title = "Women | Tops";
-        $products= Auction::all();
+        $where = ['category'=>'W','type'=>'T'];
+        $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
     public function womenPants(){
         $title = "Women | Bottoms";
-        $products= Auction::all();
+        $where = ['category'=>'W','type'=>'P'];
+        $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
     public function womenShorts(){
         $title = "Women | Shorts";
-        $products= Auction::all();
+        $where = ['category'=>'W','type'=>'S'];
+        $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
     public function womenShoes(){
         $title = "Women | Footwear";
-        $products= Auction::all();
+        $where = ['category'=>'W','type'=>'Sh'];
+        $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
 }
