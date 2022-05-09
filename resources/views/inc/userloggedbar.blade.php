@@ -6,7 +6,7 @@
     $data = Users::where('username',$username)->first();
 ?>
 
-<div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-2 px-4">
+    <div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-2 px-4">
     <div>
         <a href="/bag/{{$username}}" class="userloggedbtn btn" style="font-size: medium;">
             <i class="bi bi-bag pe-3"></i>
