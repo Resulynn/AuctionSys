@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Inventory;
+use App\Models\Auction;
 use Illuminate\Http\Request;
 
 class AuctionDetailsController extends Controller
@@ -13,7 +13,7 @@ class AuctionDetailsController extends Controller
      */
     public function index()
     {
-        $auctions = Inventory::where('aucStatus','=','1')->get();
+        $auctions = Auction::all();
         $title = "Admin | Auction List";
         return view('admin.auctionList', compact('title'))->with('auctions',$auctions);
        
@@ -49,8 +49,8 @@ class AuctionDetailsController extends Controller
     public function show($id)
     {
         $title = "Admin | Auction List";
-        $auction=Inventory::find($id);
-        $auctions = Inventory::all();
+        $auction=Auction::find($id);
+        $auctions = Auction::all();
         return view('admin.auctions')->with(compact('title','auction', 'auctions'));
     }
 

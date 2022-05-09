@@ -16,7 +16,7 @@ use App\Http\Controllers;
 
 
 
-Route::resource('/index','App\Http\Controllers\InventoryController');
+Route::get('/index','App\Http\Controllers\storePagesController@index');
 Route::resource('/item','App\Http\Controllers\InventoryController');
 Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
@@ -54,3 +54,7 @@ Route::resource('/bag','App\Http\Controllers\BagController');
 Route::resource('/fundings','App\Http\Controllers\UserFundingsController');
 Route::resource('/orders','App\Http\Controllers\UserOrdersController');
 Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController');
+
+//store Pages
+
+Route::get('/store/men/tees','App\Http\Controllers\storePagesController@menTees');
