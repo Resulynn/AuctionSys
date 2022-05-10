@@ -18,7 +18,6 @@
                             User Status: <b>{{$data->user_status}}</b>
                         </label>
                             
-                        
                 </div>
           </div>
          

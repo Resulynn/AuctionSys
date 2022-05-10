@@ -36,8 +36,8 @@
                 </span>
             </aside>
     
-            <div class="w-100"  style="text-align:center;">
-                <main class="content" style="display: inline-block;">
+            <div class="w-100">
+                <main class="content">
                     <span class="inner-text">
                         @yield('content')
                     </span>
@@ -46,8 +46,8 @@
         </div>
     <?php }
         else{ ?>
-            <div class="w-100"  style="text-align:center;">
-                <main class="content" style="display: inline-block;">
+            <div class="w-100">
+                <main class="content">
                     <span class="inner-text">
                         @yield('content')
                     </span>

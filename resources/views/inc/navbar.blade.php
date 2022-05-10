@@ -12,13 +12,13 @@
           <div class = "row px-2">
             <div class = "col">
               <a><b>READY TO WEAR</b></a> 
-                  <a class="dropdown-item" href="/store">Tees</a>
-                  <a class="dropdown-item" href="/store">Pants</a>
-                  <a class="dropdown-item" href="/store">Shorts</a>
+                  <a class="dropdown-item" href="/store/men/tops">Tees</a>
+                  <a class="dropdown-item" href="/store/men/bottoms">Pants</a>
+                  <a class="dropdown-item" href="/store/men/shorts">Shorts</a>
             </div>
             <div class = "col">
               <a><b>SHOES</b></a> 
-                  <a class="dropdown-item" href="/store">Sneakers</a>
+                  <a class="dropdown-item" href="/store/men/footwear">Sneakers</a>
             </div>
           </div>
         </div>
@@ -32,13 +32,13 @@
           <div class = "row px-2">
             <div class = col-sm-12>
               <a><b>READY TO WEAR</b></a> 
-                  <a class="dropdown-item" href="/store">Tees</a>
-                  <a class="dropdown-item" href="/store">Pants</a>
-                  <a class="dropdown-item" href="/store">Shorts</a>
+                  <a class="dropdown-item" href="/store/women/tops">Tees</a>
+                  <a class="dropdown-item" href="/store/women/bottoms">Pants</a>
+                  <a class="dropdown-item" href="/store/women/shorts">Shorts</a>
             </div>
             <div class = col-sm-12>
               <a><b>SHOES</b></a> 
-                  <a class="dropdown-item" href="/store">Sneakers</a>
+                  <a class="dropdown-item" href="/store/women/footwear">Sneakers</a>
             </div>
           </div>
         </div>

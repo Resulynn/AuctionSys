@@ -18,7 +18,6 @@ use App\Http\Controllers;
 
 Route::get('/index','App\Http\Controllers\storePagesController@index');
 Route::resource('/item','App\Http\Controllers\InventoryController');
-Route::get('/store','App\Http\Controllers\PagesController@store');
 Route::resource('/register','App\Http\Controllers\UsersController');
 Route::get('/login','App\Http\Controllers\PagesController@login');
 Route::post('/login','App\Http\Controllers\LoginsController@login');
@@ -56,7 +55,7 @@ Route::resource('/orders','App\Http\Controllers\UserOrdersController');
 Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController');
 
 //store Pages
-
+Route::get('/store','App\Http\Controllers\storePagesController@store_index');
 Route::get('/store/men/tops','App\Http\Controllers\storePagesController@menTops');
 Route::get('/store/men/bottoms','App\Http\Controllers\storePagesController@menPants');
 Route::get('/store/men/shorts','App\Http\Controllers\storePagesController@menShorts');

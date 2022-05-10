@@ -10,18 +10,20 @@
 
                       @foreach ($products as $item)
                           <div class="col-lg-4">
-                        <div class="card">
+                        <div class="card" style="border-radius: 0%;  height:480px;">
                           <img
                             src="/itemImages/{{$item->itemImg}}"
-                            class="card-img-top"
-                            alt="Waterfall"
+                            class="card-img-top mx-auto"
+                            style="border-radius: 0%;
+                                  width: 300px;
+                                  height: 300px;"
                           />
                           <div class="card-body">
                             <h5 class="card-title">{{$item->prodName}}</h5>
                             <p class="card-text">
                             {{$item->prodDeets}}
                             </p>
-                            <b> <a href="/productpage"> VIEW AUCTION </a></b>
+                            <b> <a href="/item/{{$item->id}}"> VIEW AUCTION </a></b>
                           </div>
                         </div>
                       </div>

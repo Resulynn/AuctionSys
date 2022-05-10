@@ -48,7 +48,7 @@
                          'style'=>' background:none;'])}}
                     {!! Form::close() !!} 
                   @if ($info->qty<1)
-                    <a class="userloggedbtn ps-3 pe-5" style="font-size: 15px;">Out Of Stock!</a>                      
+                    <a class="userloggedbtn text-danger" style="text-decoration: none;">Out Of Stock!</a>                      
                   @else
                     {!! Form::open(['action'=>['App\Http\Controllers\AuctionController@show',$info->id],
                     'method'=>'POST'])!!}

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inventory;
+
+use App\Models\Auction;
 use Illuminate\Http\Request;
 
 class storePageController extends Controller
@@ -15,7 +16,7 @@ class storePageController extends Controller
     public function index()
     {
         $title = "Home";
-        $products= Inventory::all();
+        $products= Auction::where('aucStatus','=',1)->get();
         return view('pages.index', compact('title'))->with('products',$products);
     }
 

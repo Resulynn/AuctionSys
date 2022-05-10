@@ -13,7 +13,7 @@ class AuctionDetailsController extends Controller
      */
     public function index()
     {
-        $auctions = Auction::all();
+        $auctions = Auction::where('aucStatus','=',1)->get();
         $title = "Admin | Auction List";
         return view('admin.auctionList', compact('title'))->with('auctions',$auctions);
        
@@ -50,7 +50,7 @@ class AuctionDetailsController extends Controller
     {
         $title = "Admin | Auction List";
         $auction=Auction::find($id);
-        $auctions = Auction::all();
+        $auctions = Auction::where('aucStatus','=',1)->get();
         return view('admin.auctions')->with(compact('title','auction', 'auctions'));
     }
 
