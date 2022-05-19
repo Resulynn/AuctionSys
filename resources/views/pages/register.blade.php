@@ -38,7 +38,7 @@
                 </div>
                 <div class="row ms-2">
                     {{Form::label('phone num','Phone Number',['class'=>'lead text-dark'])}}
-                    {{Form::number('pnum','',['class'=>'form-control','placeholder'=>'Phone Number'])}}
+                    {{Form::text('pnum','',['class'=>'form-control','placeholder'=>'Phone Number'])}}
                 </div>
                 <div class="row ms-2">
                     {{Form::label('address','Address',['class'=>'lead text-dark'])}}
