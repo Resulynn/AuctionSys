@@ -9,7 +9,7 @@
                     <div class="row">
 
                       @foreach ($products as $item)
-                          <div class="col-lg-4">
+                      <div class="col-lg-4 mb-5">
                         <div class="card" style="border-radius: 0%;  height:480px;">
                           <img
                             src="/itemImages/{{$item->itemImg}}"

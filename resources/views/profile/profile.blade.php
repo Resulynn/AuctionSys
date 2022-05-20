@@ -2,25 +2,26 @@
 @extends('layout.app')
 
     @section('content')
-    <div class="reg">
-        <div class="d-flex  mt-5 py-5">
+    <div class="reg mt-5">
+        <div class="d-flex   py-3">
             <h3 class="px-5"><b> Your Profile</b></h3>
         </div>
 
           {!! Form::open(['action'=>'App\Http\Controllers\ProfileController@store',
           'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
-          <div class="profpic text-center mb-5">
-              <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
-                <div class="profpic text-center mb-3">
-                    <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
-                        <label style="font-size: small;">
-                            User Type: <b>{{Session::get('usertype')}}</b><br>
-                            User Status: <b>{{$data->user_status}}</b>
-                        </label>
-                            
-                </div>
+          <div class="profpic text-center mb-3">
+            <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
+            <div class="profpic text-center mb-3">
+                <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
+                <label style="font-size: small;">
+                    User Type: <b>{{Session::get('usertype')}}</b><br>
+                    User Status: <b>{{$data->user_status}}</b>
+                </label>
+            </div>
           </div>
-         
+          <div class="d-flex w-100 justify-content-center align-items-center mb-3">
+            <a href="/profile/{{$data->username}}/edit" class= "edit-prof btn w-25 textalign-center" style="color:#ffffff !important; background-color:#121212; border-radius: 0%;">Edit Profile</a> 
+        </div> 
         
         <div class="reg-content">
             <div class="col-5">
@@ -63,9 +64,7 @@
                                 {{Form::text('month',$data->bday,['class'=>'form-control','placeholder'=>'MM'])}}
                     </fieldset>
                       
-                            <div class="row ms-3 mt-5 pt-5 justify-content-center">
-                                <a href="/profile/{{$data->username}}/edit" class= "edit-prof btn w-100 textalign-center" style="color:#ffffff !important; background-color:#121212; border-radius: 0%;">Edit Profile</a> 
-                            </div> 
+                          
                        
                     </div>                
              {!! Form::close() !!}

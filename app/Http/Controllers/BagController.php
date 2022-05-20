@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\Models\Auction;
 class BagController extends Controller
 {
     /**
@@ -83,4 +84,6 @@ class BagController extends Controller
     {
         //
     }
+    
+
 }

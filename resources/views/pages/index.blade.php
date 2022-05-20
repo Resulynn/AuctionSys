@@ -99,26 +99,35 @@
                   <a href="/store">SEE MORE</a>
                 </div>
               </div>
-        {{-- ITEM CARD CONTAINER --}}
-              <div class="col-lg-4">
-                <div class="card" style="border-radius: 0%;">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/new/standard/nature/181.webp"
-                    class="card-img-top"
-                    style="border-radius: 0%;"
-                    alt="Waterfall"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">Sample Shirt</h5>
-                        <p class="card-text">
-                          Some quick example text to build on the card title and make up the bulk
-                          of the card's content.
-                        </p>
-                    <b> <a href="/productpage"> VIEW AUCTION </a></b>
-                  </div>
-                </div>
-              </div>
-        {{-- ITEM CARD CONTAINER --}}
+
+              @if(count($products)>0)
+              @foreach($products as $prod)
+                    {{-- ITEM CARD CONTAINER --}}
+                        <div class="col-lg-4 pb-5">
+                          <div class="card" style="border-radius: 0%;  height:480px;">
+                            <img
+                              src="/itemImages/{{$prod->itemImg}}"
+                              class="card-img-top  mx-auto" 
+                              style="border-radius: 0%;
+                              width: 300px;
+                              height: 300px;"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title"><b>{{$prod->prodName}}</b></h5>
+                                <p class="card-text">{{$prod->prodDeets}}</p>
+                              
+                            </div>
+                            <div class="pb-5">
+                              <b> <a href="/item/{{$prod->id}}"> VIEW AUCTION </a></b>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      {{-- ITEM CARD CONTAINER --}}
+                          @endforeach
+                            @else
+                            <p> No Records Found! </p>
+                        @endif
             </div>
           </div>
         </div>

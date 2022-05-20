@@ -3,7 +3,7 @@
     @section('content')
     {{-- @include('inc.usermenu') --}}
   <div class="reg mt-5">  
-    <div class="d-flex ms-2 pt-5 py-4">
+    <div class="d-flex ms-2  pt-3">
         <h2 class="px-5"><b> Edit Your Profile</b></h2>
     </div>
         <div class="py-1 text-center">
@@ -12,14 +12,12 @@
                         <div class="profpic text-center mb-3">
                             <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
                             <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
-                            <a>
+                            <small>
                                 User Type: <b>{{Session::get('usertype')}}</b><br>
                                 User Status: <b>{{$data->user_status}}</b>
-                            </a>
+                            </small>
                         </div>
-                        
-                       <a>Upload Profile Picture</a> 
-                          
+                        <small>Upload Profile Picture</small> 
                         <div class="text-center pb-4 d-flex align-items-center justify-content-center">
                                 {{Form::file('pfpImg',['class'=>'form-control w-25 me-3','id'=>'pfpImg'])}}
                                 <div class="save-prof">

@@ -29,8 +29,8 @@
                     </label>
                 </div>
                 <div class="policy col">
-                   <p>By logging in, you agree to our <a href="/privacypolicy"><b>Privacy Policy</b></a>
-                    and <a href="/termsandcondition"> <b>Terms & Condition.</b></a></p>
+                   <p>By logging in, you agree to our <b> <a href="/privacypolicy">Privacy Policy</a></b>
+                    and <b><a href="/termsandcondition"> Terms & Condition.</a></b></p>
                 </div>
             </div>
             <div class="button col pt-4">

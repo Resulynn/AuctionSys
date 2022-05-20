@@ -10,7 +10,7 @@ class storePagesController extends Controller
     public function index(){
         $title = "Home";
         // $products= Auction::all()->take(5);
-        $products= Auction::where('aucStatus','=',1)->take(5)->orderBy('id', 'DESC')->get();
+        $products= Auction::where('aucStatus','=',1)->take(6)->orderBy('id', 'DESC')->get();
         return view('pages.index',compact('title'))->with('products',$products);
     }
 

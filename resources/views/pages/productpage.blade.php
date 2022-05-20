@@ -2,7 +2,7 @@
     @section('content')
   
     <div class="bidding">
-        <div class="bidding-container">
+        <div class="bidding-container py-5 my-5">
             <div class="row">
                 <div class="col">
                     <div class="title">
@@ -24,7 +24,7 @@
                         <div class="col">
                             <img
                             src="/itemImages/{{$item->itemImg}}"
-                            class="card-img-top  mx-auto" 
+                            class="card-img-top" 
                             style="border-radius: 0%;
                             width: 300px;
                             height:300px;"
@@ -32,59 +32,62 @@
                         </div>
                         <div class="col">
                             <div class="details">
-                                <h3><b>{{$item->prodName}}</b></h3> 
-                                    <div class="item-det">
-                                        <h5>Category: {{$item->category}}</h5>
-                                        <h5>Description:</h5>
-                                        <div class="border border-dark" style="width: 300px; height: 200px;">
-                                            <p>{{$item->prodDeets}}</p>
-                                        </div>
-                                        <h5>Price: {{$item->initialPrice}} PHP</h5>
-                                        <h5>Auction Ends On: {{$item->endDate}}</h5>
-                                        {!! Form::time('auctionend', '', ['class'=>'form-control w-50']) !!}
-                                    </div>
+                                <div class="d-flex  align-items-center">
+                                     <h3><b>{{$item->prodName}}</b></h3>
+                                    <a href="/store" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus"></i></a>
+                                </div>
+                                <div class="item-det">
+                                    <h5>Category: {{$item->category}}</h5>
+                                    <h5>Description:</h5>
+                                    <small><p class="pe-5" style="width: 500px; max-width:100%;">{{$item->prodDeets}} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, iusto nulla iure dolorem quas odio harum dignissimos facilis, suscipit minus praesentium quidem rerum blanditiis quis atque mollitia et eos repellat?</p></small>
+                                    <div class="d-flex w-100 m-auto align-items-center">
+                                        <h5 class="me-1">Price:</h5>
+                                        <h5 style="color: black; font-weight:bold;">{{$item->initialPrice}} PHP</h5>
+                                    </div> 
+                                    <h5 class="d-flex align-items-center">Auction Ends On: {!! Form::time('auctionend', '', ['class'=>'form-control w-50 ms-3']) !!}</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container w-75 py-5">
+            </div>
+            <div class="container w-75 py-5">
+                <div class="row">
+                    <div class="col">
+                        <div class="bidding-det">
+                            <h5>Your Max Bid: 999.99</h5>
+                            <h5>Starting Bid: {{$item->initialPrice}}</h5>
+                            <h5>Highest Bid: 999.99</h5>
+                        </div>
+                    </div>
+                
+                    <div class="col">
+                        <div class="bid-amt">
+                                <h5>Enter your Bidding Amount</h5>
+                                <input type = "number" name = "number">
+                            <div class="button">
+                                <button type="button" class="btn btn-dark w-50">PLACE BID</button>
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
+                <hr>
+            </div>
+            OR
+            <div class="container w-75">
+                <div class="buy-now">
                     <div class="row">
                         <div class="col">
-                            <div class="bidding-det">
-                                <h5>Your Max Bid: 999.99</h5>
-                                <h5>Starting Bid: {{$item->initialPrice}}</h5>
-                                <h5>Highest Bid: 999.99</h5>
-                            </div>
+                            <h5>Buy for <b>{{$item->buyPrice}} PHP</b></h5>
                         </div>
-                    
                         <div class="col">
-                            <div class="bid-amt">
-                                    <h5>Enter your Bidding Amount</h5>
-                                    <input type = "number" name = "number">
-                                <div class="button">
-                                    <button type="button" class="btn btn-dark w-50">PLACE BID</button>
-                                </div>
-                            </div>
-                        </div>  
-                    </div> 
-                    <hr>
-                </div>
-                OR
-                <div class="container w-75">
-                    <div class="buy-now">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Buy for <b>{{$item->buyPrice}} PHP</b></h5>
-                            </div>
-                            <div class="col">
-                                    <button type="button" class="btn btn-dark w-50">BUY NOW</button>
-                            </div>
+                                <button type="button" class="btn btn-dark w-50">BUY NOW</button>
                         </div>
                     </div>
                 </div>
-            </div>  
-        </div>
+            </div>
+        </div>  
+    </div>
 
 
         

@@ -38,24 +38,26 @@
                     </small>
                   </ul>
                 </div>
-                <div class="d-flex w-50  align-items-center justify-content-center">
-                     <a href="list/{{$info->id}}/edit" class="userloggedbtn me-5" style="">Edit</a>
+                <div class="d-flex w-100 align-items-center">
+                  <div class="d-flex w-100 m-auto">
+                     <a href="list/{{$info->id}}/edit" class="userloggedbtn d-flex align-items-center justify-content-center mx-5" style="width:100px; ">Edit</a>
                     {!! Form::open(['action'=>['App\Http\Controllers\itemListController@destroy',$info->id],
                     'method'=>'POST'])!!}
                         {{ Form::hidden('_method','DELETE') }}
                         {{ Form::submit('Delete',
-                        ['class' => 'text-danger userloggedbtn me-5 mt-3',
+                        ['class' => 'text-danger userloggedbtn  me-5 mt-3 w-100',
                          'style'=>' background:none;'])}}
                     {!! Form::close() !!} 
                   @if ($info->qty<1)
-                    <a class="userloggedbtn text-danger" style="text-decoration: none;">Out Of Stock!</a>                      
+                    <small class="text-danger ms-5 d-flex align-items-center justify-content-center">Out Of Stock!</small>                      
                   @else
                     {!! Form::open(['action'=>['App\Http\Controllers\AuctionController@show',$info->id],
                     'method'=>'POST'])!!}
                         {{ Form::hidden('_method','GET') }}
-                        {{ Form::submit('Post',['class' => 'userloggedbtn text-success  mt-3 ps-2','style'=>'border:0; padding:0%;  background:none;'])}}
+                        {{ Form::submit('Post',['class' => 'userloggedbtn text-success ms-5 mt-3 ','style'=>'border:0; padding:0%;  background:none;'])}}
                     {!! Form::close() !!} 
                   @endif
+                  </div>
                 </div>
               </div>
             </div>

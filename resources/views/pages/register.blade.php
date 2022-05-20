@@ -4,13 +4,12 @@
    
     {!! Form::open(['action'=>'App\Http\Controllers\UsersController@store',
     'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
-    <div class="reg">
-
-        <div class="d-flex ms-2 mt-5 py-5">
+    <div class="reg mt-5">
+        <div class="d-flex ms-2 mt-5 ">
             <h2 class="px-5"><b> CREATE YOUR ACCOUNT </b></h2>
         </div>
 
-        <div class="mb-3 px-3" style="width: 500px; margin-left:70px" >
+        <div class="my-3 px-3" style="width: 500px; margin-left:70px" >
             <div class="py-1">
                 <img src="" width="150px" height="150px" >
             </div>

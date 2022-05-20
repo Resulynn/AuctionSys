@@ -27,7 +27,7 @@
         </div>
 
     <?php } ?>
-
+<div class="justify-content-center d-flex">
     <?php if(Session::get('logged') == 1){ ?>
         <div class="store-content">
             <aside class="sidebar">
@@ -54,7 +54,7 @@
                 </main>
             </div>
       <?php } ?>
-        
+    </div>
             
     @include('inc.footer')
     <script src="\js\modals.js"></script>
