@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Users;
 use App\Http\Requests\StoreUsersRequest;
 use App\Http\Requests\UpdateUsersRequest;
+use Illuminate\Validation\Rules\Password;
 
 class UsersController extends Controller
 {
@@ -41,11 +42,19 @@ class UsersController extends Controller
             'fname'=>'required',
             'lname'=>'required',
             'email'=>'required',
-            'pnum'=>'required',
+            'pnum'=>['required','regex:/^(09|\+639)\d{9}$/u'],
             'add'=>'required',
             'zipcode'=>'required',
             'uname'=>'required',
-            'password'=>'required',
+            'password'=>['required',
+                Password::min(8)
+                ->mixedCase() // allows both uppercase and lowercase
+                ->letters() //accepts letter
+                ->numbers() //accepts numbers
+                ->symbols() //accepts special character
+                ->uncompromised(),//check to be sure that there is no data leak
+    ],
+
             'confPassword'=>'required',
             'pfpImg'=>'required',
             
@@ -54,6 +63,7 @@ class UsersController extends Controller
             'day'=>'required',
             'year'=>'required',
         ]);
+
 
         $bdd = $request->input('day');
         $bmm = $request->input('month');
