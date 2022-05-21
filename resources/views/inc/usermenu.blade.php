@@ -1,6 +1,6 @@
 
-<div class="usermenu d-flex align-items-stretch flex-row justify-content-center">
-    <div class="usermenu-container d-flex  mt-5 w-50 justify-content-center">
+<div class="usermenu d-flex align-items-stretch flex-row justify-content-center ">
+    <div class="usermenu-container d-flex  mt-5 justify-content-center">
         <div class="pt-4 pb-3 ps-4 pe-4">
             <a href="/profile">Profile</a>
         </div>

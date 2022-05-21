@@ -1,9 +1,5 @@
-
 @extends('layout.admin')
     @section('content')
-
- 
-    
     <div class="bg-white" style="width:100%; max-width:100%; border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
       <a href="/admin/list" class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
         
@@ -40,22 +36,34 @@
                 </div>
                 <div class="d-flex w-100 align-items-center">
                   <div class="d-flex w-100 m-auto">
-                     <a href="list/{{$info->id}}/edit" class="userloggedbtn d-flex align-items-center justify-content-center mx-5" style="width:100px; ">Edit</a>
-                    {!! Form::open(['action'=>['App\Http\Controllers\itemListController@destroy',$info->id],
-                    'method'=>'POST'])!!}
+                    <div>
+                      <a href="list/{{$info->id}}/edit" class="userloggedbtn ms-5 px-5">Edit</a>
+                    </div>
+                     <div>
+                        {!! Form::open(['action'=>['App\Http\Controllers\itemListController@destroy',$info->id],
+                       'method'=>'POST'])!!}
                         {{ Form::hidden('_method','DELETE') }}
                         {{ Form::submit('Delete',
-                        ['class' => 'text-danger userloggedbtn  me-5 mt-3 w-100',
-                         'style'=>' background:none;'])}}
-                    {!! Form::close() !!} 
+                        ['class' => 'text-danger userloggedbtn px-5 w-100',
+                         'style'=>' background:none;
+                                    border-right: 1px #b6b5b5 solid;
+                                    border-left: 1px #b6b5b5 solid;'])}}
+                       {!! Form::close() !!} 
+                     </div>
+                  
+
                   @if ($info->qty<1)
-                    <small class="text-danger ms-5 d-flex align-items-center justify-content-center">Out Of Stock!</small>                      
+                  <div>
+                    <small class="text-danger ms-5 ">Out Of Stock!</small>  
+                  </div>                    
                   @else
+                  <div>
                     {!! Form::open(['action'=>['App\Http\Controllers\AuctionController@show',$info->id],
                     'method'=>'POST'])!!}
                         {{ Form::hidden('_method','GET') }}
-                        {{ Form::submit('Post',['class' => 'userloggedbtn text-success ms-5 mt-3 ','style'=>'border:0; padding:0%;  background:none;'])}}
+                        {{ Form::submit('Post',['class' => 'btn userloggedbtn text-success ms-5'])}}
                     {!! Form::close() !!} 
+                  </div>
                   @endif
                   </div>
                 </div>
@@ -67,6 +75,7 @@
         
 
   @endforeach
+
 {{--   <a class="btn userloggedbtn" id="open">Logout</a>
 
 
@@ -82,4 +91,4 @@
  --}}
 
   @endsection
-  <script src="\resources\js\modals.js"></script>
+  

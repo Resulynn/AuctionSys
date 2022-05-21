@@ -1,4 +1,13 @@
-<script src="\resources\js\modals.js"></script>
+<div class="mdl_container" id="mdl_container">
+    <div class="mdl">
+    <h5>ARE YOU SURE YOU WANT TO LOGOUT?</h5>
+    {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout','method'=>'POST']) !!}
+    {{Form::submit('OK', ['class'=>'btn userloggedbtn text-danger m-auto py-2'])}}<br>
+    {!! Form::close() !!} 
+        <a class="btn userloggedbtn" id="close">CANCEL</a>
+    </div>
+</div> 
+
 <?php
     use App\Models\Users;
     $username = Session::get('username');
@@ -8,7 +17,7 @@
     <div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-2 px-4">
     <div>
         <a href="/bag/{{$username}}" class="userloggedbtn btn" style="font-size: medium;">
-            <small>( 1 )</small>
+            <label style="font-size: 11px;">( 0 )</label>
             <i class="bi bi-bag pe-2"></i> 
         </a>
     </div>
@@ -25,18 +34,8 @@
                     <a class="btn userloggedbtn" id="open">Logout</a>
                 </div>
             </div>
-                
-                <div class="mdl_container" id="mdl_container">
-                    <div class="mdl">
-                    <h5>ARE YOU SURE YOU WANT TO LOGOUT?</h5>
-                        {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout','method'=>'POST']) !!}
-                        {{Form::submit('OK', ['class'=>'userloggedbtn text-danger btn m-auto py-2'])}}<br>
-                        {!! Form::close() !!} 
-                        <a class="btn userloggedbtn" id="close">CANCEL</a>
-                    </div>
-                </div> 
-            </div>
         </div>
+    </div>
 
 
 

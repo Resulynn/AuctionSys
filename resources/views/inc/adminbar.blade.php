@@ -25,7 +25,7 @@
                     <div class="mdl">
                     <h5>ARE YOU SURE YOU WANT TO LOGOUT?</h5>
                     {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout','method'=>'POST']) !!}
-                    {{Form::submit('OK', ['class'=>'userloggedbtn text-danger m-auto py-2'])}}<br>
+                    {{Form::submit('OK', ['class'=>'btn userloggedbtn text-danger m-auto py-2'])}}<br>
                     {!! Form::close() !!} 
                     <a class="btn userloggedbtn" id="close">CANCEL</a>
                     </div>

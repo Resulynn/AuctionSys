@@ -1,5 +1,6 @@
 @extends('layout.admin')
     @section('content')
+ 
     <div class="d-flex justify-content-center align-items-center">
         <div class="add-auc ms-5 my-5 w-75"  style="background-color:#f0eeee;">
                     <div class="ms-2 mt-3  py-4">

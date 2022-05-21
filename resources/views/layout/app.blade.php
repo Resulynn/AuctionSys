@@ -13,13 +13,11 @@
 </head>
 
 <body>
-    
+    <div class="sticky-top">
         <?php 
         if(Session::get('logged') == 1){
         ?>
             @include('inc.userloggedbar')
-            
-            
         <?php }
         else{
         ?>
@@ -31,12 +29,12 @@
         if(Session::get('logged') == 1){ ?>
             @include('inc.usermenu')
         <?php }?>
-    
- <div class="justify-content-center">
-    @yield('content')
- </div>
+     </div>
+    <div class="justify-content-center">
+        @yield('content')
+    </div>
    
-    @include('/inc.footer')
+    @include('inc.footer')
     <script src="\js\modals.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -44,5 +42,6 @@
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
 </body>
 </html>
