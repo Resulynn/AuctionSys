@@ -1,14 +1,12 @@
 <script src="\resources\js\modals.js"></script>
 <?php
     use App\Models\Users;
-
     $username = Session::get('username');
     $data = Users::where('username',$username)->first();
 ?>
 
     <div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-2 px-4">
     <div>
-       
         <a href="/bag/{{$username}}" class="userloggedbtn btn" style="font-size: medium;">
             <small>( 1 )</small>
             <i class="bi bi-bag pe-2"></i> 
@@ -21,12 +19,10 @@
             </div>
             <div class="dropdown-menu dropdown-menu-right my-1" style="border-radius: 0%; border:1px #f0eeee solid;  background-color:#ffffff;">
                 <div class="dropdown-item">
-                    <div class="mb-1">
-                        <a class="userloggedbtn" href="/profile">Profile</a>
-                    </div>
-                    <div class="">
-                        <a class="btn userloggedbtn" id="open">Logout</a>
-                    </div>
+                    <a class="userloggedbtn" href="/profile">Profile</a>
+                </div>
+                <div class="dropdown-item">
+                    <a class="btn userloggedbtn" id="open">Logout</a>
                 </div>
             </div>
                 

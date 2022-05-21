@@ -18,10 +18,14 @@ class LoginController extends Controller
      */
     public function index()
     {
-        $title = "Login";
-        return view('pages.login',compact('title'));
+        if(Session::get('logged') == 1) {
+            return redirect('/index')->with('error','error.');
+         }
+         else{
+            $title = "Login";
+            return view('pages.login',compact('title'));
+         }
     }
-
 
     /**
      * Show the form for creating a new resource.

@@ -34,7 +34,10 @@
                             <div class="details">
                                 <div class="d-flex  align-items-center">
                                      <h3><b>{{$item->prodName}}</b></h3>
-                                    <a href="/store" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus"></i></a>
+                                     @if(Session::get('logged') == 1)
+                                         <a href="/store" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus" title="Add To Bag"></i></a>
+                                    @endif
+                                    
                                 </div>
                                 <div class="item-det">
                                     <h5>Category: {{$item->category}}</h5>
@@ -42,16 +45,16 @@
                                     <small><p class="pe-5" style="width: 500px; max-width:100%;">{{$item->prodDeets}} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, iusto nulla iure dolorem quas odio harum dignissimos facilis, suscipit minus praesentium quidem rerum blanditiis quis atque mollitia et eos repellat?</p></small>
                                     <div class="d-flex w-100 m-auto align-items-center">
                                         <h5 class="me-1">Price:</h5>
-                                        <h5 style="color: black; font-weight:bold;">{{$item->initialPrice}} PHP</h5>
+                                        <h5 style="color: black;">{{$item->initialPrice}} PHP</h5>
                                     </div> 
-                                    <h5 class="d-flex align-items-center">Auction Ends On: {!! Form::time('auctionend', '', ['class'=>'form-control w-50 ms-3']) !!}</h5>
+                                    <h5>Auction Ends On: <label for="" style="color: black;">{{$item->endDate}}</label> </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container w-75 py-5">
+            <div class="container w-75 ">
                 <div class="row">
                     <div class="col">
                         <div class="bidding-det">
@@ -62,6 +65,7 @@
                     </div>
                 
                     <div class="col">
+                        @if(Session::get('logged') == 1)
                         <div class="bid-amt">
                                 <h5>Enter your Bidding Amount</h5>
                                 <input type = "number" name = "number">
@@ -69,21 +73,49 @@
                                 <button type="button" class="btn btn-dark w-50">PLACE BID</button>
                             </div>
                         </div>
+                        @else
+                        {!! Form::open(['action'=>'App\Http\Controllers\PagesController@login','method'=>'GET']) !!}
+                        {{Form::submit('LOGIN TO BID', ['class'=>'btn btn-dark mt-5  ','style'=>'border-radius:0%;'])}}<br>
+                        {!! Form::close() !!}
+                        @endif
                     </div>  
                 </div> 
+            </div>
+          <div class="d-flex align-items-center justify-content-center">
+            
+              <div class="w-25 me-5">
+                  <hr>
+              </div>
+            
+             OR
+              <div class="w-25 ms-5">
                 <hr>
             </div>
-            OR
+          </div>
             <div class="container w-75">
+               
                 <div class="buy-now">
                     <div class="row">
                         <div class="col">
                             <h5>Buy for <b>{{$item->buyPrice}} PHP</b></h5>
                         </div>
+                       
                         <div class="col">
+                             @if(Session::get('logged') == 1) 
                                 <button type="button" class="btn btn-dark w-50">BUY NOW</button>
-                        </div>
+                                @else
+                                {!! Form::open(['action'=>'App\Http\Controllers\PagesController@login','method'=>'GET']) !!}
+                                {{Form::submit('LOGIN TO BUY', ['class'=>'btn btn-dark ','style'=>'border-radius:0%;'])}}<br>
+                                {!! Form::close() !!}
+                                @endif
+                        </div>  
+                     
                     </div>
+                    
+                  
+                    {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
+                                     {{Form::submit('CANCEL', ['class'=>'btn btn-dark mt-5 w-50 ','style'=>'border-radius:0%;'])}}<br>
+                                {!! Form::close() !!}
                 </div>
             </div>
         </div>  

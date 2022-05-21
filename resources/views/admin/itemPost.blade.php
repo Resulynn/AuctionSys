@@ -77,7 +77,7 @@
                     </div>
                     <div class="ms-4 mt-4 text-align-center" style=" width:100%;">
                         <div class="" style="display: inline-block; padding-inline-start:25%;"> 
-                            {{Form::submit('Save Changes',['class'=>'btn btn-dark w-100 ','style'=>'border-radius:0%;'])}}
+                            {{Form::submit('Post Item',['class'=>'btn btn-dark w-100 ','style'=>'border-radius:0%;'])}}
                         </div>
                    </div>
                 </div>

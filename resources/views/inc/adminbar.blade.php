@@ -1,4 +1,4 @@
-<script src="\resources\js\modals.js"></script>
+
 <?php
     use App\Models\Users;
 
@@ -14,22 +14,20 @@
             </div>
             <div class="dropdown-menu dropdown-menu-right my-1" style="border-radius: 0%; border:1px #f0eeee solid;  background-color:#ffffff;">
                 <div class="dropdown-item">
-                    <div class="mb-1">
-                        <a class="userloggedbtn" href="/profile">Profile</a>
-                    </div>
-                    <div class="">
-                        <a class="btn userloggedbtn" id="open">Logout</a>
-                    </div>
+                    <a class="userloggedbtn" href="/profile">Profile</a>
+                </div>
+                <div class="dropdown-item">
+                    <a class="btn userloggedbtn" id="open">Logout</a>
                 </div>
             </div>
                 
                 <div class="mdl_container" id="mdl_container">
                     <div class="mdl">
                     <h5>ARE YOU SURE YOU WANT TO LOGOUT?</h5>
-                        {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout','method'=>'POST']) !!}
-                        {{Form::submit('OK', ['class'=>'userloggedbtn text-danger btn m-auto py-2'])}}<br>
-                        {!! Form::close() !!} 
-                        <a class="btn userloggedbtn" id="close">CANCEL</a>
+                    {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout','method'=>'POST']) !!}
+                    {{Form::submit('OK', ['class'=>'userloggedbtn text-danger m-auto py-2'])}}<br>
+                    {!! Form::close() !!} 
+                    <a class="btn userloggedbtn" id="close">CANCEL</a>
                     </div>
                 </div> 
             </div>

@@ -6,6 +6,7 @@ use App\Models\Users;
 use App\Http\Requests\StoreUsersRequest;
 use App\Http\Requests\UpdateUsersRequest;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
@@ -16,8 +17,13 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $title = "Register";
-        return view('pages.register',compact('title'));
+        if(Session::get('logged') == 1) {
+            return redirect('/index')->with('error','Error.');
+         }
+         else{
+            $title = "Register";
+            return view('pages.register',compact('title'));
+         }
     }
 
     /**

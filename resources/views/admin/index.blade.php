@@ -49,7 +49,11 @@
                                     'T' => 'Tees', 
                                     'P' => 'Pants',
                                     'S' => 'Shorts',
-                                    'Sh' => 'Shoes'], 
+                                    'Sh' => 'Shoes',
+                                    'Nc' => 'Necklace',
+                                    'R' => 'Rings',
+                                    'Br' => 'Bracelets',
+                                    'Er' => 'Earrings',], 
                                     null, ['class'=> 'btn mt-1 mb-2 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
                                 )}}
                             </div>

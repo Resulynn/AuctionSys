@@ -8,7 +8,9 @@ use App\Models\Users;
 
 
 class LoginsController extends Controller
-{
+{   
+  
+
     public function login(Request $request){
          $this->validate($request,
                 [

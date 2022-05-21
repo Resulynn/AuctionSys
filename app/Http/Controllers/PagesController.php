@@ -3,20 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
 class PagesController extends Controller
 {
     function index(){
         $title = "Home";
         return view('pages.index',compact('title'));
     }
-    function register(){
-        $title = "Register";
-        return view('pages.register',compact('title'));
-    }
+   
     function login(){
-        $title = "Login";
-        return view('pages.login',compact('title'));
+
+        if(Session::get('logged') == 1) {
+            return redirect('/index')->with('error','Error.');
+         }
+         else{
+            $title = "Login";
+            return view('pages.login',compact('title')); 
+         }
     }
     function store(){
         $title = "Store";

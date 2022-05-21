@@ -27,15 +27,14 @@
         </div>
 
     <?php } ?>
-<div class="justify-content-center d-flex">
+<div class=" ">
     <?php if(Session::get('logged') == 1){ ?>
         <div class="store-content">
-            <aside class="sidebar">
+         <aside class="sidebar">
                 <span class="inner-text">
-                    @include('inc.sidebar')
+                    {{-- @include('inc.sidebar') --}}
                 </span>
-            </aside>
-    
+            </aside> 
             <div class="w-100">
                 <main class="content">
                     <span class="inner-text">

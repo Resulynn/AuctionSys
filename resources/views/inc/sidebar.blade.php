@@ -18,7 +18,7 @@
           <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
             Shoes 
           </button>
-          <div class="collapse" id="home-collapse">
+          <div class="collapse" id="orders-collapse">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li><a href="#" class="link-dark rounded">Sneakers</a></li>
             </ul>

@@ -1,40 +1,47 @@
 @extends('layout.app')
 @section('content')
-<a class=" d-flex flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+<a class=" d-flex mt-5 flex-shrink-0 p-3 link-dark text-decoration-none border-top border-bottom">
     <span class="fs-5 fw-semibold " style="margin:auto;">Your Bag</span>
   </a>
-<div class="bg-white mb-5" style="width: 60%; border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
-    <div class="list-group list-group-flush border-bottom scrollarea">
-      <a href="/admin/auction/" class="list-group-item list-group-item-action  py-3" aria-current="true">
-        <div class="d-flex align-items-center">
-          <div class="me-3">
-            <img src="/itemImages/" width="100px" height="100px" 
-              style="object-fit: cover; border:1px #121212 solid;" 
-              class="rounded-circle" >
-          </div>
-          <div>
-            <div class="d-flex w-100 align-items-center justify-content-between">
-              <strong class="mb-1"></strong><br>
-              <small></small>
+<div class="d-flex mb-5">
+    <div class="bg-white mb-5" style="width: 60%; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
+      <div class="list-group list-group-flush border-bottom scrollarea">
+          <div class="d-flex align-items-center">
+            <div class="me-3">
+              <img src="/itemImages/" width="100px" height="100px" 
+                style="object-fit: cover; border:1px #121212 solid;" 
+                class="rounded-circle" >
             </div>
-            <div class="col-10 mb-1 ">
-             
-            </div>
-            <div class="col-10 mb-1 ">
-            
-            </div>
-            <div class="" style="">
-              <div>
-               
-              </div>
-              <div>
-               
-              </div>
+            <div class="">
+              
+                <label>ID:  </label>
+                <label>Name:  </label>
+                
+           
+              
+              {{ Form::submit('ADD',['class' => 'userloggedbtn text-success ms-5 mt-3 ','style'=>'border:0; padding:0%;  background:none;'])}}
+              {{ Form::submit('REMOVE',['class' => 'userloggedbtn text-danger ms-5 mt-3 ','style'=>'border:0; padding:0%;  background:none;'])}}
             </div>
           </div>
-        </div>
-      </a>
-   
+      </div>
+    </div>
+  <div class="w-50" style="border: 1px #f0eeee solid;">
+    <div class="mb-5">
+      <h5 class="pt-3 text-center">BAG TOTAL</h5>
+      <div class="ms-3 me-3">
+        <hr>
+
+        <hr>
+        <label>SUB-TOTAL: </label><br>
+        <label>TOTAL: </label>
+      </div>
+      
+    </div>
+    
+    <div class="d-flex mt-5 justify-content-center">
+      {{Form::submit('CHECKOUT', ['class'=>'btn btn-dark mt-3 mb-3 w-50','style'=>'border-radius:0%; '])}}
     </div>
   </div>
+</div>
+
 @endsection

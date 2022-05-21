@@ -2,7 +2,7 @@
   <span class="fs-5 fw-semibold text-center w-100">Auction List</span>
 </a>
 <div class="bg-white" style="margin:0%; width: 500px; border-right:1px #f0eeee solid; border-left:1px #f0eeee solid;">
-    <div class="list-group list-group-flush border-bottom scrollarea">
+    <div class="list-group list-group-flush border-bottom scrollarea " style="overflow:auto;">
     @if(count($auctions)>0)
     @foreach ($auctions as $info)
       <a href="/admin/auction/{{$info->id}}" class="list-group-item list-group-item-action  py-3" aria-current="true">
