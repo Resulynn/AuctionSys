@@ -14,7 +14,7 @@
                 </div>
                 <br>
               </div>
-
+        <fieldset disabled>
             <div class="add-auc-content pb-5 d-flex justify-content-center mb-5">
                 <div class="col-5">
                     <div class="row ms-2 pb-2">
@@ -71,20 +71,20 @@
                         'placeholder'=>'Quantity',
                         'style'=>'border:none; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
                     </div>
-                    <div class="row ms-2" style="">
-                        <a>End Date</a>
-                        {{ Form::date('endDate', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
-                    </div>
-                    <div class="ms-4 mt-4 text-align-center" style=" width:100%;">
-                        <div class="" style="display: inline-block; padding-inline-start:25%;"> 
-                            {{Form::submit('Post Item',['class'=>'btn btn-dark w-100 ','style'=>'border-radius:0%;'])}}
-                        </div>
-                   </div>
                 </div>
-                
+                </fieldset> 
+             
+                    <div class="d-flex text-center justify-content-center align-items-center w-100">
+                        <label class="me-2">End Date:</label>
+                        {{ Form::date('endDate', \Carbon\Carbon::now(), ['class' => 'w-25 form-control ']) }}
+                    </div>
+                    <div class="d-flex justify-content-center mt-5 ">
+                        {{Form::submit('Post Item',['class'=>'btn btn-dark w-25 mb-5','style'=>'border-radius:0%;'])}}
+                    </div>
+                            
                 {!! Form::close() !!}
-            </div>
-        </div>
+    </div>
+</div>
     @endsection
 
     

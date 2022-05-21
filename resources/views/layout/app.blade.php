@@ -13,23 +13,30 @@
 </head>
 
 <body>
-    <div class="sticky-top">
+    
         <?php 
         if(Session::get('logged') == 1){
         ?>
+        <div class="sticky-top">
             @include('inc.userloggedbar')
+        </div>
+            
         <?php }
         else{
         ?>
-            @include('inc.userbar')
+                @include('inc.userbar')  
         <?php } ?>
-        @include('inc.navbar')
+                @include('inc.navbar')
+           
+       
+        
+  
         @include('inc.messages')
         <?php 
         if(Session::get('logged') == 1){ ?>
             @include('inc.usermenu')
         <?php }?>
-     </div>
+    
     <div class="justify-content-center">
         @yield('content')
     </div>
