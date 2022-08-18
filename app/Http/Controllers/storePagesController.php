@@ -11,7 +11,7 @@ class storePagesController extends Controller
         $title = "Home";
         // $products= Auction::all()->take(5);
         $products= Auction::where('aucStatus','=',1)->take(6)->orderBy('id', 'DESC')->get();
-        return view('pages.index',compact('title'))->with('products',$products);
+        return view('pages.home',compact('title'))->with('products',$products);
     }
 
     

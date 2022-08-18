@@ -1,4 +1,4 @@
-@extends('layout.store')
+@extends('layout.app')
 @section('content')
     <div class="store-container" style="text-align: center">
         <div class="carousel-inner py-4">

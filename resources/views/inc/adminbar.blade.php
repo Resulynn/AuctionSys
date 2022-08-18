@@ -1,9 +1,9 @@
 
 <?php
-    use App\Models\Users;
+    use App\Models\User;
 
-    $username = Session::get('username');
-    $data = Users::where('username',$username)->first();
+    $username = Auth::user()->username;
+    $data = User::where('username',$username)->first();
 ?>
 
 <div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-2 px-4">
@@ -24,9 +24,12 @@
                 <div class="mdl_container" id="mdl_container">
                     <div class="mdl">
                     <h5>ARE YOU SURE YOU WANT TO LOGOUT?</h5>
-                    {!! Form::open(['action'=>'App\Http\Controllers\LogoutController@logout','method'=>'POST']) !!}
-                    {{Form::submit('OK', ['class'=>'btn userloggedbtn text-danger m-auto py-2'])}}<br>
-                    {!! Form::close() !!} 
+                    {{-- <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        {{ __('OK') }}
+                    </a> --}}
+                    <a class="btn userloggedbtn" href="/logout" id="logout">OK</a>
                     <a class="btn userloggedbtn" id="close">CANCEL</a>
                     </div>
                 </div> 

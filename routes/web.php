@@ -18,10 +18,9 @@ use App\Http\Controllers;
 
 Route::get('/index','App\Http\Controllers\storePagesController@index');
 Route::resource('/item','App\Http\Controllers\InventoryController');
-Route::resource('/register','App\Http\Controllers\UsersController');
-Route::get('/login','App\Http\Controllers\PagesController@login');
-Route::post('/login','App\Http\Controllers\LoginsController@login');
-Route::post('/logout','App\Http\Controllers\LogoutController@logout');
+
+
+Route::get('/logout','App\Http\Controllers\LogoutController@logout');
 Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
 Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
 
@@ -65,3 +64,6 @@ Route::get('/store/women/tops','App\Http\Controllers\storePagesController@womenT
 Route::get('/store/women/bottoms','App\Http\Controllers\storePagesController@womenPants');
 Route::get('/store/women/shorts','App\Http\Controllers\storePagesController@womenShorts');
 Route::get('/store/women/footwear','App\Http\Controllers\storePagesController@womenShoes');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

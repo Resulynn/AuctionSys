@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Session;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -17,8 +17,8 @@ class ProfileController extends Controller
 
     {   
         $title = "Profile";
-        $username = Session::get('username');
-        $data = Users::where('username',$username)->first();
+        $username =  Auth::user()->username;
+        $data = User::where('username',$username)->first();
         return view('profile.profile',compact('title'))->with('data',$data);
     }
 

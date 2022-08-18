@@ -22,7 +22,7 @@ class UsersController extends Controller
          }
          else{
             $title = "Register";
-            return view('pages.register',compact('title'));
+            return view('auth.register',compact('title'));
          }
     }
 

@@ -10,22 +10,29 @@
     <title>{{$title}}</title> 
 </head>
 <body>
-
-<div class="sticky-top">
-    <?php 
-        if(Session::get('logged') == 2){ ?>
+    <div class="sticky-top">
         @include('inc.adminbar')
         @include('inc.adminNav')
-</div>
+    </div>  
 
-@include('inc.messages')
-        <div style="float:left;">
-            @include('inc.adminSidebar')
+    <div id="outer-container">
+        <div id="sidebar">
+            @guest
+            @if (Route::has('login'))
+            @endif
+                @else
+                @include('inc.adminSidebar') 
+            @endguest
         </div>
-       <div style="float:inline-start;">  
-            @yield('content')
+
+        <div id="content">
+            <div class="justify-content-center">
+                @yield('content')
+            </div>
         </div>
-<?php } ?>
+    </div>
+
+
 
 
     @include('inc.footer')

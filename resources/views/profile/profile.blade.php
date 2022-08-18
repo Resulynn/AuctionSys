@@ -2,14 +2,16 @@
 @extends('layout.app')
 
     @section('content')
+  
     <div class="reg mt-5">
         <div class="d-flex   py-3">
             <h3 class="px-5"><b> Your Profile</b></h3>
+           
         </div>
 
           {!! Form::open(['action'=>'App\Http\Controllers\ProfileController@store',
           'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
-          <div class="profpic text-center mb-3">
+         <div class="profpic text-center mb-3">
             <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
             <div class="profpic text-center mb-3">
                 <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
@@ -18,15 +20,15 @@
                     User Status: <b>{{$data->user_status}}</b>
                 </label>
             </div>
-          </div>
+          </div> 
           <div class="d-flex w-100 justify-content-center align-items-center mb-3">
             <a href="/profile/{{$data->username}}/edit" class= "edit-prof btn w-25 textalign-center" style="color:#ffffff !important; background-color:#121212; border-radius: 0%;">Edit Profile</a> 
         </div> 
-        
+       
         <div class="reg-content">
             <div class="col-5">
                 <fieldset disabled>
-                    <div class="row ms-2">
+                 <div class="row ms-2">
                         {{Form::label('first name','First Name',['class'=>'lead text-dark'])}}
                         {{Form::text('fname', $data->fname,['class'=>'form-control','placeholder'=>'First Name'])}}
                     </div>
@@ -50,10 +52,11 @@
                         {{Form::label('zipcode','Zip Code',['class'=>'lead text-dark'])}}
                         {{Form::number('zipcode',$data->zipcode,['class'=>'form-control','placeholder'=>'Zip Code'])}}
                     </div>
-                </fieldset>
+                </fieldset> 
+                
             </div>
                 
-            <div class="col-5 ms-5 pe-5">
+      {{--       <div class="col-5 ms-5 pe-5">
                 <fieldset disabled>
                     <div class="row ms-2">
                         {{Form::label('uname','User Name',['class'=>'lead text-dark'])}}
@@ -66,7 +69,7 @@
                       
                           
                        
-                    </div>                
+                    </div>   --}}              
              {!! Form::close() !!}
             </div>
         </div>

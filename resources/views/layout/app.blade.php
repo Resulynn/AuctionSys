@@ -8,35 +8,35 @@
     <link rel= "stylesheet" href= "\css\style.css">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <title>{{$title}}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     
 </head>
 
 <body>
-    
-        <?php 
-        if(Session::get('logged') == 1){
-        ?>
-        <div class="sticky-top">
-            @include('inc.userloggedbar')
-        </div>
-            
-        <?php }
-        else{
-        ?>
-                @include('inc.userbar')  
-        <?php } ?>
-                @include('inc.navbar')
-           
-       
-        
   
-        @include('inc.messages')
-        <?php 
-        if(Session::get('logged') == 1){ ?>
-            @include('inc.usermenu')
-        <?php }?>
+ 
+        <div class="sticky-top">
+             @guest
+                @if (Route::has('login')) 
+                     @include('inc.userbar')
+                @endif
+
+                @else
+                    @include('inc.userloggedbar')  
     
+        </div>  
+        @endguest
+        @include('inc.navbar')
+
+        @guest
+            @if (Route::has('login')) 
+                   
+                @endif
+                @else
+                @include('inc.usermenu')
+        @endguest
+        
+        
     <div class="justify-content-center">
         @yield('content')
     </div>

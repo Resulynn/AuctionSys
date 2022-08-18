@@ -8,7 +8,12 @@
 
 /*modals*/
 
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
 
 .mdl_container{
  position:fixed;
@@ -59,7 +64,23 @@ body {
 	height: 100%;
 } 
 
+#outer-container {
+	display: table;
 
+	height: 100%;
+}
+
+#sidebar {
+	display: table-cell;
+	
+	vertical-align: top;
+}
+
+#content {
+	display: table-cell;
+
+	vertical-align: top;
+}
 
 
 

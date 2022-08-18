@@ -17,7 +17,7 @@ class storePageController extends Controller
     {
         $title = "Home";
         $products= Auction::where('aucStatus','=',1)->get();
-        return view('pages.index', compact('title'))->with('products',$products);
+        return view('pages.home', compact('title'))->with('products',$products);
     }
 
     /**
