@@ -1,6 +1,34 @@
 @extends('layout.app')
     @section('content')
-  
+
+@php
+use Carbon\Carbon;
+$date = date($item->endDate);
+$time = date(' 12:25:00');
+$date_today = $date.''.$time;
+
+@endphp
+    
+<script type="text/javascript">
+var count_id = "<?php echo $date_today ?>";
+var countDownDate = new Date(count_id).getTime();
+var x = setInterval(function(){
+  var now  = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance/(1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24 ))/(1000 * 60 * 60));
+  var minutes = Math.floor((distance%(1000 * 60 * 60))/(1000 * 60));
+  var seconds = Math.floor((distance%(1000 * 60))/1000);
+
+document.getElementById("demo").innerHTML = "Remaining Time: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+if(distance < 0){
+  clearInterval(x);
+  document.getElementById("demo").innerHTML = "Remaining Time: 00d 00h 00m 00s";
+}
+
+},1000);
+</script>
     <div class="bidding">
         <div class="bidding-container py-5 my-5">
             <div class="row">
@@ -34,9 +62,19 @@
                             <div class="details">
                                 <div class="d-flex  align-items-center">
                                      <h3><b>{{$item->prodName}}</b></h3>
-                                     @if(Session::get('logged') == 1)
+                                  {{--     @if(Auth::get('logged') == 1)
                                          <a href="/store" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus" title="Add To Bag"></i></a>
-                                    @endif
+                                    @endif  --}}
+
+                                    @guest
+                                        @if(Route::has('login'))
+                                            <a href="/login" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus" title="Add To Bag"></i></a>
+                                        @endif
+                                        @else
+                                        <a href="/bag/{{Auth::user()->username}}" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus" title="Add To Bag"></i></a>
+                                    @endguest
+
+
                                     
                                 </div>
                                 <div class="item-det">
@@ -47,8 +85,11 @@
                                         <h5 class="me-1">Price:</h5>
                                         <h5 style="color: black;">{{$item->initialPrice}} PHP</h5>
                                     </div> 
-                                    <h5>Auction Ends On: <label for="" style="color: black;">{{$item->endDate}}</label> </h5>
-                                </div>
+                                  
+                                        <h5>Auction Ends On: <label for="" style="color: rgb(0, 0, 0);">{{$item->endDate}} <small>({{$exp}}) </small></label> </h5>
+                                        <p id="demo"></p>
+                               
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -65,19 +106,26 @@
                     </div>
                 
                     <div class="col">
-                        @if(Session::get('logged') == 1)
-                        <div class="bid-amt">
+                        @guest
+                            @if(Route::has('login'))
+                     
+                           {{--  <button type="submit" class=" w-25 btn btn-dark" style="border-radius: 0%;">
+                                {{ __('Login to Bid') }}
+                            </button> --}}
+
+                            <a class="btn btn-dark" href="/login">Login to Bid</a>
+                        
+                        @endif
+                        @else
+                            <div class="bid-amt">
                                 <h5>Enter your Bidding Amount</h5>
                                 <input type = "number" name = "number">
-                            <div class="button">
-                                <button type="button" class="btn btn-dark w-50">PLACE BID</button>
-                            </div>
-                        </div>
-                        @else
-                        {!! Form::open(['action'=>'App\Http\Controllers\PagesController@login','method'=>'GET']) !!}
-                        {{Form::submit('LOGIN TO BID', ['class'=>'btn btn-dark mt-5  ','style'=>'border-radius:0%;'])}}<br>
-                        {!! Form::close() !!}
-                        @endif
+                                <div class="button">
+                                    <button type="button" class="btn btn-dark w-50">PLACE BID</button>
+                                </div>
+                             </div>  
+                        @endguest
+                       
                     </div>  
                 </div> 
             </div>
@@ -101,20 +149,25 @@
                         </div>
                        
                         <div class="col">
-                             @if(Session::get('logged') == 1) 
-                                <button type="button" class="btn btn-dark w-50">BUY NOW</button>
-                                @else
-                                {!! Form::open(['action'=>'App\Http\Controllers\PagesController@login','method'=>'GET']) !!}
-                                {{Form::submit('LOGIN TO BUY', ['class'=>'btn btn-dark ','style'=>'border-radius:0%;'])}}<br>
-                                {!! Form::close() !!}
+                            @guest
+                                @if(Route::has('login')) 
+                                <button type="submit" class=" w-25 btn btn-dark" style="border-radius: 0%;">
+                                    {{ __('Login to Buy') }}
+                                </button>
+                      
                                 @endif
+
+                                @else
+                                <button type="button" class="btn btn-dark w-50">BUY NOW</button>
+                            @endguest
+                             
                         </div>  
                      
                     </div>
                     
                   
                     {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
-                                     {{Form::submit('CANCEL', ['class'=>'btn btn-dark mt-5 w-50 ','style'=>'border-radius:0%;'])}}<br>
+                                     {{Form::submit('CANCEL', ['class'=>'btn btn-dark mt-5 w-25 ','style'=>'border-radius:0%;'])}}<br>
                                 {!! Form::close() !!}
                 </div>
             </div>

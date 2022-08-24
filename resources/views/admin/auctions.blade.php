@@ -3,6 +3,7 @@
 <a href="/admin/auctionlist" class="d-flex flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
         <span class="fs-5 fw-semibold text-center w-100">Auction List</span>
 </a>
+
 <div class="d-flex">
       <div class="bg-white" style="margin:0%; width: 500px; ">
           <div class="list-group list-group-flush border-bottom scrollarea " style="border-right:1px #f0eeee solid;">
@@ -43,6 +44,7 @@
           @endif
           </div>
         </div>
+
 <div class="w-100 d-flex"> 
     <div class="item-container" 
          style="display: flex;
@@ -70,7 +72,7 @@
                             <h6><b>Category:</b> {{$auction->category}}</h6>
                             <h6><b>Initial Price:</b> {{$auction->initialPrice}} PHP</h6>
                             <h6><b>Buy Price:</b> {{$auction->buyPrice}} PHP</h6>
-                            <h6><b>Auction Ends Date:</b> {{$auction->created_at}}</h6>
+                            <h6><b>Auction Ends Date:</b> {{$auction->endDate}}</h6>
                         </div>
                     </div>
                     <div>

@@ -18,8 +18,6 @@ use App\Http\Controllers;
 
 Route::get('/index','App\Http\Controllers\storePagesController@index');
 Route::resource('/item','App\Http\Controllers\InventoryController');
-
-
 Route::get('/logout','App\Http\Controllers\LogoutController@logout');
 Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
 Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
@@ -67,3 +65,4 @@ Route::get('/store/women/footwear','App\Http\Controllers\storePagesController@wo
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

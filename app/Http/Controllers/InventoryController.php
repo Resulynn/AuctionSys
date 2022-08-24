@@ -6,6 +6,7 @@ use App\Models\Inventory;
 use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
 use App\Models\Auction;
+use Carbon\Carbon;
 
 class InventoryController extends Controller
 {
@@ -84,7 +85,16 @@ class InventoryController extends Controller
         //
         $title = 'Product Page';
         $item = Auction::find($inventory);
-        return view('pages.productpage',compact('title'))->with('item',$item);
+
+        if((Carbon::now()) > ($item->endDate))
+        {
+            $exp = "Bidding ENDED";
+        }
+        else
+        {
+            $exp = "Bidding ACTIVE";
+        }
+        return view('pages.productpage',compact('title'))->with('item',$item)->with('exp',$exp);
 
     }
 

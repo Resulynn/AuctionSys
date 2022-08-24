@@ -14,7 +14,7 @@
                 </div>
                 <br>
               </div>
-        <fieldset disabled>
+        <fieldset >
             <div class="add-auc-content pb-5 d-flex justify-content-center mb-5">
                 <div class="col-5">
                     <div class="row ms-2 pb-2">

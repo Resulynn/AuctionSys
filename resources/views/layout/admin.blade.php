@@ -14,7 +14,7 @@
         @include('inc.adminbar')
         @include('inc.adminNav')
     </div>  
-
+{{-- 
     <div id="outer-container">
         <div id="sidebar">
             @guest
@@ -30,12 +30,24 @@
                 @yield('content')
             </div>
         </div>
+    </div> --}}
+
+    <div class="sidenav">
+        @guest
+            @if (Route::has('login'))
+            @endif
+                @else
+                @include('inc.adminSidebar') 
+            @endguest
+    </div>
+
+    <div class="main">
+        @yield('content')
+        @include('inc.footer')
     </div>
 
 
-
-
-    @include('inc.footer')
+  
 
     <script src="\js\modals.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

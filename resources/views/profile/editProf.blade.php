@@ -2,7 +2,7 @@
 
     @section('content')
     {{-- @include('inc.usermenu') --}}
-  <div class="reg mt-5">  
+  <div class="reg my-5">  
     <div class="d-flex ms-2  pt-3">
         <h2 class="px-5"><b> Edit Your Profile</b></h2>
     </div>
@@ -11,9 +11,9 @@
                     'method'=>'POST', 'enctype'=>'multipart/form-data']) !!} 
                         <div class="profpic text-center mb-3">
                             <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
-                            <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Session::get('username')}}</h5>
+                            <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Auth::user()->username}}</h5>
                             <small>
-                                User Type: <b>{{Session::get('usertype')}}</b><br>
+                                User Type: <b>{{Auth::user()->user_type}}</b><br>
                                 User Status: <b>{{$data->user_status}}</b>
                             </small>
                         </div>
@@ -27,62 +27,85 @@
                         
                         {!! Form::close() !!}
         </div>
-      
-
-    {!! Form::open(['action'=>['App\Http\Controllers\ProfileController@update',$data->id],
-    'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
-    
-        <div class="reg-content">
-            <div class="col-5">
-                <fieldset disabled>
-                    <div class="row ms-2">
-                        {{Form::label('first name','First Name',['class'=>'lead text-dark'])}}
-                        {{Form::text('fname', $data->fname,['class'=>'form-control text-muted','placeholder'=>'First Name'])}}
-                    </div>
-                    <div class="row ms-2">
-                        {{Form::label('last name','Last Name',['class'=>'lead text-dark'])}}
-                        {{Form::text('lname',$data->lname,['class'=>'form-control text-muted','placeholder'=>'Last Name'])}}
-                    </div>
-                    <div class="row ms-2">
-                        {{Form::label('email address','Email Address',['class'=>'lead text-dark'])}}
-                        {{Form::email('email',$data->email,['class'=>'form-control text-muted','placeholder'=>'Email Address'])}}
-                    </div>
-                    <div class="row ms-2">
-                        {{Form::label('phone num','Phone Number',['class'=>'lead text-dark'])}}
-                        {{Form::number('pnum',$data->pnum,['class'=>'form-control text-muted','placeholder'=>'Phone Number'])}}
-                    </div>
-                </fieldset>
-                    <div class="row ms-2">
-                        {{Form::label('address','Address',['class'=>'lead text-dark'])}}
-                        {{Form::text('add',$data->address,['class'=>'form-control','placeholder'=>'Address'])}}
-                    </div>
-                    <div class="row ms-2">
-                        {{Form::label('zipcode','Zip Code',['class'=>'lead text-dark'])}}
-                        {{Form::number('zipcode',$data->zipcode,['class'=>'form-control','placeholder'=>'Zip Code'])}}
-                    </div>
-            </div>
-                
-            <div class="col-5 ms-5 pe-5">
-                <fieldset disabled>
-                    <div class="row ms-2">
-                        {{Form::label('uname','User Name',['class'=>'lead text-dark'])}}
-                        {{Form::text('uname',$data->username,['class'=>'form-control text-muted','placeholder'=>'User Name'])}}
-                    </div>
-                    <div class="row ms-2">
-                        <label class="lead text-dark"> Birthday </label>                      
-                                {{Form::text('month',$data->bday,['class'=>'form-control text-muted','placeholder'=>'MM'])}}
-                    </fieldset>
-                    {{Form::hidden('_method','PUT')}}
-                        <div class="reg-button">
-                            <div class="row mt-5 pt-5 justify-content-end">
-                                {{Form::submit('Save Changes',['class'=>'btn btn-dark w-75 textalign-center', 'style'=>'border-radius: 0%;'])}}
-                            </div>
+  
+        <div class="container  pb-5 ">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card ">
+                        <div class="card-header">{{ __('PROFILE') }}</div>
+        
+                        <div class="card-body">
+                          
+                                @csrf
+                              
+                                <div class="row mb-3">
+                                    <div class="col">
+                                         <label for="fname" class="col-form-label text-md-end">{{ __('First Name') }}</label>
+                                        <div class="col">
+                                         <input type="text" class="form-control" value="{{ $data->fname }}">
+                                        </div>
+                                    </div>
+        
+                                        <div class="col">
+                                            <label for="lname" class="col-form-label text-md-end">{{ __('Last Name') }}</label>
+                                            <div class="col">
+                                             <input type="text" class="form-control" value="{{ $data->lname }}">
+                                            </div>
+                                        </div>
+                                </div>
+        
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label for="email" class=" col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                        <input type="text" class="form-control" value="{{ $data->email }}">
+                                    </div>
+                                    <div class="col">
+                                        <label for="bday" class="col-form-label text-md-end">{{ __('Birth Date') }}</label>
+                                        <input type="date" class="form-control" value="{{ Carbon\Carbon::parse($data->bday)->format('Y-m-d') }}">
+                                    </div>
+                                    
+                                    <div class="col">
+                                        <label for="pnum" class="col-form-label text-md-end">{{ __('Phone Number') }}</label>
+                                        <div class="col">
+                                         <input type="number" class="form-control" value="{{ $data->pnum }}">
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label for="username" class="col-form-label text-md-end">{{ __('Username') }}</label>
+                                        <div class="col">
+                                         <input type="text" class="form-control" value="{{ $data->username }}">
+                                        </div>
+                                     </div>
+                                    
+                               
+                                <div class="w-100">
+                                    <div class="row mb-4">
+                                        <div class="w-75">
+                                            <div class="col">
+                                                <label for="address" class="  col-form-label text-md-end">{{ __('Address') }}</label>
+                                                <input type="text" class="form-control" value="{{ $data->address }}">
+                                            </div>
+                                        </div>
+                                        <div class="w-25">
+                                            <div class="col">
+                                                <label for="zipcode" class="col-form-label text-md-end">{{ __('Zip Code') }}</label>
+                                                <div class="col">
+                                                 <input type="text" class="form-control" value="{{ $data->zipcode }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
-                    </div>                
-             {!! Form::close() !!}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
         
     @endsection

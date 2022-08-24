@@ -1,25 +1,15 @@
 @extends('layout.app')
-
+@section('title', 'Home | True North Garments')
 @section('content')
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+{{-- @php
+  echo '<p id = "demo" style = "font-size:30px;"></p>'
+@endphp --}}
+
+
+<div class="container">
 <div class="show text-center pt-4"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
     <p><a href ="/store" style="font-size: small;">SHOW MORE</a></p>
 </div>
@@ -62,8 +52,11 @@
         <div class="container">
           <div class="row">
 
+
 @if(count($products)>0)
   @foreach($products as $prod)
+  
+
         
             <div class="col-lg-4 pb-5">
               <div class="card" style="border-radius: 0%;  height:480px;">
@@ -81,6 +74,7 @@
                 </div>
                 <div class="pb-5">
                   <b> <a href="/item/{{$prod->id}}"> VIEW AUCTION </a></b>
+                
                 </div>
                 
               </div>

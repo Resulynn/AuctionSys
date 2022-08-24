@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Auction;
 class BagController extends Controller
 {
@@ -46,9 +46,9 @@ class BagController extends Controller
      */
     public function show($id)
     {
-        $user = Users::find($id);
+        $user = User::find($id);
         $title = "Bag";
-        return view('pages.bag',compact('title'))->with('user',$user);
+        return view('pages.bag',compact('title'))->with('user', $user);
     }
 
     /**

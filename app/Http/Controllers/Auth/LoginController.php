@@ -25,18 +25,23 @@ class LoginController extends Controller
      * Where to redirect users after login.
      *
      * @var string
+     * 
      */
+
+     public function showLoginForm(){
+        $title = "Login";
+        return view('auth.login',compact('title'));
+     }
     
     protected function redirectTo()
     {
-      /*   if (auth()->user()->role == 'admin') {
-            return '/admin';
-        }
-        return '/home'; */
+      
         if((Auth::user()-> user_type) == 0){
             return '/admin/index';
         }
-        return '/home';
+        else
+            return '/home';
+        
     }
     /**
      * Create a new controller instance.
@@ -46,5 +51,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+       
     }
+
 }

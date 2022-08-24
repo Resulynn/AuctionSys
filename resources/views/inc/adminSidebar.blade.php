@@ -1,6 +1,6 @@
 @extends('layout.sidebar')
 
-<div class=" py-5 text-center bg-white" style=" width: 150px; height:100vmax; border-right:1px #f0eeee solid;">
+<div class=" py-5  text-center bg-white" style=" width: 150px; height:100vmax; border-right:1px #f0eeee solid;">
   <div class="list-group-flush mb-3">
        <h3>MENU</h3> 
   </div>

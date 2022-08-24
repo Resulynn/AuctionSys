@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 class PagesController extends Controller
 {
     function index(){
@@ -13,7 +14,7 @@ class PagesController extends Controller
    
     function login(){
 
-        if(Session::get('logged') == 1) {
+        if(Route::has('login')) {
             return redirect('/index')->with('error','Error.');
          }
          else{

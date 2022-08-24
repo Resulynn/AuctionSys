@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class imgController extends Controller
@@ -14,8 +15,8 @@ class imgController extends Controller
             'pfpImg'=>'required'
         ]);
 
-        $data = Users::where('username',Session::get('username'))->first();
-        $imgName = Session::get('username');
+        $data = User::where('username', Auth::user()->username)->first();
+        $imgName = Auth::user()->username;
         
         $filename= $imgName.".".$request->file('pfpImg')->getClientOriginalExtension();
         $request->file('pfpImg')->storeAs('userPFP',$filename,'public_uploads');

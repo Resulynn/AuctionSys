@@ -46,10 +46,10 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Users  $users
+     * @param  \App\Models\User  $users
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $users)
+    public function show(User $users)
     {
        
     }
@@ -62,8 +62,8 @@ class ProfileController extends Controller
      */
     public function edit()
     {   
-        $username = Session::get('username');
-        $data = Users::where('username',$username)->first();
+        $username = Auth::user()->username;
+        $data = User::where('username',$username)->first();
         $title = "Profile Edit";
         
         return view('profile.editProf',compact('title'))->with('data',$data);
@@ -73,19 +73,19 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Users  $users
+     * @param  \App\Models\User  $users
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {   
-        $data = Users::find($id);
+        $data = User::find($id);
 
-        $data->address=$request->input('add');
+        $data->address=$request->input('address');
         $data->zipcode=$request->input('zipcode');
         
 
         $data->save();
-        $type = Session::get('usertype');
+        $type = Auth::user()->user_type;
 
         if($type == 'Administrator'){
             return redirect('/admin/index')->with('success','Profile Updated.');
@@ -100,7 +100,7 @@ class ProfileController extends Controller
      * @param  \App\Models\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $users)
+    public function destroy(User $users)
     {
         //
     }

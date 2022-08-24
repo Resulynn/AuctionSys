@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Validator;
@@ -59,8 +59,9 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             // 'pnum' => ['required', 'integer', 'max:11','regex:/^(09|\+639)\d{9}$/u'],
             'address' => ['required', 'string', 'max:255'],
+            'bday' => ['required'],
             // 'zipcode' => ['required', 'integer', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255','unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
            
         ]);
@@ -75,25 +76,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {  
+       
+         return User::create([
 
-    
-
-            return User::create([
-
-           
-           
-        
-            
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'email' => $data['email'],
-            'bday' => $data['bday'],
+           
+            
+            'bday' =>  $data['bday'],
             'pnum' => $data['pnum'],
             'address' => $data['address'],
             'zipcode' => $data['zipcode'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
 
-        ]);  
+        ]);
     }
+
+    
 }

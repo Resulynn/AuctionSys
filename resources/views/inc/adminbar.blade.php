@@ -7,7 +7,7 @@
 ?>
 
 <div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-2 px-4">
-        <div class="userloggedbar-content ">
+        <div class="userloggedbar-content d-flex">
             <div class="dropdown" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                 <img src="/userPFP/{{$data->profileImage}}" width="30px" height="30px" style="object-fit: cover;" class="rounded-circle me-1" >
                 <a href="/profile" class="userloggedbtn"><b>{{$username}}</b></a> 
@@ -24,12 +24,8 @@
                 <div class="mdl_container" id="mdl_container">
                     <div class="mdl">
                     <h5>ARE YOU SURE YOU WANT TO LOGOUT?</h5>
-                    {{-- <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                        {{ __('OK') }}
-                    </a> --}}
-                    <a class="btn userloggedbtn" href="/logout" id="logout">OK</a>
+                    <a class="btn userloggedbtn text-danger" href="/logout" id="logout">OK</a>
+                    <br>
                     <a class="btn userloggedbtn" id="close">CANCEL</a>
                     </div>
                 </div> 

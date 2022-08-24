@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+@section('title', 'Register | True North Garments')
 @section('content')
 <div class="container  my-5">
     <div class="row justify-content-center">
@@ -10,16 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        <div class="my-3 px-3"  >
-                            <div class="py-1 text-center">
-                                <img src="" width="150px" height="150px" >
-                            </div>
-                            
-                                <div class="up-photo" style="padding-top: 5px; ">
-                                   <h4> <label for="pfpImg">Upload Profile Photo</label></h4>
-                                    <input id="pfpImg" type="file" class="form-control @error('pfpImg') is-invalid @enderror" name="pfpImg" value="{{ old('pfpImg') }}" required autocomplete="pfpImg" autofocus>
-                                </div>
-                          </div>
+                      
                         <div class="row mb-3">
                             <div class="col">
                                  <label for="fname" class="col-form-label text-md-end">{{ __('First Name') }}</label>
@@ -61,8 +52,10 @@
                             </div>
                             <div class="col">
                                 <label for="bday" class="col-form-label text-md-end">{{ __('Birth Date') }}</label>
-                                    <input id="bday" type="date" class="form-control @error('email') is-invalid @enderror" name="bday" value="{{ old('bday') }}" required autocomplete="bday">
-
+                                  
+                                    {{ Form::date('bday', \Carbon\Carbon::now(), ['class' => 'form-control',
+                                                    'name' => 'bday',
+                                                    'required autocomplete' => 'bday'] ) }}
                                     @error('bday')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

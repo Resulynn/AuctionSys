@@ -17,8 +17,8 @@ class storePagesController extends Controller
     
     public function store_index(){
         $title = "Store";
-        // $products= Auction::all()->take(5);
-        $products= Auction::where('aucStatus','=',1)->take(6)->get();
+       
+        $products= Auction::where('aucStatus','=',1)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Carbon\Carbon;
 use App\Models\Auction;
 use Illuminate\Http\Request;
 
@@ -50,7 +50,12 @@ class storePageController extends Controller
     public function show($id)
     {
         //
+       
+
+
         $item=Inventory::find($id);
+        
+    
         return view('pages.productpage')->with('item',$item);
 
     }
