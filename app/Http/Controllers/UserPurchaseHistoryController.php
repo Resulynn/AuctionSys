@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Funds;
+use Illuminate\Support\Facades\Auth;
 class UserPurchaseHistoryController extends Controller
 {
     /**
@@ -14,7 +15,8 @@ class UserPurchaseHistoryController extends Controller
     public function index()
     {
         $title = "Purchase History";
-        return view('profile.purchasehistory', compact('title'));
+        $data = Funds::where('uname','=',Auth::user()->username)->get();
+        return view('profile.purchasehistory', compact('title'))->with('data',$data);
     }
 
     /**

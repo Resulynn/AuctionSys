@@ -38,6 +38,7 @@ Route::resource('/admin/completed','App\Http\Controllers\CompletedTransactionCon
 Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersController');
 // Route::get('/search','App\Http\Controllers\itemListController@search');
 Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage');
+Route::post('/fundmake','App\Http\Controllers\fundController@fundReq');
 Route::resource('/postItem','App\Http\Controllers\AuctionController');
 Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController');
 

@@ -17,6 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = 'users';
     protected $fillable = [
         'pfpImg',
         'fname',
@@ -28,6 +30,7 @@ class User extends Authenticatable
         'zipcode',
         'username',
         'password',
+        'funds',
         'remember_token',
     ];
 
