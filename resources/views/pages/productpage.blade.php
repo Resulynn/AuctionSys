@@ -4,7 +4,7 @@
 @php
 use Carbon\Carbon;
 $date = date($item->endDate);
-$time = date(' 12:25:00');
+$time = date(' 14:23:00');
 $date_today = $date.''.$time;
 
 @endphp
@@ -24,7 +24,8 @@ document.getElementById("demo").innerHTML = "Remaining Time: " + days + "d " + h
 
 if(distance < 0){
   clearInterval(x);
-  document.getElementById("demo").innerHTML = "Remaining Time: 00d 00h 00m 00s";
+  document.getElementById("demo").innerHTML = "Remaining Time: Bidding ENDED";
+  $item->aucStatus = 0;
 }
 
 },1000);
@@ -79,7 +80,6 @@ if(distance < 0){
                                 </div>
                                 <div class="item-det">
                                     <h5>Category: {{$item->category}}</h5>
-                                    <h5>Description:</h5>
                                     <small><p class="pe-5" style="width: 500px; max-width:100%;">{{$item->prodDeets}} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, iusto nulla iure dolorem quas odio harum dignissimos facilis, suscipit minus praesentium quidem rerum blanditiis quis atque mollitia et eos repellat?</p></small>
                                     <div class="d-flex w-100 m-auto align-items-center">
                                         <h5 class="me-1">Price:</h5>
@@ -108,12 +108,7 @@ if(distance < 0){
                     <div class="col">
                         @guest
                             @if(Route::has('login'))
-                     
-                           {{--  <button type="submit" class=" w-25 btn btn-dark" style="border-radius: 0%;">
-                                {{ __('Login to Bid') }}
-                            </button> --}}
-
-                            <a class="btn btn-dark" href="/login">Login to Bid</a>
+                            <a class="btn btn-dark" href="/login">Login</a>
                         
                         @endif
                         @else
@@ -151,9 +146,7 @@ if(distance < 0){
                         <div class="col">
                             @guest
                                 @if(Route::has('login')) 
-                                <button type="submit" class=" w-25 btn btn-dark" style="border-radius: 0%;">
-                                    {{ __('Login to Buy') }}
-                                </button>
+                             
                       
                                 @endif
 

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserFundingsController extends Controller
@@ -13,8 +14,12 @@ class UserFundingsController extends Controller
      */
     public function index()
     {
+
         $title = "Fundings";
-        return view('profile.fundings', compact('title'));
+        $username = Auth::user()->username;
+
+        $funds = User::where('username',$username)->select('funds')->first();
+        return view('profile.fundings', compact('title'))->with('funds',$funds);
     }
 
     /**
@@ -46,7 +51,7 @@ class UserFundingsController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
