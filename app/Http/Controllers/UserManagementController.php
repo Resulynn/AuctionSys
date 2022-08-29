@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Funds;
-use Illuminate\Support\Facades\Auth;
-class UserPurchaseHistoryController extends Controller
+
+class UserManagementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,11 @@ class UserPurchaseHistoryController extends Controller
      */
     public function index()
     {
-        $title = "Purchase History";
-        $data = Funds::where('uname','=',Auth::user()->username)->get();
-        return view('profile.purchasehistory', compact('title'))->with('data',$data);
+        $title = "Admin | User Management";
+        $data = User::where('user_type','=',1)
+                ->where('user_status','=',1)
+                ->get();
+        return view('admin.usermanagement', compact('title'))->with('data',$data);
     }
 
     /**
@@ -37,7 +38,7 @@ class UserPurchaseHistoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
     }
 
     /**
@@ -69,9 +70,14 @@ class UserPurchaseHistoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+       
+        $data = User::find($id);
+        $data->user_status= 0;
+        $data->update();
+
+        return back();
     }
 
     /**

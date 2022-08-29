@@ -4,8 +4,8 @@
         <span class="fs-5 fw-semibold text-center w-100">Item List</span>
 </a>
 
-<div class="d-flex mb-5">
-      <div class="bg-white" style="margin:0%; width:auto; ">
+<div class="d-flex mb-5 ">
+      <div class="bg-white w-100">
           <div class="list-group list-group-flush border-bottom scrollarea " style="border-right:1px #f0eeee solid;">
             @if(count($data)>0)
             @foreach ($data as $info)

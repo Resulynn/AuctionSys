@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Session;
+use Illuminate\Support\Facades\Auth;
 
 class AdminProfileController extends Controller
 {
@@ -16,8 +16,8 @@ class AdminProfileController extends Controller
      */
     public function index()
     {
-        $username = Session::get('username');
-        $data = Users::where('username',$username)->first();
+        $username = Auth::user()->username;
+        $data = User::where('username',$username)->first();
         $title = "Profile";
         return view('profile.adminprofile',compact('title'))->with('data',$data);
     }
@@ -63,7 +63,7 @@ class AdminProfileController extends Controller
     public function edit($id)
     {
         $username = Session::get('username');
-        $data = Users::where('username',$username)->first();
+        $data = User::where('username',$username)->first();
         $title = "Profile Edit";
         return view('profile.editProf',compact('title'))->with('data',$data);
     }
@@ -77,7 +77,7 @@ class AdminProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Users::find($id);
+        $data = User::find($id);
 
         $data->address=$request->input('add');
         $data->zipcode=$request->input('zipcode');

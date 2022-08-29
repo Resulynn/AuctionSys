@@ -40,6 +40,11 @@
     </a>
   </div>
   <div class="list-group-flush mb-3">
+    <a href="/admin/usermanagement" class="{{Request::is('admin/usermanagement') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+        MANAGE USERS
+    </a>
+  </div>
+  <div class="list-group-flush mb-3">
     <a href="/admin/blockedusers" class="{{Request::is('admin/blockedusers') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         BLOCKED USERS
     </a>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class BlockedUsersController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class BlockedUsersController extends Controller
     public function index()
     {
         $title = "Admin | Blocked Users";
-        return view('admin.blockedusers', compact('title'));
+        $data = User::where('user_status','=',0)->get();
+        return view('admin.blockedusers', compact('title'))->with('data',$data);
     }
 
     /**

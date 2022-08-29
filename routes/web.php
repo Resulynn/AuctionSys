@@ -25,6 +25,7 @@ Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
 
 //admin module
 Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex');
+Route::resource('/admin/usermanagement','App\Http\Controllers\UserManagementController');
 Route::get('/add','App\Http\Controllers\PagesController@add');
 Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
 Route::resource('/admin/list','App\Http\Controllers\itemListController');

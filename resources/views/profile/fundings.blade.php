@@ -2,15 +2,30 @@
 @section('content')
 <div class="bg-white my-5 mx-5 " style=" border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
     <a href="" class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
-      
       <span class="fs-5 fw-semibold text-center w-100">My Funds</span>
     </a>
-    <div class="ps-5 mt-5">
-          My Funds: {{$funds->funds}}</b> 
-    </div>
+
+    <?php
+        $refnum=Auth::user()->id.date('ymdHis');
+    ?>
+        
+{{--       {!! Form::open(['action'=>['App\Http\Controllers\fundController@fundReq'],
+                    'method'=>'POST']) !!} 
+        <div>
+            {{Form::text('reqAmt','',['class'=>'form-control','placeholder'=>'Enter Amount','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;'])}}  
+        </div>
+
+        {{Form::submit('ADD FUNDS',['class'=>' btn my-5 btn-dark w-100 textalign-center', 'style'=>'border-radius:0%;'])}}
+        {{Form::hidden('refnum',$refnum)}}
+        {{Form::hidden('accname',Auth::user()->username)}}
+        {!! Form::close() !!}  --}}
+ 
     <div class=" mt-5 pb-5 align-items-center list-group list-group-flush border-bottom scrollarea ">
-      <p><small>Want to add funds? Pay thru: </small></p>  
-      <div class="">
+        <h3>Your current funds is: <b>{{Auth::user()->funds}}</b></h3>
+        Your Reference number is <b>{{$refnum}}</b> 
+   
+      <div class="mt-3">   
+        <p><small>Want to add funds? Pay thru: </small></p>  
         <a href="">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="100px" viewBox="0 0 200 200" version="1.1">
             <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
@@ -30,6 +45,6 @@
       </a>
     </div>
   </div>
-</div>
+
      
 @endsection

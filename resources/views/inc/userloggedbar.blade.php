@@ -6,7 +6,7 @@ $username = Auth::user()->username;
 $data = User::where('username',$username)->first();
 ?>
 
-<div class="userloggedbar d-flex  align-items-center justify-content-end bg-white py-2 px-4">
+<div class="userloggedbar d-flex  align-items-center border-bottom justify-content-end bg-white py-2 px-4">
     <div class="userloggedbar-content d-flex">
         <a href="/bag/{{$username}}" class="userloggedbtn btn" style="font-size: medium;">
             <label style="font-size: 11px;">( 0 )</label>

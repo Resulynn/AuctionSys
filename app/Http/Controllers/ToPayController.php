@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Funds;
+use App\Models\User;
 
 class ToPayController extends Controller
 {
@@ -14,7 +16,8 @@ class ToPayController extends Controller
     public function index()
     {
         $title = "Admin | To Pay";
-        return view('admin.topay', compact('title'));
+        $data = Funds::all();
+        return view('admin.topay', compact('title'))->with('data',$data);
     }
 
     /**
@@ -68,8 +71,26 @@ class ToPayController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+
+    {   //username of the client
+        $uname = $request->uname;
+        //get initial value of the client's fund
+        $fndget = User::select('funds')
+        ->where('username', $uname)
+        ->get();
+        //add existing value with the requested value
+        $newsum =$fndget['0']->funds + $request->amt;
+        //update new value
+        $fundup = User::select('funds')
+        ->where('username', $uname)
+        ->update(['funds'=>$newsum]);
+        //approve fund request
+        $statup = Funds::find($id);
+        $statup->status="Approved";
+        $statup->save();
+
+        return $newsum;
+      
     }
 
     /**

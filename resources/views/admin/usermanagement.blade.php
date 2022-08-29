@@ -4,7 +4,7 @@
 
 <div class="bg-white my-5 mx-5 " style=" border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
     <a href="" class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
-      <span class="fs-5 fw-semibold text-center w-100">Blocked Users</span>
+      <span class="fs-5 fw-semibold text-center w-100">Manage Users</span>
     </a>
     <div>
       <table class="table">
@@ -31,7 +31,7 @@
                 {!! Form::open(['action'=>['App\Http\Controllers\UserManagementController@update',$user->id],
                 'method'=>'PUT'])!!}
                 {{ Form::hidden('id',$user->id) }}
-                {{ Form::submit('Delete Account',['class' => 'btn userloggedbtn text-danger ms-5'])}}
+                {{ Form::submit('Block User',['class' => 'btn userloggedbtn text-danger ms-5'])}}
                 {!! Form::close() !!}
             </td>
             </tr>

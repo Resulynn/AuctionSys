@@ -14,7 +14,7 @@
             </div>
             <div class="dropdown-menu dropdown-menu-right my-1" style="border-radius: 0%; border:1px #f0eeee solid;  background-color:#ffffff;">
                 <div class="dropdown-item">
-                    <a class="userloggedbtn" href="/profile">Profile</a>
+                    <a class="userloggedbtn" href="/adminprofile">Profile</a>
                 </div>
                 <div class="dropdown-item">
                     <a class="btn userloggedbtn" id="open">Logout</a>

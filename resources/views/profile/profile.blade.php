@@ -3,12 +3,10 @@
 
     @section('content')
   
-    <div class="reg mt-5">
+    <div class="reg my-5">
         <div class="d-flex   py-3">
             <h3 class="px-5"><b> Your Profile</b></h3>
-           
         </div>
-
           {!! Form::open(['action'=>'App\Http\Controllers\ProfileController@store',
           'method'=>'POST', 'enctype'=>'multipart/form-data']) !!}
          <div class="profpic text-center mb-3">
@@ -16,61 +14,22 @@
             <div class="profpic text-center mb-3">
                 <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Auth::user()->username}}</h5>
                 <label style="font-size: small;">
-                    User Type: <b>{{Auth::user()->user_type}}</b><br>
-
-                    
-                    User Status: <b>{{$data->user_status}}</b>
+                    @if($data->user_type == 1)
+                        User Type: <b>Registered User</b><br>
+                    @endif
+                    @if($data->user_status == 0)
+                        User Status: <b class="text-danger">Account Blocked</b> 
+                        @else
+                        User Status: <b class="text-success">Active</b> 
+                    @endif
                 </label>
             </div>
           </div> 
           <div class="d-flex w-100 justify-content-center align-items-center mb-3">
             <a href="/profile/{{$data->username}}/edit" class= "edit-prof btn w-25 textalign-center" style="color:#ffffff !important; background-color:#121212; border-radius: 0%;">Edit Profile</a> 
         </div> 
-       
-      
-                
-      {{--       <div class="col-5 ms-5 pe-5">
-                <fieldset disabled>
-                    <div class="row ms-2">
-                        {{Form::label('uname','User Name',['class'=>'lead text-dark'])}}
-                        {{Form::text('uname',$data->username,['class'=>'form-control','placeholder'=>'User Name'])}}
-                    </div>
-                    <div class="row ms-2">
-                        <label class="lead text-dark"> Birthday </label>                      
-                                {{Form::text('month',$data->bday,['class'=>'form-control','placeholder'=>'MM'])}}
-                    </fieldset>
-                      
-                          
-                       
-                    </div>   --}}              
-             {!! Form::close() !!}
-            
+            {!! Form::close() !!}
             <fieldset disabled>
-                {{-- <div class="row ms-2">
-                       {{Form::label('first name','First Name',['class'=>'lead text-dark'])}}
-                       {{Form::text('fname', $data->fname,['class'=>'form-control','placeholder'=>'First Name'])}}
-                   </div>
-                   <div class="row ms-2">
-                       {{Form::label('last name','Last Name',['class'=>'lead text-dark'])}}
-                       {{Form::text('lname',$data->lname,['class'=>'form-control','placeholder'=>'Last Name'])}}
-                   </div>
-                   <div class="row ms-2">
-                       {{Form::label('email address','Email Address',['class'=>'lead text-dark'])}}
-                       {{Form::email('email',$data->email,['class'=>'form-control','placeholder'=>'Email Address'])}}
-                   </div>
-                   <div class="row ms-2">
-                       {{Form::label('phone num','Phone Number',['class'=>'lead text-dark'])}}
-                       {{Form::number('pnum',$data->pnum,['class'=>'form-control','placeholder'=>'Phone Number'])}}
-                   </div>
-                   <div class="row ms-2">
-                       {{Form::label('address','Address',['class'=>'lead text-dark'])}}
-                       {{Form::text('add',$data->address,['class'=>'form-control','placeholder'=>'Address'])}}
-                   </div>
-                   <div class="row ms-2">
-                       {{Form::label('zipcode','Zip Code',['class'=>'lead text-dark'])}}
-                       {{Form::number('zipcode',$data->zipcode,['class'=>'form-control','placeholder'=>'Zip Code'])}}
-                   </div> --}}
-
                    <div class="container  my-5 ">
                        <div class="row justify-content-center">
                            <div class="col-md-8">
@@ -144,18 +103,12 @@
                                                    </div>
                                                </div>
                                            </div>
-                   
-                                     
                                    </div>
                                </div>
                            </div>
                        </div>
                    </div>
                </fieldset> 
-               
         </div>
-        
     </div>
-
-        
     @endsection
