@@ -6,6 +6,7 @@ use App\Models\Inventory;
 use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
 use App\Models\Auction;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class InventoryController extends Controller
@@ -84,6 +85,7 @@ class InventoryController extends Controller
     {
         //
         $title = 'Product Page';
+        $funds = Auth::user()->funds;
         $item = Auction::find($inventory);
 
         if((Carbon::now()) > ($item->endDate))
@@ -94,7 +96,10 @@ class InventoryController extends Controller
         {
             $exp = "Bidding ACTIVE";
         }
-        return view('pages.productpage',compact('title'))->with('item',$item)->with('exp',$exp);
+        return view('pages.productpage',compact('title'))
+        ->with('item',$item)
+        ->with('exp',$exp)
+        ->with('funds',$funds);
 
     }
 

@@ -4,7 +4,7 @@
 @php
 use Carbon\Carbon;
 $date = date($item->endDate);
-$time = date(' 14:23:00');
+$time = date(' 23:59:59');
 $date_today = $date.''.$time;
 
 @endphp
@@ -20,12 +20,11 @@ var x = setInterval(function(){
   var minutes = Math.floor((distance%(1000 * 60 * 60))/(1000 * 60));
   var seconds = Math.floor((distance%(1000 * 60))/1000);
 
-document.getElementById("demo").innerHTML = "Remaining Time: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+document.getElementById("end_date").innerHTML = "Remaining Time: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
 if(distance < 0){
   clearInterval(x);
-  document.getElementById("demo").innerHTML = "Remaining Time: Bidding ENDED";
-  $item->aucStatus = 0;
+  document.getElementById("end_date").innerHTML = "Remaining Time: Bidding ENDED";
 }
 
 },1000);
@@ -63,9 +62,6 @@ if(distance < 0){
                             <div class="details">
                                 <div class="d-flex  align-items-center">
                                      <h3><b>{{$item->prodName}}</b></h3>
-                                  {{--     @if(Auth::get('logged') == 1)
-                                         <a href="/store" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus" title="Add To Bag"></i></a>
-                                    @endif  --}}
 
                                     @guest
                                         @if(Route::has('login'))
@@ -87,8 +83,7 @@ if(distance < 0){
                                     </div> 
                                   
                                         <h5>Auction Ends On: <label for="" style="color: rgb(0, 0, 0);">{{$item->endDate}} <small>({{$exp}}) </small></label> </h5>
-                                        <p id="demo"></p>
-                               
+                                        <p id="end_date"></p>
                                     </div>
                             </div>
                         </div>
@@ -112,9 +107,19 @@ if(distance < 0){
                         
                         @endif
                         @else
+                            
                             <div class="bid-amt">
-                                <h5>Enter your Bidding Amount</h5>
-                                <input type = "number" name = "number">
+                                @if($funds > $item->initialPrice)
+                                    Funds: <b class="text-success">{{$funds}}</b> 
+                                    @else
+                                    Funds: <b class="text-danger">{{$funds}} (Insufficient)</b> 
+                                    <br>
+                                    <a href="/fundings" class="userloggedbtn">Add Funds</a>
+                                @endif
+                                
+                                <h5 class="mt-3">Enter your Bidding Amount</h5>
+                                <input type = "number" name = "bid_amt">
+                                
                                 <div class="button">
                                     <button type="button" class="btn btn-dark w-50">PLACE BID</button>
                                 </div>

@@ -1,5 +1,7 @@
 @extends('layout.admin')
 @section('content') 
+
+
 <a href="/admin/auctionlist" class="d-flex flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
         <span class="fs-5 fw-semibold text-center w-100">Auction List</span>
 </a>
@@ -9,6 +11,34 @@
           <div class="list-group list-group-flush border-bottom scrollarea " style="border-right:1px #f0eeee solid;">
           @if(count($auctions)>0)
           @foreach ($auctions as $info)
+
+@php
+
+$date = date($auction->endDate);
+$time = date(' 23:59:59');
+$date_today = $date.''.$time;
+@endphp
+    
+<script type="text/javascript">
+var count_id = "<?php echo $date_today ?>";
+var countDownDate = new Date(count_id).getTime();
+var x = setInterval(function(){
+  var now  = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance/(1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24 ))/(1000 * 60 * 60));
+  var minutes = Math.floor((distance%(1000 * 60 * 60))/(1000 * 60));
+  var seconds = Math.floor((distance%(1000 * 60))/1000);
+
+document.getElementById("end_date").innerHTML = "<b>Remaining Time: </b>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+if(distance < 0){
+  clearInterval(x);
+  document.getElementById("end_date").innerHTML = "Remaining Time: Bidding ENDED";
+}
+
+},1000);
+</script>
             <a href="/admin/auction/{{$info->id}}" class="list-group-item list-group-item-action  py-3" aria-current="true">
               <div class="d-flex align-items-center">
                 <div class="me-3">
@@ -23,9 +53,6 @@
                   </div>
                   <div class="col-10 mb-1 ">
                     {{$info->prodDeets}}
-                  </div>
-                  <div class="col-10 mb-1 ">
-                    Time Left: 
                   </div>
                   <div class="" style="">
                     <div>
@@ -80,7 +107,7 @@
                             <div class="item-det">
                                 <h6><b>Type:</b> {{$auction->type}}</h6>
                                 <h6><b>Status:</b> ACTIVE </h6>
-                                <h6><b>Time Left:</b> HH:MM:SS</h6>
+                                <h6><p id = "end_date"></p></h6>
                                 <h6><b>Highest Bid:</b> {{$auction->initialPrice}} PHP</h6>
                                 <h6><b>Highest Bidder:</b>  Juan Delacruz <br>
                                     <b>UID:</b> 0123456 </h6>
