@@ -4,11 +4,6 @@
 
 
 
-{{-- @php
-  echo '<p id = "demo" style = "font-size:30px;"></p>'
-@endphp --}}
-
-
 <div class="container">
 <div class="show text-center pt-4"><h4><b>2022 RELEASES AND COLLECTION</b></h4>
     <p><a href ="/store" style="font-size: small;">SHOW MORE</a></p>
@@ -33,7 +28,6 @@
       </a>
     </div>
 </div>
-     
 <div class="whats-new container pt-4">
   <div class="row justify-content-center align-items-center m-auto pb-4 pt-5 px-3">
     <div class ="col" style="text-align:left;">
@@ -52,11 +46,8 @@
         <div class="container">
           <div class="row">
 
-
 @if(count($products)>0)
   @foreach($products as $prod)
-  
-
         
             <div class="col-lg-4 pb-5">
               <div class="card" style="border-radius: 0%;  height:480px;">
@@ -70,16 +61,13 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>{{$prod->prodName}}</b></h5>
                     <p class="card-text">{{$prod->prodDeets}}</p>
-                  
                 </div>
+                <small>Ends on: <b>{{ Carbon\Carbon::parse($prod->endDate)->isoFormat('MMM D, YYYY')}} (11:59 PM)</b></small> 
                 <div class="pb-5">
                   <b> <a href="/item/{{$prod->id}}"> VIEW AUCTION </a></b>
-                
                 </div>
-                
               </div>
             </div>
-          
               @endforeach
                 @else
                 <p> No Records Found! </p>
@@ -109,7 +97,6 @@
 
               @if(count($products)>0)
               @foreach($products as $prod)
-                   
                         <div class="col-lg-4 pb-5">
                           <div class="card" style="border-radius: 0%;  height:480px;">
                             <img
@@ -125,6 +112,8 @@
                               
                             </div>
                             <div class="pb-5">
+                              <small>Ends on: <b>{{ Carbon\Carbon::parse($prod->endDate)->isoFormat('MMM D, YYYY')}} (11:59 PM)</b></small> 
+                              <br>
                               <b> <a href="/item/{{$prod->id}}"> VIEW AUCTION </a></b>
                             </div>
                             

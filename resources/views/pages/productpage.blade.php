@@ -3,32 +3,35 @@
 
 @php
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 $date = date($item->endDate);
 $time = date(' 23:59:59');
 $date_today = $date.''.$time;
-
 @endphp
     
 <script type="text/javascript">
 var count_id = "<?php echo $date_today ?>";
 var countDownDate = new Date(count_id).getTime();
-var x = setInterval(function(){
-  var now  = new Date().getTime();
-  var distance = countDownDate - now;
-  var days = Math.floor(distance/(1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24 ))/(1000 * 60 * 60));
-  var minutes = Math.floor((distance%(1000 * 60 * 60))/(1000 * 60));
-  var seconds = Math.floor((distance%(1000 * 60))/1000);
 
-document.getElementById("end_date").innerHTML = "Remaining Time: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+var x = setInterval(function(){
+
+    var now  = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24 ))/(1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60))/(1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60))/1000);
+
+document.getElementById("end_date").innerHTML = "Remaining Time: <b>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s </b>";
 
 if(distance < 0){
-  clearInterval(x);
-  document.getElementById("end_date").innerHTML = "Remaining Time: Bidding ENDED";
+    clearInterval(x);
+    document.getElementById("end_date").innerHTML = "Remaining Time: Bidding ENDED";
 }
-
 },1000);
 </script>
+
+
     <div class="bidding">
         <div class="bidding-container py-5 my-5">
             <div class="row">
@@ -45,8 +48,7 @@ if(distance < 0){
                     </div>
                 </div>
             </div>
-
-             <div class="item ">
+                <div class="item ">
                 <div class="item-container ">
                     <div class="row justify-content-center align-items-center">
                         <div class="col">
@@ -61,7 +63,7 @@ if(distance < 0){
                         <div class="col">
                             <div class="details">
                                 <div class="d-flex  align-items-center">
-                                     <h3><b>{{$item->prodName}}</b></h3>
+                                    <h3><b>{{$item->prodName}}</b></h3>
 
                                     @guest
                                         @if(Route::has('login'))
@@ -70,9 +72,6 @@ if(distance < 0){
                                         @else
                                         <a href="/bag/{{Auth::user()->username}}" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus" title="Add To Bag"></i></a>
                                     @endguest
-
-
-                                    
                                 </div>
                                 <div class="item-det">
                                     <h5>Category: {{$item->category}}</h5>
@@ -81,8 +80,7 @@ if(distance < 0){
                                         <h5 class="me-1">Price:</h5>
                                         <h5 style="color: black;">{{$item->initialPrice}} PHP</h5>
                                     </div> 
-                                  
-                                        <h5>Auction Ends On: <label for="" style="color: rgb(0, 0, 0);">{{$item->endDate}} <small>({{$exp}}) </small></label> </h5>
+                                        <h5>Auction Ends On: <label for="" style="color: rgb(0, 0, 0);">{{$item->endDate}}</label> </h5>
                                         <p id="end_date"></p>
                                     </div>
                             </div>
@@ -109,68 +107,75 @@ if(distance < 0){
                         @else
                             
                             <div class="bid-amt">
-                                @if($funds > $item->initialPrice)
-                                    Funds: <b class="text-success">{{$funds}}</b> 
+                                @if(Auth::user()->funds > $item->initialPrice)
+                                    Funds: <b class="text-success">{{Auth::user()->funds}}</b> 
                                     @else
-                                    Funds: <b class="text-danger">{{$funds}} (Insufficient)</b> 
+                                    Funds: <b class="text-danger">{{Auth::user()->funds}} (Insufficient)</b> 
                                     <br>
                                     <a href="/fundings" class="userloggedbtn">Add Funds</a>
                                 @endif
                                 
                                 <h5 class="mt-3">Enter your Bidding Amount</h5>
-                                <input type = "number" name = "bid_amt">
-                                
-                                <div class="button">
-                                    <button type="button" class="btn btn-dark w-50">PLACE BID</button>
-                                </div>
-                             </div>  
+
+                                @if(Auth::user()->user_status == 0)
+                                        {!! Form::number('bid_amt', '', ['class'=>'form-control','disabled']) !!}
+                                        {{Form::submit('PLACE BID', ['class'=>'btn btn-dark mt-5 w-50 ','style'=>'border-radius:0%; ','disabled']) }}
+                                    @else
+                                        
+                                        {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'POST',$item->id]) !!}
+                                            {{Form::hidden('id',$item->id)}}
+                                            {!! Form::number('bid_amt', '', ['class'=>'form-control']) !!}
+                                            {{Form::submit('PLACE BID', ['class'=>' btn btn-dark mt-5 w-50 ','style'=>'border-radius:0%;']) }}
+                                        {!! Form::close() !!}
+                                        
+                                @endif
+                            </div>  
                         @endguest
-                       
                     </div>  
                 </div> 
             </div>
-          <div class="d-flex align-items-center justify-content-center">
-            
-              <div class="w-25 me-5">
-                  <hr>
-              </div>
-            
-             OR
-              <div class="w-25 ms-5">
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="w-25 me-5">
+            <hr>
+            </div>
+                OR
+            <div class="w-25 ms-5">
                 <hr>
             </div>
-          </div>
-            <div class="container w-75">
-               
-                <div class="buy-now">
-                    <div class="row">
-                        <div class="col">
-                            <h5>Buy for <b>{{$item->buyPrice}} PHP</b></h5>
-                        </div>
-                       
-                        <div class="col">
-                            @guest
-                                @if(Route::has('login')) 
-                             
-                      
-                                @endif
-
-                                @else
-                                <button type="button" class="btn btn-dark w-50">BUY NOW</button>
-                            @endguest
-                             
-                        </div>  
-                     
+        </div>
+        <div class="container w-75">
+            <div class="buy-now">
+                <div class="row">
+                    <div class="col">
+                        <h5>Buy for <b>{{$item->buyPrice}} PHP</b></h5>
                     </div>
-                    
-                  
-                    {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
-                                     {{Form::submit('CANCEL', ['class'=>'btn btn-dark mt-5 w-25 ','style'=>'border-radius:0%;'])}}<br>
+                    <div class="col">
+                        @guest
+                            @if(Route::has('login')) 
+                            @endif
+
+                            @else
+
+                            @if(Auth::user()->user_status == 0)
+                                {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'GET']) !!}
+                                {{Form::submit('BUY NOW', ['class'=>' btn btn-dark  w-50 ','style'=>'border-radius:0%;' ,'disabled']) }}
                                 {!! Form::close() !!}
+                                
+                                @else
+                                {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'GET']) !!}
+                                {{Form::submit('BUY NOW', ['class'=>' btn btn-dark  w-50 ','style'=>'border-radius:0%;']) }}
+                                {!! Form::close() !!}
+                            @endif
+                        @endguest
+                    </div>  
                 </div>
+                {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
+                    {{Form::submit('CANCEL', ['class'=>'btn btn-dark mt-5 w-25 ','style'=>'border-radius:0%;'])}}<br>
+                {!! Form::close() !!}
             </div>
-        </div>  
-    </div>
+        </div>
+    </div>  
+</div>
 
 
         

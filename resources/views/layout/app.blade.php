@@ -13,24 +13,19 @@
 </head>
 
 <body>
-  
- 
         <div class="sticky-top">
-             @guest
+            @guest
                 @if (Route::has('login')) 
-                     @include('inc.userbar')
+                    @include('inc.userbar')
                 @endif
-
                 @else
                     @include('inc.userloggedbar')  
-    
         </div>  
         @endguest
         @include('inc.navbar')
 
         @guest
             @if (Route::has('login')) 
-                   
                 @endif
                 @else
                 @include('inc.usermenu')
@@ -38,9 +33,23 @@
         
         
     <div class="justify-content-center">
+        @if(Session::has('error'))
+                <div class="d-flex w-100 mt-3 justify-content-center" style="background: none; margin:0%;">
+                    <div class="alert alert-danger w-50 text-center">
+                        {{Session::get('error')}}
+                    </div>
+                </div>
+            @endif
+
+            @if(Session::has('success'))
+            <div class="d-flex w-100 mt-3 justify-content-center" style="background: none; margin:0%;">
+                <div class="alert alert-success w-50 text-center">
+                    {{Session::get('success')}}
+                </div>
+            </div>
+        @endif
         @yield('content')
     </div>
-   
     @include('inc.footer')
     <script src="\js\modals.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -49,4 +49,9 @@
         BLOCKED USERS
     </a>
   </div>
+  <div class="list-group-flush mb-3">
+    <a href="/admin/feedback" class="{{Request::is('admin/feedback') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+        FEEDBACKS
+    </a>
+  </div>
 </div>

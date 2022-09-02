@@ -19,7 +19,13 @@ class AdminProfileController extends Controller
         $username = Auth::user()->username;
         $data = User::where('username',$username)->first();
         $title = "Profile";
-        return view('profile.adminprofile',compact('title'))->with('data',$data);
+
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('profile.adminprofile',compact('title'))->with('data',$data);
+            }
     }
 
     /**

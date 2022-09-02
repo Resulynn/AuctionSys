@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class itemListController extends Controller
@@ -16,7 +17,13 @@ class itemListController extends Controller
     {   
         $data = Inventory::all();
         $title = "Admin | Item List";
-        return view('admin.itemList', compact('title'))->with('data',$data);
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('admin.itemList', compact('title'))->with('data',$data);
+            }
+        
     }
 
     /**
@@ -63,7 +70,13 @@ class itemListController extends Controller
     {
         $title = 'Edit Item';
         $data= Inventory::find($id);
-        return view('admin.editItem',compact('title'))->with('data',$data);
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('admin.editItem',compact('title'))->with('data',$data);
+            }
+        
     }
 
     /**

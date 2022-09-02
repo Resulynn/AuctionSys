@@ -85,21 +85,11 @@ class InventoryController extends Controller
     {
         //
         $title = 'Product Page';
-        $funds = Auth::user()->funds;
+       
         $item = Auction::find($inventory);
 
-        if((Carbon::now()) > ($item->endDate))
-        {
-            $exp = "Bidding ENDED";
-        }
-        else
-        {
-            $exp = "Bidding ACTIVE";
-        }
         return view('pages.productpage',compact('title'))
-        ->with('item',$item)
-        ->with('exp',$exp)
-        ->with('funds',$funds);
+        ->with('item',$item);
 
     }
 

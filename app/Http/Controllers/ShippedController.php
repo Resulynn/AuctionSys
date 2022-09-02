@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ShippedController extends Controller
@@ -14,7 +14,12 @@ class ShippedController extends Controller
     public function index()
     {
         $title = "Admin | Shipped";
-        return view('admin.shipcomplete', compact('title'));
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('admin.shipcomplete', compact('title'));
+            }
     }
 
     /**

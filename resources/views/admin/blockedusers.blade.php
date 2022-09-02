@@ -1,8 +1,7 @@
 @extends('layout.admin')
 @section('content')
 
-
-<div class="bg-white my-5 mx-5 " style=" border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
+<div class="bg-white m-5" style=" border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
     <a href="" class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
       <span class="fs-5 fw-semibold text-center w-100">Blocked Users</span>
     </a>
@@ -18,7 +17,8 @@
             <th scope="col">Account Created at</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
+          @if(count($data)>0)
           @foreach ($data as $user)
             <tr>
               <th scope="row">{{$user->id}}</th>
@@ -26,16 +26,28 @@
               <td>{{$user->fname. " " .$user->lname}}</td>
               <td>{{$user->address}}</td>
               <td>{{$user->funds}}</td>
-              <td>{{$user->created_at}}</td>
+              <td>{{ Carbon\Carbon::parse($user->created_at)->isoFormat('MMM D, YYYY')}}</td>
               <td>
-                {!! Form::open(['action'=>['App\Http\Controllers\UserManagementController@update',$user->id],
+                {!! Form::open(['action'=>['App\Http\Controllers\BlockedUsersController@update',$user->id],
                 'method'=>'PUT'])!!}
                 {{ Form::hidden('id',$user->id) }}
-                {{ Form::submit('Delete Account',['class' => 'btn userloggedbtn text-danger ms-5'])}}
+                {{ Form::submit('Unblock Account',['class' => 'btn userloggedbtn text-success ms-3'])}}
                 {!! Form::close() !!}
-            </td>
+              </td>
+              <td>
+                {!! Form::open(['action'=>['App\Http\Controllers\BlockedUsersController@destroy',$user->id],
+                'method'=>'DELETE'])!!}
+                {{ Form::hidden('id',$user->id) }}
+                {{ Form::submit('Delete Account',['class' => 'btn userloggedbtn text-danger mx-4'])}}
+                {!! Form::close() !!}
+              </td>
             </tr>
           @endforeach
+          @else
+            <tr>
+              <td class="text-center" colspan="7">No Records Found</td>
+            </tr>
+          @endif
         </tbody>
       </table>       
     </div>

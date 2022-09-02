@@ -23,6 +23,8 @@
                             <p class="card-text">
                             {{$item->prodDeets}}
                             </p>
+                            <small>Ends on: <b>{{ Carbon\Carbon::parse($item->endDate)->isoFormat('MMM D, YYYY')}}</b></small> 
+                            <br>
                             <b> <a href="/item/{{$item->id}}"> VIEW AUCTION </a></b>
                           </div>
                         </div>

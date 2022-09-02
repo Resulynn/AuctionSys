@@ -26,7 +26,7 @@
               <td>{{$user->fname. " " .$user->lname}}</td>
               <td>{{$user->address}}</td>
               <td>{{$user->funds}}</td>
-              <td>{{$user->created_at}}</td>
+              <td>{{ Carbon\Carbon::parse($user->created_at)->isoFormat('MMM D, YYYY')}}</td>
               <td>
                 {!! Form::open(['action'=>['App\Http\Controllers\UserManagementController@update',$user->id],
                 'method'=>'PUT'])!!}

@@ -44,13 +44,28 @@ class PagesController extends Controller
 
     //admin pages
     function adminindex(){
+
         $title = "Admin";
-        return view('admin.index',compact('title'));
+
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('admin.index',compact('title'));
+            }
     }
+        
+    
 
     function list(){
         $title = "Listings";
-        return view('admin.list',compact('title'));
+        
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('admin.list',compact('title'));
+            }
     }
     function add(){
         $title = "Add Auction";

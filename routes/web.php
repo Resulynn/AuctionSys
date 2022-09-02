@@ -24,33 +24,33 @@ Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
 
 
 //admin module
-Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex');
-Route::resource('/admin/usermanagement','App\Http\Controllers\UserManagementController');
-Route::get('/add','App\Http\Controllers\PagesController@add');
-Route::get('/fundings','App\Http\Controllers\PagesController@fundings');
-Route::resource('/admin/list','App\Http\Controllers\itemListController');
-Route::resource('/admin/auctionlist','App\Http\Controllers\AuctionDetailsController');
-Route::resource('/admin/auction','App\Http\Controllers\AuctionDetailsController');
-Route::get('/shipreq','App\Http\Controllers\PagesController@shipreq');
-Route::resource('/admin/shippings','App\Http\Controllers\ToShipController');
-Route::resource('/admin/shipped','App\Http\Controllers\ShippedController');
-Route::resource('/admin/toPay','App\Http\Controllers\ToPayController');
-Route::resource('/admin/completed','App\Http\Controllers\CompletedTransactionController');
-Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersController');
+Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex')->middleware('auth');
+Route::resource('/admin/usermanagement','App\Http\Controllers\UserManagementController')->middleware('auth');
+Route::get('/add','App\Http\Controllers\PagesController@add')->middleware('auth');
+Route::get('/fundings','App\Http\Controllers\PagesController@fundings')->middleware('auth');
+Route::resource('/admin/list','App\Http\Controllers\itemListController')->middleware('auth');
+Route::resource('/admin/auctionlist','App\Http\Controllers\AuctionDetailsController')->middleware('auth');
+Route::resource('/admin/auction','App\Http\Controllers\AuctionDetailsController')->middleware('auth');
+Route::get('/shipreq','App\Http\Controllers\PagesController@shipreq')->middleware('auth');
+Route::resource('/admin/shippings','App\Http\Controllers\ToShipController')->middleware('auth');
+Route::resource('/admin/shipped','App\Http\Controllers\ShippedController')->middleware('auth');
+Route::resource('/admin/toPay','App\Http\Controllers\ToPayController')->middleware('auth');
+Route::resource('/admin/completed','App\Http\Controllers\CompletedTransactionController')->middleware('auth');
+Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersController')->middleware('auth');
 // Route::get('/search','App\Http\Controllers\itemListController@search');
-Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage');
-Route::resource('/postItem','App\Http\Controllers\AuctionController');
-Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController');
-
+Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage')->middleware('auth');
+Route::resource('/postItem','App\Http\Controllers\AuctionController')->middleware('auth');
+Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController')->middleware('auth');
+Route::resource('/admin/feedback','App\Http\Controllers\FeedbackController')->middleware('auth');
 
 //profile module
-Route::resource('/profile','App\Http\Controllers\ProfileController');
-Route::resource('/biddings','App\Http\Controllers\BiddingController');
-Route::post('/profiles','App\Http\Controllers\imgController@upload');
-Route::resource('/bag','App\Http\Controllers\BagController');
-Route::resource('/fundings','App\Http\Controllers\UserFundingsController');
-Route::resource('/orders','App\Http\Controllers\UserOrdersController');
-Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController');
+Route::resource('/profile','App\Http\Controllers\ProfileController')->middleware('auth');
+Route::resource('/biddings','App\Http\Controllers\BiddingController')->middleware('auth');
+Route::post('/profiles','App\Http\Controllers\imgController@upload')->middleware('auth');
+Route::resource('/bag','App\Http\Controllers\BagController')->middleware('auth');
+Route::resource('/fundings','App\Http\Controllers\UserFundingsController')->middleware('auth');
+Route::resource('/orders','App\Http\Controllers\UserOrdersController')->middleware('auth');
+Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController')->middleware('auth');
 
 //store Pages
 Route::get('/store','App\Http\Controllers\storePagesController@store_index');

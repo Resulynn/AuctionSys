@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CompletedTransactionController extends Controller
@@ -14,7 +14,13 @@ class CompletedTransactionController extends Controller
     public function index()
     {
         $title = "Admin | Completed Transactions";
-        return view('admin.completedtxn', compact('title'));
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('admin.completedtxn', compact('title'));
+            }
+        
     }
 
     /**

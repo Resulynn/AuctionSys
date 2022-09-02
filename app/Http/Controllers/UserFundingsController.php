@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Funds;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,10 @@ class UserFundingsController extends Controller
 
         $title = "Fundings";
         $username = Auth::user()->username;
-
+        $data = Funds::where('uname','=',Auth::user()->username)->get();
         $funds = User::where('username',$username)->select('funds')->first();
-        return view('profile.fundings', compact('title'))->with('funds',$funds);
+        
+        return view('profile.fundings', compact('title'))->with('funds',$funds)->with('data',$data);
     }
 
     /**

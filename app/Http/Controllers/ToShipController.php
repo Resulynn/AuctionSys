@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class ToShipController extends Controller
 {
     /**
@@ -14,7 +14,12 @@ class ToShipController extends Controller
     public function index()
     {
         $title = "Admin | To Ship";
-        return view('admin.ships', compact('title'));
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('admin.ships', compact('title'));
+            }
     }
 
     /**

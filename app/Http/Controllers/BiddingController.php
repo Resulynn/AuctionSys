@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Biddings;
+use App\Models\User;
+use App\Models\Auction;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class BiddingController extends Controller
 {
@@ -24,7 +29,7 @@ class BiddingController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +40,35 @@ class BiddingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'bid_amt'=>'required'
+        ]);
+
+        $prod= Auction::where('id','=',$request->id)->first();
+
+        if(($request->bid_amt) < $prod->initialPrice){
+            Session::flash('error', "Insufficient Amount.");
+            return redirect()->back()->withInput();
+        }
+        else{
+            $data = new Biddings;
+            $data->user_id = Auth::user()->id;
+            $data->uname = Auth::user()->username;
+            $data->prod_id = $request->id;
+            $data->prodname = $prod->prodName;
+            $data->bidamt = $request->bid_amt;
+            $data->bidstatus = 0;
+            $data->endDate = $prod->endDate;
+            $data->save(); 
+
+            $new_funds = Auth::user()->funds - $request->bid_amt; 
+
+            User::where('id', Auth::user()->id)
+                ->update(['funds' => $new_funds]);
+
+            Session::flash('success', "Bid Successfuly Placed!");
+            return redirect()->back();
+        }
     }
 
     /**

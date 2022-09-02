@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 class BlockedUsersController extends Controller
 {
@@ -15,7 +16,13 @@ class BlockedUsersController extends Controller
     {
         $title = "Admin | Blocked Users";
         $data = User::where('user_status','=',0)->get();
-        return view('admin.blockedusers', compact('title'))->with('data',$data);
+
+        if(Auth::user()->user_type == 1){
+            return redirect('/home');
+        }
+        else{
+            return view('admin.blockedusers', compact('title'))->with('data',$data);
+            }
     }
 
     /**
@@ -70,7 +77,11 @@ class BlockedUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = User::find($id);
+        $data->user_status= 1;
+        $data->update();
+
+        return back();
     }
 
     /**
@@ -80,7 +91,12 @@ class BlockedUsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+      
+        return back();
     }
+    
 }

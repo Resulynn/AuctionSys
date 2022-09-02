@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Funds;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
-class ToPayController extends Controller
+class FeedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +13,8 @@ class ToPayController extends Controller
      */
     public function index()
     {
-        $title = "Admin | To Pay";
-        $data = Funds::all();
-        if(Auth::user()->user_type == 1){
-            return redirect('/home');
-        }
-        else{
-            return view('admin.topay', compact('title'))->with('data',$data);
-            }
+        $title = "Admin | Feedbacks";
+        return view('admin.feedback', compact('title'));
     }
 
     /**
@@ -77,26 +68,8 @@ class ToPayController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-
-    {   //username of the client
-        $uname = $request->uname;
-        //get initial value of the client's fund
-        $fndget = User::select('funds')
-        ->where('username', $uname)
-        ->get();
-        //add existing value with the requested value
-        $newsum =$fndget['0']->funds + $request->amt;
-        //update new value
-        $fundup = User::select('funds')
-        ->where('username', $uname)
-        ->update(['funds'=>$newsum]);
-        //approve fund request
-        $statup = Funds::find($id);
-        $statup->status="Approved";
-        $statup->save();
-
-        return $newsum;
-      
+    {
+        //
     }
 
     /**
