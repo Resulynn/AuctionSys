@@ -8,19 +8,21 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" href="/store" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Men
+          Pre-Loved
         </a>
         <div class="dropdown-menu py-3 w-100" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
           <div class = "row px-2">
             <div class = "col">
-              <a><b>READY TO WEAR</b></a> 
-                  <a class="dropdown-item" href="/store/men/tops">Tees</a>
-                  <a class="dropdown-item" href="/store/men/bottoms">Pants</a>
-                  <a class="dropdown-item" href="/store/men/shorts">Shorts</a>
+              <a><b>Men</b></a> 
+                  <a class="dropdown-item" href="/store/PreLoved/men/tops">Tees</a>
+                  <a class="dropdown-item" href="/store/PreLoved/men/bottoms">Pants</a>
+                  <a class="dropdown-item" href="/store/PreLoved/men/shorts">Shorts</a>
             </div>
             <div class = "col">
-              <a><b>SHOES</b></a> 
-                  <a class="dropdown-item" href="/store/men/footwear">Sneakers</a>
+              <a><b>Women</b></a> 
+                  <a class="dropdown-item" href="/store/PreLoved/women/tops">Tees</a>
+                  <a class="dropdown-item" href="/store/PreLoved/women/bottoms">Pants</a>
+                  <a class="dropdown-item" href="/store/PreLoved/women/shorts">Shorts</a>
             </div>
           </div>
         </div>
@@ -28,42 +30,47 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link" href="/store" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Women
+          Brand-New
         </a>
         <div class="dropdown-menu" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
           <div class = "row px-2">
             <div class = col-sm-12>
-              <a><b>READY TO WEAR</b></a> 
-                  <a class="dropdown-item" href="/store/women/tops">Tees</a>
-                  <a class="dropdown-item" href="/store/women/bottoms">Pants</a>
-                  <a class="dropdown-item" href="/store/women/shorts">Shorts</a>
+              <a><b>Men</b></a> 
+                  <a class="dropdown-item" href="/store/BrandNew/men/tops">Tees</a>
+                  <a class="dropdown-item" href="/store/BrandNew/men/bottoms">Pants</a>
+                  <a class="dropdown-item" href="/store/BrandNew/men/shorts">Shorts</a>
             </div>
-            <div class = col-sm-12>
-              <a><b>SHOES</b></a> 
-                  <a class="dropdown-item" href="/store/women/footwear">Sneakers</a>
+            <div class = "col">
+              <a><b>Women</b></a> 
+                  <a class="dropdown-item" href="/store/BrandNew/women/tops">Tees</a>
+                  <a class="dropdown-item" href="/store/BrandNew/women/bottoms">Pants</a>
+                  <a class="dropdown-item" href="/store/BrandNew/women/shorts">Shorts</a>
             </div>
           </div>
         </div>
       </li>
 
-      <li class="nav-item dropdown ">
+      <li class="nav-item dropdown">
         <a class="nav-link" href="/store" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Accesories
+          Bulk
         </a>
-        <div class="dropdown-menu px-2" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/store">Necklace</a>
-            <a class="dropdown-item" href="/store">Bracelets</a>
-            <a class="dropdown-item" href="/store">Rings</a>
-            <a class="dropdown-item" href="/store">Earrings</a>
+        <div class="dropdown-menu" style="border-radius: 0%;" aria-labelledby="navbarDropdownMenuLink">
+          <div class = "row px-2">
+            <div class = col-sm-12>
+              <a><b>Men</b></a> 
+                  <a class="dropdown-item" href="/store/Bulk/men/tops">Tees</a>
+                  <a class="dropdown-item" href="/store/Bulk/men/bottoms">Pants</a>
+                  <a class="dropdown-item" href="/store/Bulk/men/shorts">Shorts</a>
+            </div>
+            <div class = "col">
+              <a><b>Women</b></a> 
+                  <a class="dropdown-item" href="/store/Bulk/women/tops">Tees</a>
+                  <a class="dropdown-item" href="/store/Bulk/women/bottoms">Pants</a>
+                  <a class="dropdown-item" href="/store/Bulk/women/shorts">Shorts</a>
+            </div>
+          </div>
         </div>
       </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="/store" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Others
-        </a>
-      </li>
-    </ul>
 
     <div class="search-box justify-content-end">
      {{--  {!! Form::open(['action'=>'',

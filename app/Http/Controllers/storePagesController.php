@@ -22,56 +22,129 @@ class storePagesController extends Controller
         return view('pages.store',compact('title'))->with('products',$products);
     }
 
-
+//Pre-Loved
     //Men
-    public function menTops(){
+    public function menTopsPL(){
         $title = "Men | Tops";
-        $where = ['category'=>'M','type'=>'T','aucStatus'=>1];
+        $where = ['category'=>'M','type'=>'T','aucStatus'=>1,'cond'=>'Pre-Loved'];
         $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
-    public function menPants(){
-        $title = "Men | Pants";
-        $where = ['category'=>'M','type'=>'P','aucStatus'=>1];
+    public function menBottomsPL(){
+        $title = "Men | Tops";
+        $where = ['category'=>'M','type'=>'P','aucStatus'=>1,'cond'=>'Pre-Loved'];
         $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
-    public function menShorts(){
-        $title = "Men | Shorts";
-        $where = ['category'=>'M','type'=>'S','aucStatus'=>1];
+    public function menShortsPL(){
+        $title = "Men | Tops";
+        $where = ['category'=>'M','type'=>'S','aucStatus'=>1,'cond'=>'Pre-Loved'];
         $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
-    public function menShoes(){
-        $title = "Men | Footwear";
-        $where = ['category'=>'M','type'=>'Sh','aucStatus'=>1];
-        $products= Auction::where($where)->get();
-        return view('pages.store',compact('title'))->with('products',$products);
-    }
-
+  
 
     //Women
-    public function womenTops(){
+    public function womenTopsPL(){
         $title = "Women | Tops";
-        $where = ['category'=>'W','type'=>'T','aucStatus'=>1];
+        $where = ['category'=>'W','type'=>'T','aucStatus'=>1,'cond'=>'Pre-Loved'];
         $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
-    public function womenPants(){
-        $title = "Women | Bottoms";
-        $where = ['category'=>'W','type'=>'P','aucStatus'=>1];
+    public function womenBottomsPL(){
+        $title = "Women | Tops";
+        $where = ['category'=>'W','type'=>'P','aucStatus'=>1,'cond'=>'Pre-Loved'];
         $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
-    public function womenShorts(){
-        $title = "Women | Shorts";
-        $where = ['category'=>'W','type'=>'S','aucStatus'=>1];
+    public function womenShortsPL(){
+        $title = "Women | Tops";
+        $where = ['category'=>'W','type'=>'S','aucStatus'=>1,'cond'=>'Pre-Loved'];
         $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }
-    public function womenShoes(){
-        $title = "Women | Footwear";
-        $where = ['category'=>'W','type'=>'Sh','aucStatus'=>1];
+   
+//Brand New
+    //Men
+    public function menTopsBN(){
+        $title = "Men | Tops";
+        $where = ['category'=>'M','type'=>'T','aucStatus'=>1,'cond'=>'Brand New'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+    public function menBottomsBN(){
+        $title = "Men | Tops";
+        $where = ['category'=>'M','type'=>'P','aucStatus'=>1,'cond'=>'Brand New'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+    public function menShortsBN(){
+        $title = "Men | Tops";
+        $where = ['category'=>'M','type'=>'S','aucStatus'=>1,'cond'=>'Brand New'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+  
+
+    //Women
+    public function womenTopsBN(){
+        $title = "Women | Tops";
+        $where = ['category'=>'W','type'=>'T','aucStatus'=>1,'cond'=>'Brand New'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+    public function womenBottomsBN(){
+        $title = "Women | Tops";
+        $where = ['category'=>'W','type'=>'P','aucStatus'=>1,'cond'=>'Brand New'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+    public function womenShortsBN(){
+        $title = "Women | Tops";
+        $where = ['category'=>'W','type'=>'S','aucStatus'=>1,'cond'=>'Brand New'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+
+
+//Bulk
+    //Men
+    public function menTopsBK(){
+        $title = "Men | Tops";
+        $where = ['category'=>'M','type'=>'T','aucStatus'=>1,'cond'=>'Bulk'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+    public function menBottomsBK(){
+        $title = "Men | Tops";
+        $where = ['category'=>'M','type'=>'P','aucStatus'=>1,'cond'=>'Bulk'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+    public function menShortsBK(){
+        $title = "Men | Tops";
+        $where = ['category'=>'M','type'=>'S','aucStatus'=>1,'cond'=>'Bulk'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+  
+
+    //Women
+    public function womenTopsBK(){
+        $title = "Women | Tops";
+        $where = ['category'=>'W','type'=>'T','aucStatus'=>1,'cond'=>'Bulk'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+    public function womenBottomsBK(){
+        $title = "Women | Tops";
+        $where = ['category'=>'W','type'=>'P','aucStatus'=>1,'cond'=>'Bulk'];
+        $products= Auction::where($where)->get();
+        return view('pages.store',compact('title'))->with('products',$products);
+    }
+    public function womenShortsBK(){
+        $title = "Women | Tops";
+        $where = ['category'=>'W','type'=>'S','aucStatus'=>1,'cond'=>'Bulk'];
         $products= Auction::where($where)->get();
         return view('pages.store',compact('title'))->with('products',$products);
     }

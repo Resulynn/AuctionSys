@@ -23,6 +23,7 @@
                         <li><b>ID:</b> {{$info->id}}</li>
                         <li><b>Name:</b> {{$info->prodName}}</li>
                         <li><b>Details:</b> {{$info->prodDeets}}</li>
+                        <li><b>Condition:</b> {{$info->cond}}</li>
                         <li><b>Category:</b> {{$info->category}}</li>
                     </ul>
                   </small>

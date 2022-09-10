@@ -53,16 +53,34 @@ Route::resource('/orders','App\Http\Controllers\UserOrdersController')->middlewa
 Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController')->middleware('auth');
 
 //store Pages
-Route::get('/store','App\Http\Controllers\storePagesController@store_index');
-Route::get('/store/men/tops','App\Http\Controllers\storePagesController@menTops');
-Route::get('/store/men/bottoms','App\Http\Controllers\storePagesController@menPants');
-Route::get('/store/men/shorts','App\Http\Controllers\storePagesController@menShorts');
-Route::get('/store/men/footwear','App\Http\Controllers\storePagesController@menShoes');
+    //preloved men
+        Route::get('/store','App\Http\Controllers\storePagesController@store_index');
+        Route::get('/store/PreLoved/men/tops','App\Http\Controllers\storePagesController@menTopsPL');
+        Route::get('/store/PreLoved/men/bottoms','App\Http\Controllers\storePagesController@menBottomsPL');
+        Route::get('/store/PreLoved/men/shorts','App\Http\Controllers\storePagesController@menShortsPL');
+    //preloved women
+        Route::get('/store/PreLoved/women/tops','App\Http\Controllers\storePagesController@womenTopsPL');
+        Route::get('/store/PreLoved/women/bottoms','App\Http\Controllers\storePagesController@womenBottomsPL');
+        Route::get('/store/PreLoved/women/shorts','App\Http\Controllers\storePagesController@womenShortsPL');
 
-Route::get('/store/women/tops','App\Http\Controllers\storePagesController@womenTops');
-Route::get('/store/women/bottoms','App\Http\Controllers\storePagesController@womenPants');
-Route::get('/store/women/shorts','App\Http\Controllers\storePagesController@womenShorts');
-Route::get('/store/women/footwear','App\Http\Controllers\storePagesController@womenShoes');
+    //brandnew men
+        Route::get('/store/BrandNew/men/tops','App\Http\Controllers\storePagesController@menTopsBN');
+        Route::get('/store/BrandNew/men/bottoms','App\Http\Controllers\storePagesController@menBottomsBN');
+        Route::get('/store/BrandNew/men/shorts','App\Http\Controllers\storePagesController@menShortsBN');
+    //brandnew women
+        Route::get('/store/BrandNew/women/tops','App\Http\Controllers\storePagesController@womenTopsBN');
+        Route::get('/store/BrandNew/women/bottoms','App\Http\Controllers\storePagesController@womenBottomsBN');
+        Route::get('/store/BrandNew/women/shorts','App\Http\Controllers\storePagesController@womenShortsBN');
+
+    //brandnew men
+        Route::get('/store/Bulk/men/tops','App\Http\Controllers\storePagesController@menTopsBK');
+        Route::get('/store/Bulk/men/bottoms','App\Http\Controllers\storePagesController@menBottomsBK');
+        Route::get('/store/Bulk/men/shorts','App\Http\Controllers\storePagesController@menShortsBK');
+    //brandnew women
+        Route::get('/store/Bulk/women/tops','App\Http\Controllers\storePagesController@womenTopsBK');
+        Route::get('/store/Bulk/women/bottoms','App\Http\Controllers\storePagesController@womenBottomsBK');
+        Route::get('/store/Bulk/women/shorts','App\Http\Controllers\storePagesController@womenShortsBK');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
