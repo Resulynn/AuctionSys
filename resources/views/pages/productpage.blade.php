@@ -22,7 +22,7 @@ var x = setInterval(function(){
     var minutes = Math.floor((distance % (1000 * 60 * 60))/(1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60))/1000);
 
-document.getElementById("end_date").innerHTML = "Remaining Time: <b>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s </b>";
+document.getElementById("end_date").innerHTML = "<h5>Remaining Time: <b>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s </b></h5>";
 
 if(distance < 0){
     clearInterval(x);
@@ -64,23 +64,11 @@ if(distance < 0){
                             <div class="details">
                                 <div class="d-flex  align-items-center">
                                     <h3><b>{{$item->prodName}}</b></h3>
-
-                                    @guest
-                                        @if(Route::has('login'))
-                                            <a href="/login" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus" title="Add To Bag"></i></a>
-                                        @endif
-                                        @else
-                                        <a href="/bag/{{Auth::user()->username}}" class="ps-3 pb-1" style="font-size:larger;"><i class="bi bi-bag-plus" title="Add To Bag"></i></a>
-                                    @endguest
                                 </div>
                                 <div class="item-det">
                                     <h5>Category: {{$item->category}}</h5>
                                     <small><p class="pe-5" style="width: 500px; max-width:100%;">{{$item->prodDeets}} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, iusto nulla iure dolorem quas odio harum dignissimos facilis, suscipit minus praesentium quidem rerum blanditiis quis atque mollitia et eos repellat?</p></small>
-                                    <div class="d-flex w-100 m-auto align-items-center">
-                                        <h5 class="me-1">Price:</h5>
-                                        <h5 style="color: black;">{{$item->initialPrice}} PHP</h5>
-                                    </div> 
-                                        <h5>Auction Ends On: <label for="" style="color: rgb(0, 0, 0);">{{$item->endDate}}</label> </h5>
+                                        <h5>Auction Ends on:<b> {{ Carbon::parse($item->endDate)->isoFormat('MMM D, YYYY')}} (11:59 PM)</b></h5>
                                         <p id="end_date"></p>
                                     </div>
                             </div>
@@ -92,42 +80,39 @@ if(distance < 0){
                 <div class="row">
                     <div class="col">
                         <div class="bidding-det">
-                            <h5>Your Max Bid: 999.99</h5>
-                            <h5>Starting Bid: {{$item->initialPrice}}</h5>
-                            <h5>Highest Bid: 999.99</h5>
+                                <h5>Your Max Bid: <b>{{$my_max_bid}} PHP</b> </h5>
+                                <h5>Starting Bid: <b>{{$item->initialPrice}} PHP</b></h5>
+                                <h5>Highest Bid: <b>{{$highest_bid}} PHP </b></h5>
+                                @if(Auth::check())
+                                    @if($bid_status->bidstatus == 1)
+                                        Done
+                                    @elseif($bid_status->bidstatus == 0)
+                                        Not yet
+                                    @endif
+                                    @else
+
+                                @endif 
+                                
                         </div>
                     </div>
                 
                     <div class="col">
                         @guest
                             @if(Route::has('login'))
-                            <a class="btn btn-dark" href="/login">Login</a>
-                        
+                            <a class="btn btn-dark w-50" style="border-radius:0%; text-decoration:none; color:#ffffff;" href="/login">Login</a>
                         @endif
                         @else
-                            
                             <div class="bid-amt">
-                                @if(Auth::user()->funds > $item->initialPrice)
-                                    Funds: <b class="text-success">{{Auth::user()->funds}}</b> 
-                                    @else
-                                    Funds: <b class="text-danger">{{Auth::user()->funds}} (Insufficient)</b> 
-                                    <br>
-                                    <a href="/fundings" class="userloggedbtn">Add Funds</a>
-                                @endif
-                                
                                 <h5 class="mt-3">Enter your Bidding Amount</h5>
-
                                 @if(Auth::user()->user_status == 0)
                                         {!! Form::number('bid_amt', '', ['class'=>'form-control','disabled']) !!}
                                         {{Form::submit('PLACE BID', ['class'=>'btn btn-dark mt-5 w-50 ','style'=>'border-radius:0%; ','disabled']) }}
                                     @else
-                                        
                                         {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'POST',$item->id]) !!}
                                             {{Form::hidden('id',$item->id)}}
-                                            {!! Form::number('bid_amt', '', ['class'=>'form-control']) !!}
+                                            {!! Form::number('bid_amt', '', ['class'=>'form-control','required']) !!}
                                             {{Form::submit('PLACE BID', ['class'=>' btn btn-dark mt-5 w-50 ','style'=>'border-radius:0%;']) }}
                                         {!! Form::close() !!}
-                                        
                                 @endif
                             </div>  
                         @endguest
@@ -136,7 +121,7 @@ if(distance < 0){
             </div>
         <div class="d-flex align-items-center justify-content-center">
             <div class="w-25 me-5">
-            <hr>
+                <hr>
             </div>
                 OR
             <div class="w-25 ms-5">
@@ -150,23 +135,35 @@ if(distance < 0){
                         <h5>Buy for <b>{{$item->buyPrice}} PHP</b></h5>
                     </div>
                     <div class="col">
-                        @guest
-                            @if(Route::has('login')) 
-                            @endif
-
-                            @else
-
+                        @if(Auth::check())
                             @if(Auth::user()->user_status == 0)
                                 {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'GET']) !!}
-                                {{Form::submit('BUY NOW', ['class'=>' btn btn-dark  w-50 ','style'=>'border-radius:0%;' ,'disabled']) }}
+                                    {{Form::submit('BUY NOW', ['class'=>' btn btn-dark  w-50 ','style'=>'border-radius:0%;' ,'disabled']) }}
                                 {!! Form::close() !!}
-                                
                                 @else
-                                {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'GET']) !!}
-                                {{Form::submit('BUY NOW', ['class'=>' btn btn-dark  w-50 ','style'=>'border-radius:0%;']) }}
-                                {!! Form::close() !!}
+                                    {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'GET']) !!}
+                                        {{Form::submit('BUY NOW', ['class'=>' btn btn-dark  mb-3 w-50 ','style'=>'border-radius:0%;']) }}
+                                    {!! Form::close() !!}
                             @endif
-                        @endguest
+                            @else
+                            {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'GET']) !!}
+                                        {{Form::submit('LOGIN TO BUY', ['class'=>' btn btn-dark  mb-3 w-50 ','style'=>'border-radius:0%;']) }}
+                            {!! Form::close() !!}
+                        @endif
+                            
+                        @if(Auth::check())
+                            @if(Auth::user()->funds > $item->buyPrice)
+                                Funds: <b class="text-success">{{Auth::user()->funds}}</b> 
+                                @else
+                                    <div class="align-items-center justify-content-center">
+                                        Funds: <b class="text-danger">{{Auth::user()->funds}} (Insufficient)</b> 
+                                        <a href="/fundings" class="userloggedbtn ms-1"> <i class="bi bi-wallet2" style="font-size: 15px;"></i> Add Funds</a>
+                                    </div>
+                            @endif 
+                        @else
+                            
+                        @endif
+                        
                     </div>  
                 </div>
                 {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
@@ -176,7 +173,4 @@ if(distance < 0){
         </div>
     </div>  
 </div>
-
-
-        
-    @endsection
+@endsection

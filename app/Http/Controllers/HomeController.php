@@ -24,8 +24,8 @@ class HomeController extends Controller
      */
     public function index(){
         $title = "Home";
-        // $products= Auction::all()->take(5);
-        $products= Auction::where('aucStatus','=',1)->take(6)->orderBy('endDate', 'DESC')->get();
+        
+        $products= Auction::where('aucStatus','=',1)->take(6)->orderBy('endDate', 'ASC')->get();
         return view('pages.home',compact('title'))->with('products',$products);
     }
 }

@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Auction;
 use Illuminate\Support\Facades\Auth;
 use Session;
-
+use Illuminate\Support\Facades\Route;
 class BiddingController extends Controller
 {
     /**
@@ -19,7 +19,11 @@ class BiddingController extends Controller
     public function index()
     {
         $title = "Biddings";
-        return view('profile.biddings', compact('title'));
+        $data = Biddings::join('auctions','bidtransactions.prod_id','=','auctions.id')
+                        ->where('user_id','=',Auth::user()->id)
+                        ->get();
+        return view('profile.biddings', compact('title'))
+                ->with('data',$data);
     }
 
     /**
@@ -57,14 +61,11 @@ class BiddingController extends Controller
             $data->prod_id = $request->id;
             $data->prodname = $prod->prodName;
             $data->bidamt = $request->bid_amt;
-            $data->bidstatus = 0;
+            $data->refnum = Auth::user()->id.date('ymdHis');
+            $data->bidstatus = 1; //1/1 bid done
             $data->endDate = $prod->endDate;
             $data->save(); 
 
-            $new_funds = Auth::user()->funds - $request->bid_amt; 
-
-            User::where('id', Auth::user()->id)
-                ->update(['funds' => $new_funds]);
 
             Session::flash('success', "Bid Successfuly Placed!");
             return redirect()->back();
@@ -113,6 +114,6 @@ class BiddingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

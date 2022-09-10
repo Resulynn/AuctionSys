@@ -9,8 +9,8 @@ class Funds extends Model
 {
     use HasFactory;
      //table name
-     protected $table = 'fundtransactions';
+    protected $table = 'fundtransactions';
 
      //Primary Key
-     public $primaryKey = 'id';
+    public $primaryKey = 'id';
 }

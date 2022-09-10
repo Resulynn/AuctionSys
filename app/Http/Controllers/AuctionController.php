@@ -6,7 +6,8 @@ use App\Models\Auction;
 use App\Models\Inventory;
 use App\Http\Requests\StoreAuctionRequest;
 use App\Http\Requests\UpdateAuctionRequest;
-
+use Illuminate\Support\Facades\Auth;
+use Session;
 class AuctionController extends Controller
 {
     /**
@@ -59,7 +60,8 @@ class AuctionController extends Controller
         $find->save();
         $input->save();
 
-        return redirect('/admin/list')->with('success','Auction Posted');
+        Session::flash('success', "Auction Posted.");
+        return redirect('/admin/auctionlist');
     }
 
     /**

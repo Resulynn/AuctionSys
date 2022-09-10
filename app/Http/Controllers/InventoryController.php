@@ -6,8 +6,10 @@ use App\Models\Inventory;
 use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
 use App\Models\Auction;
+use App\Models\Biddings;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Session;
 
 class InventoryController extends Controller
 {
@@ -49,6 +51,7 @@ class InventoryController extends Controller
             'buyPrice'=>'required',
             'qty'=>'required',
         ]);
+        
         $filename= $request->input('prodName').".".$request->file('itemImg')->getClientOriginalExtension();
         $request->file('itemImg')->storeAs('itemImages',$filename,'public_uploads');
 
@@ -70,7 +73,8 @@ class InventoryController extends Controller
         $data->qty=$request->input('qty');
         $data->save();
 
-        return redirect('/admin/index')->with('success','Item Added');
+        Session::flash('success', "Item successfuly Added.");
+        return redirect('/admin/list');
 
         
     }
@@ -85,12 +89,30 @@ class InventoryController extends Controller
     {
         //
         $title = 'Product Page';
-       
+
+        
         $item = Auction::find($inventory);
-
-        return view('pages.productpage',compact('title'))
-        ->with('item',$item);
-
+        $highest_bid = Biddings::select('*')->max('bidamt');
+        if(Auth::check()){
+            $my_max_bid = Biddings::where('user_id','=', Auth::user()->id)->max('bidamt');
+            // $bid_status = Biddings::select('bidstatus')->where('user_id','=', Auth::user()->id)->find($inventory);
+            
+            
+            $bid_status = Biddings::select('bidstatus')->where('user_id','=', Auth::user()->id)->where('prod_id','=',$inventory)->first();
+            
+        }
+        else{
+            $my_max_bid = 0;
+            $bid_status = 0;
+        }
+        
+                                    
+        return view('pages.productpage',compact('title',
+                                                'item',
+                                                'highest_bid',
+                                                'my_max_bid',
+                                                'bid_status'
+                                                ));
     }
 
     /**

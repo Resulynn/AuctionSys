@@ -42,6 +42,21 @@
     </div>
 
     <div class="main">
+        @if(Session::has('error'))
+            <div class="d-flex w-100 mt-3 justify-content-center" style="background: none; margin:0%;">
+                <div class="alert alert-danger w-50 text-center">
+                    {{Session::get('error')}}
+                </div>
+            </div>
+        @endif
+
+        @if(Session::has('success'))
+            <div class="d-flex w-100 mt-3 justify-content-center" style="background: none; margin:0%;">
+                <div class="alert alert-success w-50 text-center">
+                    {{Session::get('success')}}
+                </div>
+            </div>
+        @endif
         @yield('content')
         @include('inc.footer')
     </div>

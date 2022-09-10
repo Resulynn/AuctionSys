@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-  <div class="reg my-5">  
+<div class="reg my-5">  
     <div class="d-flex ms-2  pt-3">
         <h2 class="px-5"><b> Edit Your Profile</b></h2>
     </div>
@@ -40,16 +40,16 @@
                                 @csrf
                                 <div class="row mb-3">
                                     <div class="col">
-                                         <label for="fname" class="col-form-label text-md-end">{{ __('First Name') }}</label>
+                                            <label for="fname" class="col-form-label text-md-end">{{ __('First Name') }}</label>
                                         <div class="col">
-                                         <input type="text" class="form-control" value="{{ $data->fname }}">
+                                            <input type="text" class="form-control" value="{{ $data->fname }}">
                                         </div>
                                     </div>
         
                                         <div class="col">
                                             <label for="lname" class="col-form-label text-md-end">{{ __('Last Name') }}</label>
                                             <div class="col">
-                                             <input type="text" class="form-control" value="{{ $data->lname }}">
+                                                <input type="text" class="form-control" value="{{ $data->lname }}">
                                             </div>
                                         </div>
                                 </div>
@@ -67,7 +67,7 @@
                                     <div class="col">
                                         <label for="pnum" class="col-form-label text-md-end">{{ __('Phone Number') }}</label>
                                         <div class="col">
-                                         <input type="number" class="form-control" value="{{ $data->pnum }}">
+                                            <input type="number" class="form-control" value="{{ $data->pnum }}">
                                         </div>
                                     </div>
                                 </div>
@@ -76,11 +76,10 @@
                                     <div class="col">
                                         <label for="username" class="col-form-label text-md-end">{{ __('Username') }}</label>
                                         <div class="col">
-                                         <input type="text" class="form-control" value="{{ $data->username }}">
+                                            <input type="text" class="form-control" value="{{ $data->username }}">
                                         </div>
-                                     </div>
+                                    </div>
                                     
-                               
                                 <div class="w-100">
                                     <div class="row mb-4">
                                         <div class="w-75">
@@ -93,17 +92,18 @@
                                             <div class="col">
                                                 <label for="zipcode" class="col-form-label text-md-end">{{ __('Zip Code') }}</label>
                                                 <div class="col">
-                                                 <input type="text" class="form-control" value="{{ $data->zipcode }}">
+                                                    <input type="text" class="form-control" value="{{ $data->zipcode }}">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                  
                                 <div class="text-center">
-                                 {{Form::submit('SAVE PROFILE',['class'=>'btn btn-dark my-3 w-50 ',
+                                    {!! Form::open() !!}
+                                    {{ Form::submit('SAVE PROFILE',['class'=>'btn btn-dark my-3 w-50 ',
                                     'style' => 'border-radius:0%;'
-                                    ])}}
+                                    ]) }}
+                                    {!! Form::close() !!}
                                 </div>
                         </div>
                     </div>

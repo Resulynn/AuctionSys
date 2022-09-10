@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Auction;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\Biddings;                                                                                                                
 class AuctionDetailsController extends Controller
 {
     /**
@@ -52,10 +53,15 @@ class AuctionDetailsController extends Controller
      */
     public function show($id)
     {
+
         $title = "Admin | Auction List";
-        $auction=Auction::find($id);
+
+        
+        $auction = Auction::find($id);
         $auctions = Auction::where('aucStatus','=',1)->get();
-        return view('admin.auctions')->with(compact('title','auction', 'auctions'));
+        return view('admin.auctions')
+        ->with(compact('title','auction', 'auctions'))
+        ;
     }
 
     /**

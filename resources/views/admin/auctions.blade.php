@@ -56,7 +56,7 @@ if(distance < 0){
                   </div>
                   <div class="" style="">
                     <div>
-                       Highest Bid: <b>{{$info->initialPrice}}</b>
+                      Highest Bid: <b>{{$info->initialPrice}}</b>
                     </div>
                     <div>
                       Buyout Price: <b>{{$info->buyPrice}}</b>
@@ -74,7 +74,7 @@ if(distance < 0){
 
 <div class="w-100 d-flex"> 
     <div class="item-container" 
-         style="display: flex;
+        style="display: flex;
                 width:100%;
                 height:1000px;">
         <div class="my-5"
@@ -88,9 +88,9 @@ if(distance < 0){
                     src="/itemImages/{{$auction->itemImg}}"
                     class="card-img-top  mx-auto mb-3" 
                     style="border-radius: 0%;
-                           width: 300px;
-                           height:300px;
-                           border:1px #f0eeee solid;" />
+                            width: 300px;
+                            height:300px;
+                            border:1px #f0eeee solid;" />
                 </div>
                     <h3 class="d-flex justify-content-center pb-2"><b>{{$auction->prodName}}</b></h3> 
                 <div class="d-flex">
@@ -108,8 +108,8 @@ if(distance < 0){
                                 <h6><b>Type:</b> {{$auction->type}}</h6>
                                 <h6><b>Status:</b> ACTIVE </h6>
                                 <h6><p id = "end_date"></p></h6>
-                                <h6><b>Highest Bid:</b> {{$auction->initialPrice}} PHP</h6>
-                                <h6><b>Highest Bidder:</b>  Juan Delacruz <br>
+                                <h6><b>Highest Bid: </b>  PHP</h6>
+                                <h6><b>Highest Bidder:</b> <br>
                                     <b>UID:</b> 0123456 </h6>
                             </div>
                         </div>
@@ -117,7 +117,7 @@ if(distance < 0){
                 </div>
             </div>
         </div>
-    </div>
+    </div>                              
 </div>
 
   
