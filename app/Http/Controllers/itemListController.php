@@ -96,6 +96,7 @@ class itemListController extends Controller
         $input->type=$request->type;
         $input->initialPrice=$request->initialPrice;
         $input->buyPrice=$request->buyPrice;
+        $input->cond=$request->cond;
         $input->qty=$request->qty;
 
         $input->save();

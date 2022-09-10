@@ -44,6 +44,7 @@ class AuctionController extends Controller
         $input->itemImg=$request->itemImg;
         $input->prodName=$request->prodName;
         $input->prodDeets=$request->prodDeets;
+        $input->cond=$request->cond;
         $input->category=$request->category;
         $input->type=$request->type;
         $input->initialPrice=$request->initialPrice;

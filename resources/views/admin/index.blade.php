@@ -50,11 +50,17 @@
                                     'T' => 'Tees', 
                                     'P' => 'Pants',
                                     'S' => 'Shorts',
-                                    'Sh' => 'Shoes',
-                                    'Nc' => 'Necklace',
-                                    'R' => 'Rings',
-                                    'Br' => 'Bracelets',
-                                    'Er' => 'Earrings',], 
+                                    ], 
+                                    null, ['class'=> 'btn mt-1 mb-2 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
+                                )}}
+                            </div>
+                            <div class="row ms-2 mb-2">
+                                <label style="font-size: small;">Condition</label>
+                                {{Form::select('cond',[
+                                    'Pre-Loved' => 'Pre-Loved', 
+                                    'Brand New' => 'Brand New',
+                                    'Bulk' => 'Bulk',
+                                    ], 
                                     null, ['class'=> 'btn mt-1 mb-2 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
                                 )}}
                             </div>

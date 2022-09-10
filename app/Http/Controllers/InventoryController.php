@@ -71,6 +71,7 @@ class InventoryController extends Controller
         $data->initialPrice=$request->input('initialPrice');
         $data->buyPrice=$request->input('buyPrice');
         $data->qty=$request->input('qty');
+        $data->cond=$request->input('cond');
         $data->save();
 
         Session::flash('success', "Item successfuly Added.");

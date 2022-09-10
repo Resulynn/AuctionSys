@@ -54,6 +54,15 @@
                             $data->type, ['class'=> 'btn mt-1 mb-2 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
                         )}}
                     </div>
+                    <div class="row ms-2 mb-2">
+                        <a>Condition</a>
+                        {{Form::select('cond',[
+                            'Pre-Loved' => 'Pre-Loved', 
+                            'Brand New' => 'Brand New',
+                            'Bulk' => 'Bulk'], 
+                            $data->cond, ['class'=> 'btn mt-1 ms-3','placeholder' => 'Choose Category','style'=>'border-radius:0%; border-bottom:1px #000000 solid;']
+                        )}}
+                    </div>
                     <div class="row ms-2 w-100" style="">
                         <a>Initial Price</a>
                         {{Form::text('initialPrice',$data->initialPrice,
