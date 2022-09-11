@@ -28,6 +28,8 @@
 
                   {{ Form::hidden('uname',$info->uname) }}
                   {{ Form::hidden('amt',$info->amount) }}
+                  {{ Form::hidden('id',$info->id) }}
+
 
                   {{ Form::hidden('_method','PUT') }}
                   {{ Form::submit('Approve',['class' => 'btn userloggedbtn text-success ms-5'])}}
@@ -40,7 +42,14 @@
               @if ($info->status != "Pending")
                  <p>-----</p>
               @else
-                  <a>Deny</a>
+                  {!! Form::open(['action'=>['App\Http\Controllers\ToPayController@deny',$info->id],
+              'method'=>'POST'])!!}
+
+                  {{ Form::hidden('uname',$info->uname) }}
+                  {{ Form::hidden('amt',$info->amount) }}
+                  {{ Form::hidden('id',$info->id) }}
+                  {{-- {{ Form::hidden('_method','PUT') }} --}}
+                  {{ Form::submit('Deny',['class' => 'btn userloggedbtn text-danger ms-5'])}}
               @endif
             </td>
           </tr>
