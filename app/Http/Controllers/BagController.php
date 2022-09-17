@@ -71,8 +71,8 @@ class BagController extends Controller
                 ->with(compact('title',
                             'products',
                             'total',
-                            'status',
-                            'prod_deet'));
+                            'status'
+                            ));
     
     }   
 

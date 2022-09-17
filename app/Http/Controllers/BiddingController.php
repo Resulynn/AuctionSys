@@ -25,10 +25,12 @@ class BiddingController extends Controller
         ->where('bidtransactions.user_id','=',Auth::user()->id)
         ->get();
 
+        
         return view('profile.biddings', compact('title'))
                 ->with('data',$data);
     }
 
+    
 
     /**
      * Show the form for creating a new resource.

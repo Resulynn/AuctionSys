@@ -1,9 +1,13 @@
 @extends('layout.app')
     @section('content')
     <div class="bg-white my-5" style="width:100%; max-width:100%; border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
-      <a href="" class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+      <div class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
         <span class="fs-5 fw-bold text-center w-100">Biddings</span>
-      </a>
+          {{-- {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@index','method'=>'GET']) !!} --}}
+          {{Form::submit('Refresh', ['class'=>' btn btn-dark ','style'=>'border-radius:0%;']) }}
+          {{-- {!! Form::close() !!} --}}
+      </div>
+    
     @foreach ($data as $info) 
       <div class="list-group list-group-flush border-bottom scrollarea ">
           <div class="d-flex">

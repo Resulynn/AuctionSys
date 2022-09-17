@@ -8,19 +8,27 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">ID</th>
           <th scope="col">Username</th>
           <th scope="col">Amount</th>
+          <th scope="col">Reference Num.</th>
+          <th scope="col">Date</th>
           <th scope="col">Status</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($data as $info)
           <tr>
-            <th scope="row">{{$info->id}}</th>
-            <td>{{$info->uname}}</td>
+            <th scope="row">{{$info->uname}}</th>
             <td>{{$info->amount}}</td>
-            <td>{{$info->status}}</td>
+            <td>{{$info->refnum}}</td>
+            <td>{{ Carbon\Carbon::parse($info->created_at)->isoFormat('MMM D, YYYY')}}</td>
+            @if($info->status == "Pending")
+              <td class="text-warning">{{$info->status}}</td>
+            @elseif($info->status =="Approved")
+              <td class="text-success">{{$info->status}}</td>
+            @elseif($info->status =="Denied")
+              <td class="text-danger">{{$info->status}}</td>
+            @endif
             <td>
               @if ($info->status == "Pending")
               {!! Form::open(['action'=>['App\Http\Controllers\ToPayController@update',$info->id],
@@ -30,17 +38,16 @@
                   {{ Form::hidden('amt',$info->amount) }}
                   {{ Form::hidden('id',$info->id) }}
 
-
                   {{ Form::hidden('_method','PUT') }}
-                  {{ Form::submit('Approve',['class' => 'btn userloggedbtn text-success ms-5'])}}
+                  {{ Form::submit('Approve',['class' => 'btn userloggedbtn text-success'])}}
               {!! Form::close() !!}
               @else
-                  <p>-----</p>
+                ----
               @endif
               </td>
             <td>
               @if ($info->status != "Pending")
-                 <p>-----</p>
+                ----
               @else
                   {!! Form::open(['action'=>['App\Http\Controllers\ToPayController@deny',$info->id],
               'method'=>'POST'])!!}
@@ -49,7 +56,7 @@
                   {{ Form::hidden('amt',$info->amount) }}
                   {{ Form::hidden('id',$info->id) }}
                   {{-- {{ Form::hidden('_method','PUT') }} --}}
-                  {{ Form::submit('Deny',['class' => 'btn userloggedbtn text-danger ms-5'])}}
+                  {{ Form::submit('Deny',['class' => 'btn userloggedbtn text-danger'])}}
               @endif
             </td>
           </tr>

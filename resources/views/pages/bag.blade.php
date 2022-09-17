@@ -9,7 +9,7 @@
       <div class="list-group list-group-flush border-bottom scrollarea">
           <div class="d-flex align-items-center">
             <div class="me-3">
-              <img src="/itemImages/{{$prod_deet->itemImg}}" width="100px" height="100px" 
+              <img src="/itemImages/{{$item->itemImg}}" width="100px" height="100px" 
                 style="object-fit: cover; border:1px #121212 solid;" 
                 class="rounded-circle" >
             </div>
