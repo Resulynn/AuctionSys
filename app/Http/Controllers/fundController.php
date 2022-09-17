@@ -21,6 +21,6 @@ class fundController extends Controller
         $data->amount=$request->input('reqAmt');
         $data->save();
 
-        return $request;
+        return back();
     }
 }

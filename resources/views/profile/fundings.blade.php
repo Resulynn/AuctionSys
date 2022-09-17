@@ -9,7 +9,7 @@
         $refnum=Auth::user()->id.date('ymdHis');
     ?>
         
-{{--       {!! Form::open(['action'=>['App\Http\Controllers\fundController@fundReq'],
+      {!! Form::open(['action'=>['App\Http\Controllers\fundController@fundReq'],
                     'method'=>'POST']) !!} 
         <div>
             {{Form::text('reqAmt','',['class'=>'form-control','placeholder'=>'Enter Amount','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;'])}}  
@@ -18,7 +18,7 @@
         {{Form::submit('ADD FUNDS',['class'=>' btn my-5 btn-dark w-100 textalign-center', 'style'=>'border-radius:0%;'])}}
         {{Form::hidden('refnum',$refnum)}}
         {{Form::hidden('accname',Auth::user()->username)}}
-        {!! Form::close() !!}  --}}
+        {!! Form::close() !!} 
 <div class="d-flex">
         <div class=" px-3 pt-3 pt-5 pb-5  list-group list-group-flush scrollarea"
               style=" border-right:1px #f0eeee solid;">

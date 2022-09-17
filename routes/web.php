@@ -40,6 +40,8 @@ Route::resource('/admin/shipped','App\Http\Controllers\ShippedController')->midd
 Route::resource('/admin/toPay','App\Http\Controllers\ToPayController')->middleware('auth');
 Route::resource('/admin/completed','App\Http\Controllers\CompletedTransactionController')->middleware('auth');
 Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersController')->middleware('auth');
+Route::get('/admin/reports','App\Http\Controllers\reportsController@index')->middleware('auth');
+Route::post('/deny','App\Http\Controllers\ToPayController@deny')->middleware('auth');
 // Route::get('/search','App\Http\Controllers\itemListController@search');
 Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage')->middleware('auth');
 Route::resource('/postItem','App\Http\Controllers\AuctionController')->middleware('auth');
@@ -52,6 +54,7 @@ Route::get('/admin/usermanagement/search','App\Http\Controllers\UserManagementCo
 Route::resource('/profile','App\Http\Controllers\ProfileController')->middleware('auth');
 Route::resource('/biddings','App\Http\Controllers\BiddingController')->middleware('auth');
 Route::post('/profiles','App\Http\Controllers\imgController@upload')->middleware('auth');
+Route::post('/addfunds','App\Http\Controllers\fundController@fundReq')->middleware('auth');
 Route::resource('/bag','App\Http\Controllers\BagController')->middleware('auth');
 Route::resource('/fundings','App\Http\Controllers\UserFundingsController')->middleware('auth');
 Route::resource('/orders','App\Http\Controllers\UserOrdersController')->middleware('auth');
@@ -85,6 +88,10 @@ Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController')
         Route::get('/store/Bulk/women/tops','App\Http\Controllers\storePagesController@womenTopsBK');
         Route::get('/store/Bulk/women/bottoms','App\Http\Controllers\storePagesController@womenBottomsBK');
         Route::get('/store/Bulk/women/shorts','App\Http\Controllers\storePagesController@womenShortsBK');
+
+//reports
+    Route::get('/invReport','App\Http\Controllers\reportsController@invreport');
+    Route::post('/fndreport','App\Http\Controllers\reportsController@fndreport');
 
 Auth::routes();
 

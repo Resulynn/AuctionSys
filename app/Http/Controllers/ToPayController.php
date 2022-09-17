@@ -94,9 +94,18 @@ class ToPayController extends Controller
         $statup = Funds::find($id);
         $statup->status="Approved";
         $statup->save();
-
-        return $newsum;
+        return back();
       
+    }
+
+    public function deny(Request $request)
+    {
+        $id = $request->id;
+        $statup = Funds::find($id);
+        $statup->status="Denied";
+        $statup->save();
+        return back();
+ 
     }
 
     /**
