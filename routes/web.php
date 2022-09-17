@@ -21,7 +21,10 @@ Route::resource('/item','App\Http\Controllers\InventoryController');
 Route::get('/logout','App\Http\Controllers\LogoutController@logout');
 Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
 Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
+Route::get('/addtobag','App\Http\Controllers\BagController@addToBag');
+Route::get('/search','App\Http\Controllers\storePagesController@search');
 
+Route::resource('/checkout','App\Http\Controllers\CheckoutController')->middleware('auth');
 
 //admin module
 Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex')->middleware('auth');
@@ -42,6 +45,8 @@ Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage')->middle
 Route::resource('/postItem','App\Http\Controllers\AuctionController')->middleware('auth');
 Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController')->middleware('auth');
 Route::resource('/admin/feedback','App\Http\Controllers\FeedbackController')->middleware('auth');
+Route::get('/admin/usermanagement/search','App\Http\Controllers\UserManagementController@search')->middleware('auth');
+
 
 //profile module
 Route::resource('/profile','App\Http\Controllers\ProfileController')->middleware('auth');

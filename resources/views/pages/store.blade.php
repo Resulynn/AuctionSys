@@ -19,7 +19,7 @@
                                   height: 300px;"
                           />
                           <div class="card-body">
-                            <h5 class="card-title">{{$item->prodName}}</h5>
+                            <h5 class="card-title"><b>{{$item->prodName}}</b></h5>
                             <p class="card-text">
                             {{$item->prodDeets}}
                             </p>

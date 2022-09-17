@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Auction;
+use App\Models\Bag;
+use App\Models\Biddings;
+use Illuminate\Support\Facades\Auth;
 class BagController extends Controller
 {
     /**
@@ -14,7 +17,7 @@ class BagController extends Controller
      */
     public function index()
     {
-     
+    
     }
 
     /**
@@ -46,10 +49,32 @@ class BagController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
         $title = "Bag";
-        return view('pages.bag',compact('title'))->with('user', $user);
-    }
+
+                        
+        $products = Biddings::join('bag','bidtransactions.prod_id','=','bag.product_id')
+                            ->where('bidtransactions.user_id' , '=' , Auth::user()->id)
+                            ->get();
+        
+        // $products = Biddings::join('bag','bidtransactions.prod_id','=','bag.product_id')
+        // ->where('bidtransactions.user_id' , '=' , Auth::user()->id)
+        // ->get();
+       
+        $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
+        ->where('bag.user_id', Auth::user()->id)
+        ->where('bag.status', 0)
+        ->sum('bidtransactions.bidamt');
+
+        $status = Bag::where('user_id', Auth::user()->id)->get();
+
+        return view('pages.bag')
+                ->with(compact('title',
+                            'products',
+                            'total',
+                            'status',
+                            'prod_deet'));
+    
+    }   
 
     /**
      * Show the form for editing the specified resource.
@@ -82,8 +107,22 @@ class BagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
-    
+    function addToBag(Request $request){
 
+            
+            $bag = new Bag;
+            $bag->product_id = $request->product_id;
+            $bag->user_id = Auth::user()->id;
+            $bag->status = 0;
+            
+            $bag->save();
+    
+            return back();
+        }
+    static function bag_qty(){
+        $user_id = Auth::user()->id;
+        return Bag::where('user_id',$user_id)->where('status','0')->count();
+    }
 }

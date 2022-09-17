@@ -16,30 +16,52 @@
                 <div class="w-50 d-flex ">
                   <ul style="list-style: none; margin-top: auto; margin-bottom:auto;">
                     <small>
-                      <li><b>ID:</b> {{$info->id}} </li>
-                      <li><b>Name:</b>  {{$info->prodName}} </li>
-                      <li><b>Type:</b> {{$info->type}}</li>
-                      <li><b>Category:</b> {{$info->category}}</li>
+                      <li>Name: <b>{{$info->prodName}}</b> </li>
+                      <li>Type: <b>{{$info->type}}</b></li>
+                      <li>Category: <b>{{$info->category}}</b></li>
+                      <li>Condition: <b>{{$info->cond}}</b></li>
                     </small>
                   </ul>
                 </div>
-                <div class="w-50 d-flex" style="border-right: 1px #f0eeee solid;">
+                <div class="w-50 d-flex" style="border-right: 1px #f0eeee solid; ">
                   <ul class="pe-3" style="list-style: none;  margin-top: auto; margin-bottom:auto;">
-                    <small >
-                      <li><b>Bid Placed:</b>  {{$info->bidamt}} PHP</li>
-                      <li><b>Reference Number:</b>  {{$info->refnum}} </li>
-                      <li><b>Starting Price:</b>  {{$info->initialPrice}} PHP</li>
-                      <li><b>Buyout Price:</b> {{$info->buyPrice}}  PHP</li> 
+                    <small>
+                      <li>Bid Placed: <b>{{$info->bidamt}} PHP</b></li>
+                      <li>Reference Number: <b>{{$info->refnum}}</b> </li>
+                      <li>Starting Price: <b>{{$info->initialPrice}} PHP</b></li>
+                      @if($info->winstatus == "Pending")
+                        <li>Status: <b class="text-warning">{{$info->winstatus}}</b> </li>
+                        @elseif($info->winstatus == "Lost")
+                        <li>Status: <b class="text-danger">{{$info->winstatus}}</b> </li>
+                        @elseif($info->winstatus == "Won")
+                        <li>Status: <b class="text-success">{{$info->winstatus}}</b> </li>
+                      @endif
+                      
                     </small>
                   </ul>
                 </div>
                 <div class="d-flex w-100  align-items-center justify-content-center">
+                
+                  @if($info->winstatus == "Won")
                   <div>
-                    <small class="text-secondary ms-5 ">Add to Bag</small>  
-                  </div>  
+                    <form action="/addtobag" method="GET">
+                        <button class="btn userloggedbtn" style="border-radius: 0%;">
+                            <i class="bi bi-cart-plus" style="font-size: 18px;"></i>
+                            Add to Cart
+                        </button>
+                      <input type="hidden" name="product_id" value={{$info->prod_id}}>
+                    </form>
+                  </div> 
+                  @else
                   <div>
-                    <small class="text-danger ms-5 ">Retract Bid</small>  
-                  </div>                     
+                    {!! Form::open(['action'=>['App\Http\Controllers\BiddingController@destroy',$info->id],
+                    'method'=>'DELETE'])!!}
+                    {{ Form::hidden('id',$info->id) }}
+                    <i class="bi bi-x-circle text-danger"></i>
+                    {{ Form::submit('Retract Bid',['class' => 'btn userloggedbtn text-danger '])}}
+                    {!! Form::close() !!}
+                  </div> 
+                @endif                  
                 </div>
               </div>
             </div>

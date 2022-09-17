@@ -15,13 +15,22 @@ class storePagesController extends Controller
     }
 
     
-    public function store_index(){
+    public function store_index(Request $request){
         $title = "Store";
-       
-        $products= Auction::where('aucStatus','=',1)->orderBy('endDate','DESC')->get();
-        return view('pages.store',compact('title'))->with('products',$products);
+    
+            $products= Auction::where('aucStatus','=',1)->orderBy('endDate','DESC')->get();
+        
+        return view('pages.store',compact('title','products'));
     }
+    public function search(){
+        $title = "Store";
+        $search = $_GET['search'];
+        $products = Auction::where('prodName','LIKE', "%$search%")
+        ->where('aucStatus','=',1)
+        ->get();
 
+        return view('pages.store',compact('title','products'));
+    }
 //Pre-Loved
     //Men
     public function menTopsPL(){

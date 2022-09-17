@@ -72,12 +72,13 @@
         </div>
       </li>
 
-    <div class="search-box justify-content-end">
-     {{--  {!! Form::open(['action'=>'',
-      'method'=>'POST']) !!} --}}
-      {{Form::text('search','',['class'=>'search form-control mr-sm-1 ','style'=>'width:200px;','placeholder'=>'Search'])}}
-      {{-- {!! Form::close() !!} --}}
-    </div>
+    
+    <form type="get" action="{{url ('/search')}}" class="d-flex justify-content-center align-items-center" style="float: left; position:relative;">
+      <input type="search" name="search" class="search form-control mr-sm-1" step="width:200px;" placeholder="Search for Items">
+      <button type = "submit" class="btn"><i class="bi bi-search"></i></button>
+    </form>
+        
+    
   </div>
 </nav>
 

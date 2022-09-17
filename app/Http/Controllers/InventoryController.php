@@ -7,6 +7,7 @@ use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
 use App\Models\Auction;
 use App\Models\Biddings;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Session;
@@ -20,7 +21,7 @@ class InventoryController extends Controller
      */
     public function index()
     {
-       
+        
     }
 
     /**
@@ -90,29 +91,51 @@ class InventoryController extends Controller
     {
         //
         $title = 'Product Page';
-
-        
         $item = Auction::find($inventory);
-        $highest_bid = Biddings::select('*')->max('bidamt');
+
+        $highest_bid = Biddings::select('bidamt')
+                                ->where('prod_id','=',$inventory)
+                                ->max('bidamt');
+
+        $max_bidder = Biddings::select('uname')
+                                ->where('prod_id','=',$inventory)
+                                ->where('bidamt','=',$highest_bid)
+                                ->first();
+        $pfp = User::select('profileImage')
+                        ->join('bidtransactions','bidtransactions.user_id','=','users.id')
+                        ->where('bidtransactions.prod_id','=',$inventory)
+                        ->where('bidamt','=',$highest_bid)
+                        ->first();
+                                            
         if(Auth::check()){
-            $my_max_bid = Biddings::where('user_id','=', Auth::user()->id)->max('bidamt');
-            // $bid_status = Biddings::select('bidstatus')->where('user_id','=', Auth::user()->id)->find($inventory);
+
+            $my_max_bid = Biddings::where('user_id','=', Auth::user()->id)
+                                    ->where('prod_id','=',$inventory)
+                                    ->max('bidamt');
             
+            $bid_data = Biddings::where('prod_id','=',$inventory)
+                                ->where('user_id','=', Auth::user()->id)
+                                ->first();
             
-            $bid_status = Biddings::select('bidstatus')->where('user_id','=', Auth::user()->id)->where('prod_id','=',$inventory)->first();
-            
+            $bid_status = Biddings::select('bidstatus')
+                ->where('user_id','=', Auth::user()->id)
+                ->where('prod_id','=',$inventory)
+                ->first();
         }
         else{
-            $my_max_bid = 0;
+            $my_max_bid = '---';
+            $bid_data = "";
             $bid_status = 0;
         }
         
-                                    
         return view('pages.productpage',compact('title',
                                                 'item',
                                                 'highest_bid',
                                                 'my_max_bid',
-                                                'bid_status'
+                                                'bid_data',
+                                                'bid_status',
+                                                'max_bidder',
+                                                'pfp'
                                                 ));
     }
 

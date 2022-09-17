@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\User;
+
 use Illuminate\Http\Request;
 
-class UserManagementController extends Controller
+class CheckoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,21 +13,11 @@ class UserManagementController extends Controller
      */
     public function index()
     {
-        $title = "Admin | User Management";
-        $data = User::where('user_type','=',1)
-                ->where('user_status','=',1)
-                ->get();
-        return view('admin.usermanagement', compact('title'))->with('data',$data);
+        $title = "Checkout";
+
+        return view('pages.checkout', compact('title'));
+                
     }
-
-    public function search(){
-        $title = "Admin | User Management";
-        $search = $_GET['search'];
-        $data = User::where('username' ,'=', $search)->get();
-
-        return view('admin.usermanagement',compact('title','data'));
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -47,7 +37,7 @@ class UserManagementController extends Controller
      */
     public function store(Request $request)
     {
-      
+        //
     }
 
     /**
@@ -79,14 +69,9 @@ class UserManagementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-       
-        $data = User::find($id);
-        $data->user_status= 0;
-        $data->update();
-
-        return back();
+        //
     }
 
     /**
@@ -99,6 +84,4 @@ class UserManagementController extends Controller
     {
         //
     }
-
-   
 }

@@ -5,25 +5,27 @@
   </a>
 <div class="d-flex mb-5">
     <div class="bg-white mb-5" style="width: 60%; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
+      @foreach ($products as $item)
       <div class="list-group list-group-flush border-bottom scrollarea">
           <div class="d-flex align-items-center">
             <div class="me-3">
-              <img src="/itemImages/" width="100px" height="100px" 
+              <img src="/itemImages/{{$prod_deet->itemImg}}" width="100px" height="100px" 
                 style="object-fit: cover; border:1px #121212 solid;" 
                 class="rounded-circle" >
             </div>
+          
             <div class="">
               
                 <label>ID:  </label>
-                <label>Name:  </label>
+                <label>Name: {{$item->prodname}}  </label>
                 
-           
               
-              {{ Form::submit('ADD',['class' => 'userloggedbtn text-success ms-5 mt-3 ','style'=>'border:0; padding:0%;  background:none;'])}}
               {{ Form::submit('REMOVE',['class' => 'userloggedbtn text-danger ms-5 mt-3 ','style'=>'border:0; padding:0%;  background:none;'])}}
             </div>
+            <br>
           </div>
-      </div>
+        </div>
+      @endforeach
     </div>
   <div class="w-50" style="border: 1px #f0eeee solid;">
     <div class="mb-5">
@@ -39,7 +41,9 @@
     </div>
     
     <div class="d-flex mt-5 justify-content-center">
-      {{Form::submit('CHECKOUT', ['class'=>'btn btn-dark mt-3 mb-3 w-50','style'=>'border-radius:0%; '])}}
+      {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@index','method'=>'GET']) !!}
+      {{Form::submit('CHECKOUT', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }}
+  {!! Form::close() !!}
     </div>
   </div>
 </div>

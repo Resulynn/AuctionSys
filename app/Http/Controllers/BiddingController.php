@@ -16,15 +16,19 @@ class BiddingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    
+    public function index(Request $request)
     {
         $title = "Biddings";
-        $data = Biddings::join('auctions','bidtransactions.prod_id','=','auctions.id')
-                        ->where('user_id','=',Auth::user()->id)
-                        ->get();
+        $data = Auction::join('bidtransactions','bidtransactions.prod_id','=','auctions.id')
+        ->where('bidtransactions.user_id','=',Auth::user()->id)
+        ->get();
+
         return view('profile.biddings', compact('title'))
                 ->with('data',$data);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -114,6 +118,17 @@ class BiddingController extends Controller
      */
     public function destroy($id)
     {
+        $bid = Biddings::find($id);
+        
+        $bid->delete();
+
+        Session::flash('success', "Bid Successfuly Retracted.");
+        return redirect()->back();
         
     }
+
+    public function win_bidding(){
+        
+    }
+
 }
