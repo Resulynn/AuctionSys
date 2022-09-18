@@ -10,11 +10,14 @@ $data = User::where('username',$username)->first();
 ?>
 
 <div class="userloggedbar d-flex  align-items-center border-bottom justify-content-end bg-white py-2 px-4">
-    <div class="userloggedbar-content d-flex">
+    <div class="userloggedbar-content d-flex align-items-center">
+        <a href="/fundings" class="userloggedbtn btn align-items-center" style="font-size: medium;">
+            <label style="font-size: 12px;">( {{Auth::user()->funds}} PHP )</label>
+            <i class="bi bi-wallet2 pe-3"></i>
+        </a>
         <a href="/bag/{{$username}}" class="userloggedbtn btn" style="font-size: medium;">
             <label style="font-size: 11px;">( {{$bag_qty}} )</label>
             <i class="bi bi-bag pe-3"></i>
-            
         </a>
         <div class="dropdown" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
             <img src="/userPFP/{{$data->profileImage}}" width="30px" height="30px" style="object-fit: cover;" class="rounded-circle me-1" >

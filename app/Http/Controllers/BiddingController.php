@@ -59,15 +59,21 @@ class BiddingController extends Controller
                                 ->where('prod_id','=',$request->id)
                                 ->max('bidamt');
         $prod= Auction::where('id','=',$request->id)->first();
-
-        if(($request->bid_amt) < $prod->initialPrice){
-            Session::flash('error', "Insufficient Amount.");
-            return redirect()->back()->withInput();
+        
+        if(Auth::user()->funds < $request->bid_amt){
+            Session::flash('error', "Insufficient Funds. (Funds Needed: ".( $prod->initialPrice - Auth::user()->funds ).')');
+            return redirect()->back()->withInput();   
+            
         }
-        elseif(($request->bid_amt) < $highest_bid){
+
+        elseif(($request->bid_amt) < $prod->initialPrice ){
+            Session::flash('error', "Insufficient Amount. (Starting Bid: ".( $prod->initialPrice).')');
+            return redirect()->back()->withInput();
+            } 
+        elseif(($request->bid_amt) < $highest_bid || ($request->bid_amt) == $highest_bid ){
             Session::flash('error', "Bid must be higher than current max bid.");
             return redirect()->back()->withInput();
-        }
+            }
         else{
             $data = new Biddings;
             $data->user_id = Auth::user()->id;

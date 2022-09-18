@@ -1,6 +1,9 @@
 @extends('layout.sidebar')
-<div class=" py-5  text-center bg-white" style=" width: 150px; height:100vmax; border-right:1px #f0eeee solid;">
-  <div class="list-group-flush mb-3">
+{{-- --}}
+<div class=" vh-100 text-center" style=" width: 150px; border-right: 1px #f0eeee solid;">
+  <div class=" sidebar-offcanvas h-100 overflow-auto " id="sidebar" role="navigation">
+      
+  <div class="list-group-flush mb-3 mt-5">
     <h3>MENU</h3> 
   </div>
   <div class="list-group-flush mb-3">
@@ -54,8 +57,10 @@
     </a>
   </div>
   <div class="list-group-flush mb-3">
-    <a href="/admin/reports" class="{{Request::is('admin/feedback') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+    <a href="/admin/reports" class="{{Request::is('admin/reports') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         REPORTS
     </a>
+  </div>
+
   </div>
 </div>

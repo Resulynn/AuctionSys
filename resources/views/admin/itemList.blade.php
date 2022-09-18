@@ -1,7 +1,7 @@
 @extends('layout.admin')
 @section('content') 
-<a href="/admin/auctionlist" class="d-flex w-100 flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
-        <span class="fs-5 fw-semibold text-center w-100">Item List</span>
+<a href="/admin/list" class="d-flex w-100 flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+        <span class="fs-5 fw-bold text-center w-100">Item List</span>
 </a>
 
 <div class="d-flex mb-5 ">

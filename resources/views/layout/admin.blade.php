@@ -10,27 +10,10 @@
     <title>{{$title}}</title> 
 </head>
 <body>
-    <div class="sticky-top">
+    <div class="fixed-top">
         @include('inc.adminbar')
         @include('inc.adminNav')
     </div>  
-{{-- 
-    <div id="outer-container">
-        <div id="sidebar">
-            @guest
-            @if (Route::has('login'))
-            @endif
-                @else
-                @include('inc.adminSidebar') 
-            @endguest
-        </div>
-
-        <div id="content">
-            <div class="justify-content-center">
-                @yield('content')
-            </div>
-        </div>
-    </div> --}}
 
     <div class="sidenav">
         @guest
@@ -41,7 +24,7 @@
             @endguest
     </div>
 
-    <div class="main">
+    <div class="main " style="margin-top: 100px;">
         @if(Session::has('error'))
             <div class="d-flex w-100 mt-3 justify-content-center" style="background: none; margin:0%;">
                 <div class="alert alert-danger w-50 text-center">

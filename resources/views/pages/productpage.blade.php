@@ -107,10 +107,25 @@ if(distance < 0){
                     <div class="col">
                         @guest
                             @if(Route::has('login'))
-                            <a class="btn btn-dark w-50" style="border-radius:0%; text-decoration:none; color:#ffffff;" href="/login">Login</a>
+                            {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'GET']) !!}
+                                {{Form::submit('LOGIN TO BID', ['class'=>' btn btn-dark mt-5 w-50 ','style'=>'border-radius:0%;']) }}
+                            {!! Form::close() !!}
                         @endif
+                        
                         @else
                             <div class="bid-amt ">
+                                @if(Auth::check())
+                                    @if(Auth::user()->funds > $item->initialPrice)
+                                        Funds: <b class="text-success">{{Auth::user()->funds}} PHP</b> 
+                                        @else
+                                            <div class="align-items-center justify-content-center">
+                                                Funds: <b class="text-danger">{{Auth::user()->funds}} PHP</b> 
+                                                <a href="/fundings" class="userloggedbtn ms-1"> <i class="bi bi-plus-circle" style="font-size: 18px;"></i></a>
+                                            </div>
+                                    @endif 
+                                @else
+                                    
+                                @endif
                                     @if(Auth::user()->user_status == 0)
                                     <h6 class="mt-3">Enter your Bidding Amount</h6>
                                             {!! Form::number('bid_amt', '', ['class'=>'form-control','disabled']) !!}
@@ -170,18 +185,7 @@ if(distance < 0){
                             {!! Form::close() !!}
                         @endif
                             
-                        @if(Auth::check())
-                            @if(Auth::user()->funds > $item->buyPrice)
-                                Funds: <b class="text-success">{{Auth::user()->funds}} PHP</b> 
-                                @else
-                                    <div class="align-items-center justify-content-center">
-                                        Funds: <b class="text-danger">{{Auth::user()->funds}} PHP</b> 
-                                        <a href="/fundings" class="userloggedbtn ms-1"> <i class="bi bi-plus-circle" style="font-size: 18px;"></i></a>
-                                    </div>
-                            @endif 
-                        @else
-                            
-                        @endif
+
                     </div>  
                 </div>
                 {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
