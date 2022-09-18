@@ -13,13 +13,14 @@
                 style="object-fit: cover; border:1px #121212 solid;" 
                 class="rounded-circle" >
             </div>
-          
+            <input type="hidden" name="product_id" value={{$item->product_id}}>
             <div class="">
-              
+              {{$item->product_id}}
                 <label>ID:  </label>
-                <label>Name: {{$item->prodname}}  </label>
-                
-              
+                <label>Name: {{$item->prodName}}  </label>
+                {{$total}}
+               
+             {{$bid_deet}}
               {{ Form::submit('REMOVE',['class' => 'userloggedbtn text-danger ms-5 mt-3 ','style'=>'border:0; padding:0%;  background:none;'])}}
             </div>
             <br>
@@ -42,8 +43,8 @@
     
     <div class="d-flex mt-5 justify-content-center">
       {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@index','method'=>'GET']) !!}
-      {{Form::submit('CHECKOUT', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }}
-  {!! Form::close() !!}
+        {{Form::submit('CHECKOUT', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }}
+      {!! Form::close() !!}
     </div>
   </div>
 </div>

@@ -23,6 +23,7 @@ class BiddingController extends Controller
         $title = "Biddings";
         $data = Auction::join('bidtransactions','bidtransactions.prod_id','=','auctions.id')
         ->where('bidtransactions.user_id','=',Auth::user()->id)
+        ->orderBy('bidtransactions.created_at','DESC')
         ->get();
 
         
@@ -53,11 +54,18 @@ class BiddingController extends Controller
         $this->validate($request,[
             'bid_amt'=>'required'
         ]);
-
+        
+        $highest_bid = Biddings::select('bidamt')
+                                ->where('prod_id','=',$request->id)
+                                ->max('bidamt');
         $prod= Auction::where('id','=',$request->id)->first();
 
         if(($request->bid_amt) < $prod->initialPrice){
             Session::flash('error', "Insufficient Amount.");
+            return redirect()->back()->withInput();
+        }
+        elseif(($request->bid_amt) < $highest_bid){
+            Session::flash('error', "Bid must be higher than current max bid.");
             return redirect()->back()->withInput();
         }
         else{
@@ -109,7 +117,8 @@ class BiddingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        
     }
 
     /**

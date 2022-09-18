@@ -123,12 +123,13 @@ if(distance < 0){
                                                     {!! Form::number('bid_amt', '', ['class'=>'form-control','required']) !!}
                                                     {{Form::submit('PLACE BID', ['class'=>' btn btn-dark mt-3 w-50 mb-2','style'=>'border-radius:0%;']) }}
                                                 {!! Form::close() !!}
-                                        
                                             
                                             @else
                                                 @if($bid_status = 1)
-                                                        <h5><b>Bid Placed: {{$bid_data->bidamt}} PHP</b></h5>
-                                                        <a href="/biddings" class="userloggedbtn" style="font-size: 15px;">View your Biddings</a>
+                                                <div class="pt-5">
+                                                    <h5><b>Bid Placed: {{$bid_data->bidamt}} PHP</b></h5>
+                                                    <a href="/biddings" class="userloggedbtn" style="font-size: 15px;">View your Biddings</a>
+                                                </div>
                                                 @endif
                                         @endif
                                     @endif

@@ -5,10 +5,10 @@
 <div class="bg-white my-5 mx-5 " style=" border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
     <div class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
       <span class="fs-5 fw-semibold text-center w-100">Manage Users</span>
-        <form type="get" action="{{url ('/admin/usermanagement/search')}}" class="d-flex  justify-content-center align-items-center" style="float: left; position:relative;">
+        {{-- <form type="get" action="{{url ('/admin/usermanagement/search')}}" class="d-flex  justify-content-center align-items-center" style="float: left; position:relative;">
           <input type="search" name="search" class="search form-control mr-sm-1" step="width:200px;" placeholder="Search for Users">
           <button type = "submit" class="btn"><i class="bi bi-search"></i></button>
-        </form> 
+        </form>  --}}
   </div>
   
     <div>
