@@ -165,8 +165,6 @@ body {
   background-color: #f0eeee;
   border-bottom: #6b6b6b 1px solid;
   font-size: small;
-  margin:0;
-  padding:0;
 }
 .search:focus{
   box-shadow: none !important;
@@ -187,9 +185,7 @@ body {
    padding: 10px;
 }
 
-.navbar-brand{
-    padding-left: 10px;
-}
+
 
 .navbar a:link {
     color: rgb(0, 0, 0);

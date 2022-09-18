@@ -21,7 +21,7 @@
                 @else
                     @include('inc.userloggedbar')  
         </div>  
-        @endguest
+            @endguest
         @include('inc.navbar')
 
         @guest

@@ -47,19 +47,26 @@ class BagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $title = "Bag";
 
                         
-        $products = Biddings::join('bag','bidtransactions.prod_id','=','bag.product_id')
-                            ->where('bidtransactions.user_id' , '=' , Auth::user()->id)
-                            ->get();
-        
-        // $products = Biddings::join('bag','bidtransactions.prod_id','=','bag.product_id')
-        // ->where('bidtransactions.user_id' , '=' , Auth::user()->id)
-        // ->get();
+
+        $products = Auction::join('bag','auctions.id','=','bag.product_id')
+        ->where('bag.user_id','=',Auth::user()->id)
+        ->get();
+      
+        // $bid_deet = Biddings::join('bag','bag.product_id','=','bidtransactions.prod_id')
+        //         ->where('bag.user_id','=',Auth::user()->id)
+        //         ->first();
+
+        $bid_deet = Biddings::join('bag','bag.product_id','bidtransactions.prod_id')
+        ->where('bag.user_id','=',Auth::user()->id)
+        ->where('bag.product_id',$id)
+        ->get();
        
+
         $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
         ->where('bag.user_id', Auth::user()->id)
         ->where('bag.status', 0)
@@ -71,7 +78,8 @@ class BagController extends Controller
                 ->with(compact('title',
                             'products',
                             'total',
-                            'status'
+                            'status',
+                            'bid_deet'
                             ));
     
     }   
