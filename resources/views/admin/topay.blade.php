@@ -46,10 +46,8 @@
               @endif
               </td>
             <td>
-              @if ($info->status != "Pending")
-                ----
-              @else
-                  {!! Form::open(['action'=>['App\Http\Controllers\ToPayController@deny',$info->id],
+              @if ($info->status == "Pending")
+              {!! Form::open(['action'=>['App\Http\Controllers\ToPayController@deny',$info->id],
               'method'=>'POST'])!!}
 
                   {{ Form::hidden('uname',$info->uname) }}
@@ -57,6 +55,8 @@
                   {{ Form::hidden('id',$info->id) }}
                   {{-- {{ Form::hidden('_method','PUT') }} --}}
                   {{ Form::submit('Deny',['class' => 'btn userloggedbtn text-danger'])}}
+              @else
+                ----
               @endif
             </td>
           </tr>
