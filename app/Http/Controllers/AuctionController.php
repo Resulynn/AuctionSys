@@ -8,6 +8,7 @@ use App\Http\Requests\StoreAuctionRequest;
 use App\Http\Requests\UpdateAuctionRequest;
 use Illuminate\Support\Facades\Auth;
 use Session;
+Use \Carbon\Carbon;
 class AuctionController extends Controller
 {
     /**
@@ -40,6 +41,11 @@ class AuctionController extends Controller
     {    $this->validate($request,[
         'endDate'=>'required',
     ]);
+    if($request->endDate < Carbon::now()){
+        Session::flash('error', "Invalid Date.");
+        return redirect()->back()->withInput();
+    }
+    else{
         $input = new Auction;
         $input->itemImg=$request->itemImg;
         $input->prodName=$request->prodName;
@@ -50,7 +56,7 @@ class AuctionController extends Controller
         $input->initialPrice=$request->initialPrice;
         $input->buyPrice=$request->buyPrice;
         $input->aucStatus=1;
-       
+    
         $newQty = $request->qty - 1;
 
         $input->endDate=$request->endDate;
@@ -62,7 +68,9 @@ class AuctionController extends Controller
         $input->save();
 
         Session::flash('success', "Auction Posted.");
-        return redirect('/admin/auctionlist');
+        return redirect('/admin/auctionlist'); 
+    }
+        
     }
 
     /**

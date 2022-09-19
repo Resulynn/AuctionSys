@@ -56,7 +56,7 @@ class BagController extends Controller
         $products = Auction::join('bag','auctions.id','=','bag.product_id')
         ->where('bag.user_id','=',Auth::user()->id)
         ->get();
-      
+    
         // $bid_deet = Biddings::join('bag','bag.product_id','=','bidtransactions.prod_id')
         //         ->where('bag.user_id','=',Auth::user()->id)
         //         ->first();
@@ -65,7 +65,7 @@ class BagController extends Controller
         ->where('bag.user_id','=',Auth::user()->id)
         ->where('bag.product_id',$id)
         ->get();
-       
+    
 
         $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
         ->where('bag.user_id', Auth::user()->id)

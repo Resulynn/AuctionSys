@@ -13,7 +13,7 @@
                     {{Form::hidden('id', $data->id)}}
                 </div>
                 <br>
-              </div>
+            </div>
         <fieldset >
             <div class="add-auc-content pb-5 d-flex justify-content-center mb-5">
                 <div class="col-5">

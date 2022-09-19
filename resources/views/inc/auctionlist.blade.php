@@ -17,11 +17,8 @@
             <div class="d-flex w-100 align-items-center justify-content-between">
               <strong class="mb-1">{{$info->prodName}}</strong><br>
             </div>
-            <div class="col-10 mb-1 ">
+            <div class="col-10 mb-1 w-100 ">
               {{$info->prodDeets}}
-            </div>
-            <div class="col-10 mb-1 ">
-              Time Left: 
             </div>
             <div class="" style="">
               <div>

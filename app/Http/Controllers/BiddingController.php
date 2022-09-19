@@ -24,7 +24,7 @@ class BiddingController extends Controller
         $data = Auction::join('bidtransactions','bidtransactions.prod_id','=','auctions.id')
         ->where('bidtransactions.user_id','=',Auth::user()->id)
         ->orderBy('bidtransactions.created_at','DESC')
-        ->get();
+        ->paginate(3);
 
         
         return view('profile.biddings', compact('title'))
@@ -60,8 +60,13 @@ class BiddingController extends Controller
                                 ->max('bidamt');
         $prod= Auction::where('id','=',$request->id)->first();
         
-        if(Auth::user()->funds < $request->bid_amt){
-            Session::flash('error', "Insufficient Funds. (Funds Needed: ".( $prod->initialPrice - Auth::user()->funds ).')');
+        if(($request->bid_amt) > $prod->buyPrice || ($request->bid_amt) == $prod->buyPrice ){
+            Session::flash('error', "Bid must be lower than the Buy Price.");
+            return redirect()->back()->withInput();
+        }
+
+        elseif(Auth::user()->funds < $request->bid_amt){
+            Session::flash('error', "Insufficient Funds. (Funds Needed: ".( $request->bid_amt - Auth::user()->funds ).')');
             return redirect()->back()->withInput();   
             
         }
@@ -74,6 +79,7 @@ class BiddingController extends Controller
             Session::flash('error', "Bid must be higher than current max bid.");
             return redirect()->back()->withInput();
             }
+    
         else{
             $data = new Biddings;
             $data->user_id = Auth::user()->id;

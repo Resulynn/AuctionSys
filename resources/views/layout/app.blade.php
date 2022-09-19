@@ -16,14 +16,21 @@
         <div class="sticky-top">
             @guest
                 @if (Route::has('login')) 
+                <div class="sticky-top">
                     @include('inc.userbar')
+                    @include('inc.navbar')
+                </div>
+                    
                 @endif
                 @else
+                <div class="sticky-top">
                     @include('inc.userloggedbar')  
+                    @include('inc.navbar') 
+                </div>
         </div>  
             @endguest
-        @include('inc.navbar')
-
+                    
+            
         @guest
             @if (Route::has('login')) 
                 @endif
@@ -34,19 +41,21 @@
         
     <div class="justify-content-center">
         @if(Session::has('error'))
-                <div class="d-flex w-100 mt-3 justify-content-center" style="background: none; margin:0%;">
-                    <div class="alert alert-danger w-50 text-center">
+                <div class="d-flex w-100 mt-5 justify-content-center" style="background: none; margin:0%;">
+                    <div class="alert alert-danger w-50 justify-content-center align-items-center d-flex">
                         {{Session::get('error')}}
+                        <button class="btn userloggedbtn p-1 ms-3" style= "border: 1px #791e1e solid;  border-radius:0%;" data-dismiss="alert"><b class="text-danger">X</b></button>
                     </div>
                 </div>
-            @endif
+        @endif
 
-            @if(Session::has('success'))
-            <div class="d-flex w-100 mt-3 justify-content-center" style="background: none; margin:0%;">
-                <div class="alert alert-success w-50 text-center">
-                    {{Session::get('success')}}
+        @if(Session::has('success'))
+                <div class="d-flex w-100 mt-5 justify-content-center" style="background: none; margin:0%;">
+                    <div class="alert alert-success w-50 justify-content-center align-items-center d-flex">
+                        {{Session::get('success')}}
+                        <button class="btn userloggedbtn p-1 ms-3" style= "border: 1px #074920 solid;  border-radius:0%;" data-dismiss="alert"><b class="text-success">X</b></button>
+                    </div>
                 </div>
-            </div>
         @endif
         @yield('content')
     </div>
@@ -58,6 +67,14 @@
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
+    <script type="text/javascript">
+        $("document").ready(function()
+            {
+                settimeout(function(){
+                    $("div.alert").remove();
+                },3000);
+            }
+        )
+    </script>
 </body>
 </html>

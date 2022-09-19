@@ -56,7 +56,7 @@ if(distance < 0){
                   </div>
                   <div class="" style="">
                     <div>
-                      Highest Bid: <b>{{$info->initialPrice}}</b>
+                      Highest Bid: <b>{{$highest_bid}}</b>
                     </div>
                     <div>
                       Buyout Price: <b>{{$info->buyPrice}}</b>
@@ -91,26 +91,36 @@ if(distance < 0){
                             width: 300px;
                             height:300px;
                             border:1px #f0eeee solid;" />
+                            
                 </div>
                     <h3 class="d-flex justify-content-center pb-2"><b>{{$auction->prodName}}</b></h3> 
-                <div class="d-flex">
+                    <h6 class="text-center"><b><p id = "end_date"></p></b></h6>
+                <div class="d-flex pt-3">
                     <div class="details mx-3">
                         <div class="item-det">
-                            <h6><b>Category:</b> {{$auction->category}}</h6>
-                            <h6><b>Initial Price:</b> {{$auction->initialPrice}} PHP</h6>
-                            <h6><b>Buy Price:</b> {{$auction->buyPrice}} PHP</h6>
-                            <h6><b>Auction Ends Date:</b> {{$auction->endDate}}</h6>
+                            <h6>Category:<b> {{$auction->category}}</h6>
+                            <h6>Initial Price: <b>{{$auction->initialPrice}}</b> PHP</h6>
+                            <h6>Buy Price: <b>{{$auction->buyPrice}}</b> PHP</h6>
+                            <h6>Auction Ends Date: <b>{{$auction->endDate}}</b></h6>
                         </div>
                     </div>
                     <div>
                         <div class="details mx-3">
                             <div class="item-det">
-                                <h6><b>Type:</b> {{$auction->type}}</h6>
-                                <h6><b>Status:</b> ACTIVE </h6>
-                                <h6><p id = "end_date"></p></h6>
-                                <h6><b>Highest Bid: </b>  PHP</h6>
-                                <h6><b>Highest Bidder:</b> <br>
-                                    <b>UID:</b> 0123456 </h6>
+                                <h6>Type: <b>{{$auction->type}}</b></h6>
+                                <h6>Status: <b>ACTIVE</b> </h6>
+                                @if($highest_bid === null)
+                                  <h6>Highest Bid: </h6>
+                                  @else
+                                  <h6>Highest Bid: <b>{{$highest_bid}}</b> PHP</h6>
+                                @endif
+                                
+                                @if($max_bidder === null)
+                                  <h6>Highest Bidder: 
+                                @else
+                                  <h6>Highest Bidder: <b>{{$max_bidder->uname}}</b><br>
+                                @endif
+                                
                             </div>
                         </div>
                     </div>

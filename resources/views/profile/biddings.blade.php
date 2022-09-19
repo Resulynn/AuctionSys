@@ -20,11 +20,19 @@
                 <div class="w-50 d-flex py-3">
                   <ul style="list-style: none; margin-top: auto; margin-bottom:auto;">
                     <small>
-                      <li><h5><b>{{$info->prodName}}</b> </h5></li>
+                      <li class="d-flex"><h5><b>{{$info->prodName}}</b> </h5>
+                        @if($info->winstatus == "Pending")
+                          <i class="bi bi-clock-fill text-warning ms-2" style="font-size:18px; "></i>
+                          @elseif($info->winstatus == "Lost")
+                            <i class="bi bi-x-circle-fill text-danger ms-2" style="font-size:18px; "></i>
+                          @elseif($info->winstatus == "Won")
+                            <i class="bi bi-check-circle-fill text-success ms-2" style="font-size:18px; "></i>
+                        @endif
+                      </li>
                       <li>Type: <b>{{$info->type}}</b></li>
                       <li>Category: <b>{{$info->category}}</b></li>
                       <li>Condition: <b>{{$info->cond}}</b></li>
-                      <li>End Date: <b>{{$info->endDate}} (11:59 PM)</b></li>
+                      <li>End Date: <b>{{Carbon\Carbon::parse($info->endDate)->isoFormat('MMM D, YYYY')}} (11:59 PM)</b></li>
                     </small>
                   </ul>
                 </div>
@@ -34,14 +42,6 @@
                       <li>Bid Placed: <b>{{$info->bidamt}} PHP</b></li>
                       <li>Reference Num: <b>{{$info->refnum}}</b> </li>
                       <li>Starting Price: <b>{{$info->initialPrice}} PHP</b></li>
-                      @if($info->winstatus == "Pending")
-                        <li>Status: <b class="text-warning">{{$info->winstatus}}</b> </li>
-                        @elseif($info->winstatus == "Lost")
-                        <li>Status: <b class="text-danger">{{$info->winstatus}}</b> </li>
-                        @elseif($info->winstatus == "Won")
-                        <li>Status: <b class="text-success">{{$info->winstatus}}</b> </li>
-                      @endif
-                      
                     </small>
                   </ul>
                 </div>
@@ -63,16 +63,12 @@
                   </div>
                   
                   @elseif($info->winstatus == "Lost")
-                  
                     <a href="/store" class="me-5 btn userloggedbtn " style="font-size: 14px;">View other Auctions</a>
-                      
                       {!! Form::open(['action'=>['App\Http\Controllers\BiddingController@destroy',$info->id],
                       'method'=>'DELETE'])!!}
                       {{ Form::hidden('id',$info->id) }} 
-                      
                       {{ Form::submit('Remove',['class' => 'btn userloggedbtn text-danger '])}}
                       {!! Form::close() !!}
-                    
                   @else
                   <div>
                     {!! Form::open(['action'=>['App\Http\Controllers\BiddingController@destroy',$info->id],
@@ -88,7 +84,8 @@
               </div>
             </div>
           </div>
-      @endforeach        
+      @endforeach   
     </div>
+  <div class="justify-content-center  w-100 d-flex ">{{$data->links()}}</div>
 @endsection
   

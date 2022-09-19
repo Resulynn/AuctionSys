@@ -15,6 +15,7 @@ class AuctionDetailsController extends Controller
     public function index()
     {
         $auctions = Auction::where('aucStatus','=',1)->get();
+        
         $title = "Admin | Auction List";
         if(Auth::user()->user_type == 1){
             return redirect('/home');
@@ -56,11 +57,17 @@ class AuctionDetailsController extends Controller
 
         $title = "Admin | Auction List";
 
-        
+        $highest_bid = Biddings::select('bidamt')
+                                ->where('prod_id','=',$id)
+                                ->max('bidamt');
+        $max_bidder = Biddings::select('*')
+        ->where('prod_id','=',$id)
+        ->where('bidamt','=',$highest_bid)
+        ->first();                       
         $auction = Auction::find($id);
         $auctions = Auction::where('aucStatus','=',1)->get();
         return view('admin.auctions')
-        ->with(compact('title','auction', 'auctions'))
+        ->with(compact('title','auction', 'auctions','highest_bid','max_bidder'))
         ;
     }
 

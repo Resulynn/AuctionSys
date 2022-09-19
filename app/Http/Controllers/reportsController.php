@@ -15,23 +15,25 @@ class reportsController extends Controller
 {
     public function index()
     {
-        $title = "Reports";
+        $title = "Admin | Reports";
         return view('admin.reports',compact('title'));
     }
 
     public function invreport()
     {   
+        $title = "Admin | Inventory Reports";
         $data = Inventory::orderBy('category','desc')->get();
-        return view('reports.invRep')->with('data',$data);
+        return view('reports.invRep',compact('title'))->with('data',$data);
         // $pdf = Pdf::loadView('reports.invRep');
         // return $pdf->stream();
     }
 
     public function fndreport(Request $request)
     {   
+        $title = "Admin | Fund Reports";
         $data = Funds::orderBy('created_at','desc')
         ->where('status','=','approved')
         ->get();
-        return view('reports.fndRep')->with('data',$data);
+        return view('reports.fndRep',compact('title'))->with('data',$data);
     }
 }
