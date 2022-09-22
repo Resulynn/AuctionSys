@@ -9,24 +9,38 @@
       <div class="list-group list-group-flush border-bottom scrollarea ">
           <div class="d-flex">
             <div class="d-flex">
+              @if($info->winstatus == "Won")
               <a href="/item/{{$info->prod_id}}"><img src="/itemImages/{{$info->itemImg}} " width="125px" height="125px" 
                 style="object-fit: cover; 
-                        border:1px #666464 solid; 
-                        margin:20px;
-                  " 
+                        border:3px #267952 solid; 
+                        margin:20px;" 
                 class="rounded-circle "></a>
+                @elseif($info->winstatus == "Lost")
+                <a href="/item/{{$info->prod_id}}"><img src="/itemImages/{{$info->itemImg}} " width="125px" height="125px" 
+                  style="object-fit: cover; 
+                          border:3px #DC3545 solid; 
+                          margin:20px;" 
+                  class="rounded-circle "></a>
+                  @elseif($info->winstatus == "Pending")
+                  <a href="/item/{{$info->prod_id}}"><img src="/itemImages/{{$info->itemImg}} " width="125px" height="125px" 
+                    style="object-fit: cover; 
+                            border:3px #FFC106 solid; 
+                            margin:20px;" 
+                    class="rounded-circle "></a>
+              @endif
+              
             </div>  
               <div class="d-flex w-100">
-                <div class="w-50 d-flex py-3">
+                <div class="w-100 d-flex">
                   <ul style="list-style: none; margin-top: auto; margin-bottom:auto;">
                     <small>
                       <li class="d-flex"><h5><b>{{$info->prodName}}</b> </h5>
                         @if($info->winstatus == "Pending")
-                          <i class="bi bi-clock-fill text-warning ms-2" style="font-size:18px; "></i>
+                          <i class="bi bi-clock-fill text-warning ms-2" style="font-size:18px; "><label class="ms-1 text-warning" style="font-size: small;">Pending</label></i>
                           @elseif($info->winstatus == "Lost")
-                            <i class="bi bi-x-circle-fill text-danger ms-2" style="font-size:18px; "></i>
+                            <i class="bi bi-x-circle-fill text-danger ms-2" style="font-size:18px; "><label class="ms-1 text-danger" style="font-size: small;">Lost</label></i>
                           @elseif($info->winstatus == "Won")
-                            <i class="bi bi-check-circle-fill text-success ms-2" style="font-size:18px; "></i>
+                            <i class="bi bi-check-circle-fill text-success ms-2" style="font-size:18px; "><label class="ms-1 text-success" style="font-size: small;">Won</label></i>
                         @endif
                       </li>
                       <li>Type: <b>{{$info->type}}</b></li>
@@ -36,10 +50,10 @@
                     </small>
                   </ul>
                 </div>
-                <div class="w-50 d-flex" style="border-right: 1px #f0eeee solid; ">
+                <div class="w-75 d-flex" style="border-right: 1px #f0eeee solid; ">
                   <ul class="pe-3" style="list-style: none;  margin-top: auto; margin-bottom:auto;">
                     <small>
-                      <li>Bid Placed: <b>{{$info->bidamt}} PHP</b></li>
+                      <li><h6>Bid Placed: <b>{{$info->bidamt}} PHP</b></h6></li>
                       <li>Reference Num: <b>{{$info->refnum}}</b> </li>
                       <li>Starting Price: <b>{{$info->initialPrice}} PHP</b></li>
                     </small>

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use App\Models\Auction;
+use App\Models\Bag;
+use App\Models\Biddings;
+use Illuminate\Support\Facades\Auth;
+use Session;
 class CheckoutController extends Controller
 {
     /**
@@ -14,8 +19,23 @@ class CheckoutController extends Controller
     public function index()
     {
         $title = "Checkout";
+        $products = Auction::join('bag','auctions.id','=','bag.product_id')
+        ->where('bag.user_id','=',Auth::user()->id)
+        ->get();
 
-        return view('pages.checkout', compact('title'));
+        $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
+        ->where('bag.user_id', Auth::user()->id)
+        ->where('bidtransactions.bagstatus', 1)
+        ->sum('bidtransactions.bidamt');
+
+        $status = Bag::where('user_id', Auth::user()->id)->get();
+        return view('pages.checkout')
+                ->with(compact('title',
+                            'products',
+                            'total',
+                            'status'
+                            ));
+    
                 
     }
 

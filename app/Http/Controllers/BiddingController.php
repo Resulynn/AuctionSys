@@ -23,6 +23,7 @@ class BiddingController extends Controller
         $title = "Biddings";
         $data = Auction::join('bidtransactions','bidtransactions.prod_id','=','auctions.id')
         ->where('bidtransactions.user_id','=',Auth::user()->id)
+        ->where('bidtransactions.bagstatus',0)
         ->orderBy('bidtransactions.created_at','DESC')
         ->paginate(3);
 
@@ -147,10 +148,6 @@ class BiddingController extends Controller
 
         Session::flash('success', "Bid Successfuly Retracted.");
         return redirect()->back();
-        
-    }
-
-    public function win_bidding(){
         
     }
 
