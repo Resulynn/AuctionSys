@@ -45,10 +45,17 @@ use App\Models\User;
         </div>
         @endforeach
         </div>
-        <div class="w-50" style="border-left: 1px #f0eeee solid; border-top: 1px #f0eeee solid;">
+        <div class="w-75" style="border-left: 1px #f0eeee solid; border-top: 1px #f0eeee solid;">
             <div class="">
-                <h5 class="pt-3 text-center">BAG TOTAL</h5>
+                <h5 class="pt-3 text-center">ORDER SUMMARY</h5>
                 <div class="ms-3 me-3">
+                <hr>
+                    <ul class="" style=" list-style: none; margin-bottom:auto;">
+                        <li><h6>Name: <b>{{Auth::user()->fname.' '. Auth::user()->lname}}</b></h6></li>
+                        <li><h6>Delivery Address: <b>{{Auth::user()->address}}</b></h6></li>
+                        <li><h6>Estimated Delivery Date: <b>{{ Carbon\Carbon::now()->isoFormat('MMM D, YYYY')}}</b></h6></li>
+                        <li><h6>Reference #: <b>{{$refnum=Auth::user()->id.date('ymdHis');}}</b></h6></li>
+                    </ul>
                 <hr>
                 <div class="d-flex w-100 px-1" >
                     <div class="w-100" >
