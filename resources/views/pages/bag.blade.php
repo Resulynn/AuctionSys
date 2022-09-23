@@ -12,7 +12,8 @@ use App\Models\User;
   </a>
 <div class="d-flex">
     <div class="bg-white mb-5 w-75" style=" border-top:1px #f0eeee solid;">
-      @foreach ($products as $item)
+      @if(count($products)>0)
+        @foreach ($products as $item)
       <div class="list-group list-group-flush border-bottom scrollarea ps-3 py-3">
           <div class="d-flex align-items-center">
             <div class="">
@@ -53,6 +54,12 @@ use App\Models\User;
           </div>
         </div>
       @endforeach
+      @else
+        <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+          <h5><b>Your Bag is Empty.</b> </h5>
+        </div>
+      @endif
+      
     </div>
   <div class="w-50" style="border-left: 1px #f0eeee solid; border-top: 1px #f0eeee solid;">
     <div class="">
@@ -99,24 +106,29 @@ use App\Models\User;
         <div align="right" class="w-100 px-3">
           <label><h5>Sub-Total: <b>{{number_format($total,2)}}</b></h5> </label><br>
           @php
-            $del_fee =  number_format(45, 2);
-            $penalty = number_format(200,2);
+            $del_fee =  number_format(0, 2);
+            $penalty = number_format(0,2);
             $total_chk = $total + $del_fee + $penalty;
           @endphp
           <label>Shipping Fee: <b>{{$del_fee}}</b></label><br>
           <label class="mb-2 " style="font-size: small;"> (J&T Express Delivery)</label> <br>
           <label>Penalty Fee: <b class="text-danger">{{$penalty}}</b> </label><br>
           <hr>
-          <label class= "px-3 pt-2" style="border:1px #3eb952 solid; "><h5>Total: <b style="color: #3eb952;">{{number_format($total_chk, 2)}} PHP</b></h5>  </label>
+          <label class= "px-3 pt-2 mb-3" style="border:1px #3eb952 solid; "><h5>Total: <b style="color: #3eb952;">{{number_format($total_chk, 2)}} PHP</b></h5>  </label>
         </div>
         
       </div>
     </div>
-    <div class="d-flex mt-5 justify-content-center">
-      {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@index','method'=>'GET']) !!}
-        {{Form::submit('CHECKOUT', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }}
-      {!! Form::close() !!}
-    </div>
+    @if(count($products)>0)
+      <div class="d-flex mt-5 justify-content-center">
+        {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@index','method'=>'GET']) !!}
+          {{Form::submit('CHECKOUT', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }}
+        {!! Form::close() !!}
+      </div>
+      @else
+
+    @endif
+    
   </div>
 </div>
 </div>

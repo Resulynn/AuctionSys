@@ -38,6 +38,7 @@
                         <div class="card-header">{{ __('PROFILE') }}</div>
                         <div class="card-body">
                                 @csrf
+                                <fieldset disabled>
                                 <div class="row mb-3">
                                     <div class="col">
                                             <label for="fname" class="col-form-label text-md-end">{{ __('First Name') }}</label>
@@ -61,7 +62,7 @@
                                     </div>
                                     <div class="col">
                                         <label for="bday" class="col-form-label text-md-end">{{ __('Birth Date') }}</label>
-                                        <input type="date" class="form-control" value="{{ Carbon\Carbon::parse($data->bday)->format('Y-m-d') }}">
+                                        <input type="date" class="form-control" value="{{ \Carbon\Carbon::parse($data->bday)->isoFormat('Y-m-d') }}">
                                     </div>
                                     
                                     <div class="col">
@@ -79,27 +80,30 @@
                                             <input type="text" class="form-control" value="{{ $data->username }}">
                                         </div>
                                     </div>
-                                    
+                                </fieldset>
+                                {!! Form::open(['action'=>['App\Http\Controllers\ProfileController@update',$data->id],
+                                    'method'=>'PUT', 'enctype'=>'multipart/form-data']) !!}
+                                
                                 <div class="w-100">
                                     <div class="row mb-4">
                                         <div class="w-75">
                                             <div class="col">
                                                 <label for="address" class="  col-form-label text-md-end">{{ __('Address') }}</label>
-                                                <input type="text" class="form-control" value="{{ $data->address }}">
+                                                <input type="text" name="address" id="address" class="form-control" value="{{ $data->address }}">
                                             </div>
                                         </div>
                                         <div class="w-25">
                                             <div class="col">
                                                 <label for="zipcode" class="col-form-label text-md-end">{{ __('Zip Code') }}</label>
                                                 <div class="col">
-                                                    <input type="text" class="form-control" value="{{ $data->zipcode }}">
+                                                    <input type="text" name="zipcode" id="zipcode" class="form-control" value="{{ $data->zipcode }}">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    {!! Form::open() !!}
+                                    
                                     {{ Form::submit('SAVE PROFILE',['class'=>'btn btn-dark my-3 w-50 ',
                                     'style' => 'border-radius:0%;'
                                     ]) }}

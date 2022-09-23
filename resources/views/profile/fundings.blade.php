@@ -15,12 +15,21 @@
     {!! Form::open(['action'=>['App\Http\Controllers\fundController@fundReq'],
     'method'=>'POST']) !!} 
     <div class="text-center">
-      {{Form::text('reqAmt','',['class'=>'form-control ','placeholder'=>'Enter Amount','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;'])}}  
-      
-      {{Form::submit('ADD FUNDS',['class'=>' btn mt-3 mb-5 w-50 btn-dark', 'style'=>'border-radius:0%;'])}}
-      {{Form::hidden('refnum',$refnum)}}
-      {{Form::hidden('accname',Auth::user()->username)}}
-      {!! Form::close() !!}   
+      @if(Auth::user()->user_status == 0)
+        {{Form::text('reqAmt','',['class'=>'form-control ','placeholder'=>'Enter Amount','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;','disabled' ])}}  
+        
+        {{Form::submit('ADD FUNDS',['class'=>' btn mt-3 mb-5 w-50 btn-dark', 'style'=>'border-radius:0%; ','disabled'])}}
+        {{Form::hidden('refnum',$refnum)}}
+        {{Form::hidden('accname',Auth::user()->username)}}
+        {!! Form::close() !!}  
+
+        @elseif(Auth::user()->user_status == 1)
+        {{Form::text('reqAmt','',['class'=>'form-control ','placeholder'=>'Enter Amount','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;'])}}  
+        {{Form::submit('ADD FUNDS',['class'=>' btn mt-3 mb-5 w-50 btn-dark', 'style'=>'border-radius:0%;'])}}
+        {{Form::hidden('refnum',$refnum)}}
+        {{Form::hidden('accname',Auth::user()->username)}}
+        {!! Form::close() !!}  
+      @endif
     </div>
     <h3>Your current funds: <b>{{Auth::user()->funds}}</b></h3>
     Your Reference number is <b>{{$refnum}}</b> 

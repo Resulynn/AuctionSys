@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Session;
 class ProfileController extends Controller
 {
     /**
@@ -78,20 +78,31 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {   
+        $this->validate($request,[
+            'address'=>'required',
+            'zipcode'=>'required'
+        ]);
         $data = User::find($id);
+        $type = Auth::user()->user_type;
 
         $data->address=$request->input('address');
         $data->zipcode=$request->input('zipcode');
         
-
         $data->save();
-        $type = Auth::user()->user_type;
 
-        if($type == 'Administrator'){
-            return redirect('/admin/index')->with('success','Profile Updated.');
+        if($type = 0){
+            Session::flash('success', "Profile succesfully Updated. ");
+            return redirect('/admin/index');
         }
+        else{
+            Session::flash('success', "Profile succesfully Updated. ");
+            return redirect('/profile');
+        }
+        // if($type == 'Administrator'){
+        //     return redirect('/admin/index')->with('success','Profile Updated.');
+        // }
 
-        return redirect('/profile')->with('success','Profile Updated.');
+        // return redirect('/profile')->with('success','Profile Updated.');
     }
 
     /**

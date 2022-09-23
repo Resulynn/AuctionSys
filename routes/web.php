@@ -54,6 +54,7 @@ Route::get('/admin/usermanagement/search','App\Http\Controllers\UserManagementCo
 Route::resource('/profile','App\Http\Controllers\ProfileController')->middleware('auth');
 Route::resource('/biddings','App\Http\Controllers\BiddingController')->middleware('auth');
 Route::post('/profiles','App\Http\Controllers\imgController@upload')->middleware('auth');
+
 Route::post('/addfunds','App\Http\Controllers\fundController@fundReq')->middleware('auth');
 Route::resource('/bag','App\Http\Controllers\BagController')->middleware('auth');
 Route::resource('/fundings','App\Http\Controllers\UserFundingsController')->middleware('auth');
