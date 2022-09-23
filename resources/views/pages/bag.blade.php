@@ -11,7 +11,7 @@ use App\Models\User;
     <span class="fs-5 fw-bold " style="margin:auto;">Your Bag</span>
   </a>
 <div class="d-flex">
-    <div class="bg-white mb-5 w-75" style=" border-top:1px #f0eeee solid;">
+    <div class="bg-white mb-5 w-75 " style=" border-top:1px #f0eeee solid;">
       @if(count($products)>0)
         @foreach ($products as $item)
       <div class="list-group list-group-flush border-bottom scrollarea ps-3 py-3">

@@ -137,6 +137,17 @@ if(distance < 0){
                                                     {{Form::hidden('id',$item->id)}}
                                                     {!! Form::number('bid_amt', '', ['class'=>'form-control','required']) !!}
                                                     {{Form::submit('PLACE BID', ['class'=>' btn btn-dark mt-3 w-50 mb-2','style'=>'border-radius:0%;']) }}
+                                                    <br>
+                                                    <div>
+                                                        
+                                                            <i class="bi bi-info-circle userloggedbtn" style="font-size:14px;">
+                                                            If you won an auction, you must place an order for the item within 2 weeks or else, it will be <b class="text-danger"> DELETED</b> from your biddings.
+                                                            
+                                                            The second highest bidder will win the item automatically.
+                                                            </i> 
+                                                            
+                                                        
+                                                    </div>
                                                 {!! Form::close() !!}
                                             
                                             @else

@@ -41,21 +41,29 @@
         
     <div class="justify-content-center">
         @if(Session::has('error'))
-                <div class="d-flex w-100 mt-5 justify-content-center" style="background: none; margin:0%;">
-                    <div class="alert alert-danger w-50 justify-content-center align-items-center d-flex">
+            <div class="d-flex w-100 mt-5 justify-content-center" style="background: none; margin:0%;">
+                <div class="alert alert-danger alert-dismissible w-50  align-items-center d-flex">
+                    <div class="w-100 text-center text-danger">
                         {{Session::get('error')}}
-                        <button class="btn userloggedbtn p-1 ms-3" style= "border: 1px #791e1e solid;  border-radius:0%;" data-dismiss="alert"><b class="text-danger">X</b></button>
+                    </div>
+                    <div align="right" class="">
+                        <button class="close btn userloggedbtn"  data-dismiss="alert"><b class="text-danger" style="font-size: 20px;">&times;</b></button>
                     </div>
                 </div>
+            </div>
         @endif
 
         @if(Session::has('success'))
-                <div class="d-flex w-100 mt-5 justify-content-center" style="background: none; margin:0%;">
-                    <div class="alert alert-success w-50 justify-content-center align-items-center d-flex">
+            <div class="d-flex w-100 mt-5 justify-content-center" style="background: none; margin:0%;">
+                <div class="alert alert-success alert-dismissible w-50  align-items-center d-flex">
+                    <div class="w-100 text-center text-success">
                         {{Session::get('success')}}
-                        <button class="btn userloggedbtn p-1 ms-3" style= "border: 1px #074920 solid;  border-radius:0%;" data-dismiss="alert"><b class="text-success">X</b></button>
+                    </div>
+                    <div align="right" class="">
+                        <button class="close btn userloggedbtn"  data-dismiss="alert"><b class="text-success" style="font-size: 20px;">&times;</b></button>
                     </div>
                 </div>
+            </div>
         @endif
         @yield('content')
     </div>
