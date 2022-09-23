@@ -56,7 +56,7 @@
         FEEDBACKS
     </a>
   </div>
-  <div class="list-group-flush mb-3">
+  <div class="list-group-flush">
     <a href="/admin/reports" class="{{Request::is('admin/reports') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         REPORTS
     </a>

@@ -65,15 +65,15 @@
                                 )}}
                             </div>
                             <div class="row ms-2 w-100" style="">
-                                <label style="font-size: small;">Initial Type</label>
-                                {{Form::text('initialPrice','',
+                                <label style="font-size: small;">Initial Price</label>
+                                {{Form::number('initialPrice','',
                                 ['class'=>'reg form-control mt-1 mb-3 ms-3',
                                 'placeholder'=>'Initial Price',
                                 'style'=>'border:none; padding:0; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
                             </div>
                             <div class="row ms-2">
                                 <label style="font-size: small;">Buyout Price</label>
-                                {{Form::text('buyPrice','',
+                                {{Form::number('buyPrice','',
                                 ['class'=>'reg form-control mt-1 pt-1 ms-3 my-3',
                                 'placeholder'=>'Buy Out Price',
                                 'style'=>'border:none; padding:0; background:none; border-radius:0%; border-bottom:1px #000000 solid;'])}}
