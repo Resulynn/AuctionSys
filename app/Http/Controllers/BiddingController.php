@@ -24,8 +24,9 @@ class BiddingController extends Controller
         $data = Auction::join('bidtransactions','bidtransactions.prod_id','=','auctions.id')
         ->where('bidtransactions.user_id','=',Auth::user()->id)
         ->where('bidtransactions.bagstatus',0)
+        
         ->orderBy('bidtransactions.created_at','DESC')
-        ->paginate(3);
+        ->paginate(5);
 
         
         return view('profile.biddings', compact('title'))

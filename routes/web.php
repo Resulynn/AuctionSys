@@ -23,9 +23,11 @@ Route::get('/historypage','App\Http\Controllers\PagesController@historypage');
 Route::get('/confirmEmail','App\Http\Controllers\EmailController@index');
 Route::get('/addtobag','App\Http\Controllers\BagController@addToBag');
 Route::get('/search','App\Http\Controllers\storePagesController@search');
-
 Route::resource('/checkout','App\Http\Controllers\CheckoutController')->middleware('auth');
-
+Route::get('/checkoutsingle','App\Http\Controllers\CheckoutController@placeOrderBuyPrice')->middleware('auth');
+Route::resource('/newmessage','App\Http\Controllers\MessagesController')->middleware('auth');
+Route::post('/placeorder','App\Http\Controllers\CheckoutController@placeOrder')->middleware('auth');
+Route::post('/placesingleorder','App\Http\Controllers\CheckoutController@placeSingleOrder')->middleware('auth');
 //admin module
 Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex')->middleware('auth');
 Route::resource('/admin/usermanagement','App\Http\Controllers\UserManagementController')->middleware('auth');
@@ -48,13 +50,13 @@ Route::resource('/postItem','App\Http\Controllers\AuctionController')->middlewar
 Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController')->middleware('auth');
 Route::resource('/admin/feedback','App\Http\Controllers\FeedbackController')->middleware('auth');
 Route::get('/admin/usermanagement/search','App\Http\Controllers\UserManagementController@search')->middleware('auth');
-
+Route::resource('/admin/messages','App\Http\Controllers\AdminMessagesController')->middleware('auth');
 
 //profile module
 Route::resource('/profile','App\Http\Controllers\ProfileController')->middleware('auth');
 Route::resource('/biddings','App\Http\Controllers\BiddingController')->middleware('auth');
 Route::post('/profiles','App\Http\Controllers\imgController@upload')->middleware('auth');
-
+Route::resource('/messages','App\Http\Controllers\MessagesController')->middleware('auth');
 Route::post('/addfunds','App\Http\Controllers\fundController@fundReq')->middleware('auth');
 Route::resource('/bag','App\Http\Controllers\BagController')->middleware('auth');
 Route::resource('/fundings','App\Http\Controllers\UserFundingsController')->middleware('auth');

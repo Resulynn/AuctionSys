@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
-@include('inc.auctionlist')
+@include('inc.messagelist')
 
  
 

@@ -52,8 +52,6 @@ class BagController extends Controller
     {
         $title = "Bag";
 
-                        
-
         $products = Auction::join('bag','auctions.id','=','bag.product_id')
         ->where('bag.user_id','=',Auth::user()->id)
         ->get();
@@ -77,19 +75,20 @@ class BagController extends Controller
         //             ->get();
     
 
-        $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
-        ->where('bag.user_id', Auth::user()->id)
-        ->where('bidtransactions.bagstatus', 1)
-        ->sum('bidtransactions.bidamt');
+        // $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
+        // ->where('bag.user_id', Auth::user()->id)
+        // ->where('bidtransactions.bagstatus', 1)
+        // ->sum('bidtransactions.bidamt');
 
-        $status = Bag::where('user_id', Auth::user()->id)->get();
+        // $total_sgl =  Bag::join('auctions','bag.product_id','=','auctions.id')
+        // ->where('bag.user_id', Auth::user()->id)
+        // ->sum('auctions.buyPrice');
+        
+        // $status = Bag::where('user_id', Auth::user()->id)->get();
 
         return view('pages.bag')
                 ->with(compact('title',
-                            'products',
-                            'total',
-                            'status'
-                            
+                            'products'
                             ));
     
     }   
@@ -150,7 +149,7 @@ class BagController extends Controller
             
             $bag->save();
             Session::flash('success', "Item successfully added to Bag.");
-            return redirect('/bag/'.$user);
+            return redirect('/biddings');
     }
 
     static function bag_qty(){

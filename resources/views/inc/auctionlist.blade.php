@@ -1,3 +1,6 @@
+@php
+    use App\Models\Biddings;  
+@endphp
 <a href="/admin/auctionlist" class="d-flex flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
     <span class="fs-5 fw-bold text-center w-100">Auction List</span>
 </a>
@@ -6,6 +9,11 @@
     
     @if(count($auctions)>0)
     @foreach ($auctions as $info)
+    @php
+        $highest_bid = Biddings::select('bidamt')
+        ->where('prod_id', $info->id)
+        ->max('bidamt');
+    @endphp
       <a href="/admin/auction/{{$info->id}}" class="list-group-item list-group-item-action  py-3" aria-current="true">
         <div class="d-flex align-items-center">
           <div class="me-3">
@@ -18,11 +26,11 @@
               <strong class="mb-1">{{$info->prodName}}</strong><br>
             </div>
             <div class="col-10 mb-1 w-100 ">
-              {{$info->prodDeets}}
+              {{$info->cond}}
             </div>
             <div class="" style="">
               <div>
-                  Highest Bid: <b>{{$info->initialPrice}}</b>
+                  Highest Bid: <b>{{$highest_bid}}</b>
               </div>
               <div>
                 Buyout Price: <b>{{$info->buyPrice}}</b>

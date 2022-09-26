@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Auction;
 use App\Models\Bag;
+use App\Models\Order;
+use App\Models\OrderItems;
 use App\Models\Biddings;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use Carbon\Carbon;
 class CheckoutController extends Controller
 {
     /**
@@ -22,18 +25,13 @@ class CheckoutController extends Controller
         $products = Auction::join('bag','auctions.id','=','bag.product_id')
         ->where('bag.user_id','=',Auth::user()->id)
         ->get();
-
-        $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
-        ->where('bag.user_id', Auth::user()->id)
-        ->where('bidtransactions.bagstatus', 1)
-        ->sum('bidtransactions.bidamt');
-
-        $status = Bag::where('user_id', Auth::user()->id)->get();
+        $prod_id = Bag::where('user_id', Auth::user()->id)
+                        ->get();
+       
         return view('pages.checkout')
                 ->with(compact('title',
                             'products',
-                            'total',
-                            'status'
+                            'prod_id'
                             ));
     
                 
@@ -67,8 +65,16 @@ class CheckoutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
+        ->where('bag.user_id', Auth::user()->id)
+        ->where('bidtransactions.bagstatus', 1)
+        ->sum('bidtransactions.bidamt');
+
+        $item = Auction::where('id',$id)->first();
+        return view('pages.checkoutsingle')
+        ->with(compact('item','total'));
+                    
     }
 
     /**
@@ -103,5 +109,108 @@ class CheckoutController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function placeSingleOrder(Request $request){
+        
+        
+        $data = new Order;
+        $data->user_id = Auth::user()->id;
+        $data->del_address =  Auth::user()->address;
+        $data->zipcode = Auth::user()->zipcode;
+        $data->total = $request->input('total_amt');
+        $data->tracknum = 'JNTEXPH'.rand(111111,999999);
+        $data->del_date = Carbon::now()->addDays(7);
+        $data->del_stat = 'Pending';
+        $data->refnum = $request->refnum;
+        $data->save(); 
+
+      
+        OrderItems::create([
+            'order_id' => $data->id,
+            'prod_id' => $request->input('prod_id'),
+            'user_id' => Auth::user()->id,
+            'price' => $request->total_amt
+        ]);
+                        
+        Biddings::where('prod_id', $request->prod_id)
+        ->where('user_id', '<>',Auth::user()->id)
+        ->update(['orderstatus' => 1]);
+        
+        Biddings::where('prod_id', $request->prod_id)
+        ->where('user_id', Auth::user()->id)
+        ->delete();
+        
+        Auction::where('id',$request->prod_id)
+        ->update(['aucStatus' => 0]);
+
+        $bag = Bag::where('user_id', Auth::user()->id)
+                    ->get();
+
+        Bag::destroy($bag);
+        
+        $fund_upd = Auth::user()->funds - $request->total_amt;
+        User::where('id', Auth::user()->id)
+            ->update(['funds' => $fund_upd]);
+        
+        Session::flash('success', "Order Successfully Placed!");
+        return redirect('/orders');
+
+        
+
+    }
+    public function placeOrder(Request $request){
+
+        
+            $data = new Order;
+            $data->user_id = Auth::user()->id;
+            $data->del_address =  Auth::user()->address;
+            $data->zipcode = Auth::user()->zipcode;
+            $data->total = $request->total_amt;
+            $data->tracknum = 'JNTEXPH'.rand(111111,999999);
+            $data->del_date = Carbon::now()->addDays(7);
+            $data->del_stat = 'Pending';
+            $data->refnum = $request->refnum;
+            $data->save(); 
+
+
+            $bag_items = Bag::join('auctions','bag.product_id','=','auctions.id')
+                            ->where('bag.user_id','=',Auth::user()->id)
+                            ->get();
+
+                            
+                            $lnt = count($bag_items)-1;
+                            
+                                for ($i=0; $i <= $lnt ; $i++) { 
+                                    OrderItems::create([
+                                        'order_id' => $data->id,
+                                        'prod_id' => $bag_items[$i]->product_id,
+                                        'user_id' => Auth::user()->id,
+                                        'price' => $request->total_amt,
+                                    ]);
+                                }
+
+                            $lnt2 =  count($bag_items);
+
+                            for ($i=0; $i < $lnt2 ; $i++) { 
+                                Biddings::where('prod_id', $bag_items[$i]->product_id)
+                                ->where('user_id', '<>',Auth::user()->id)
+                                ->update(['orderstatus' => 1]);
+
+                                Auction::where('id', $bag_items[$i]->product_id)
+                                ->update(['aucStatus' => 0]);    
+                            }
+
+            $bag = Bag::where('user_id', Auth::user()->id)
+                        ->get();
+            Bag::destroy($bag);
+            
+            $fund_upd = Auth::user()->funds - $request->total_amt;
+            User::where('id', Auth::user()->id)
+                ->update(['funds' => $fund_upd]);
+            
+            Session::flash('success', "Order Successfully Placed!");
+            return redirect('/orders');
+        
     }
 }

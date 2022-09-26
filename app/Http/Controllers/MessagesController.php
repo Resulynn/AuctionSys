@@ -3,53 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Session;
-use App\Models\Biddings;
 use App\Models\User;
-use App\Models\Auction;
-use App\Models\OrderItems;
-use App\Models\Order;
-use App\Models\Bag;
+use App\Models\Messages;
 use Illuminate\Support\Facades\Auth;
-class UserOrdersController extends Controller
+use Session;
+class MessagesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $title = "My Orders";
-        $data = Order::where('user_id', Auth::user()->id)
-                    ->orderBy('created_at','DESC')
-                    ->paginate(10);
-    
-        // $user_deet = User::join('order')
-        // $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
-        // ->where('bag.user_id', Auth::user()->id)
-        // ->where('bidtransactions.bagstatus', 1)
-        // ->sum('bidtransactions.bidamt');
-
-        // $del_fee = 45;
-        // $total += $del_fee;
-
-        // $orders = Orderitems::select('prod_id')
-        // ->where('user_id','=',Auth::user()->id)
-        // ->where('order_id',$d)
-        // ->get();
-        
-        
-        
-        return view('profile.myorders', compact('title', 'data'));
+      
     }
 
     /**
      * Show the form for creating a new resource.
-     *@param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         //
     }
@@ -62,7 +37,13 @@ class UserOrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = new Messages;
+        $message->user_id = Auth::user()->id;
+        $message->message = $request->input('message');
+        $message->save();
+
+        Session::flash('success', "Message Sent.");
+        return redirect('/messages/'. Auth::user()->username);
     }
 
     /**
@@ -73,7 +54,9 @@ class UserOrdersController extends Controller
      */
     public function show($id)
     {
-        //
+        $title = "Messages";
+        $messages = Messages::where('user_id', Auth::user()->id)->orderBy('created_at','DESC')->get();
+        return view('admin.messages', compact('title','messages'));
     }
 
     /**
@@ -109,6 +92,4 @@ class UserOrdersController extends Controller
     {
         //
     }
-
-   
 }

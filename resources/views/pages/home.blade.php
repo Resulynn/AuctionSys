@@ -57,7 +57,7 @@
                 />
                 <div class="card-body">
                     <h5 class="card-title"><b>{{$prod->prodName}}</b></h5>
-                    <p class="card-text">{{$prod->prodDeets}}</p>
+                    <h6 class="card-title">{{$prod->cond}}</h6>
                 </div>
                 <small>Ends on: <b>{{ Carbon\Carbon::parse($prod->endDate)->isoFormat('MMM D, YYYY')}} (11:59 PM)</b></small> 
                 <div class="pb-5">

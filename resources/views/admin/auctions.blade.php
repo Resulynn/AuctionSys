@@ -52,7 +52,7 @@ if(distance < 0){
                     <small></small>
                   </div>
                   <div class="col-10 mb-1 ">
-                    {{$info->prodDeets}}
+                    {{$info->cond}}
                   </div>
                   <div class="" style="">
                     <div>
@@ -95,9 +95,12 @@ if(distance < 0){
                 </div>
                     <h3 class="d-flex justify-content-center pb-2"><b>{{$auction->prodName}}</b></h3> 
                     <h6 class="text-center"><b><p id = "end_date"></p></b></h6>
-                <div class="d-flex pt-3">
+                    <p class="text-center mx-5">{{$auction->prodDeets}}</p>
+                <div class="d-flex pt-3 w-100 justify-content-center">
                     <div class="details mx-3">
-                        <div class="item-det">
+                    
+                        <div class="item-det ">
+                          
                             <h6>Category:<b> {{$auction->category}}</h6>
                             <h6>Initial Price: <b>{{$auction->initialPrice}}</b> PHP</h6>
                             <h6>Buy Price: <b>{{$auction->buyPrice}}</b> PHP</h6>
@@ -125,6 +128,9 @@ if(distance < 0){
                         </div>
                     </div>
                 </div>
+              
+                  
+                
             </div>
         </div>
     </div>                              

@@ -6,8 +6,12 @@
     $data = User::where('username',$username)->first();
 ?>
 
-<div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-2 px-4">
+<div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-1 px-4">
         <div class="userloggedbar-content d-flex">
+            <a href="/admin/messages" class="userloggedbtn btn mt-1 " style="font-size: medium;">
+                <label style="font-size: 12px; " class="text-danger">( 1 )</label>
+                <i class="bi bi-envelope-exclamation pe-3 "></i>
+            </a>
             <div class="dropdown" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                 <img src="/userPFP/{{$data->profileImage}}" width="30px" height="30px" style="object-fit: cover;" class="rounded-circle me-1" >
                 <a href="/profile" class="userloggedbtn"><b>{{$username}}</b></a> 

@@ -5,6 +5,9 @@ use App\Models\Bag;
 use App\Models\Biddings;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+
+
+$ref_num = Auth::user()->id.date('ymdHis');
 @endphp
 <div class="bg-white my-5 mx-5 " style=" border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-bottom:1px #f0eeee solid;border-left:1px #f0eeee solid;">
     <a class=" d-flex mt-5 flex-shrink-0 p-3 link-dark text-decoration-none border-top border-bottom">
@@ -33,8 +36,11 @@ use App\Models\User;
                 <div class="d-flex w-75 align-items-center">
                     <ul class="pe-3" style="list-style: none;   margin-bottom:auto;">
                         <li><h5><b>{{$item->prodName}} </b></h5></li>
-                        <li class="mb-2">{{$item->prodDeets}}</li>
-                        <li>Bid Placed: <b>{{$price->bidamt}} PHP</b></li>
+                        @if($price === null)
+                        <li><h6><b>{{number_format($item->buyPrice,2)}} PHP </b></h6></li>
+                        @else
+                        <li><h6><b>{{number_format($price->bidamt,2)}} PHP</b></h6></li>
+                        @endif
                         <li>Condition: <b>{{$item->cond}}</b></li>
                     </small>
                     </ul>
@@ -53,8 +59,10 @@ use App\Models\User;
                     <ul class="" style=" list-style: none; margin-bottom:auto;">
                         <li><h6>Name: <b>{{Auth::user()->fname.' '. Auth::user()->lname}}</b></h6></li>
                         <li><h6>Delivery Address: <b>{{Auth::user()->address}}</b></h6></li>
-                        <li><h6>Estimated Delivery Date: <b>{{ Carbon\Carbon::now()->isoFormat('MMM D, YYYY')}}</b></h6></li>
-                        <li><h6>Reference #: <b>{{$refnum=Auth::user()->id.date('ymdHis');}}</b></h6></li>
+                        <li><h6>Zip Code: <b>{{Auth::user()->zipcode}}</b></h6></li>
+                        <li><h6>Estimated Delivery Date: <b>{{ Carbon\Carbon::now()->addDays(7)->isoFormat('MMM D, YYYY')}}</b></h6></li>
+                        <li><h6>Reference #: <b>{{$ref_num}}</b></h6></li>
+                        
                     </ul>
                 <hr>
                 <div class="d-flex w-100 px-1" >
@@ -75,6 +83,11 @@ use App\Models\User;
                     @endforeach
                     </div>
                     <div align="right" class="w-50 me-4">
+                        @php
+                        $total_bids = 0;
+                        $total_buy =  0;
+                        $del_fee =  number_format(45, 2);
+                        @endphp
                     @foreach($products as $item)
                         @php
                         $price = Biddings::select('bidtransactions.bidamt')
@@ -86,50 +99,66 @@ use App\Models\User;
                         @endphp
                         <ul class="" style="list-style: none;   margin-bottom:auto;">
                         <small>
+                            @if($price === null)
+                            <li><h6><b>{{number_format($item->buyPrice,2)}} </b></h6></li>
+                            @php
+                                $total_buy += $item->buyPrice;
+                            @endphp
+                            @else
+                            @php
+                                $total_bids += $price->bidamt;
+                            @endphp
                             <li><h6><b>{{number_format($price->bidamt,2)}} </b></h6></li>
+                            @endif
                         </small>
                         </ul>
                     @endforeach
+                    @php
+                        $del_fee =  number_format(45, 2);
+                        $sub_total = $total_bids + $total_buy;
+                        $total_amt = $sub_total + $del_fee ;
+                    @endphp
                     </div>
                 </div>
                 <hr>
                 <div align="right" class="w-100 px-3">
-                    <label><h5>Sub-Total: <b>{{number_format($total,2)}}</b></h5> </label><br>
-                    @php
-                    $del_fee =  number_format(45, 2);
-                    $penalty = number_format(200,2);
-                    $total_chk = $total + $del_fee + $penalty;
-                    @endphp
+                    <label><h5>Sub-Total: <b>{{number_format($sub_total,2)}}</b></h5> </label><br>
+                    {{-- @php
+                        
+                        $penalty = number_format(0,2);
+                        $total_amt = $total + $total_sgl + $del_fee + $penalty;
+                    @endphp --}}
                     <label>Shipping Fee: <b>{{$del_fee}}</b></label><br>
                     <label class="mb-2 " style="font-size: small;"> (J&T Express Delivery)</label> <br>
-                    <label>Penalty Fee: <b class="text-danger">{{$penalty}}</b> </label><br>
                     <hr>
-                    <label class= "px-3 pt-2" style="border:1px #3eb952 solid; "><h5>Total: <b style="color: #3eb952;">{{number_format($total_chk, 2)}} PHP</b></h5>  </label>
+                    <label class= "px-3 pt-2" style="border:1px #3eb952 solid; "><h5>Total: <b style="color: #3eb952;">{{number_format($total_amt, 2)}} PHP</b></h5>  </label>
                 </div>
                 
                 </div>
             </div>
             <div class=" mt-5 text-center mb-3 ">
-                @if(Auth::user()->funds < $total_chk)  
-                    {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@index','method'=>'GET']) !!}
+                @if(Auth::user()->funds < $total_amt)  
                         {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;','disabled']) }}
-                    {!! Form::close() !!}
+                
                     <small class="userloggedbtn ">By Placing Order, you agree to pay the Total amount using your Funds.</small>
                     <br>
                         <label for="">Funds: <b class="text-danger"> {{Auth::user()->funds}} </b></label>
                     <br>
-                    <label for="">Funds after placing order: <b> {{(Auth::user()->funds) - $total_chk}}</b></label>
+                    <label for="">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
                     <div class="d-flex  justify-content-center">
                         {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 
                     </div>
-                @elseif(Auth::user()->funds > $total_chk || Auth::user()->funds = $total_chk )
-                    {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@index','method'=>'GET']) !!}
+                @elseif(Auth::user()->funds > $total_amt || Auth::user()->funds = $total_amt )
+                    {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@placeOrder','method'=>'POST']) !!}
+                    {{Form::hidden('refnum',$ref_num)}}
+                    {{Form::hidden('total_amt',$total_amt)}}
+                    @foreach($prod_id as $item )
+                        {{Form::text('prod_id',$item->product_id)}} 
+                    @endforeach
                     {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;']) }}
                     {!! Form::close() !!}
-                    <small class="userloggedbtn ">By Placing Order, you agree to pay the Total amount using your Funds.</small>
-                    <label for="">Funds: <b class="text-success"> {{Auth::user()->funds}}</b></label>
-                    <br>
-                    <label for="">Funds after placing order: <b> {{(Auth::user()->funds) - $total_chk}}</b></label>
+                    <small class="userloggedbtn">By Placing Order, you agree to pay the <b>Total amount</b>  using your <b>Funds</b> .</small>
+                    <label for="" class="mt-2">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
                 </div>
             <div class="d-flex  justify-content-center">
                 {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 

@@ -20,9 +20,7 @@
                           />
                           <div class="card-body">
                             <h5 class="card-title"><b>{{$item->prodName}}</b></h5>
-                            <p class="card-text">
-                            {{$item->prodDeets}}
-                            </p>
+                            <h6 class="card-title">{{$item->cond}}</h6>
                               <small>Ends on: <b>{{ Carbon\Carbon::parse($item->endDate)->isoFormat('MMM D, YYYY')}} (11:59 PM)</b></small> 
                               <br>
                               <b> <a href="/item/{{$item->id}}"> VIEW AUCTION </a></b>

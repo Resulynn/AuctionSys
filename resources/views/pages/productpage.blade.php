@@ -69,7 +69,7 @@ if(distance < 0){
                                     <h5>Category: <b>{{$item->category}}</b></h5>
                                     <h5>Condition: <b>{{$item->cond}}</b> </h5>
                                     
-                                    <small><p class="pe-5" style="width: 500px; max-width:100%;">{{$item->prodDeets}} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, iusto nulla iure dolorem quas odio harum dignissimos facilis, suscipit minus praesentium quidem rerum blanditiis quis atque mollitia et eos repellat?</p></small>
+                                    <small><p class="pe-5" style="width: 500px; max-width:100%;">{{$item->prodDeets}}</p></small>
                                         <h5>Auction Ends on:<b> {{ Carbon::parse($item->endDate)->isoFormat('MMM D, YYYY')}} (11:59 PM)</b></h5>
                                         <p id="end_date"></p>
                                     </div>
@@ -164,16 +164,19 @@ if(distance < 0){
                     </div>  
                 </div> 
             </div>
-        <div class="d-flex align-items-center justify-content-center">
-            <div class="w-25 me-5">
-                <hr>
-            </div>
+            @if($bid_status == 1)
+            
+            @else
+            <div class="d-flex align-items-center justify-content-center">
+                <div class="w-25 me-5">
+                    <hr>
+                </div>
                 OR
-            <div class="w-25 ms-5">
-                <hr>
+                <div class="w-25 ms-5">
+                    <hr>
+                </div>
             </div>
-        </div>
-        <div class="container w-75">
+            <div class="container w-75">
             <div class="buy-now">
                 <div class="row">
                     <div class="col">
@@ -186,10 +189,16 @@ if(distance < 0){
                                     {{Form::submit('BUY NOW', ['class'=>' btn btn-dark  w-50 ','style'=>'border-radius:0%;' ,'disabled']) }}
                                 {!! Form::close() !!}
                                 @else
-                                    {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@index','method'=>'GET']) !!}
-                                        {{Form::submit('BUY NOW', ['class'=>' btn btn-dark  mb-3 w-50 ','style'=>'border-radius:0%;']) }}
-                                    {!! Form::close() !!}
-                            @endif
+                                <a href="/checkout/{{$item->id}}" class="btn btn-dark w-50" style="border-radius: 0%;">BUY NOW</a>
+                                    
+                                    <form action="/addtobag" method="GET">
+                                        <button class="btn userloggedbtn mb-3" style="border-radius: 0%;">
+                                            <i class="bi bi-bag-plus" style="font-size: 18px;"></i>
+                                            Add to Bag
+                                        </button>
+                                        <input type="hidden" name="product_id" value={{$item->id}}>
+                                    </form>
+                                @endif
                             @else
                             {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'GET']) !!}
                                         {{Form::submit('LOGIN TO BUY', ['class'=>' btn btn-dark  mb-3 w-50 ','style'=>'border-radius:0%;']) }}
@@ -199,11 +208,15 @@ if(distance < 0){
 
                     </div>  
                 </div>
-                {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
-                    {{Form::submit('CANCEL', ['class'=>'btn btn-dark mt-5 w-25 ','style'=>'border-radius:0%;'])}}<br>
-                {!! Form::close() !!}
+                
             </div>
         </div>
-    </div>  
+        
+        @endif
+          {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
+                    {{Form::submit('CANCEL', ['class'=>'btn btn-dark mt-5 w-25 ','style'=>'border-radius:0%;'])}}<br>
+                {!! Form::close() !!}
+    </div> 
+  
 </div>
 @endsection

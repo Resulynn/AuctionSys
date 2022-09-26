@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\OrderItems;
+use App\Models\Order;
 class ToShipController extends Controller
 {
     /**
@@ -14,11 +16,15 @@ class ToShipController extends Controller
     public function index()
     {
         $title = "Admin | To Ship";
+        $data = Order::orderBy('created_at','DESC')
+                    ->get();
+       
+
         if(Auth::user()->user_type == 1){
             return redirect('/home');
         }
         else{
-            return view('admin.ships', compact('title'));
+            return view('admin.ships', compact('title','data'));
             }
     }
 

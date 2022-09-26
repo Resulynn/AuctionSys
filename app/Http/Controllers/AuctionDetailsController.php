@@ -15,13 +15,12 @@ class AuctionDetailsController extends Controller
     public function index()
     {
         $auctions = Auction::where('aucStatus','=',1)->get();
-        
         $title = "Admin | Auction List";
         if(Auth::user()->user_type == 1){
             return redirect('/home');
         }
         else{
-            return view('admin.auctionList', compact('title'))->with('auctions',$auctions);
+            return view('admin.auctionList', compact('title','auctions'));
             }
     }
 

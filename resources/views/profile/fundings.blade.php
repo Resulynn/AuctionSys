@@ -1,7 +1,8 @@
 @extends('layout.app')
 @section('content')
-<div class="bg-white my-5 mx-5 border-bottom" style=" border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-left:1px #f0eeee solid;">
-    <a href="" class="d-flex card-header flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+<div class="bg-white my-5 mx-5 " style="border: 1px #dddddd solid;">
+    <a href="" class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none "
+    style=" border-bottom:1px #dddddd solid;">
       <span class="fs-5 fw-bold text-center w-100">My Funds</span>
     </a>
 
@@ -11,7 +12,7 @@
         
 <div class="d-flex">
   <div class=" px-3 pt-3 pt-5 pb-5  list-group list-group-flush scrollarea"
-        style=" border-right:1px #f0eeee solid;">
+        style=" border-right:1px #dddddd solid;">
     {!! Form::open(['action'=>['App\Http\Controllers\fundController@fundReq'],
     'method'=>'POST']) !!} 
     <div class="text-center">
@@ -55,7 +56,7 @@
   </div>
 </div>
 
-  <div class="w-100">
+  <div class="w-100 mx-3">
       <table class="table">
         <a class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
           <span class="fs-6 fw-semibold text-center w-100"><b>Fund Transaction History</b> </span>
