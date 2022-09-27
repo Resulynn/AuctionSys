@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Biddings;
 use App\Models\User;
-use App\Models\Messages;
+use App\Models\Auction;
 use Illuminate\Support\Facades\Auth;
 use Session;
-class MessagesController extends Controller
+
+class BidHistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,15 @@ class MessagesController extends Controller
      */
     public function index()
     {
-      
+        $title = "Biddings";
+        $data = Auction::join('bidtransactions','bidtransactions.prod_id','=','auctions.id')
+        ->where('bidtransactions.user_id','=',Auth::user()->id)
+        ->orderBy('bidtransactions.created_at','DESC')
+        ->paginate(5);
+
+        
+        return view('profile.bidhistory', compact('title'))
+                ->with('data',$data);
     }
 
     /**
@@ -37,13 +47,7 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        $message = new Messages;
-        $message->user_id = Auth::user()->id;
-        $message->message = $request->input('message');
-        $message->save();
-
-        Session::flash('success', "Message Sent.");
-        return redirect('/messages/'. Auth::user()->username);
+        //
     }
 
     /**
@@ -54,16 +58,7 @@ class MessagesController extends Controller
      */
     public function show($id)
     {
-        $title = "Messages";
- 
-        $user = User::select('*')
-        ->where('id', $id)
-        ->first();
-        $messages = Messages::select('message')
-                            ->where('user_id',$id)
-                            ->get();
-      
-        return view('profile.messages', compact('title','messages'));
+        //
     }
 
     /**

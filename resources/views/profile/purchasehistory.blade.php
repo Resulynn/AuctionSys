@@ -21,7 +21,7 @@
               <tr>
                 <th scope="row">{{$info->id}}</th>
                 <td>{{$info->uname}}</td>
-                <td>{{$info->amount}}</td>
+                <td>{{number_format($info->amount,2)}}</td>
                 <td>{{$info->status}}</td>
                 <td></td>
                 <td>{{$info->refnum}}</td>

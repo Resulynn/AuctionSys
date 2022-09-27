@@ -24,7 +24,7 @@ class BiddingController extends Controller
         $data = Auction::join('bidtransactions','bidtransactions.prod_id','=','auctions.id')
         ->where('bidtransactions.user_id','=',Auth::user()->id)
         ->where('bidtransactions.bagstatus',0)
-        
+        ->where('bidtransactions.retractstat',0)
         ->orderBy('bidtransactions.created_at','DESC')
         ->paginate(5);
 
@@ -54,7 +54,7 @@ class BiddingController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'bid_amt'=>'required'
+            'bid_amt'=>['required','numeric']
         ]);
         
         $highest_bid = Biddings::select('bidamt')
@@ -149,6 +149,18 @@ class BiddingController extends Controller
 
         Session::flash('success', "Bid Successfuly Retracted.");
         return redirect()->back();
+        
+    }
+
+    public function retractbid(Request $request){
+
+        Biddings::where('id', $request->id)
+        ->where('user_id',Auth::user()->id)
+        ->update(['retractstat' => 1, 'winstatus'=>'Retracted','bidstatus'=>0]);
+
+        Session::flash('success', "Bid Successfuly Retracted.");
+        return redirect()->back();
+
         
     }
 

@@ -68,9 +68,10 @@
                 <div class="w-75 d-flex" style="border-right: 1px #dddddd solid; ">
                   <ul class="pe-3" style="list-style: none;  margin-top: auto; margin-bottom:auto;">
                     <small>
-                      <li><h6>Bid Placed: <b>{{$info->bidamt}} PHP</b></h6></li>
+                      <li><h6>Bid Placed: <b>{{number_format($info->bidamt,2)}} PHP</b></h6></li>
+                      <li><h6>Date: <b>{{\Carbon\Carbon::parse($info->created_at)->toDayDateTimeString()}} </b></h6></li>
                       <li>Reference Num: <b>{{$info->refnum}}</b> </li>
-                      <li>Starting Price: <b>{{$info->initialPrice}} PHP</b></li>
+                      <li>Starting Price: <b>{{number_format($info->initialPrice,2)}} PHP</b></li>
                     </small>
                   </ul>
                 </div>
@@ -105,8 +106,8 @@
                       <a href="/store" class="userloggedbtn w-50" style="border-radius: 0%;">View other Auctions</a>
                    </button>
                     @else
-                      {!! Form::open(['action'=>['App\Http\Controllers\BiddingController@destroy',$info->id],
-                      'method'=>'DELETE'])!!}
+                      {!! Form::open(['action'=>['App\Http\Controllers\BiddingController@retractbid',$info->id],
+                      'method'=>'POST'])!!}
                       {{ Form::hidden('id',$info->id) }}
                       <i class="bi bi-x-circle text-danger"></i>
                       {{ Form::submit('Retract Bid',['class' => 'btn userloggedbtn text-danger '])}}

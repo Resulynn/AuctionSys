@@ -8,6 +8,9 @@
             <a href="/biddings">Biddings</a>
         </div>
         <div class="pt-4 pb-3 ps-4 pe-4">
+            <a href="/bidhistory">Bidding History</a>
+        </div>
+        <div class="pt-4 pb-3 ps-4 pe-4">
             <a href="/fundings">Fundings</a>
         </div>
         <div class="pt-4 pb-3 ps-4 pe-4">

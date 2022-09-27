@@ -47,7 +47,7 @@ use App\Models\Auction;
                 </td>
                 <td>{{Auth::user()->address}}</td>
               
-                <td>{{$info->total}}</td>
+                <td>{{number_format($info->total,2)}}</td>
                 <td>{{$info->refnum}}</td>
                 <td>{{\Carbon\Carbon::parse($info->del_date)->isoFormat('MMM D, YYYY')}}</td>
                 @if($info->del_stat == "Pending")

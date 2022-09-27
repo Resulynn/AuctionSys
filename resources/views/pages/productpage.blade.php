@@ -85,10 +85,10 @@ if(distance < 0){
                             @if($my_max_bid === null)
                                 <h5 class="mb-3">Your Max Bid: </h5>
                                     @else
-                                    <h5 class="mb-3">Your Max Bid: <b>{{$my_max_bid}} PHP</b> </h5>
+                                    <h5 class="mb-3">Your Max Bid: <b>{{number_format($my_max_bid,2)}} PHP</b> </h5>
                                 @endif
                                 
-                                <h5 class="mb-3">Starting Bid: <b>{{$item->initialPrice}} PHP</b></h5>
+                                <h5 class="mb-3">Starting Bid: <b>{{number_format($item->initialPrice,2)}} PHP</b></h5>
                                 <h5>Highest Bid: <b>{{$highest_bid}} PHP </b></h5>
                                 @if($max_bidder === null)
                                     
@@ -116,7 +116,7 @@ if(distance < 0){
                             <div class="bid-amt ">
                                 @if(Auth::check())
                                     @if(Auth::user()->funds > $item->initialPrice)
-                                        Funds: <b class="text-success">{{Auth::user()->funds}} PHP</b> 
+                                        Funds: <b class="text-success">{{number_format(Auth::user()->funds,2)}} PHP</b> 
                                         @else
                                             <div class="align-items-center justify-content-center">
                                                 Funds: <b class="text-danger">{{Auth::user()->funds}} PHP</b> 
@@ -135,7 +135,7 @@ if(distance < 0){
                                             <h6 class="mt-3"> Enter your Bidding Amount</h6>
                                                 {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'POST',$item->id]) !!}
                                                     {{Form::hidden('id',$item->id)}}
-                                                    {!! Form::number('bid_amt', '', ['class'=>'form-control','required']) !!}
+                                                    {!! Form::number('bid_amt', '', ['class'=>'form-control','step'=>'0.01','required']) !!}
                                                     {{Form::submit('PLACE BID', ['class'=>' btn btn-dark mt-3 w-50 mb-2','style'=>'border-radius:0%;']) }}
                                                     <br>
                                                     <div>
@@ -156,6 +156,24 @@ if(distance < 0){
                                                     <h5><b>Bid Placed: {{$bid_data->bidamt}} PHP</b></h5>
                                                     <a href="/biddings" class="userloggedbtn" style="font-size: 15px;">View your Biddings</a>
                                                 </div>
+
+                                                @else
+                                                    {!! Form::open(['action'=>'App\Http\Controllers\BiddingController@store','method'=>'POST',$item->id]) !!}
+                                                    {{Form::hidden('id',$item->id)}}
+                                                    {!! Form::number('bid_amt', '', ['class'=>'form-control','step'=>'0.01','required']) !!}
+                                                    {{Form::submit('PLACE BID', ['class'=>' btn btn-dark mt-3 w-50 mb-2','style'=>'border-radius:0%;']) }}
+                                                        <br>
+                                                        <div>
+                                                            
+                                                                <i class="bi bi-info-circle userloggedbtn" style="font-size:14px;">
+                                                                If you won an auction, you must place an order for the item within 2 weeks or else, it will be <b class="text-danger"> DELETED</b> from your biddings.
+                                                                
+                                                                The second highest bidder will win the item automatically.
+                                                                </i> 
+                                                                
+                                                            
+                                                        </div>
+                                                    {!! Form::close() !!}
                                                 @endif
                                         @endif
                                     @endif
@@ -214,7 +232,7 @@ if(distance < 0){
         
         @endif
           {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
-                    {{Form::submit('CANCEL', ['class'=>'btn btn-dark mt-5 w-25 ','style'=>'border-radius:0%;'])}}<br>
+                    {{Form::submit('BACK TO STORE', ['class'=>'btn btn-dark mt-5 w-25 ','style'=>'border-radius:0%;'])}}<br>
                 {!! Form::close() !!}
     </div> 
   

@@ -28,6 +28,7 @@ Route::get('/checkoutsingle','App\Http\Controllers\CheckoutController@placeOrder
 Route::resource('/newmessage','App\Http\Controllers\MessagesController')->middleware('auth');
 Route::post('/placeorder','App\Http\Controllers\CheckoutController@placeOrder')->middleware('auth');
 Route::post('/placesingleorder','App\Http\Controllers\CheckoutController@placeSingleOrder')->middleware('auth');
+Route::post('/retractbid','App\Http\Controllers\BiddingController@retractbid')->middleware('auth');
 //admin module
 Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex')->middleware('auth');
 Route::resource('/admin/usermanagement','App\Http\Controllers\UserManagementController')->middleware('auth');
@@ -54,6 +55,7 @@ Route::resource('/admin/messages','App\Http\Controllers\AdminMessagesController'
 
 //profile module
 Route::resource('/profile','App\Http\Controllers\ProfileController')->middleware('auth');
+Route::resource('/bidhistory','App\Http\Controllers\BidHistoryController')->middleware('auth');
 Route::resource('/biddings','App\Http\Controllers\BiddingController')->middleware('auth');
 Route::post('/profiles','App\Http\Controllers\imgController@upload')->middleware('auth');
 Route::resource('/messages','App\Http\Controllers\MessagesController')->middleware('auth');

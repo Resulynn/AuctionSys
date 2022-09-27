@@ -123,7 +123,7 @@ class InventoryController extends Controller
                 ->first();
         }
         else{
-            $my_max_bid = '---';
+            $my_max_bid = 0;
             $bid_data = "";
             $bid_status = 0;
         }

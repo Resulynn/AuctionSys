@@ -16,7 +16,7 @@ $data = User::where('username',$username)->first();
             <i class="bi bi-envelope-exclamation pe-3 "></i>
         </a>
         <a href="/fundings" class="userloggedbtn btn align-items-center" style="font-size: medium;">
-            <label style="font-size: 12px;">( {{Auth::user()->funds}} PHP )</label>
+            <label style="font-size: 12px;">( {{number_format(Auth::user()->funds,2)}} PHP )</label>
             <i class="bi bi-wallet2 pe-3"></i>
         </a>
         <a href="/bag/{{$username}}" class="userloggedbtn btn" style="font-size: medium;">
