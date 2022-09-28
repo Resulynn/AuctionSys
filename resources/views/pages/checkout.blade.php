@@ -139,14 +139,16 @@ $ref_num = Auth::user()->id.date('ymdHis');
             <div class=" mt-5 text-center mb-3 ">
                 @if(Auth::user()->funds < $total_amt)  
                         {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;','disabled']) }}
-                
-                    <small class="userloggedbtn ">By Placing Order, you agree to pay the Total amount using your Funds.</small>
                     <br>
-                        <label for="">Funds: <b class="text-danger"> {{Auth::user()->funds}} </b></label>
+                    <small class="userloggedbtn ">Insufficient Funds</small>
                     <br>
-                    <label for="">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
+                        <label for="" class="my-3">Funds: <b class="text-danger"> {{number_format(Auth::user()->funds,2)}} </b></label>
+                    <br>
+                    
                     <div class="d-flex  justify-content-center">
-                        {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 
+                        {!! Form::open(['action'=>'App\Http\Controllers\storePagesController@store_index','method'=>'GET']) !!}
+                            {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 
+                        {!! Form::close() !!}
                     </div>
                 @elseif(Auth::user()->funds > $total_amt || Auth::user()->funds = $total_amt )
                     {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@placeOrder','method'=>'POST']) !!}
@@ -155,10 +157,12 @@ $ref_num = Auth::user()->id.date('ymdHis');
                     @foreach($prod_id as $item )
                         {{Form::text('prod_id',$item->product_id)}} 
                     @endforeach
-                    {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;']) }}
-                    {!! Form::close() !!}
-                    <small class="userloggedbtn">By Placing Order, you agree to pay the <b>Total amount</b>  using your <b>Funds</b> .</small>
-                    <label for="" class="mt-2">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
+                    
+                        {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;']) }}
+                            {!! Form::close() !!}
+                        
+                            <small class="userloggedbtn">By Placing Order, you agree to pay the <b>Total amount</b>  using your <b>Funds</b> .</small>
+                            <label for="" class="mt-2">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
                 </div>
             <div class="d-flex  justify-content-center">
                 {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 

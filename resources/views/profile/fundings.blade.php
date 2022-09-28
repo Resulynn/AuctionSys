@@ -5,17 +5,16 @@
     style=" border-bottom:1px #dddddd solid;">
       <span class="fs-5 fw-bold text-center w-100">My Funds</span>
     </a>
-
 <?php
     $refnum=Auth::user()->id.date('ymdHis');
 ?>
         
 <div class="d-flex">
-  <div class=" px-3 pt-3 pt-5 pb-5  list-group list-group-flush scrollarea"
+  <div class=" px-3 pt-3 pt-5 pb-5  w-50 list-group list-group-flush scrollarea"
         style=" border-right:1px #dddddd solid;">
     {!! Form::open(['action'=>['App\Http\Controllers\fundController@fundReq'],
     'method'=>'POST']) !!} 
-    <div class="text-center">
+    <div class="text-center mb-3">
       @if(Auth::user()->user_status == 0)
         {{Form::text('reqAmt','',['class'=>'form-control ','placeholder'=>'Enter Amount','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;','disabled' ])}}  
         
@@ -25,17 +24,28 @@
         {!! Form::close() !!}  
 
         @elseif(Auth::user()->user_status == 1)
-        {{Form::number('reqAmt','',['class'=>'form-control','step'=>'0.01', 'placeholder'=>'Enter Amount','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;'])}}  
-        {{Form::submit('ADD FUNDS',['class'=>' btn mt-3 mb-5 w-50 btn-dark', 'style'=>'border-radius:0%;'])}}
-        {{Form::hidden('refnum',$refnum)}}
-        {{Form::hidden('accname',Auth::user()->username)}}
-        {!! Form::close() !!}  
+          @if(Auth::user()->memberpmt == 'Unpaid' )
+          <b>Fund Request is only available to paid members.</b>
+          <br>
+          <b><a href="/membershippay">Click here to pay membership.</a></b>
+       
+          @elseif(Auth::user()->memberpmt == 'Pending')
+            <b>Membership Payment approval is pending.</b>
+          @else
+              {{Form::number('reqAmt','',['class'=>'form-control','step'=>'0.01', 'placeholder'=>'Enter Amount','style'=>'border-radius:0%; background:none; border:none; border-bottom:1px #000000 solid;'])}}  
+              {{Form::submit('ADD FUNDS',['class'=>' btn mt-3 mb-5 w-50 btn-dark', 'style'=>'border-radius:0%;'])}}
+              {{Form::hidden('refnum',$refnum)}}
+              {{Form::hidden('accname',Auth::user()->username)}}
+              {!! Form::close() !!}  
+          @endif
+        
       @endif
     </div>
-    <h3>Your current funds: <b>{{number_format(Auth::user()->funds,2)}}</b></h3>
-    Your Reference number is <b>{{$refnum}}</b> 
-    <div class="mt-3">   
-      <p><small>Want to add funds? Pay thru: </small></p>  
+  
+    <div class="mt-3 text-center"> 
+      <h3>Your current funds: <b>{{number_format(Auth::user()->funds,2)}}</b></h3>
+      Your Reference number is <b>{{$refnum}}</b>   
+      <p class="mt-5"><small >Want to add funds? Pay thru: </small></p>  
       <a href=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="100px" viewBox="0 0 200 200" version="1.1">
           <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
             <g id="3130-gcash" stroke="none" stroke-width="1" fill-rule="evenodd">
@@ -64,6 +74,7 @@
         <thead>
           <tr>
             <th scope="col">Amount</th>
+            <th scope="col">Type</th>
             <th scope="col">Status</th>
             <th scope="col">Payment Method</th>
             <th scope="col">Reference #</th>
@@ -73,7 +84,8 @@
         <tbody>
           @foreach ($data as $info)
             <tr>
-              <th scope="row">{{number_format($info->amount,2)}}</td>
+              <th scope="row">{{number_format($info->amount,2)}}</th>
+              <td>{{$info->type}}</td>
               @if($info->status == "Pending")
                 <td class="text-warning">{{$info->status}}</td>
                 @elseif($info->status =="Approved")

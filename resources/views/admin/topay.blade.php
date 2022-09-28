@@ -10,6 +10,7 @@
         <tr>
           <th scope="col">Username</th>
           <th scope="col">Amount</th>
+          <th scope="col">Type</th>
           <th scope="col">Reference Num.</th>
           <th scope="col">Date</th>
           <th scope="col">Status</th>
@@ -20,8 +21,9 @@
           <tr>
             <th scope="row">{{$info->uname}}</th>
             <td>{{$info->amount}}</td>
+            <td>{{$info->type}}</td>
             <td>{{$info->refnum}}</td>
-            <td>{{ Carbon\Carbon::parse($info->created_at)->isoFormat('MMM D, YYYY')}}</td>
+            <td>{{ Carbon\Carbon::parse($info->created_at)->toDayDateTimeString()}}</td>
             @if($info->status == "Pending")
               <td class="text-warning">{{$info->status}}</td>
             @elseif($info->status =="Approved")
@@ -38,7 +40,7 @@
                   {{ Form::hidden('amt',$info->amount) }}
                   {{ Form::hidden('id',$info->id) }}
 
-                  {{ Form::hidden('_method','PUT') }}
+                  
                   {{ Form::submit('Approve',['class' => 'btn userloggedbtn text-success'])}}
               {!! Form::close() !!}
               @else
@@ -53,8 +55,9 @@
                   {{ Form::hidden('uname',$info->uname) }}
                   {{ Form::hidden('amt',$info->amount) }}
                   {{ Form::hidden('id',$info->id) }}
-                  {{-- {{ Form::hidden('_method','PUT') }} --}}
+                  
                   {{ Form::submit('Deny',['class' => 'btn userloggedbtn text-danger'])}}
+                  {!! Form::close() !!}
               @else
                 ----
               @endif
@@ -65,4 +68,5 @@
     </table>       
   </div>
 </div>
+<div class="justify-content-center  w-100 d-flex ">{{$data->links()}}</div>
 @endsection

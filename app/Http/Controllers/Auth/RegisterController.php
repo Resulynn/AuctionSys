@@ -32,8 +32,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
+    protected function redirectTo()
+    {
+        if (auth()->user()->user_type = 0) {
+            return '/admin';
+        }
+        else{
+            return '/membershippay';
+        }
+    }
     /**
      * Create a new controller instance.
      *
@@ -77,9 +86,9 @@ class RegisterController extends Controller
             'lname' => $data['lname'],
             'email' => $data['email'],
             'bday' => $data['bday'],
-            'pnum' => $data['pnum'],
+            'pnum' =>$data['pnum'],
             'address' => $data['address'],
-            'zipcode' => $data['zipcode'],
+            'zipcode' =>$data['zipcode'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
         ]);  

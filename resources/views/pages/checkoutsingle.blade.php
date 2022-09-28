@@ -117,12 +117,13 @@ $total_amt = $item->buyPrice + $del_fee ;
                     {{Form::hidden('refnum',$ref_num)}}
                     {{Form::hidden('total_amt',$total_amt)}}
                     {{Form::hidden('prod_id',$item->id)}}
-                    {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;']) }}
-                    {!! Form::close() !!}
-                    <small class="userloggedbtn ">By Placing Order, you agree to pay the Total amount using your Funds.</small>
+                    <div class="">
+                        {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;']) }}
+                        {!! Form::close() !!}
                     
-                    
-                    <label for="">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
+                        
+                        <label for="" class="mt-2">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
+                </div>
                 </div>
             <div class="d-flex  justify-content-center">
                 {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 

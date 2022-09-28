@@ -17,7 +17,7 @@ class ToPayController extends Controller
     public function index()
     {
         $title = "Admin | To Pay";
-        $data = Funds::all();
+        $data = Funds::select('*')->orderBy('created_at','desc')->paginate(10);
         if(Auth::user()->user_type == 1){
             return redirect('/home');
         }
@@ -76,27 +76,54 @@ class ToPayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
 
     {   //username of the client
-        $uname = $request->uname;
-        //get initial value of the client's fund
-        $fndget = User::select('funds')
-        ->where('username', $uname)
-        ->get();
-        //add existing value with the requested value
-        $newsum =$fndget['0']->funds + $request->amt;
-        //update new value
-        $fundup = User::select('funds')
-        ->where('username', $uname)
-        ->update(['funds'=>$newsum]);
-        //approve fund request
-        $statup = Funds::find($id);
-        $statup->status="Approved";
-        $statup->save();
-        return back();
-      
+    $uname = $request->uname;
+
+    $reqtype = Funds::select('type')
+                    ->where('uname', $uname)
+                    ->get();
+        if($reqtype == 'Fund'){
+            $fndget = User::select('funds')
+                    ->where('username', $uname)
+                    ->get();
+                    //add existing value with the requested value
+            $newsum =$fndget['0']->funds + $request->amt;
+            //update new value
+            $fundup = User::select('funds')
+            ->where('username', $uname)
+            ->update(['funds'=>$newsum]);
+
+            //approve fund request
+            $statup = Funds::find($request->id);
+            $statup->status="Approved";
+            $statup->save();
+            return back();
+
+        }
+        else{
+            $fndget = User::select('funds')
+                    ->where('username', $uname)
+                    ->get();
+                    //add existing value with the requested value
+            $newsum =$fndget['0']->funds + $request->amt;
+            //update new value
+            $fundup = User::select('funds')
+            ->where('username', $uname)
+            ->update(['funds'=>$newsum]);
+
+            //approve fund request
+            $statup = Funds::find($request->id);
+            $statup->status="Approved";
+            $statup->save();
+
+            User::where('username', $uname)
+                ->update(['memberpmt'=>'Paid']);
+            return back();
+        }
     }
+
 
     public function deny(Request $request)
     {

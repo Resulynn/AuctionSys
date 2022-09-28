@@ -28,19 +28,21 @@ class LoginController extends Controller
      * 
      */
 
-     public function showLoginForm(){
+    public function showLoginForm(){
         $title = "Login";
         return view('auth.login',compact('title'));
-     }
+    }
     
     protected function redirectTo()
     {
-      
+    
         if((Auth::user()-> user_type) == 0){
             return '/admin/index';
         }
-        else
+        
+        else {
             return '/home';
+        }
         
     }
     /**

@@ -90,18 +90,6 @@ if(distance < 0){
                                 
                                 <h5 class="mb-3">Starting Bid: <b>{{number_format($item->initialPrice,2)}} PHP</b></h5>
                                 <h5>Highest Bid: <b>{{$highest_bid}} PHP </b></h5>
-                                @if($max_bidder === null)
-                                    
-                                    @else
-                                    Bidder:
-                                            <img src="/userPFP/{{$pfp->profileImage}}"
-                                                width="30px" height="30px" 
-                                                style="object-fit: cover;" 
-                                                class="rounded-circle ms-1 me-1">
-                                        
-                                        <small class=""> <b>{{$max_bidder->uname}}</b> </small>
-                                @endif
-                                
                         </div>
                     </div>
                     <div class="col">

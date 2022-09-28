@@ -29,6 +29,8 @@ Route::resource('/newmessage','App\Http\Controllers\MessagesController')->middle
 Route::post('/placeorder','App\Http\Controllers\CheckoutController@placeOrder')->middleware('auth');
 Route::post('/placesingleorder','App\Http\Controllers\CheckoutController@placeSingleOrder')->middleware('auth');
 Route::post('/retractbid','App\Http\Controllers\BiddingController@retractbid')->middleware('auth');
+Route::resource('/membershippay','App\Http\Controllers\MemberPaymentController')->middleware('auth');
+Route::post('/memberpay','App\Http\Controllers\fundController@memberPay')->middleware('auth');
 //admin module
 Route::get('/admin/index','App\Http\Controllers\PagesController@adminindex')->middleware('auth');
 Route::resource('/admin/usermanagement','App\Http\Controllers\UserManagementController')->middleware('auth');
@@ -45,6 +47,7 @@ Route::resource('/admin/completed','App\Http\Controllers\CompletedTransactionCon
 Route::resource('/admin/blockedusers','App\Http\Controllers\BlockedUsersController')->middleware('auth');
 Route::get('/admin/reports','App\Http\Controllers\reportsController@index')->middleware('auth');
 Route::post('/deny','App\Http\Controllers\ToPayController@deny')->middleware('auth');
+Route::post('/approve','App\Http\Controllers\ToPayController@update')->middleware('auth');
 // Route::get('/search','App\Http\Controllers\itemListController@search');
 Route::post('/itemimgup','App\Http\Controllers\imgController@itemImage')->middleware('auth');
 Route::resource('/postItem','App\Http\Controllers\AuctionController')->middleware('auth');

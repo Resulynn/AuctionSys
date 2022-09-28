@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\User;
-use App\Models\Funds;
-use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
-class UserFundingsController extends Controller
+class MemberPaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +13,7 @@ class UserFundingsController extends Controller
      */
     public function index()
     {
-
-        $title = "True North Garments | Fundings";
-        $username = Auth::user()->username;
-        $data = Funds::where('uname','=',Auth::user()->username)->orderBy('created_at','DESC')->get();
-        $funds = User::where('username',$username)->select('funds')->first();
-        
-        return view('profile.fundings', compact('title'))->with('funds',$funds)->with('data',$data);
+        return view('pages.membershippay');
     }
 
     /**
@@ -53,7 +45,7 @@ class UserFundingsController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

@@ -10,10 +10,9 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                      
                         <div class="row mb-3">
                             <div class="col">
-                                 <label for="fname" class="col-form-label text-md-end">{{ __('First Name') }}</label>
+                                <label for="fname" class="col-form-label text-md-end">{{ __('First Name') }}</label>
                                 <div class="col">
                                     <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="fname" autofocus>
 
@@ -52,7 +51,7 @@
                             </div>
                             <div class="col">
                                 <label for="bday" class="col-form-label text-md-end">{{ __('Birth Date') }}</label>
-                                  
+                                
                                     {{ Form::date('bday', \Carbon\Carbon::now(), ['class' => 'form-control',
                                                     'name' => 'bday',
                                                     'required autocomplete' => 'bday'] ) }}
@@ -144,16 +143,20 @@
                             </div>
                         </div>
 
-                        <div class="row ">
-                            <div class="col-md-6 offset-md-4 ">
-                                <button type="submit" class="btn btn-dark w-75 mb-2" style="border-radius: 0%;">
+                        <div class="text-center">
+                            
+                                <button type="submit" class="btn btn-dark w-50 mb-2" style="border-radius: 0%;">
                                     {{ __('Register') }}
                                 </button> 
                                 <a href="/login">
                                     <p>Already have an account? <b>Log in</b> instead.</p>
                                 </a>
-                            </div>
+                                
+                                
+                            
                         </div>
+                        <p class="text-center px-5 mx-5 userloggedbtn">By registering, you agree to pay an amount of <b>1000.00 PHP</b>  as a membership fee at True North Garments Auction System.
+                            See our <a href="/termsandcondition"><b>Terms & Condition</b></a> </p>
                     </form>
                 </div>
             </div>

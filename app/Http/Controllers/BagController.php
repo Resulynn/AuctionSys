@@ -149,7 +149,7 @@ class BagController extends Controller
             
             $bag->save();
             Session::flash('success', "Item successfully added to Bag.");
-            return redirect('/biddings');
+            return redirect('/bag/'.Auth::user()->username);
     }
 
     static function bag_qty(){

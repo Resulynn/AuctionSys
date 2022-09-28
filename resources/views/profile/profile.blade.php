@@ -13,9 +13,18 @@
         <img src="/userPFP/{{$data->profileImage}}" width="200px" height="200px" style="object-fit: cover; " class="rounded-circle mb-3" >
         <div class="profpic text-center mb-3">
             <h5 class="" style="text-transform: uppercase; font-weight:bold;">{{Auth::user()->username}}</h5>
-            <label style="font-size: small;">
+            <label style="font-size: medium;">
                 @if($data->user_type == 1)
                     User Type: <b>Registered User</b><br>
+                    @if($data->memberpmt == 'Unpaid')
+                        Membership: <b class="text-danger">{{$data->memberpmt}} Membership</b><br>
+                        <button class="btn userloggedbtn mb-2">
+                            <a href="/membershippay">Pay Membership</a>
+                        </button>
+                        @else
+                        Membership: <b class="text-success">{{$data->memberpmt}} Membership</b><br>
+                    @endif
+                    <br>
                 @endif
                 @if($data->user_status == 0)
                     User Status: <b class="text-danger">Account Blocked</b> 
