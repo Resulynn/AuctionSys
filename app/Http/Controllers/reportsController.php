@@ -30,9 +30,13 @@ class reportsController extends Controller
 
     public function fndreport(Request $request)
     {   
+        $from = $request->from.' 00.00.00';
+        $to = $request->to.' 00.00.00';
         $title = "Admin | Fund Reports";
         $data = Funds::orderBy('created_at','desc')
         ->where('status','=','approved')
+        ->where('created_at','>=',$from)
+        ->where('created_at','<=',$to)
         ->get();
         return view('reports.fndRep',compact('title'))->with('data',$data);
     }
