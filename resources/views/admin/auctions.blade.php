@@ -96,7 +96,7 @@ if(distance < 0){
                     <h3 class="d-flex justify-content-center pb-2"><b>{{$auction->prodName}}</b></h3> 
                     <h6 class="text-center"><b><p id = "end_date"></p></b></h6>
                     <p class="text-center mx-5">{{$auction->prodDeets}}</p>
-                <div class="d-flex pt-3 w-100 justify-content-center">
+                <div class="d-flex pt-3 w-100 justify-content-center                          ">
                     <div class="details mx-3">
                     
                         <div class="item-det ">

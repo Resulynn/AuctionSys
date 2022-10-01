@@ -33,7 +33,6 @@ class CheckoutController extends Controller
                             'products',
                             'prod_id'
                             ));
-    
                 
     }
 
@@ -66,6 +65,7 @@ class CheckoutController extends Controller
      */
     public function show($id)
     {   
+        $title = "Checkout";
         $total = Bag::join('bidtransactions','bag.product_id','=','bidtransactions.prod_id')
         ->where('bag.user_id', Auth::user()->id)
         ->where('bidtransactions.bagstatus', 1)
@@ -73,7 +73,7 @@ class CheckoutController extends Controller
 
         $item = Auction::where('id',$id)->first();
         return view('pages.checkoutsingle')
-        ->with(compact('item','total'));
+        ->with(compact('item','total','title'));
                     
     }
 
@@ -135,14 +135,17 @@ class CheckoutController extends Controller
                         
         Biddings::where('prod_id', $request->prod_id)
         ->where('user_id', '<>',Auth::user()->id)
-        ->update(['orderstatus' => 1]);
+        ->update(['orderstatus' => 1
+                ]);
         
         Biddings::where('prod_id', $request->prod_id)
         ->where('user_id', Auth::user()->id)
         ->delete();
         
         Auction::where('id',$request->prod_id)
-        ->update(['aucStatus' => 0]);
+        ->update(['aucStatus' => 0,
+                'orderstatus' => 1
+    ]);
 
         $bag = Bag::where('user_id', Auth::user()->id)
                     ->get();
@@ -198,7 +201,9 @@ class CheckoutController extends Controller
                                 ->update(['orderstatus' => 1]);
 
                                 Auction::where('id', $bag_items[$i]->product_id)
-                                ->update(['aucStatus' => 0]);    
+                                ->update(['aucStatus' => 0,
+                                        'orderstatus' => 1
+                                ]);    
                             }
 
             $bag = Bag::where('user_id', Auth::user()->id)

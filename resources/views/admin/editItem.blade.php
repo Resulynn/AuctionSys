@@ -1,6 +1,6 @@
 @extends('layout.admin')
     @section('content')
-    <div class="add-auc m-auto w-75 "  style="background-color:#f0eeee;">
+    <div class="add-auc m-auto w-75 "  style="background-color:#f0eeee; margin-top: 150px;">
        
             <div class="ms-2 mt-3  py-4">
                 <h2 class="px-5"><b>Edit Item</b></h2>

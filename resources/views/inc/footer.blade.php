@@ -8,13 +8,13 @@
                 <p class="text-uppercase">Customer Services</p>
                 <ul class="list-unstyled">
                     <li>
-                    <a href="#!">Contact</a>
+                    <a href="/contactus">Contact</a>
                     </li>
                     <li>
-                    <a href="#!">FAQs</a>
+                    <a href="/faqs">FAQs</a>
                     </li>
                     <li>
-                    <a href="#!">Shipping & Payments</a>
+                    <a href="/shipsandpayments">Shipping & Payments</a>
                     </li>
                 </ul>
             </div>
@@ -25,13 +25,13 @@
             <p class="text-uppercase">Legal</p>
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Privacy Policy</a>
+                <a href="/privacypolicy">Privacy Policy</a>
               </li>
               <li>
-                <a href="#!">Cookie Policy</a>
+                <a href="/cookiepolicy">Cookie Policy</a>
               </li>
               <li>
-                <a href="#!">Terms & Condition</a>
+                <a href="/termsandcondition">Terms & Condition</a>
               </li>
             </ul>
           </div>
@@ -42,10 +42,10 @@
             <p class="text-uppercase">About Us</p>
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Developers</a>
+                <a href="/developers">Developers</a>
               </li>
               <li>
-                <a href="#!">Company</a>
+                <a href="/company">Company</a>
               </li>
             </ul>
           </div>
@@ -66,7 +66,7 @@
   </footer>
   <div class="copyright text-center py-3">© 2022 Copyright
       <br>
-      <a href="/index"> True North Garments</a>
+      <a href="/home"> True North Garments</a>
   </div>
 
 

@@ -134,7 +134,7 @@ class BagController extends Controller
         
         $del->delete();
         
-        return back();
+        return redirect('/item/'.$id);
     }
     function addToBag(Request $request){
 
@@ -149,7 +149,7 @@ class BagController extends Controller
             
             $bag->save();
             Session::flash('success', "Item successfully added to Bag.");
-            return redirect('/bag/'.Auth::user()->username);
+            return redirect()->back();
     }
 
     static function bag_qty(){

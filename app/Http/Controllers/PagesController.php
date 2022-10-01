@@ -11,6 +11,10 @@ class PagesController extends Controller
         $title = "Home";
         return view('pages.index',compact('title'));
     }
+    function register(){
+        $title = "Create Your Account";
+        return view('auth.register',compact('title'));
+    }
    
     function login(){
 
@@ -86,6 +90,43 @@ class PagesController extends Controller
     function shippings(){
         $title = "Shippings";
         return view('admin.ships',compact('title'));
+    }
+
+    function contactus(){
+        $title = "Contact Us";
+        return view('customersvcs.contact',compact('title'));
+    }
+
+    function faqs(){
+        $title = "FAQs";
+        return view('customersvcs.faqs',compact('title'));
+    }
+
+    function shipsandpayments(){
+        $title = "Shipping and Payments";
+        return view('customersvcs.ships&payments',compact('title'));
+    }
+
+    function privacypolicy(){
+        $title = "Privacy Policy";
+        return view('legal.privacypolicy',compact('title'));
+    }
+    function cookiepolicy(){
+        $title = "Cookie Policy";
+        return view('legal.cookiepolicy',compact('title'));
+    }
+    function termsandcondition(){
+        $title = "Terms and Condition";
+        return view('legal.t&c',compact('title'));
+    }
+
+    function developers(){
+        $title = "Developers";
+        return view('aboutus.developers',compact('title'));
+    }
+    function company(){
+        $title = "Company";
+        return view('aboutus.company',compact('title'));
     }
 
 }

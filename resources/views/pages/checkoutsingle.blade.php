@@ -12,7 +12,7 @@ $del_fee = 45;
 $total_amt = $item->buyPrice + $del_fee ;
 @endphp
 <div class="bg-white my-5 mx-5 " style=" border-right:1px #f0eeee solid; border-top:1px #f0eeee solid; border-bottom:1px #f0eeee solid;border-left:1px #f0eeee solid;">
-    <a class=" d-flex mt-5 flex-shrink-0 p-3 link-dark text-decoration-none border-top border-bottom">
+    <a class=" d-flex flex-shrink-0 p-3 link-dark text-decoration-none  ">
         <span class="fs-5 fw-bold " style="margin:auto;">Checkout</span>
     </a>
     <div class="d-flex">
@@ -106,9 +106,7 @@ $total_amt = $item->buyPrice + $del_fee ;
                         {!! Form::close() !!}
                     <small class="userloggedbtn ">By Placing Order, you agree to pay the Total amount using your Funds.</small>
                     <br>
-                        <label for="">Funds: <b class="text-danger"> {{Auth::user()->funds}} </b></label>
-                    <br>
-                    <label for="">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
+                        <label for="">Funds: <b class="text-danger"> {{number_format(Auth::user()->funds,2)}} PHP</b></label>
                     <div class="d-flex  justify-content-center">
                         {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 
                     </div>
@@ -118,15 +116,17 @@ $total_amt = $item->buyPrice + $del_fee ;
                     {{Form::hidden('total_amt',$total_amt)}}
                     {{Form::hidden('prod_id',$item->id)}}
                     <div class="">
-                        {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;']) }}
+                        {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1 w-25 ','style'=>'border-radius:0%;']) }}
                         {!! Form::close() !!}
-                    
-                        
-                        <label for="" class="mt-2">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
-                </div>
+                        <br>
+                        <small class="userloggedbtn">By Placing Order, you agree to pay the <b>Total amount</b>  using your <b>Funds</b> .</small>
+                        <label for="" class="mt-3">Your Funds after placing this order will be: <br> <b> {{number_format(Auth::user()->funds - $total_amt,2) }} PHP</b></label>
+                    </div>
                 </div>
             <div class="d-flex  justify-content-center">
-                {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 
+                <button class="btn btn-dark mt-3 mb-5 w-25" onclick="location.href='/item/{{$item->id}}' " style="border-radius: 0%;">
+                    CANCEL
+                </button>
             </div>
             @endif
         </div>

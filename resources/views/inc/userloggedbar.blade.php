@@ -12,7 +12,7 @@ $data = User::where('username',$username)->first();
 <div class="userloggedbar d-flex  align-items-center border-bottom justify-content-end bg-white py-2 px-4">
     <div class="userloggedbar-content d-flex align-items-center">
         <a href="/messages/{{$username}}" class="userloggedbtn btn " style="font-size: medium;">
-            <label style="font-size: 12px; " class="text-danger">( 1 )</label>
+            <label style="font-size: 12px; " class="text-danger"></label>
             <i class="bi bi-envelope-exclamation pe-3 "></i>
         </a>
         <a href="/fundings" class="userloggedbtn btn align-items-center" style="font-size: medium;">

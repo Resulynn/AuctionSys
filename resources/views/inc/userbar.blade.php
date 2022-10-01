@@ -27,7 +27,7 @@
     </div>
  --}}
 
-<div class="userloggedbar  d-flex bg-white align-items-center justify-content-end ">
+<div class="userloggedbar  d-flex  align-items-center justify-content-end " style="background: #f0eeee;">
  @guest
         <div class="userbar d-flex  justify-content-end  py-2">
             <div class="userbar-content">

@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'Register | True North Garments')
+
 @section('content')
 <div class="container  my-5">
     <div class="row justify-content-center">
@@ -145,18 +145,18 @@
 
                         <div class="text-center">
                             
-                                <button type="submit" class="btn btn-dark w-50 mb-2" style="border-radius: 0%;">
+                                <button type="submit" class="btn btn-dark w-25 mb-2" style="border-radius: 0%; background:#1C1C1E; color:white;">
                                     {{ __('Register') }}
                                 </button> 
                                 <a href="/login">
                                     <p>Already have an account? <b>Log in</b> instead.</p>
                                 </a>
-                                
-                                
-                            
                         </div>
-                        <p class="text-center px-5 mx-5 userloggedbtn">By registering, you agree to pay an amount of <b>1000.00 PHP</b>  as a membership fee at True North Garments Auction System.
-                            See our <a href="/termsandcondition"><b>Terms & Condition</b></a> </p>
+
+                        <div class="text-center px-5 mx-5">
+                            <p class="userloggedbtn">By registering, you agree to pay an amount of <b>1000.00 PHP</b>  as a membership fee at True North Garments Auction System.</p>
+                            <p class="userloggedbtn mt-5"> <a href="/termsandcondition"><b>Terms & Condition</b> </a>apply.</p>  
+                        </div>
                     </form>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'Login | True North Garments')
+
 @section('content')
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -51,15 +51,15 @@
                             </div>
                         </div>
 
-                        <div class="row ">
-                            <div class="col-md-8 offset-md-4">
+                        <div class="row text-center">
+                            <div class="col">
                                 <div class="mb-2">
-                                    <button type="submit" class=" w-25 btn btn-dark" style="border-radius: 0%;">
+                                    <button type="submit" class=" w-50 btn " style="border-radius: 0%; background:#1C1C1E; color:white;">
                                         {{ __('Login') }}
                                     </button>
-                                    
+                                    <br>
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link " href="{{ route('password.request') }}">
+                                        <a class="btn btn-link" style="font-size:14px;" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif

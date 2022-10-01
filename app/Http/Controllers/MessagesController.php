@@ -59,8 +59,9 @@ class MessagesController extends Controller
         $user = User::select('*')
         ->where('id', $id)
         ->first();
-        $messages = Messages::select('message')
-                            ->where('user_id',$id)
+        $messages = Messages::select('*')
+                            ->where('user_id',Auth::user()->id)
+                            ->orderBy('created_at','DESC')
                             ->get();
       
         return view('profile.messages', compact('title','messages'));

@@ -43,7 +43,7 @@
     </div>
   
     <div class="mt-3 text-center"> 
-      <h3>Your current funds: <b>{{number_format(Auth::user()->funds,2)}}</b></h3>
+      <h3>Your current funds: <b>{{number_format(Auth::user()->funds,2)}} PHP</b></h3>
       Your Reference number is <b>{{$refnum}}</b>   
       <p class="mt-5"><small >Want to add funds? Pay thru: </small></p>  
       <a href=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="100px" viewBox="0 0 200 200" version="1.1">
@@ -84,7 +84,7 @@
         <tbody>
           @foreach ($data as $info)
             <tr>
-              <th scope="row">{{number_format($info->amount,2)}}</th>
+              <th scope="row">{{number_format($info->amount,2)}} PHP</th>
               <td>{{$info->type}}</td>
               @if($info->status == "Pending")
                 <td class="text-warning">{{$info->status}}</td>

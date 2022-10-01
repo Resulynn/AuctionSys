@@ -10,9 +10,6 @@
         'method'=>'POST']) !!} 
         {!! Form::text('message', '', ['class' => 'form-control', 'style' => 'background:none; ; border-radius:0%; border:none;','placeholder' => 'Enter your message here.', 'required '] )!!}
       
-            <button class="btn userloggedbtn border-top" >
-                <i class="bi bi-send"></i>
-            </button>
         {!! Form::close() !!}
     </div>
 

@@ -1,6 +1,6 @@
 @extends('layout.sidebar')
 {{-- --}}
-<div class=" vh-100 text-center" style=" width: 150px; border-right: 1px #f0eeee solid;">
+<div class="  text-center mt-5" style=" height: 100%;  width: 150px; border-right: 1px #f0eeee solid;">
   <div class=" sidebar-offcanvas h-100 overflow-auto " id="sidebar" role="navigation">
       
   <div class="list-group-flush mb-3 mt-5">
@@ -19,6 +19,11 @@
   <div class="list-group-flush mb-3">
     <a href="/admin/auctionlist" class="{{Request::is('admin/auctionlist') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
         AUCTION LIST
+    </a>
+  </div>
+  <div class="list-group-flush mb-3">
+    <a href="/admin/biddings" class="{{Request::is('admin/biddings') ? 'active':''}} list-group-item list-group-item-action" aria-current="true">
+        BIDDINGS
     </a>
   </div>
   <div class="list-group-flush mb-3">

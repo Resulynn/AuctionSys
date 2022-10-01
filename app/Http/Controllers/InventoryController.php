@@ -7,6 +7,7 @@ use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
 use App\Models\Auction;
 use App\Models\Biddings;
+use App\Models\Bag;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -92,21 +93,28 @@ class InventoryController extends Controller
         //
         $title = 'Product Page';
         $item = Auction::find($inventory);
-
+        
         $highest_bid = Biddings::select('bidamt')
                                 ->where('prod_id','=',$inventory)
+                                ->where('retractstat',0)
                                 ->max('bidamt');
 
         $max_bidder = Biddings::select('uname')
                                 ->where('prod_id','=',$inventory)
                                 ->where('bidamt','=',$highest_bid)
                                 ->first();
+
         $pfp = User::select('profileImage')
                         ->join('bidtransactions','bidtransactions.user_id','=','users.id')
                         ->where('bidtransactions.prod_id','=',$inventory)
                         ->where('bidamt','=',$highest_bid)
                         ->first();
-                                            
+        
+        $orderstat = Biddings::select('*')
+                            ->where('orderstatus',1)
+                            ->where('prod_id', $inventory)
+                            ->first();
+                        
         if(Auth::check()){
 
             $my_max_bid = Biddings::where('user_id','=', Auth::user()->id)
@@ -115,16 +123,27 @@ class InventoryController extends Controller
             
             $bid_data = Biddings::where('prod_id','=',$inventory)
                                 ->where('user_id','=', Auth::user()->id)
+                                ->where('retractstat',0)
                                 ->first();
-            
+            $bag_status = Biddings::select('bagstatus')
+                                ->where('prod_id','=',$inventory)
+                                ->where('user_id','=', Auth::user()->id)
+                                ->where('retractstat',0)
+                                ->first();
+            $bagwoutbid = Bag::where('product_id','=',$inventory)
+                            ->where('user_id','=', Auth::user()->id)
+                            ->first();
             $bid_status = Biddings::select('bidstatus')
                 ->where('user_id','=', Auth::user()->id)
                 ->where('prod_id','=',$inventory)
+                ->where('retractstat', 0)
                 ->first();
         }
         else{
             $my_max_bid = 0;
-            $bid_data = "";
+            $bag_status = null;
+            $bagwoutbid = null;
+            $bid_data = null;
             $bid_status = 0;
         }
         
@@ -135,7 +154,10 @@ class InventoryController extends Controller
                                                 'bid_data',
                                                 'bid_status',
                                                 'max_bidder',
-                                                'pfp'
+                                                'pfp',
+                                                'bag_status',
+                                                'bagwoutbid',
+                                                'orderstat'
                                                 ));
     }
 

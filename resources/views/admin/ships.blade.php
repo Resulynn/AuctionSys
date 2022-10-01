@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\OrderItems;
 @endphp
 
-<div class="bg-white  " style="  border-top:1px #dddddd solid; ">
-  <a href="" class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none " style="border-bottom:1px #dddddd solid;">
+<div class="bg-white mx-3 " style="margin-top:15%;  border-top:1px #dddddd solid; ">
+  <a href="" style="" class="d-flex  flex-shrink-0 p-3 link-dark text-decoration-none " style="border-bottom:1px #dddddd solid;">
     <span class="fs-5 fw-bold text-center w-100">To Ship</span>
   </a>
     <table class="table">

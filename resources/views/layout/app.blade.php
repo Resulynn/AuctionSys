@@ -8,11 +8,12 @@
     <link rel= "stylesheet" href= "\css\style.css">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <title>@yield('title','True North Garments')</title>
+    <title>{{$title}}</title>
     
 </head>
 
 <body>
+
         <div class="sticky-top">
             @guest
                 @if (Route::has('login')) 
@@ -65,6 +66,7 @@
                 </div>
             </div>
         @endif
+        
         @yield('content')
     </div>
     @include('inc.footer')

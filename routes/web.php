@@ -55,6 +55,7 @@ Route::resource('/adminprofile','App\Http\Controllers\AdminProfileController')->
 Route::resource('/admin/feedback','App\Http\Controllers\FeedbackController')->middleware('auth');
 Route::get('/admin/usermanagement/search','App\Http\Controllers\UserManagementController@search')->middleware('auth');
 Route::resource('/admin/messages','App\Http\Controllers\AdminMessagesController')->middleware('auth');
+Route::resource('/admin/biddings','App\Http\Controllers\AdminBiddingsController')->middleware('auth');
 
 //profile module
 Route::resource('/profile','App\Http\Controllers\ProfileController')->middleware('auth');
@@ -101,7 +102,17 @@ Route::resource('/history','App\Http\Controllers\UserPurchaseHistoryController')
     Route::get('/invReport','App\Http\Controllers\reportsController@invreport');
     Route::post('/fndreport','App\Http\Controllers\reportsController@fndreport');
 
-Auth::routes();
 
+//footer
+Route::get('/contactus','App\Http\Controllers\PagesController@contactus');
+Route::get('/faqs','App\Http\Controllers\PagesController@faqs');
+Route::get('/shipsandpayments','App\Http\Controllers\PagesController@shipsandpayments');
+Route::get('/privacypolicy','App\Http\Controllers\PagesController@privacypolicy');
+Route::get('/cookiepolicy','App\Http\Controllers\PagesController@cookiepolicy');
+Route::get('/termsandcondition','App\Http\Controllers\PagesController@termsandcondition');
+Route::get('/developers','App\Http\Controllers\PagesController@developers');
+Route::get('/company','App\Http\Controllers\PagesController@company');
+
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

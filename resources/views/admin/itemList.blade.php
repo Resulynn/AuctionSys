@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('content') 
-<a href="/admin/list" class="d-flex w-100 flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+<a href="/admin/list" style="margin-top: 150px; " class="border-top d-flex w-100 flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
         <span class="fs-5 fw-bold text-center w-100">Item List</span>
 </a>
 
@@ -22,7 +22,7 @@
                     <ul style="list-style: none; margin-top: auto; margin-bottom:auto;">
                         <li><b>ID:</b> {{$info->id}}</li>
                         <li><b>Name:</b> {{$info->prodName}}</li>
-                        <li><b>Details:</b> <textarea class="form-control" style="background: none; resize:none;" name="" id="" cols="30" rows="5" disabled>{{$info->prodDeets}}</textarea> </li>
+                        <li><b>Details:</b> <textarea class="form-control" style="background: none; resize:none;" name="" id="" cols="10" rows="5" disabled>{{$info->prodDeets}}</textarea> </li>
 
                     </ul>
                   </small>

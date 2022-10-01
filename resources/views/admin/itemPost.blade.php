@@ -1,6 +1,6 @@
 @extends('layout.admin')
     @section('content')
-    <div class="m-5 justify-content-center"  style="background-color:#f0eeee;">
+    <div class="mx-5 justify-content-center"  style="margin-top:15%; background-color:#f0eeee;">
             <div class="ms-2 mt-3  py-4">
                 <h2 class="px-5"><b>Post Item</b></h2>
             </div>

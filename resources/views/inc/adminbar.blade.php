@@ -6,7 +6,7 @@
     $data = User::where('username',$username)->first();
 ?>
 
-<div class="userloggedbar d-flex align-items-center justify-content-end bg-white py-1 px-4">
+<div class="userloggedbar d-flex  align-items-center border-bottom justify-content-end bg-white py-2 px-4">
         <div class="userloggedbar-content d-flex">
             <a href="/admin/messages" class="userloggedbtn btn mt-1 " style="font-size: medium;">
                 <label style="font-size: 12px; " class="text-danger">( 1 )</label>

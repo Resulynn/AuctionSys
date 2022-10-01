@@ -34,6 +34,11 @@ class RegisterController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
 
+    public function showRegistrationForm(){
+        $title = "Create your Account";
+        return view('auth.register',compact('title'));
+    }
+    
     protected function redirectTo()
     {
         if (auth()->user()->user_type = 0) {

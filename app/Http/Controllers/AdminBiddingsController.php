@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class MemberPaymentController extends Controller
+use App\Models\User;
+use App\Models\Biddings;
+use Session;
+class AdminBiddingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,9 +14,12 @@ class MemberPaymentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $title = "Membership Payment";
-        return view('pages.membershippay',compact('title'));
+    {
+        $title = "Admin | Biddings";
+        $bids = Biddings::where('winstatus','Declined')->get();
+                            
+      
+        return view('admin.biddings', compact('title','bids'));
     }
 
     /**

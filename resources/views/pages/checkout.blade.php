@@ -152,20 +152,18 @@ $ref_num = Auth::user()->id.date('ymdHis');
                     </div>
                 @elseif(Auth::user()->funds > $total_amt || Auth::user()->funds = $total_amt )
                     {!! Form::open(['action'=>'App\Http\Controllers\CheckoutController@placeOrder','method'=>'POST']) !!}
-                    {{Form::hidden('refnum',$ref_num)}}
-                    {{Form::hidden('total_amt',$total_amt)}}
-                    @foreach($prod_id as $item )
-                        {{Form::text('prod_id',$item->product_id)}} 
-                    @endforeach
-                    
+                        {{Form::hidden('refnum',$ref_num)}}
+                        {{Form::hidden('total_amt',$total_amt)}}
                         {{Form::submit('PLACE ORDER', ['class'=>' btn btn-dark  mb-1  ','style'=>'border-radius:0%;']) }}
-                            {!! Form::close() !!}
+                    {!! Form::close() !!}
                         
-                            <small class="userloggedbtn">By Placing Order, you agree to pay the <b>Total amount</b>  using your <b>Funds</b> .</small>
-                            <label for="" class="mt-2">Funds after placing order: <b> {{(Auth::user()->funds) - $total_amt}}</b></label>
+                            <small class="userloggedbtn">By Placing Order, you agree to pay the <b>Total amount</b>  using your <b>Funds</b> </small>
+                            <label for="" class="mt-3">Your Funds after placing this order will be: <br> <b> {{number_format(Auth::user()->funds - $total_amt,2) }} PHP</b></label>
                 </div>
             <div class="d-flex  justify-content-center">
-                {{Form::submit('CANCEL', ['class'=>' btn btn-dark  mb-3  ','style'=>'border-radius:0%;']) }} 
+                <button class="btn btn-dark mt-3 mb-5 w-25" onclick="location.href='/bag/{{Auth::user()->username}}' " style="border-radius: 0%;">
+                    CANCEL
+                </button>
             </div>
             @endif
         </div>

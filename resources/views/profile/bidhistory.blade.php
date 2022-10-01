@@ -11,14 +11,14 @@
         <div class="d-flex">
             <div class="d-flex">
         
-            <figure>
+            
             <a href="/item/{{$info->prod_id}}"><img src="/itemImages/{{$info->itemImg}} " width="125px" height="125px" 
             style="object-fit: cover; 
                     border:1px #000000 solid; 
                     margin:20px;" 
             class="rounded-circle "></a>
-            <figcaption class="text-center fw-bold ">{{$info->winstatus}}</figcaption>
-            </figure>
+            
+            
         
             
             </div>  
@@ -28,14 +28,22 @@
                     <small>
                     <li class="d-flex"><h5><b>{{$info->prodName}}</b> </h5>
                     @if($info->orderstatus == 1)
-                    <i class="bi bi-exclamation-circle-fill text-danger ms-2" style="font-size:18px; "></i>
+                    <i class="bi bi-exclamation-circle-fill text-danger ms-2" style="font-size:18px; "><label class="ms-1 text-danger" style="font-size: small;">ITEM SOLD</label></i>
                     @else
                         @if($info->winstatus == "Pending")
-                            <i class="bi bi-clock-fill text-warning ms-2" style="font-size:18px; "><label class="ms-1 text-warning" style="font-size: small;">Pending</label></i>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-clock-fill text-warning ms-2" style="font-size:18px; "><label class="ms-1 text-warning" style="font-size: small;">PENDING</label></i>
+                            </div>
                             @elseif($info->winstatus == "Lost")
-                            <i class="bi bi-x-circle-fill text-danger ms-2" style="font-size:18px; "><label class="ms-1 text-danger" style="font-size: small;">Lost</label></i>
+                                <i class="bi bi-x-circle-fill text-danger ms-2" style="font-size:18px; "><label class="ms-1 text-danger" style="font-size: small;">LOST</label></i>
                             @elseif($info->winstatus == "Won")
-                            <i class="bi bi-check-circle-fill text-success ms-2" style="font-size:18px; "><label class="ms-1 text-success" style="font-size: small;">Won</label></i>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success ms-2" style="font-size:18px; "><label class="ms-1 text-success" style="font-size: small;">WON</label></i>
+                                </div>
+                            @elseif($info->winstatus == "")
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-file-x-fill text-danger ms-2" style="font-size:18px; "><label class="ms-1 text-danger" style="font-size: small;">RETRACTED</label></i>
+                                </div>
                         @endif
                     @endif
                     </li>

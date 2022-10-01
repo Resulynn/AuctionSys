@@ -1,7 +1,7 @@
 @extends('layout.admin')
     @section('content')
  
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center" style="margin-top: 150px; ">
         <div class="add-auc ms-5 my-5 w-75"  style="background-color:#f0eeee;">
                     <div class="ms-2 mt-3  py-4">
                         <h2 class="px-5"><b>Add Item</b></h2>

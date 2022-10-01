@@ -68,7 +68,7 @@
             </div>
               @endforeach
                 @else
-                <p> No Records Found! </p>
+                <p> Auctions will arrive soon. </p>
             @endif
           </div>
         </div>
@@ -76,7 +76,9 @@
     </div>
   </div>
 </div>
-      
+
+
+      <hr style="color: #1C1C1E; margin-left: 10%; margin-right: 10%;">
 <div class="carousel slide carousel-dark text-center pb-5">
   <div class="carousel-inner pb-5">
     <div class="row">
@@ -120,7 +122,7 @@
                     
                           @endforeach
                             @else
-                            <p> No Records Found! </p>
+                            <p> Auctions will arrive soon. </p>
                         @endif
             </div>
           </div>

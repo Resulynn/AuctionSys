@@ -28,9 +28,13 @@ class BiddingController extends Controller
         ->orderBy('bidtransactions.created_at','DESC')
         ->paginate(5);
 
+     
+
         
         return view('profile.biddings', compact('title'))
                 ->with('data',$data);
+
+       
     }
 
     
@@ -59,6 +63,7 @@ class BiddingController extends Controller
         
         $highest_bid = Biddings::select('bidamt')
                                 ->where('prod_id','=',$request->id)
+                                ->where('retractstat','=', 0)
                                 ->max('bidamt');
         $prod= Auction::where('id','=',$request->id)->first();
         
@@ -155,8 +160,12 @@ class BiddingController extends Controller
     public function retractbid(Request $request){
 
         Biddings::where('id', $request->id)
-        ->where('user_id',Auth::user()->id)
-        ->update(['retractstat' => 1, 'winstatus'=>'Retracted','bidstatus'=>0]);
+        ->update(['retractstat' => 1,
+                    'bidstatus' => 0,
+                    'bagstatus' => 0
+                ]);
+                
+                
 
         Session::flash('success', "Bid Successfuly Retracted.");
         return redirect()->back();

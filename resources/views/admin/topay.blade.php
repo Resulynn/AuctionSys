@@ -20,7 +20,7 @@
         @foreach ($data as $info)
           <tr>
             <th scope="row">{{$info->uname}}</th>
-            <td>{{$info->amount}}</td>
+            <td>{{number_format($info->amount,2)}} PHP</td>
             <td>{{$info->type}}</td>
             <td>{{$info->refnum}}</td>
             <td>{{ Carbon\Carbon::parse($info->created_at)->toDayDateTimeString()}}</td>
