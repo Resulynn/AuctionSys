@@ -146,7 +146,7 @@
                     @if($info->orderstatus = 1)
                     <button class="btn userloggedbtn text-success" style="border-radius: 0%;">
                       <a href="/store" class="userloggedbtn w-50" style="border-radius: 0%;">View other Auctions</a>
-                   </button>
+                    </button>
                     @else
                       {!! Form::open(['action'=>['App\Http\Controllers\BiddingController@retractbid',$info->id],
                       'method'=>'POST'])!!}
