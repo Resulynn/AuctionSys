@@ -31,7 +31,8 @@
         $total = 0;
       ?>
       <tbody>
-          @foreach ($data as $rep)
+        @if (count($data)>0)
+        @foreach ($data as $rep)
           <tr class="text-center">
               <th scope="row">{{$rep->uname}}</th>
               <td>{{$rep->refnum}}</td>
@@ -39,6 +40,16 @@
               <td>{{$rep->created_at}}</td>
           </tr>
           @endforeach
+        @else
+        <tr class="text-center">
+          <td colspan="100">      
+              <p class="h3">
+                No Records Found!
+              </p>
+          </td>
+        </tr>  
+        @endif
+          
       </tbody>
     </table>
 </div>
